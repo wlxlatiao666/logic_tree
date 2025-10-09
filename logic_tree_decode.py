@@ -10,15 +10,22 @@ import math
 import heapq
 import json
 import os
+import time
+import copy
+import numpy as np
 from dataclasses import dataclass, field
 from typing import List, Optional, Tuple, Dict
+from collections import defaultdict
+from datetime import datetime
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 from sentence_transformers import SentenceTransformer, util
+from answer_parser import parse_model_answer
+
 import sys
 
-sys.stdout = open('output11.log', 'w', encoding='utf-8')
+sys.stdout = open(f'output_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', 'w', encoding='utf-8')
 # set_seed(41)
 embedder = SentenceTransformer('/mnt/public/gpfs-jd/code/weilongxuan/all-mpnet-base-v2')
 
@@ -26,29 +33,25 @@ embedder = SentenceTransformer('/mnt/public/gpfs-jd/code/weilongxuan/all-mpnet-b
 MODEL_NAME = "/mnt/public/gpfs-jd/model/Qwen/Official/Qwen2_5/Qwen2.5-7B-Instruct"  
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-CONNECTIVES = {
-    "then", "but", "however", "therefore", "thus", "so", "because",
-    "hence", "yet", "although", "though", "instead", "whereas",
-    "nonetheless", "nevertheless", "consequently", "furthermore", "moreover", "meanwhile",
-    "first", "second", "next", "last", "after", "finally", "besides"
-}
+# CONNECTIVES = {
+#     "then", "but", "however", "therefore", "thus", "so", "because",
+#     "hence", "yet", "although", "though", "instead", "whereas",
+#     "nonetheless", "nevertheless", "consequently", "furthermore", "moreover", "meanwhile",
+#     "first", "second", "next", "last", "after", "finally", "besides"
+# }
 
 # 触发阈值
-TAU = 1.00          # 归一化熵阈值（触发分叉）
-BETA = 0.20         # top候选中连接词的总概率质量阈值（辅判）
-BRANCHES_M = 3      # 每次分叉产生的分支数(暂时没用)
+BASE_TAU = 0.80          # 归一化熵阈值（触发分叉）
+BRANCHES_M = 3      # 每次分叉产生的分支数
 MAX_DEPTH = 5       # 最大分叉层数
-MAX_NEW_TOKENS = 2048
-MAX_NODES = 250
+MAX_NEW_TOKENS = 512
+MAX_NODES = 128
 
-TEMPERATURE_BASE = 1.0   # 非分叉段解码温度
-TEMPERATURE_BRANCH = 0.9 # 分叉段拓展温度
+TEMPERATURE = 0.7  
 TOPK = 50
 NUCLEUS_P = 0.9
-TOPK_BRANCH = 5
-NUCLEUS_P_BRANCH = 0.99
 P_LOWER_BOUND = 0.01
-
+STEPS_BRANCH = 10
 
 # ====== Utilities ======
 def log_softmax(logits: torch.Tensor) -> torch.Tensor:
@@ -91,22 +94,21 @@ def sample_one_from_logits(logits: torch.Tensor, temperature: float) -> int:
     probs = softmax(scaled)
     return int(torch.multinomial(probs, num_samples=1).item())
 
+def greedy_sample(logits: torch.Tensor) -> int:
+    return int(torch.argmax(logits).item())
+
 # todo: 改善连接词识别逻辑
 def tid_to_clean_token(tokenizer, tid: int) -> str:
     """Decode single token id and clean leading spaces/subword markers."""
     s = tokenizer.decode([tid], clean_up_tokenization_spaces=False)
     return s.strip().lower()
 
-def is_connective_token(tokenizer, tid: int) -> bool:
-    txt = tid_to_clean_token(tokenizer, tid)
-    return txt in CONNECTIVES
-
-# def stop_condition(decoded_text: str) -> bool:
-#     return decoded_text.endswith((".", "?", "!", "\n"))
+# def is_connective_token(tokenizer, tid: int) -> bool:
+#     txt = tid_to_clean_token(tokenizer, tid)
+#     return txt in CONNECTIVES
 
 def stop_condition(token_id: int, tokenizer) -> bool:
     return token_id == tokenizer.eos_token_id
-
 
 def group_by_semantic_similarity(tokenizer, conn_candidates, sim_threshold=0.5):
     tokens = [tid_to_clean_token(tokenizer, tid) for tid, _ in conn_candidates]
@@ -150,26 +152,62 @@ class PrioritizedItem:
 
 @dataclass
 class Node:
-    text: str
-    cum_logprob: float
-    prob: float
-    length: int
-    depth: int
-    split_entropy: Optional[float] = None
-    is_split: bool = False
+    text: str = field(default="")
+    cum_logprob: float = field(default=0.0)
+    prob: float = field(default=0.0)
+    length: int = field(default=0)
+    depth: int = field(default=0)
     children: List["Node"] = field(default_factory=list)
+
+# def calculate_entropy(node: Node):
+#     if not node.children:  # 叶子节点
+#         node.entropy = -node.cum_logprob / node.length if node.length > 0 else 0.0
+#         return
+#     # 非叶子节点，递归计算子节点entropy
+#     child_entropies = []
+#     for child in node.children:
+#         calculate_entropy(child)
+#         child_entropies.append(child.entropy)
+    
+#     node.entropy = sum(child_entropies) / len(child_entropies) if child_entropies else 0.0
+#     return
+
+# def collect_leaves(node: Node, leaves: List[Node]):
+#     if not node.children:
+#         leaves.append(node)
+#     for child in node.children:
+#         collect_leaves(child, leaves)
+
+def calculate_diversity(leaves: List[Node]):
+    if len(leaves) < 2:
+        return 0.0
+
+    distances = []
+    embeddings = []
+    for leaf in leaves:
+        embeddings.append(embedder.encode(leaf.text, convert_to_tensor=True))
+
+    for i in range(len(leaves)):
+        current_distances = []
+        for j in range(len(leaves)):
+            if i != j:
+                cos_sim = util.cos_sim(embeddings[i], embeddings[j])
+                current_distances.append(1 - cos_sim)
+        distances.append(sum(current_distances) / len(current_distances))
+    
+    diversity = sum(distances)
+    return diversity.item()
 
 
 # ====== Core decoding ======
 @torch.no_grad()
 def logic_branch_decode(
-    tokenizer, model, prompt: str,
-    tau: float = TAU, beta: float = BETA, M: int = BRANCHES_M,
+    tokenizer, model, prompt: str, sample: bool = False,
+    base_tau: float = BASE_TAU, M: int = BRANCHES_M,
     max_depth: int = MAX_DEPTH, max_new_tokens: int = MAX_NEW_TOKENS,
     max_nodes: int = MAX_NODES,
-    temperature_base: float = TEMPERATURE_BASE,
-    temperature_branch: float = TEMPERATURE_BRANCH,
-    topk: int = TOPK, nucleus_p: float = NUCLEUS_P, topk_branch: int = TOPK_BRANCH, nucleus_p_branch: float = NUCLEUS_P_BRANCH, p_lower_bound: float = P_LOWER_BOUND
+    temperature: float = TEMPERATURE,
+    topk: int = TOPK, nucleus_p: float = NUCLEUS_P, p_lower_bound: float = P_LOWER_BOUND, steps_branch: int = STEPS_BRANCH
 ):
     model.eval()
     inputs = tokenizer(prompt, return_tensors="pt").to(DEVICE)
@@ -203,105 +241,138 @@ def logic_branch_decode(
                 out = model(input_ids=cur_ids, attention_mask=attention_mask, use_cache=True)
             else:
                 out = model(input_ids=cur_ids, past_key_values=cur_past, use_cache=True)
+                # print("cur_token: ", tokenizer.decode(cur_ids[0, -1].item()), "cur_ids: ", cur_ids, "key_value: ", cur_past[0][0].shape)
             logits = out.logits[:, -1, :].squeeze(0)  # [V]
             cur_past = out.past_key_values
             # print("key_value: ", cur_past)
 
             logprobs = log_softmax(logits)
             H_norm = normalized_entropy_from_logprobs(logprobs)
-
-            # Build candidate filter set
-            current_topk_branch = min(topk_branch + node.depth, 10)
-            filtered = topk_or_nucleus_filter(logits, topk=current_topk_branch, p=nucleus_p_branch)
-            filt_probs = softmax(filtered)
-            top_vals, top_idx = torch.topk(filt_probs, k=min(current_topk_branch, filt_probs.numel()))
-            top_idx = top_idx.tolist()
-            top_vals = top_vals.tolist()
-            total_p = sum(top_vals)
-
-            # connective mass
-            conn_candidates: List[Tuple[int, float]] = []
-            for tid, p in zip(top_idx, top_vals):
-                if p <= 0:
-                    continue
-                # 过滤掉概率过低的分支
-                if p / total_p * node.prob < p_lower_bound:
-                    continue
-                conn_candidates.append((tid, p))
-            conn_candidates.sort(key=lambda x: x[1], reverse=True)
-
-            # split decision
-            top1_id = int(torch.argmax(softmax(logits)).item())
-            is_top1_conn = is_connective_token(tokenizer, top1_id)
-            # is_split_point = (is_top1_conn and H_norm >= tau) or (conn_mass >= beta and H_norm >= (tau * 0.9))
-            # is_split_point = is_top1_conn and H_norm >= tau
+            tau = min(base_tau + 0.05 * depth, 1.00)
             is_split_point = node.text.endswith((".","?","!","\n")) and H_norm >= tau
             # is_split_point = H_norm >= tau
 
-            # if count == 0:
-            #     is_split_point = True
-            #     count += 1
+            if is_split_point:
+                filt_probs = softmax(logits)
+                top_vals, top_idx = torch.topk(filt_probs, k=M)
+                top_idx = top_idx.tolist()
+                top_vals = top_vals.tolist()
+                total_p = sum(top_vals)
 
-            if len(conn_candidates) <= 1:
-                is_split_point = False
-            else:
-                total_p = sum(p for _, p in conn_candidates)
-                for index in range(len(conn_candidates)):
-                    conn_candidates[index] = (conn_candidates[index][0], conn_candidates[index][1] / total_p)
-                conn_candidates = group_by_semantic_similarity(tokenizer, conn_candidates)
+                # connective mass
+                conn_candidates: List[Tuple[int, float]] = []
+                previous_ids = tokenizer.encode(node.text, return_tensors="pt").to(DEVICE)
+                for tid, p in zip(top_idx, top_vals):
+                    if node.prob * p / total_p <= p_lower_bound:
+                        continue
+                    conn_candidates.append((tid, p))
+                if len(conn_candidates) <= 1:
+                    is_split_point = False
+                else:
+                    conn_candidates.sort(key=lambda x: x[1], reverse=True)
 
             if is_split_point and depth < max_depth:
-                node.is_split = True
-                node.split_entropy = H_norm
-
-                # choose branches: prefer multiple connective tokens; if not enough, fill with other candidates
-                branches = conn_candidates
-
+                child_embeddings = []
+                children = []
+                items = []
                 # materialize children, commit one token for each branch
-                total_p = sum(p for _, p in branches)
-                for tid, p in branches:
+                total_p = sum(p for _, p in conn_candidates)
+                for tid, p in conn_candidates:
+                    print("token: ", tokenizer.decode([tid], clean_up_tokenization_spaces=False), " prob: ", p, " total_p: ", total_p)
                     new_ids = torch.tensor([[tid]], device=DEVICE)
                     child_text = node.text + tokenizer.decode([tid], clean_up_tokenization_spaces=False)
                     child_logprob = node.cum_logprob + math.log(max(p, 1e-12))
                     child_prob = node.prob * p / total_p
+                    # print("node_prob: ", node.prob, "child_prob: ", child_prob)
                     child_length = node.length + 1
                     child = Node(text=child_text, cum_logprob=child_logprob, prob=child_prob, length=child_length, depth=depth+1)
 
-                    # continue a short span at higher temperature to differentiate branches
-                    # (decode until we meet a punctuation or a few tokens)
-                    # tmp_ids, tmp_past = new_ids, cur_past
-                    # for _ in range(8):  # short span
-                    #     out2 = model(input_ids=tmp_ids, past_key_values=tmp_past, use_cache=True)
-                    #     logits2 = out2.logits[:, -1, :].squeeze(0)
-                    #     tmp_past = out2.past_key_values
-                    #     # diversify sampling
-                    #     logits2 = topk_or_nucleus_filter(logits2, topk=topk, p=nucleus_p)
-                    #     next_id = sample_one_from_logits(logits2, temperature=temperature_branch)
-                    #     next_prob = softmax(logits2)[next_id].item()
-                    #     child.text += tokenizer.decode([next_id], clean_up_tokenization_spaces=False)
-                    #     child.cum_logprob += math.log(max(next_prob, 1e-12))
-                    #     child.length += 1
-                    #     tmp_ids = torch.tensor([[next_id]], device=DEVICE)
-                    #     if stop_condition(next_id, tokenizer):
-                    #         break
+                    tmp_ids, tmp_past = new_ids, copy.deepcopy(cur_past)
+                    # print("cur_past: ", cur_past, cur_past[0][0].shape)
+                    skip_child = False
+                    # all_head_attentions = None
+                    if not stop_condition(tid, tokenizer):
+                        for i in range(steps_branch):  # short span
+                            out2 = model(input_ids=tmp_ids, past_key_values=tmp_past, use_cache=True, output_attentions=True)
+                            # print("cur_token: ", tokenizer.decode(tmp_ids[0, -1].item()), "cur_ids: ", tmp_ids, "key_value: ", tmp_past[0][0].shape)
+                            # attentions = out2.attentions[-1][0]
+                            # head_attentions = attentions[:, -1, child_length-1].unsqueeze(-1)
+                            # seq_length = attentions.shape[-1]
+                            # head_attentions = head_attentions * seq_length
+                            # all_head_attentions = torch.cat([all_head_attentions, head_attentions], dim=1) if all_head_attentions is not None else head_attentions
+                            logits2 = out2.logits[:, -1, :].squeeze(0)
+                            tmp_past = out2.past_key_values
+                            # diversify sampling
+                            if sample:
+                                logits2 = topk_or_nucleus_filter(logits2, topk=topk, p=nucleus_p)
+                                next_id = sample_one_from_logits(logits2, temperature=temperature)
+                            else:
+                                next_id = greedy_sample(logits2)
+                            next_prob = softmax(logits2)[next_id].item()
+                            child.text += tokenizer.decode([next_id], clean_up_tokenization_spaces=False)
+                            child.cum_logprob += math.log(max(next_prob, 1e-12))
+                            child.length += 1
+                            tmp_ids = torch.tensor([[next_id]], device=DEVICE)
+                            if stop_condition(next_id, tokenizer):
+                                break
 
-                    node.children.append(child)
-                    heapq.heappush(frontier, PrioritizedItem(
-                        depth=depth + 1,
-                        neg_logprob=-child.cum_logprob,
-                        node=child,
-                        past=(new_ids, cur_past)
-                    ))
-                    nodes_cnt += 1
+                        # max_per_head = torch.max(all_head_attentions, dim=-1).values
+                        # avg_max = torch.mean(max_per_head).item()
+                        # print("token: ", tokenizer.decode([tid], clean_up_tokenization_spaces=False), " avg_max: ", avg_max)
+                        # if avg_max < 0.4:
+                        #     skip_child = True
 
-                # end current path expansion at the split
-                break
+                    current_embedding = embedder.encode(child.text[len(node.text):], convert_to_tensor=True)
+                    for index, embedding in enumerate(child_embeddings): 
+                        sim = util.cos_sim(embedding, current_embedding)
+                        if sim > 0.6:
+                            children[index].prob += child.prob # children[index]和items[index].node引用了同一个node
+                            skip_child = True
+                            break
+                    if not skip_child:
+                        child_embeddings.append(current_embedding)
+                        children.append(child)
+                        items.append(PrioritizedItem(
+                            depth=depth + 1,
+                            neg_logprob=-child.cum_logprob,
+                            node=child,
+                            past=(tmp_ids, tmp_past)
+                        ))
+                        # print("tmp_past: ", tmp_past, tmp_past[0][0].shape)
+                        # nodes_cnt += 1
 
-            else:
+                if len(children) <= 1:
+                    is_split_point = False
+                    # node.text = children[0].text
+                    # node.cum_logprob = children[0].cum_logprob
+                    # node.length = children[0].length
+                    # cur_ids = items[0].past[0]
+                    # cur_past = items[0].past[1]
+                    # if stop_condition(cur_ids[0, 0], tokenizer) or steps >= max_new_tokens:
+                    #     leaves.append(node)
+                    #     break
+                else:
+                    steps += steps_branch
+                    for child in children:
+                        node.children.append(child)
+                        nodes_cnt += 1
+                    for it in items:
+                        cur_ids = it.past[0]
+                        if stop_condition(cur_ids[0, 0], tokenizer) or steps >= max_new_tokens:
+                            leaves.append(it.node)
+                            continue
+                        heapq.heappush(frontier, it)
+                    break
+
+            if not is_split_point:
                 # regular decoding with low temperature
-                logits_f = topk_or_nucleus_filter(logits, topk=topk, p=nucleus_p)
-                next_id = sample_one_from_logits(logits_f, temperature=temperature_base)
-                next_prob = softmax(logits_f)[next_id].item()
+                if sample:
+                    logits_f = topk_or_nucleus_filter(logits, topk=topk, p=nucleus_p)
+                    next_id = sample_one_from_logits(logits_f, temperature=temperature)
+                    next_prob = softmax(logits_f)[next_id].item()
+                else:
+                    next_id = greedy_sample(logits)
+                    next_prob = softmax(logits)[next_id].item()
 
                 node.text += tokenizer.decode([next_id], clean_up_tokenization_spaces=False)
                 node.cum_logprob += math.log(max(next_prob, 1e-12))
@@ -320,28 +391,20 @@ def logic_branch_decode(
         if node not in leaves and (depth >= max_depth or len(node.children) == 0):
             leaves.append(node)
 
-    # ---- compute uncertainty ----
-    leaf_avg_entropies = [-leaf.cum_logprob / max(1, leaf.length) for leaf in leaves]
-    # 加权平均
-    # total_prob = sum(leaf.prob for leaf in leaves)
-    weighted_entropy = sum(leaf.prob * avg_ent for leaf, avg_ent in zip(leaves, leaf_avg_entropies))
-    # 惩罚项
-    alpha = 0.0
-    complexity = sum(leaf.prob * leaf.depth for leaf in leaves) / max_depth
+    # calculate_entropy(root)
+    # collect_leaves(root, leaves)
+    entropies = [-leaf.cum_logprob / leaf.length if leaf.length > 0 else 0.0 for leaf in leaves]
+    weighted_entropy = sum(leaf.prob * entropies[i] for i, leaf in enumerate(leaves))
+    # weighted_entropy = sum(leaf.entropy for leaf in leaves) / len(leaves) if leaves else 0.0
 
+    complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
+    alpha = 0.0
     # todo
     # penalty = alpha * len(leaves) / max_nodes
     U = weighted_entropy + alpha * complexity
+
     return root, leaves, U, complexity, max_width
 
-
-# def collect_split_entropies(node: Node) -> List[float]:
-#     vals = []
-#     if node.is_split and node.split_entropy is not None:
-#         vals.append(node.split_entropy)
-#     for ch in node.children:
-#         vals.extend(collect_split_entropies(ch))
-#     return vals
 
 def logsumexp_torch(xs: List[float]) -> float:
     t = torch.tensor(xs, dtype=torch.float32)
@@ -365,46 +428,73 @@ def bucketize_answers(texts: List[str]) -> Dict[str, int]:
     return buckets
 
 
-def pretty_print_tree(node: Node, indent: str = "", is_last: bool = True):
-    branch = "└─" if is_last else "├─"
-    split_info = f" [SPLIT H={node.split_entropy:.2f}]" if node.is_split else ""
-    preview = node.text.replace("\n", " ")
-    print(f"{indent}{branch} txt:'{preview}'  lp={node.cum_logprob:.2f}{split_info}")
-    next_indent = indent + ("   " if is_last else "│  ")
-    for i, ch in enumerate(node.children):
-        pretty_print_tree(ch, indent=next_indent, is_last=(i == len(node.children) - 1))
-
+def pretty_print_tree(node: Node, prefix: str = "", depth: int = 1, step: int = 1, parent_prefix: str = ""):
+    # 新增公共前缀长度计算
+    common_prefix_len = len(os.path.commonprefix([parent_prefix, node.text]))
+    
+    # 按公共前缀分割文本
+    split_index = common_prefix_len if common_prefix_len > 0 else None
+    prefix_part = node.text[:split_index] if split_index else ""
+    new_text_part = node.text[split_index:] if split_index else node.text
+    
+    # 构建带层级和步骤的显示格式
+    connector = "└── " if not node.children else "├── "
+    branch = "│   " if node.children else "    "
+    
+    # 输出分割后的文本部分
+    print(f"L{depth}-S{step} {prefix}{connector}{new_text_part}")
+    
+    # 递归处理子节点
+    for i, child in enumerate(node.children):
+        new_prefix = f"{prefix}{branch}"
+        new_depth = depth + 1
+        new_step = i + 1
+        
+        # 传递当前节点的完整前缀用于下次公共前缀计算
+        pretty_print_tree(child, new_prefix, new_depth, new_step, parent_prefix=node.text)
 
 # ====== Demo ======
 def main():
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME).to(DEVICE)
+    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME,attn_implementation="eager").to(DEVICE)
 
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
 
-    with open('sys_prompt.txt', 'r') as f:
-        system_prompt = f.read().strip()
-    query = '''A student comes home after school. He has three tasks: finish his homework, eat dinner, and play video games. Please reason step by step about what order he should do these things, and make sure to use logical connectors such as therefore, however, but, next.'''
+    # with open('sys_prompt.txt', 'r') as f:
+    #     system_prompt = f.read().strip()
+    system_prompt = ''
+    query = '''Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?'''
+    # prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n<think>First, calculate the total number of eggs sold daily. Janet's ducks lay 16 eggs per day. "
     prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n"
+    # prompt = f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n{system_prompt}<|eot_id|>\n<|start_header_id|>user<|end_header_id|>\n{query}<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n"
+    # prompt = f"<|begin_of_text|>\n{query}\n"
 
-    for _ in range(3):
+    for i in range(3):
         # torch.cuda.manual_seed_all(41)
-        root, leaves, U, _ = logic_branch_decode(tokenizer, model, prompt=prompt)
+        root, leaves, U, complexity, width = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, M=3)
 
         print("\n--- Logic Tree ---")
         pretty_print_tree(root)
 
         print("\n--- Leaves ---")
-        total_prob = sum(leaf.prob for leaf in leaves)
+        # total_prob = sum(leaf.prob for leaf in leaves)
         for i, leaf in enumerate(leaves):
             txt = leaf.text.replace("\n", " ")
-            print(f"[{i:02d}] p={leaf.prob / total_prob:.3f}  text_tail='{txt}'")
+            print(f"[{i:02d}] p={leaf.prob:.3f}  text_tail='{txt}'")
 
         # Uncertainty
         print(f"\nUncertainty score U = {U:.3f}")
         print("(U combines tree leaf entropy, average split entropy, and answer disagreement.)")
+        print("\n\n")
 
+        diversity = calculate_diversity(leaves)
+        print("diversity", diversity)
+        print(f"Diversity score: {diversity:.3f}")
 
 if __name__ == "__main__":
+    start_time = time.time()
     main()
+    end_time = time.time()
+    duration = end_time - start_time
+    print(f"\n[运行统计] 总耗时: {duration:.2f}秒 ({duration/60:.2f}分钟)")
