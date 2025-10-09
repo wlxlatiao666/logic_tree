@@ -1,5 +1,18 @@
 import re
 
+def generate_usr_prompt(dataset: str, item: dict) -> str:
+    if dataset == "gsm8k":
+        usr_prompt = item["question"]
+    elif dataset == "reclor":
+        usr_prompt = "Context: " + item['context'] + "\nQuestion: " + item['question'] + \
+            "\nA. " + item['answers'][0] + \
+            "\nB. " + item['answers'][1] + \
+            "\nC. " + item['answers'][2] + \
+            "\nD. " + item['answers'][3]
+        print("usr_prompt: ", usr_prompt)
+    else:
+        raise ValueError(f"dataset {dataset} not supported")
+    return usr_prompt
 def parse_gsm8k_answer(gt_answer):
     """
     提取gt_answer中####后面的答案，去除首尾空格。
