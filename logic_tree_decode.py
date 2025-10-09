@@ -222,14 +222,13 @@ def logic_branch_decode(
     heapq.heappush(frontier, PrioritizedItem(depth=0, neg_logprob=0.0, node=root, past=(input_ids, past_kv)))
     leaves: List[Node] = []
     nodes_cnt = 1
-    max_width = 0
+    new_tokens_cnt = 0
     depth_counter = defaultdict(int)
 
     count = 0
     while frontier and nodes_cnt < max_nodes:
         item = heapq.heappop(frontier)
         depth_counter[item.depth] += 1
-        max_width = max(max_width, depth_counter[item.depth])
         depth, node, (cur_ids, cur_past) = item.depth, item.node, item.past
 
         # This path generation loop
@@ -261,7 +260,6 @@ def logic_branch_decode(
 
                 # connective mass
                 conn_candidates: List[Tuple[int, float]] = []
-                previous_ids = tokenizer.encode(node.text, return_tensors="pt").to(DEVICE)
                 for tid, p in zip(top_idx, top_vals):
                     if node.prob * p / total_p <= p_lower_bound:
                         continue
@@ -281,6 +279,7 @@ def logic_branch_decode(
                     print("token: ", tokenizer.decode([tid], clean_up_tokenization_spaces=False), " prob: ", p, " total_p: ", total_p)
                     new_ids = torch.tensor([[tid]], device=DEVICE)
                     child_text = node.text + tokenizer.decode([tid], clean_up_tokenization_spaces=False)
+                    new_tokens_cnt += 1
                     child_logprob = node.cum_logprob + math.log(max(p, 1e-12))
                     child_prob = node.prob * p / total_p
                     # print("node_prob: ", node.prob, "child_prob: ", child_prob)
@@ -310,6 +309,7 @@ def logic_branch_decode(
                                 next_id = greedy_sample(logits2)
                             next_prob = softmax(logits2)[next_id].item()
                             child.text += tokenizer.decode([next_id], clean_up_tokenization_spaces=False)
+                            new_tokens_cnt += 1
                             child.cum_logprob += math.log(max(next_prob, 1e-12))
                             child.length += 1
                             tmp_ids = torch.tensor([[next_id]], device=DEVICE)
@@ -375,6 +375,7 @@ def logic_branch_decode(
                     next_prob = softmax(logits)[next_id].item()
 
                 node.text += tokenizer.decode([next_id], clean_up_tokenization_spaces=False)
+                new_tokens_cnt += 1
                 node.cum_logprob += math.log(max(next_prob, 1e-12))
                 # 更新token熵和长度
                 node.length += 1
@@ -391,19 +392,7 @@ def logic_branch_decode(
         if node not in leaves and (depth >= max_depth or len(node.children) == 0):
             leaves.append(node)
 
-    # calculate_entropy(root)
-    # collect_leaves(root, leaves)
-    entropies = [-leaf.cum_logprob / leaf.length if leaf.length > 0 else 0.0 for leaf in leaves]
-    weighted_entropy = sum(leaf.prob * entropies[i] for i, leaf in enumerate(leaves))
-    # weighted_entropy = sum(leaf.entropy for leaf in leaves) / len(leaves) if leaves else 0.0
-
-    complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
-    alpha = 0.0
-    # todo
-    # penalty = alpha * len(leaves) / max_nodes
-    U = weighted_entropy + alpha * complexity
-
-    return root, leaves, U, complexity, max_width
+    return root, leaves, new_tokens_cnt
 
 
 def logsumexp_torch(xs: List[float]) -> float:
@@ -461,10 +450,16 @@ def main():
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
 
-    # with open('sys_prompt.txt', 'r') as f:
-    #     system_prompt = f.read().strip()
-    system_prompt = ''
+    with open(f"./sys_prompt.json", "r") as f:
+        system_prompt = json.load(f)["reclor"]
+    # system_prompt = ''
     query = '''Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?'''
+    query = '''Context: In a business whose owners and employees all belong to one family, the employees can be paid exceptionally low wages. Hence, general operating expenses are much lower than they would be for other business ventures, making profits higher. So a family business is a family' s surest road to financial prosperity.
+    Question: The reasoning in the argument is flawed because the argument
+    A. ignores the fact that in a family business, paying family members low wages may itself reduce the family's prosperity
+    B. presumes, without providing justification, that family members are willing to work for low wages in a family business because they believe that doing so promotes the family's prosperity
+    C. ignores the fact that businesses that achieve high levels of customer satisfaction are often profitable even if they pay high wages
+    D. presumes, without providing justification, that only businesses with low general operating expenses can succeed'''
     # prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n<think>First, calculate the total number of eggs sold daily. Janet's ducks lay 16 eggs per day. "
     prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n"
     # prompt = f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n{system_prompt}<|eot_id|>\n<|start_header_id|>user<|end_header_id|>\n{query}<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n"
@@ -472,7 +467,7 @@ def main():
 
     for i in range(3):
         # torch.cuda.manual_seed_all(41)
-        root, leaves, U, complexity, width = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, M=3)
+        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, M=3)
 
         print("\n--- Logic Tree ---")
         pretty_print_tree(root)
@@ -482,15 +477,11 @@ def main():
         for i, leaf in enumerate(leaves):
             txt = leaf.text.replace("\n", " ")
             print(f"[{i:02d}] p={leaf.prob:.3f}  text_tail='{txt}'")
+        print(f"new_tokens_cnt: {new_tokens_cnt}")
 
-        # Uncertainty
-        print(f"\nUncertainty score U = {U:.3f}")
-        print("(U combines tree leaf entropy, average split entropy, and answer disagreement.)")
-        print("\n\n")
-
-        diversity = calculate_diversity(leaves)
-        print("diversity", diversity)
-        print(f"Diversity score: {diversity:.3f}")
+        # diversity = calculate_diversity(leaves)
+        # print("diversity", diversity)
+        # print(f"Diversity score: {diversity:.3f}")
 
 if __name__ == "__main__":
     start_time = time.time()

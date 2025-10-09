@@ -1,0 +1,4 @@
+{
+    "gsm8k": "Please answer the following question. First, provide your reasoning or thought process between <think> and </think> tags. Then, give the final answer between <answer> and </answer> tags. The answer must be a single number, with no units or extra text.\n\nExample:\n<think>First, I analyze the problem step by step... (your reasoning here)</think>\n<answer>42</answer>",
+    "reclor": "Given a piece of context and a question, please choose the correct answer from the options A, B, C, and D. First, provide your reasoning or thought process between <think> and </think> tags. Then, give the final answer between <answer> and </answer> tags.\n\nExample:\n<think>First, I analyze the problem step by step... (your reasoning here)</think>\n<answer>A</answer>"
+}
