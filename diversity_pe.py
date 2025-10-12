@@ -29,13 +29,14 @@ def calculate_diversity(texts: List[str]):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, required=True)
-    parser.add_argument("--file_name", type=str, required=True, help="Don't include .json suffix")
+    parser.add_argument("--file_name", type=str, required=True, help="Include .json suffix")
     args = parser.parse_args()
 
     dataset = args.dataset
     file_name = args.file_name
     # dataset_path = f"./data/{dataset}/test.json"
-    input_path = f'./results/{dataset}/{file_name}.json'
+    input_path = f'./results/{dataset}/{file_name}'
+    file_name = file_name.replace(".json", "")
     output_path = f'./results/{dataset}/{file_name}_metrics.json'
 
     with open(input_path, 'r') as f:

@@ -4,20 +4,7 @@ import argparse
 import time
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from logic_tree_decode import logic_branch_decode
-
-def generate_usr_prompt(dataset: str, item: dict) -> str:
-    if dataset == "gsm8k":
-        usr_prompt = item["question"]
-    elif dataset == "reclor":
-        usr_prompt = "Context: " + item['context'] + "\nQuestion: " + item['question'] + \
-            "\nA. " + item['answers'][0] + \
-            "\nB. " + item['answers'][1] + \
-            "\nC. " + item['answers'][2] + \
-            "\nD. " + item['answers'][3]
-        print("usr_prompt: ", usr_prompt)
-    else:
-        raise ValueError(f"dataset {dataset} not supported")
-    return usr_prompt
+from utils import generate_usr_prompt
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -26,10 +13,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # load model
-    MODEL_NAME = "/mnt/public/gpfs-jd/model/Qwen/Official/Qwen2_5/Qwen2.5-7B-Instruct"  
-    DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME).to(DEVICE)
+    model_name = "/mnt/public/gpfs-jd/model/Qwen/Official/Qwen2_5/Qwen2.5-7B-Instruct"  
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
 
@@ -67,6 +54,7 @@ if __name__ == "__main__":
             "entropies": entropies,
             "texts": texts
         })
+        print(f"Processed {i+1} items")
     end_time = time.time()
     duration = end_time - start_time
     print(f"generate {len(results)} results in {duration:.2f} seconds({duration/60:.2f} minutes)")

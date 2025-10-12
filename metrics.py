@@ -1,10 +1,9 @@
 import json
 import argparse
 import math
-import time
 from typing import List
 from sentence_transformers import SentenceTransformer, util
-from answer_parser import parse_model_answer, parse_gsm8k_answer
+from utils import parse_model_answer, parse_gsm8k_answer
 
 embedder = SentenceTransformer('/mnt/public/gpfs-jd/code/weilongxuan/all-mpnet-base-v2')
 
@@ -31,19 +30,21 @@ def calculate_diversity(texts: List[str]):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, required=True)
-    parser.add_argument("--file_name", type=str, required=True, help="Don't include .json suffix")
+    parser.add_argument("--file_name", type=str, required=True, help="Include .json suffix")
     args = parser.parse_args()
 
     dataset = args.dataset
     file_name = args.file_name
     # dataset_path = f"./data/{dataset}/test.json"
-    input_path = f'./results/{dataset}/{file_name}.json'
+    input_path = f'./results/{dataset}/{file_name}'
+    file_name = file_name.replace(".json", "")
     output_path = f'./results/{dataset}/{file_name}_metrics.json'
 
     with open(input_path, 'r') as f:
         data = json.load(f)
 
     results = []
+    sce = []
     for i, item in enumerate(data):
         original_data = item['original_data']
         if dataset == "gsm8k":
@@ -75,12 +76,11 @@ if __name__ == "__main__":
         uncertainties["complexity"] = item["complexity"]
 
         answer_buckets = {}
-        for i, text in enumerate(texts):
+        for j, text in enumerate(texts):
             parsed_answer = parse_model_answer(text)
             if parsed_answer:
                 try: 
-                    key = parsed_answer
-                    answer_buckets[parsed_answer] = answer_buckets.get(parsed_answer, 0.0) + probs[i]
+                    answer_buckets[parsed_answer] = answer_buckets.get(parsed_answer, 0.0) + probs[j]
                 except:
                     continue
         total = sum(answer_buckets.values())
@@ -113,10 +113,11 @@ if __name__ == "__main__":
         labels["pass@k"] = int(passk)
 
         diversity = calculate_diversity(texts)
-
+        sce.append(diversity * 10000 / item["num_new_tokens"])
         results.append({
             "gt_answer": gt_answer,
             "diversity": diversity,
+            "num_new_tokens": item["num_new_tokens"],
             "label": labels,
             "uncertainty": uncertainties
         })
@@ -126,3 +127,5 @@ if __name__ == "__main__":
         json.dump(results, f, indent=2)
         
     print(f"\nResults saved to {output_path}")
+    print(f"sce list: {sce}")
+    print(f"sce mean: {sum(sce)/len(sce)}")

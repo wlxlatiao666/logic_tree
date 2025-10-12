@@ -2,11 +2,11 @@ import json
 import numpy as np
 import pandas as pd
 from sklearn.metrics import roc_auc_score
-from answer_parser import parse_gsm8k_answer, parse_model_answer
+from utils import parse_gsm8k_answer, parse_model_answer
 import matplotlib.pyplot as plt
 
 # 加载数据
-with open('./results_gsm8k/version2_result_topptopk.json') as f:
+with open('./results/gsm8k/logic_tree_results_all_metrics.json') as f:
     data = json.load(f)
 
 data_uncertainty = []

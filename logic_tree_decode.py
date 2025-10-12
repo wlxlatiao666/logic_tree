@@ -21,7 +21,6 @@ from datetime import datetime
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 from sentence_transformers import SentenceTransformer, util
-from answer_parser import parse_model_answer
 
 import sys
 
@@ -29,8 +28,7 @@ sys.stdout = open(f'output_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', 'w',
 # set_seed(41)
 embedder = SentenceTransformer('/mnt/public/gpfs-jd/code/weilongxuan/all-mpnet-base-v2')
 
-# ====== Config ======
-MODEL_NAME = "/mnt/public/gpfs-jd/model/Qwen/Official/Qwen2_5/Qwen2.5-7B-Instruct"  
+# ====== Config ====== 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 # CONNECTIVES = {
@@ -41,13 +39,13 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # }
 
 # 触发阈值
-BASE_TAU = 0.80          # 归一化熵阈值（触发分叉）
+BASE_TAU = 0.80     # 归一化熵阈值（触发分叉）
 BRANCHES_M = 3      # 每次分叉产生的分支数
 MAX_DEPTH = 5       # 最大分叉层数
 MAX_NEW_TOKENS = 512
 MAX_NODES = 128
 
-TEMPERATURE = 0.7  
+TEMPERATURE = 0.7
 TOPK = 50
 NUCLEUS_P = 0.9
 P_LOWER_BOUND = 0.01
@@ -444,8 +442,9 @@ def pretty_print_tree(node: Node, prefix: str = "", depth: int = 1, step: int = 
 
 # ====== Demo ======
 def main():
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-    model = AutoModelForCausalLM.from_pretrained(MODEL_NAME,attn_implementation="eager").to(DEVICE)
+    model_name = "/mnt/public/gpfs-jd/model/Qwen/Official/Qwen2_5/Qwen2.5-7B-Instruct" 
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(model_name,attn_implementation="eager").to(DEVICE)
 
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
@@ -453,7 +452,7 @@ def main():
     with open(f"./sys_prompt.json", "r") as f:
         system_prompt = json.load(f)["reclor"]
     # system_prompt = ''
-    query = '''Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?'''
+    # query = '''Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?'''
     query = '''Context: In a business whose owners and employees all belong to one family, the employees can be paid exceptionally low wages. Hence, general operating expenses are much lower than they would be for other business ventures, making profits higher. So a family business is a family' s surest road to financial prosperity.
     Question: The reasoning in the argument is flawed because the argument
     A. ignores the fact that in a family business, paying family members low wages may itself reduce the family's prosperity
