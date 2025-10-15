@@ -26,9 +26,9 @@ from utils import generate_usr_prompt
 
 import sys
 
-sys.stdout = open(f'output_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', 'w', encoding='utf-8', buffering=1)
+sys.stdout = open(f'./logs/output_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', 'w', encoding='utf-8', buffering=1)
 # set_seed(41)
-embedder = SentenceTransformer('/mnt/public/gpfs-jd/code/weilongxuan/all-mpnet-base-v2')
+embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
 
 # ====== Config ====== 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -263,7 +263,7 @@ def pretty_print_tree(tokenizer, node: Node, depth: int = 1, index: int = 1):
 
 # ====== Demo ======
 def main(dataset: str):
-    model_name = "/mnt/public/gpfs-jd/model/Qwen/Official/Qwen2_5/Qwen2.5-7B-Instruct" 
+    model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct" 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name).to(DEVICE)
 
