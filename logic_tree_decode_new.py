@@ -28,7 +28,6 @@ import sys
 
 sys.stdout = open(f'./logs/output_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', 'w', encoding='utf-8', buffering=1)
 # set_seed(41)
-embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
 
 # ====== Config ====== 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -41,7 +40,7 @@ WINDOW_SIZE = 10
 TEMPERATURE = 1.0
 TOPK = 50
 NUCLEUS_P = 0.9
-MAX_LEAVES = 16
+MAX_LEAVES = 128
 
 # ====== Utilities ======
 def softmax(logits: torch.Tensor) -> torch.Tensor:
@@ -106,32 +105,10 @@ class Node:
     children: List["Node"] = field(default_factory=list)
     is_leaf: bool = field(default=False)
 
-
-def calculate_diversity(leaves: List[Node]):
-    if len(leaves) < 2:
-        return 0.0
-
-    distances = []
-    embeddings = []
-    for leaf in leaves:
-        embeddings.append(embedder.encode(leaf.text, convert_to_tensor=True))
-
-    for i in range(len(leaves)):
-        current_distances = []
-        for j in range(len(leaves)):
-            if i != j:
-                cos_sim = util.cos_sim(embeddings[i], embeddings[j])
-                current_distances.append(1 - cos_sim)
-        distances.append(sum(current_distances) / len(current_distances))
-    
-    diversity = sum(distances)
-    return diversity.item()
-
-
 # ====== Core decoding ======
 @torch.no_grad()
 def logic_branch_decode(
-    tokenizer, model, prompt: str,
+    tokenizer, model, embedder, prompt: str,
     tau: float = TAU, tau_sim: float = TAU_SIM, num_branches: int = NUM_BRANCHES, window_size: int = WINDOW_SIZE,
     temperature: float = TEMPERATURE,
     topk: int = TOPK, nucleus_p: float = NUCLEUS_P, max_leaves: int = MAX_LEAVES
@@ -261,9 +238,30 @@ def pretty_print_tree(tokenizer, node: Node, depth: int = 1, index: int = 1):
     for i, child in enumerate(node.children):
         pretty_print_tree(tokenizer, child, depth + 1, i + 1)
 
+
+def compute_avg_branching_factor(root: Node) -> float:
+    """Compute average branching factor for the tree rooted at `root`.
+
+    Average branching factor = average number of children among internal nodes.
+    Returns 0.0 if there are no internal nodes.
+    """
+    internal_counts = []
+
+    def dfs(node: Node):
+        if node.children:
+            internal_counts.append(len(node.children))
+            for c in node.children:
+                dfs(c)
+
+    dfs(root)
+    if not internal_counts:
+        return 0.0
+    return sum(internal_counts) / len(internal_counts)
+
 # ====== Demo ======
 def main(dataset: str):
     model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct" 
+    embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name).to(DEVICE)
 
@@ -279,10 +277,14 @@ def main(dataset: str):
         print(f"Query {i+1}: {query}\n")
         prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n"
         for i in range(1):
-            root, leaves = logic_branch_decode(tokenizer, model, prompt=prompt, num_branches=3)
+            root, leaves = logic_branch_decode(tokenizer, model, embedder, prompt=prompt, num_branches=3)
 
             print("\n--- Logic Tree ---")
             pretty_print_tree(tokenizer, root)
+
+            # compute and print average branching factor as a measure of tree complexity
+            avg_b = compute_avg_branching_factor(root)
+            print(f"Average branching factor: {avg_b:.3f}")
 
             print("\n--- Leaves ---")
             for i, leaf in enumerate(leaves):

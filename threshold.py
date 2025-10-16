@@ -17,7 +17,7 @@ except Exception:
     WINDOW_SIZE = 10
 
 
-def get_threshold(dataset: str, model_name: str = None, max_items: int = 10, max_gen_tokens: int = 1024) -> float:
+def get_threshold(tokenizer, model, dataset: str, max_items: int = 10, max_gen_tokens: int = 1024) -> float:
     """Compute entropy threshold from first `max_items` entries in dataset.
 
     Procedure:
@@ -29,16 +29,7 @@ def get_threshold(dataset: str, model_name: str = None, max_items: int = 10, max
     - return 95th percentile of collected average entropies (or NaN if none)
     """
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    # model_name fallback: try to read from env or default to local Qwen path used in generate.py
-    if model_name is None:
-        model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct"
-
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
     model.eval()
-    if tokenizer.pad_token_id is None:
-        tokenizer.pad_token = tokenizer.eos_token
 
     dataset_path = f"./data/{dataset}/test.json"
     with open(dataset_path, 'r') as f:
@@ -98,10 +89,18 @@ def get_threshold(dataset: str, model_name: str = None, max_items: int = 10, max
 
 
 if __name__ == "__main__":
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct"
+
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+    if tokenizer.pad_token_id is None:
+        tokenizer.pad_token = tokenizer.eos_token
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--model_name", type=str, default=None)
     args = parser.parse_args()
     dataset = args.dataset
-    thr = get_threshold(dataset, model_name=args.model_name)
+    thr = get_threshold(tokenizer, model, dataset)
     print(f"Threshold (95th percentile): {thr}")

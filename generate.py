@@ -3,7 +3,9 @@ import json
 import argparse
 import time
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from logic_tree_decode import logic_branch_decode
+from sentence_transformers import SentenceTransformer
+from logic_tree_decode_new import logic_branch_decode, compute_avg_branching_factor
+from threshold import get_threshold
 from utils import generate_usr_prompt
 
 if __name__ == "__main__":
@@ -17,6 +19,7 @@ if __name__ == "__main__":
     device = "cuda" if torch.cuda.is_available() else "cpu"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+    embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
 
@@ -32,6 +35,10 @@ if __name__ == "__main__":
     with open(f"./sys_prompt.json", "r") as f:
         sys_prompt = json.load(f)[dataset]
 
+    # compute threshold
+    thr = get_threshold(tokenizer, model, dataset)
+    print(f"Threshold (95th percentile): {thr}")
+
     # generate
     results = []
     start_time = time.time()
@@ -39,19 +46,14 @@ if __name__ == "__main__":
         usr_prompt = generate_usr_prompt(dataset, item)
         prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
 
-        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, M=3)
+        root, leaves = logic_branch_decode(tokenizer, model, embedder, prompt=prompt, tau=thr)
+        avg_b = compute_avg_branching_factor(root)
 
-        complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
-        probs = [leaf.prob for leaf in leaves]
-        texts = [leaf.text for leaf in leaves]
-        entropies = [-leaf.cum_logprob / leaf.length if leaf.length > 0 else 0.0 for leaf in leaves]
+        texts = [tokenizer.decode(leaf.ids, clean_up_tokenization_spaces=False) for leaf in leaves]
         results.append({
             "original_data": item,
-            "num_new_tokens": new_tokens_cnt,
             "num_leaves": len(leaves),
-            "complexity": complexity,
-            "probs": probs,
-            "entropies": entropies,
+            "avg_branching_factor": avg_b,
             "texts": texts
         })
         print(f"Processed {i+1} items")
