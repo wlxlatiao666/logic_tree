@@ -1,34 +1,32 @@
-import json
-import argparse
-from collections import defaultdict
-from sklearn.metrics import roc_auc_score
 
-# 主计算流程
-if __name__ == "__main__":
+import argparse
+import json
+from sklearn.metrics import roc_auc_score
+from utils import parse_gsm8k_answer, parse_model_answer
+
+def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", type=str, required=True)
-    parser.add_argument("--file_name", type=str, required=True, help="Include .json suffix")
+    parser.add_argument('--result_file', type=str, required=True, help='Main result json, e.g. logic_tree_results_all.json')
     args = parser.parse_args()
 
-    dataset = args.dataset
-    file_name = args.file_name
-    with open(f'./results/{dataset}/{file_name}') as f:
-        data = json.load(f)
+    with open(args.result_file, 'r') as f:
+        results = json.load(f)
+    with open('/Users/weilongxuan/codes/logic_tree/results/gsm8k/generated_answers_greedy.json', 'r') as f:
+        greedy = json.load(f)
 
-    y_true = defaultdict(list)
-    y_score = defaultdict(list)
+    if len(results) != len(greedy):
+        print(f"Warning: result file and greedy file have different lengths ({len(results)} vs {len(greedy)}), will align by index.")
 
-    for item in data:
-        labels = item["label"]
-        for index in labels:
-            y_true[index].append(labels[index])
-        uncertainties = item["uncertainty"]
-        for index in uncertainties:
-            y_score[index].append(-uncertainties[index])
+    scores = []
+    labels = []
+    for i, (item, gitem) in enumerate(zip(results, greedy)):
+        score = -float(item["avg_branching_factor"])
+        correct = int(parse_model_answer(gitem['greedy_answer']) == parse_gsm8k_answer(gitem['gt_answer']))
+        scores.append(score)
+        labels.append(correct)
 
-    for label in y_true:
-        print(f"accuracy for label {label}: {sum(y_true[label]) / len(y_true[label])}")
-        for uncertainty in y_score:
-            auroc = roc_auc_score(y_true[label], y_score[uncertainty])
-            print(f"{label} + {uncertainty} AUROC: {auroc:.4f}")
-        print("\n\n")
+    auroc = roc_auc_score(labels, scores)
+    print(f"AUROC: {auroc:.4f}")
+
+if __name__ == '__main__':
+    main()

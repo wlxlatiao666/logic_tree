@@ -40,7 +40,7 @@ def parse_model_answer(model_answer):
 
 if __name__ == "__main__":
     # 测试
-    print(parse_gt_answer("The answer is #### 18"))  # 18
-    print(parse_gt_answer("####42"))  # 42
+    print(parse_gsm8k_answer("The answer is #### 18"))  # 18
+    print(parse_gsm8k_answer("####42"))  # 42
     print(parse_model_answer("<answer>19</answer>"))  # 19
     print(parse_model_answer("Some text <answer>  123 </answer> more text"))  # 123
