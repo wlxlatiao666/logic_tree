@@ -11,7 +11,7 @@ def main():
 
     with open(args.result_file, 'r') as f:
         results = json.load(f)
-    with open('/Users/weilongxuan/codes/logic_tree/results/gsm8k/generated_answers_greedy.json', 'r') as f:
+    with open('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/logic_tree/results/gsm8k/generated_answers_greedy.json', 'r') as f:
         greedy = json.load(f)
 
     if len(results) != len(greedy):
@@ -20,7 +20,7 @@ def main():
     scores = []
     labels = []
     for i, (item, gitem) in enumerate(zip(results, greedy)):
-        score = -float(item["avg_branching_factor"])
+        score = -float(item["num_leaves"])
         correct = int(parse_model_answer(gitem['greedy_answer']) == parse_gsm8k_answer(gitem['gt_answer']))
         scores.append(score)
         labels.append(correct)

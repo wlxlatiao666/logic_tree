@@ -16,6 +16,7 @@ try:
 except Exception:
     WINDOW_SIZE = 10
 
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
 def get_threshold(tokenizer, model, dataset: str, max_items: int = 10, max_gen_tokens: int = 1024) -> float:
     """Compute entropy threshold from first `max_items` entries in dataset.
@@ -89,7 +90,6 @@ def get_threshold(tokenizer, model, dataset: str, max_items: int = 10, max_gen_t
 
 
 if __name__ == "__main__":
-    device = "cuda" if torch.cuda.is_available() else "cpu"
     model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct"
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)

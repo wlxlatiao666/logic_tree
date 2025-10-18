@@ -41,6 +41,7 @@ TEMPERATURE = 1.0
 TOPK = 50
 NUCLEUS_P = 0.9
 MAX_LEAVES = 128
+MAX_TOKENS = 1024
 
 # ====== Utilities ======
 def softmax(logits: torch.Tensor) -> torch.Tensor:
@@ -91,7 +92,7 @@ class PrioritizedItem:
     # past = (input_ids, past_key_values)
 
     def __post_init__(self):
-        self.sort_index = -self.depth
+        self.sort_index = self.depth
 
 @dataclass
 class Node:
@@ -111,7 +112,7 @@ def logic_branch_decode(
     tokenizer, model, embedder, prompt: str,
     tau: float = TAU, tau_sim: float = TAU_SIM, num_branches: int = NUM_BRANCHES, window_size: int = WINDOW_SIZE,
     temperature: float = TEMPERATURE,
-    topk: int = TOPK, nucleus_p: float = NUCLEUS_P, max_leaves: int = MAX_LEAVES
+    topk: int = TOPK, nucleus_p: float = NUCLEUS_P, max_leaves: int = MAX_LEAVES, max_tokens: int = MAX_TOKENS
 ):
     model.eval()
     inputs = tokenizer(prompt, return_tensors="pt").to(DEVICE)
@@ -132,6 +133,8 @@ def logic_branch_decode(
         # print(f"current node text: '{tokenizer.decode(node.ids, clean_up_tokenization_spaces=False)}', depth: {depth}, frontier size: {len(frontier)}, leaves: {num_leaves}\n")
         node.entropy_window = deque(maxlen=window_size)
         while True:
+            if len(node.ids) >= max_tokens:
+                return root, leaves
             out = model(input_ids=cur_ids, past_key_values=cur_past, use_cache=True)
             logits = out.logits[:, -1, :].squeeze(0)  # [V]
             cur_past = out.past_key_values

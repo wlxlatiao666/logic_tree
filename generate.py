@@ -15,7 +15,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # load model
-    model_name = "/mnt/public/gpfs-jd/model/Qwen/Official/Qwen2_5/Qwen2.5-7B-Instruct"  
+    model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct"  
     device = "cuda" if torch.cuda.is_available() else "cpu"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
