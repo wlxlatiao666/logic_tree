@@ -36,7 +36,7 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 TAU = 0.50     # 归一化熵阈值（触发分叉）
 TAU_SIM = 0.60    # 语义相似度阈值（触发分叉）
 NUM_BRANCHES = 3      # 每次分叉产生的分支数
-WINDOW_SIZE = 10
+WINDOW_SIZE = 20
 TEMPERATURE = 1.0
 TOPK = 50
 NUCLEUS_P = 0.9
@@ -102,7 +102,7 @@ class Node:
     entropy_window: deque = field(init=False)
     # prob: float = field(default=1.0)
     length: int = field(default=0)
-    # depth: int = field(default=0)
+    depth: int = field(default=0)
     children: List["Node"] = field(default_factory=list)
     is_leaf: bool = field(default=False)
 
@@ -170,7 +170,7 @@ def logic_branch_decode(
                 cur_ids = torch.tensor([node.ids], device=DEVICE, dtype=torch.int)
                 embeddings = []
                 for _ in range(num_branches):
-                    child = Node(ids=copy.deepcopy(node.ids), length=node.length)
+                    child = Node(ids=copy.deepcopy(node.ids), length=node.length, depth=node.depth+1)
                     child.entropy_window = deque(maxlen=window_size)
                     if cur_ids.numel() == 0:
                         tmp_ids, tmp_past = input_ids, None

@@ -48,12 +48,14 @@ if __name__ == "__main__":
 
         root, leaves = logic_branch_decode(tokenizer, model, embedder, prompt=prompt, tau=thr)
         avg_b = compute_avg_branching_factor(root)
+        avg_d = sum(leaf.depth for leaf in leaves) / len(leaves)
 
         texts = [tokenizer.decode(leaf.ids, clean_up_tokenization_spaces=False) for leaf in leaves]
         results.append({
             "original_data": item,
             "num_leaves": len(leaves),
             "avg_branching_factor": avg_b,
+            "avg_depth": avg_d,
             "texts": texts
         })
         print(f"Processed {i+1} items")
