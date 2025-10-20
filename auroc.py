@@ -20,7 +20,7 @@ def main():
     scores = []
     labels = []
     for i, (item, gitem) in enumerate(zip(results, greedy)):
-        score = -float(item["num_leaves"])
+        score = -(float(item["avg_depth"])+float(item["avg_branching_factor"]))
         correct = int(parse_model_answer(gitem['greedy_answer']) == parse_gsm8k_answer(gitem['gt_answer']))
         scores.append(score)
         labels.append(correct)

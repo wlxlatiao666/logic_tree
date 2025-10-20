@@ -18,7 +18,7 @@ except Exception:
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-def get_threshold(tokenizer, model, dataset: str, max_items: int = 10, max_gen_tokens: int = 1024) -> float:
+def get_threshold(tokenizer, model, dataset: str, max_items: int = 100, max_gen_tokens: int = 1024) -> float:
     """Compute entropy threshold from first `max_items` entries in dataset.
 
     Procedure:
@@ -86,6 +86,9 @@ def get_threshold(tokenizer, model, dataset: str, max_items: int = 10, max_gen_t
         return float('nan')
     arr = np.array(entropy_averages)
     threshold = float(np.percentile(arr, 95))
+    # min_v = float(np.min(arr))
+    # max_v = float(np.max(arr))
+    # threshold = min_v + 0.95 * (max_v - min_v)
     return threshold
 
 
@@ -103,4 +106,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
     dataset = args.dataset
     thr = get_threshold(tokenizer, model, dataset)
-    print(f"Threshold (95th percentile): {thr}")
+    print(f"Threshold: {thr}")
