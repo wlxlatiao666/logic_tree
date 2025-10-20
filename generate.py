@@ -4,7 +4,7 @@ import argparse
 import time
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from sentence_transformers import SentenceTransformer
-from logic_tree_decode_new import logic_branch_decode, compute_avg_branching_factor
+from logic_tree_decode import logic_branch_decode, compute_avg_branching_factor
 from threshold import get_threshold
 from utils import generate_usr_prompt
 

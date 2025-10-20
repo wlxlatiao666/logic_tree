@@ -12,7 +12,7 @@ from utils import generate_usr_prompt
 
 # reuse WINDOW_SIZE constant from logic_tree_decode_new if available
 try:
-    from logic_tree_decode_new import WINDOW_SIZE
+    from logic_tree_decode import WINDOW_SIZE
 except Exception:
     WINDOW_SIZE = 10
 
