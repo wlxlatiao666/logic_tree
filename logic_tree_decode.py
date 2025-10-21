@@ -223,7 +223,6 @@ def logic_branch_decode(
     new_tokens_cnt = 0
     depth_counter = defaultdict(int)
 
-    count = 0
     while frontier and nodes_cnt < max_nodes:
         item = heapq.heappop(frontier)
         depth_counter[item.depth] += 1
