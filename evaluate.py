@@ -63,11 +63,17 @@ if __name__ == "__main__":
     file_name = args.file_name
     with open(f'./results/{dataset}/{file_name}') as f:
         data = json.load(f)
+    with open(f'./results/{dataset}/generated_answers_greedy.json') as f:
+        greedy_data = json.load(f)
+    with open(f'./results/{dataset}/generated_answers_topk_topp.json') as f:
+        topk_topp_data = json.load(f)
 
     y_true = defaultdict(list)
     y_score = defaultdict(list)
 
-    for item in data:
+    for item, greedy_item, topp_item in zip(data, greedy_data, topk_topp_data):
+        y_true['greedy'].append(greedy_item['label'])
+        y_true['topk_topp'].append(topp_item['label'])
         labels = item["label"]
         for index in labels:
             y_true[index].append(labels[index])
