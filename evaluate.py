@@ -4,6 +4,9 @@ from collections import defaultdict
 from sklearn.metrics import roc_auc_score
 
 import numpy as np
+import sys
+
+sys.stdout = open('output.txt', 'w', encoding='utf-8')
 
 def compute_auarc(scores, labels, descending=True):
     """
@@ -67,13 +70,21 @@ if __name__ == "__main__":
         greedy_data = json.load(f)
     with open(f'./results/{dataset}/generated_answers_topk_topp.json') as f:
         topk_topp_data = json.load(f)
+    with open(f'./results/{dataset}/generated_answers_5samples.json') as f:
+        data_5samples = json.load(f)
 
     y_true = defaultdict(list)
     y_score = defaultdict(list)
+    greedy_score = []
+    topp_score = []
+    pe_score = []
 
-    for item, greedy_item, topp_item in zip(data, greedy_data, topk_topp_data):
+    for item, greedy_item, topp_item, pe_item in zip(data, greedy_data, topk_topp_data, data_5samples):
         y_true['greedy'].append(greedy_item['label'])
+        greedy_score.append(-greedy_item['avg_logprob'])
         y_true['topk_topp'].append(topp_item['label'])
+        topp_score.append(-topp_item['avg_logprob'])
+        pe_score.append(-pe_item['predictive_entropy'])
         labels = item["label"]
         for index in labels:
             y_true[index].append(labels[index])
@@ -81,6 +92,31 @@ if __name__ == "__main__":
         for index in uncertainties:
             y_score[index].append(-uncertainties[index])
 
+    print("Greedy Results:")
+    auroc = roc_auc_score(y_true['greedy'], greedy_score)
+    print(f"Greedy AUROC: {auroc:.4f}")
+    auarc = compute_auarc(greedy_score, y_true['greedy'])
+    print(f"Greedy AUARC: {auarc:.4f}")
+    ece = compute_ece(greedy_score, y_true['greedy'])
+    print(f"Greedy ECE: {ece:.4f}")
+
+    print("\n\nTop-K/Top-P Results:")
+    auroc = roc_auc_score(y_true['topk_topp'], topp_score)  
+    print(f"Top-K/Top-P AUROC: {auroc:.4f}")
+    auarc = compute_auarc(topp_score, y_true['topk_topp'])
+    print(f"Top-K/Top-P AUARC: {auarc:.4f}")
+    ece = compute_ece(topp_score, y_true['topk_topp'])
+    print(f"Top-K/Top-P ECE: {ece:.4f}")   
+
+    print("\n\nPredictive Entropy Results:")
+    auroc = roc_auc_score(y_true['greedy'], pe_score)
+    print(f"Predictive Entropy AUROC: {auroc:.4f}")
+    auarc = compute_auarc(pe_score, y_true['greedy'])
+    print(f"Predictive Entropy AUARC: {auarc:.4f}")
+    ece = compute_ece(pe_score, y_true['greedy'])
+    print(f"Predictive Entropy ECE: {ece:.4f}")
+
+    print("\n\nLogic Tree Results:")
     for label in y_true:
         print(f"accuracy for label {label}: {sum(y_true[label]) / len(y_true[label])}")
         for uncertainty in y_score:
