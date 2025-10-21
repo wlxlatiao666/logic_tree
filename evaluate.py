@@ -6,8 +6,6 @@ from sklearn.metrics import roc_auc_score
 import numpy as np
 import sys
 
-sys.stdout = open('output.txt', 'w', encoding='utf-8')
-
 def compute_auarc(scores, labels, descending=True):
     """
     Area Under Accuracy-Coverage Curve (AUARC).
@@ -64,6 +62,7 @@ if __name__ == "__main__":
 
     dataset = args.dataset
     file_name = args.file_name
+    sys.stdout = open(f'./results/{dataset}/output.txt', 'w', encoding='utf-8')
     with open(f'./results/{dataset}/{file_name}') as f:
         data = json.load(f)
     with open(f'./results/{dataset}/generated_answers_greedy.json') as f:
