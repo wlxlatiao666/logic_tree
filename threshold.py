@@ -81,7 +81,6 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, required=True)
-    parser.add_argument("--model_name", type=str, default=None)
     args = parser.parse_args()
     dataset = args.dataset
     thr = get_threshold(tokenizer, model, dataset)
