@@ -5,6 +5,7 @@ import time
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from logic_tree_decode import logic_branch_decode
 from utils import generate_usr_prompt
+from threshold import get_threshold
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -32,6 +33,9 @@ if __name__ == "__main__":
     with open(f"./sys_prompt.json", "r") as f:
         sys_prompt = json.load(f)[dataset]
 
+    thr = get_threshold(tokenizer, model, dataset)
+    print(f"Threshold (95th percentile): {thr}")
+
     # generate
     results = []
     start_time = time.time()
@@ -39,7 +43,7 @@ if __name__ == "__main__":
         usr_prompt = generate_usr_prompt(dataset, item)
         prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
 
-        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, M=3)
+        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, tau=thr, M=3)
 
         complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
         probs = [leaf.prob for leaf in leaves]

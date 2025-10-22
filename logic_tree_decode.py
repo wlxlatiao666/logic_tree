@@ -12,6 +12,7 @@ import json
 import os
 import time
 import copy
+import random
 import numpy as np
 from dataclasses import dataclass, field
 from typing import List, Optional, Tuple, Dict
@@ -39,7 +40,7 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # }
 
 # 触发阈值
-BASE_TAU = 0.80     # 归一化熵阈值（触发分叉）
+TAU = 0.80     # 归一化熵阈值（触发分叉）
 BRANCHES_M = 3      # 每次分叉产生的分支数
 MAX_DEPTH = 5       # 最大分叉层数
 MAX_NEW_TOKENS = 512
@@ -201,11 +202,11 @@ def calculate_diversity(leaves: List[Node]):
 @torch.no_grad()
 def logic_branch_decode(
     tokenizer, model, prompt: str, sample: bool = False,
-    base_tau: float = BASE_TAU, M: int = BRANCHES_M,
+    tau: float = TAU, M: int = BRANCHES_M,
     max_depth: int = MAX_DEPTH, max_new_tokens: int = MAX_NEW_TOKENS,
     max_nodes: int = MAX_NODES,
     temperature: float = TEMPERATURE,
-    topk: int = TOPK, nucleus_p: float = NUCLEUS_P, p_lower_bound: float = P_LOWER_BOUND, steps_branch: int = STEPS_BRANCH
+    topk: int = TOPK, nucleus_p: float = NUCLEUS_P, steps_branch: int = STEPS_BRANCH
 ):
     model.eval()
     inputs = tokenizer(prompt, return_tensors="pt").to(DEVICE)
@@ -244,22 +245,19 @@ def logic_branch_decode(
 
             logprobs = log_softmax(logits)
             H_norm = normalized_entropy_from_logprobs(logprobs)
-            tau = min(base_tau + 0.05 * depth, 1.00)
-            is_split_point = node.text.endswith((".","?","!","\n")) and H_norm >= tau
-            # is_split_point = H_norm >= tau
+            # is_split_point = node.text.endswith((".","?","!","\n")) and H_norm >= tau
+            random_factor = random.random()
+            is_split_point = H_norm >= tau and random_factor < 0.5
 
             if is_split_point:
                 filt_probs = softmax(logits)
                 top_vals, top_idx = torch.topk(filt_probs, k=M)
                 top_idx = top_idx.tolist()
                 top_vals = top_vals.tolist()
-                total_p = sum(top_vals)
 
                 # connective mass
                 conn_candidates: List[Tuple[int, float]] = []
                 for tid, p in zip(top_idx, top_vals):
-                    if node.prob * p / total_p <= p_lower_bound:
-                        continue
                     conn_candidates.append((tid, p))
                 if len(conn_candidates) <= 1:
                     is_split_point = False
@@ -458,10 +456,7 @@ def main():
     B. presumes, without providing justification, that family members are willing to work for low wages in a family business because they believe that doing so promotes the family's prosperity
     C. ignores the fact that businesses that achieve high levels of customer satisfaction are often profitable even if they pay high wages
     D. presumes, without providing justification, that only businesses with low general operating expenses can succeed'''
-    # prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n<think>First, calculate the total number of eggs sold daily. Janet's ducks lay 16 eggs per day. "
     prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n"
-    # prompt = f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n{system_prompt}<|eot_id|>\n<|start_header_id|>user<|end_header_id|>\n{query}<|eot_id|>\n<|start_header_id|>assistant<|end_header_id|>\n"
-    # prompt = f"<|begin_of_text|>\n{query}\n"
 
     for i in range(3):
         # torch.cuda.manual_seed_all(41)
