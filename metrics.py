@@ -5,27 +5,27 @@ from typing import List
 from sentence_transformers import SentenceTransformer, util
 from utils import parse_model_answer, parse_gsm8k_answer
 
-embedder = SentenceTransformer('/mnt/public/gpfs-jd/code/weilongxuan/all-mpnet-base-v2')
+# embedder = SentenceTransformer('/mnt/public/gpfs-jd/code/weilongxuan/all-mpnet-base-v2')
 
-def calculate_diversity(texts: List[str]):
-    if len(texts) < 2:
-        return 0.0
+# def calculate_diversity(texts: List[str]):
+#     if len(texts) < 2:
+#         return 0.0
 
-    distances = []
-    embeddings = []
-    for text in texts:
-        embeddings.append(embedder.encode(text, convert_to_tensor=True))
+#     distances = []
+#     embeddings = []
+#     for text in texts:
+#         embeddings.append(embedder.encode(text, convert_to_tensor=True))
 
-    for i in range(len(texts)):
-        current_distances = []
-        for j in range(len(texts)):
-            if i != j:
-                cos_sim = util.cos_sim(embeddings[i], embeddings[j])
-                current_distances.append(1 - cos_sim)
-        distances.append(sum(current_distances) / len(current_distances))
+#     for i in range(len(texts)):
+#         current_distances = []
+#         for j in range(len(texts)):
+#             if i != j:
+#                 cos_sim = util.cos_sim(embeddings[i], embeddings[j])
+#                 current_distances.append(1 - cos_sim)
+#         distances.append(sum(current_distances) / len(current_distances))
     
-    diversity = sum(distances)
-    return diversity.item()
+#     diversity = sum(distances)
+#     return diversity.item()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -112,12 +112,10 @@ if __name__ == "__main__":
                 break
         labels["pass@k"] = int(passk)
 
-        diversity = calculate_diversity(texts)
-        sce.append(diversity * 10000 / item["num_new_tokens"])
+        # diversity = calculate_diversity(texts)
+        # sce.append(diversity * 10000 / item["num_new_tokens"])
         results.append({
             "gt_answer": gt_answer,
-            "diversity": diversity,
-            "num_new_tokens": item["num_new_tokens"],
             "label": labels,
             "uncertainty": uncertainties
         })
@@ -127,5 +125,3 @@ if __name__ == "__main__":
         json.dump(results, f, indent=2)
         
     print(f"\nResults saved to {output_path}")
-    print(f"sce list: {sce}")
-    print(f"sce mean: {sum(sce)/len(sce)}")
