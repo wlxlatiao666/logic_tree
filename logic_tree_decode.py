@@ -25,9 +25,9 @@ from sentence_transformers import SentenceTransformer, util
 
 import sys
 
-sys.stdout = open(f'output_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', 'w', encoding='utf-8')
+sys.stdout = open(f'./logs/output_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', 'w', encoding='utf-8', buffering=1)
 # set_seed(41)
-embedder = SentenceTransformer('/mnt/public/gpfs-jd/code/weilongxuan/all-mpnet-base-v2')
+embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
 
 # ====== Config ====== 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -271,7 +271,7 @@ def logic_branch_decode(
                 # materialize children, commit one token for each branch
                 total_p = sum(p for _, p in conn_candidates)
                 for tid, p in conn_candidates:
-                    print("token: ", tokenizer.decode([tid], clean_up_tokenization_spaces=False), " prob: ", p, " total_p: ", total_p)
+                    # print("token: ", tokenizer.decode([tid], clean_up_tokenization_spaces=False), " prob: ", p, " total_p: ", total_p)
                     new_ids = torch.tensor([[tid]], device=DEVICE)
                     child_text = node.text + tokenizer.decode([tid], clean_up_tokenization_spaces=False)
                     new_tokens_cnt += 1
@@ -287,7 +287,7 @@ def logic_branch_decode(
                     # all_head_attentions = None
                     if not stop_condition(tid, tokenizer):
                         for i in range(steps_branch):  # short span
-                            out2 = model(input_ids=tmp_ids, past_key_values=tmp_past, use_cache=True, output_attentions=True)
+                            out2 = model(input_ids=tmp_ids, past_key_values=tmp_past, use_cache=True)
                             # print("cur_token: ", tokenizer.decode(tmp_ids[0, -1].item()), "cur_ids: ", tmp_ids, "key_value: ", tmp_past[0][0].shape)
                             # attentions = out2.attentions[-1][0]
                             # head_attentions = attentions[:, -1, child_length-1].unsqueeze(-1)
