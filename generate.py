@@ -43,7 +43,7 @@ if __name__ == "__main__":
         usr_prompt = generate_usr_prompt(dataset, item)
         prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
 
-        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, tau=thr, M=3)
+        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, tau=thr, branches_m=3)
 
         complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
         probs = [leaf.prob for leaf in leaves]

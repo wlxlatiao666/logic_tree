@@ -42,14 +42,11 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # 触发阈值
 TAU = 0.80     # 归一化熵阈值（触发分叉）
 BRANCHES_M = 3      # 每次分叉产生的分支数
-MAX_DEPTH = 5       # 最大分叉层数
-MAX_NEW_TOKENS = 512
-MAX_NODES = 128
+MAX_TIMES = 50
 
 TEMPERATURE = 0.7
 TOPK = 50
 NUCLEUS_P = 0.9
-P_LOWER_BOUND = 0.01
 STEPS_BRANCH = 10
 
 # ====== Utilities ======
@@ -202,9 +199,8 @@ def calculate_diversity(leaves: List[Node]):
 @torch.no_grad()
 def logic_branch_decode(
     tokenizer, model, prompt: str, sample: bool = False,
-    tau: float = TAU, M: int = BRANCHES_M,
-    max_depth: int = MAX_DEPTH, max_new_tokens: int = MAX_NEW_TOKENS,
-    max_nodes: int = MAX_NODES,
+    tau: float = TAU, branches_m: int = BRANCHES_M,
+    max_times: int = MAX_TIMES,
     temperature: float = TEMPERATURE,
     topk: int = TOPK, nucleus_p: float = NUCLEUS_P, steps_branch: int = STEPS_BRANCH
 ):
@@ -220,18 +216,15 @@ def logic_branch_decode(
     frontier: List[PrioritizedItem] = []
     heapq.heappush(frontier, PrioritizedItem(depth=0, neg_logprob=0.0, node=root, past=(input_ids, past_kv)))
     leaves: List[Node] = []
-    nodes_cnt = 1
+    times = 1
     new_tokens_cnt = 0
-    depth_counter = defaultdict(int)
 
-    while frontier and nodes_cnt < max_nodes:
+    while frontier:
         item = heapq.heappop(frontier)
-        depth_counter[item.depth] += 1
         depth, node, (cur_ids, cur_past) = item.depth, item.node, item.past
 
         # This path generation loop
-        steps = 0
-        while steps < max_new_tokens:
+        while True:
             # one-step forward using last token id and past_kv
             # print("cur_id: ", cur_ids)
             if cur_past is None:
@@ -249,9 +242,12 @@ def logic_branch_decode(
             random_factor = random.random()
             is_split_point = H_norm >= tau and random_factor < 0.5
 
+            if times >= max_times:
+                is_split_point = False
+
             if is_split_point:
                 filt_probs = softmax(logits)
-                top_vals, top_idx = torch.topk(filt_probs, k=M)
+                top_vals, top_idx = torch.topk(filt_probs, k=branches_m)
                 top_idx = top_idx.tolist()
                 top_vals = top_vals.tolist()
 
@@ -259,12 +255,8 @@ def logic_branch_decode(
                 conn_candidates: List[Tuple[int, float]] = []
                 for tid, p in zip(top_idx, top_vals):
                     conn_candidates.append((tid, p))
-                if len(conn_candidates) <= 1:
-                    is_split_point = False
-                else:
-                    conn_candidates.sort(key=lambda x: x[1], reverse=True)
+                conn_candidates.sort(key=lambda x: x[1], reverse=True)
 
-            if is_split_point and depth < max_depth:
                 child_embeddings = []
                 children = []
                 items = []
@@ -334,32 +326,18 @@ def logic_branch_decode(
                             past=(tmp_ids, tmp_past)
                         ))
                         # print("tmp_past: ", tmp_past, tmp_past[0][0].shape)
-                        # nodes_cnt += 1
 
-                if len(children) <= 1:
-                    is_split_point = False
-                    # node.text = children[0].text
-                    # node.cum_logprob = children[0].cum_logprob
-                    # node.length = children[0].length
-                    # cur_ids = items[0].past[0]
-                    # cur_past = items[0].past[1]
-                    # if stop_condition(cur_ids[0, 0], tokenizer) or steps >= max_new_tokens:
-                    #     leaves.append(node)
-                    #     break
-                else:
-                    steps += steps_branch
-                    for child in children:
-                        node.children.append(child)
-                        nodes_cnt += 1
-                    for it in items:
-                        cur_ids = it.past[0]
-                        if stop_condition(cur_ids[0, 0], tokenizer) or steps >= max_new_tokens:
-                            leaves.append(it.node)
-                            continue
-                        heapq.heappush(frontier, it)
-                    break
-
-            if not is_split_point:
+                for child in children:
+                    node.children.append(child)
+                for it in items:
+                    cur_ids = it.past[0]
+                    if stop_condition(cur_ids[0, 0], tokenizer):
+                        leaves.append(it.node)
+                        continue
+                    heapq.heappush(frontier, it)
+                    times += 1
+                break
+            else:
                 # regular decoding with low temperature
                 if sample:
                     logits_f = topk_or_nucleus_filter(logits, topk=topk, p=nucleus_p)
@@ -376,15 +354,14 @@ def logic_branch_decode(
                 node.length += 1
 
                 cur_ids = torch.tensor([[next_id]], device=DEVICE)
-                steps += 1
 
                 # stopping rules
-                if stop_condition(next_id, tokenizer) or steps >= max_new_tokens:
+                if stop_condition(next_id, tokenizer):
                     leaves.append(node)
                     break
 
         # if we exited loop without adding to leaves and cannot go deeper, finalize
-        if node not in leaves and (depth >= max_depth or len(node.children) == 0):
+        if node not in leaves and len(node.children) == 0:
             leaves.append(node)
 
     return root, leaves, new_tokens_cnt
