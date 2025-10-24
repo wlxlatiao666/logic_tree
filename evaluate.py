@@ -62,7 +62,7 @@ if __name__ == "__main__":
 
     dataset = args.dataset
     file_name = args.file_name
-    sys.stdout = open(f'./results/{dataset}/output_100.txt', 'w', encoding='utf-8')
+    sys.stdout = open(f'./results/{dataset}/output_500.txt', 'w', encoding='utf-8')
     with open(f'./results/{dataset}/{file_name}') as f:
         data = json.load(f)
     with open(f'./results/{dataset}/generated_answers_greedy.json') as f:
