@@ -43,6 +43,7 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 TAU = 0.80     # 归一化熵阈值（触发分叉）
 BRANCHES_M = 3      # 每次分叉产生的分支数
 MAX_TIMES = 50
+MAX_NEW_TOKENS = 512
 
 TEMPERATURE = 0.7
 TOPK = 50
@@ -200,7 +201,7 @@ def calculate_diversity(leaves: List[Node]):
 def logic_branch_decode(
     tokenizer, model, prompt: str, sample: bool = False,
     tau: float = TAU, branches_m: int = BRANCHES_M,
-    max_times: int = MAX_TIMES,
+    max_times: int = MAX_TIMES, max_new_tokens: int = MAX_NEW_TOKENS,
     temperature: float = TEMPERATURE,
     topk: int = TOPK, nucleus_p: float = NUCLEUS_P, steps_branch: int = STEPS_BRANCH
 ):
@@ -224,7 +225,7 @@ def logic_branch_decode(
         depth, node, (cur_ids, cur_past) = item.depth, item.node, item.past
 
         # This path generation loop
-        while True:
+        for _ in range(max_new_tokens):
             # one-step forward using last token id and past_kv
             # print("cur_id: ", cur_ids)
             if cur_past is None:
