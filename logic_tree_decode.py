@@ -43,6 +43,7 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 TAU = 0.80     # 归一化熵阈值（触发分叉）
 BRANCHES_M = 3      # 每次分叉产生的分支数
 MAX_TIMES = 50
+MAX_NEW_TOKENS = 512
 
 TEMPERATURE = 0.7
 TOPK = 50
@@ -200,7 +201,7 @@ def calculate_diversity(leaves: List[Node]):
 def logic_branch_decode(
     tokenizer, model, prompt: str, sample: bool = False,
     tau: float = TAU, branches_m: int = BRANCHES_M,
-    max_times: int = MAX_TIMES,
+    max_times: int = MAX_TIMES, max_new_tokens: int = MAX_NEW_TOKENS,
     temperature: float = TEMPERATURE,
     topk: int = TOPK, nucleus_p: float = NUCLEUS_P, steps_branch: int = STEPS_BRANCH
 ):
@@ -224,7 +225,7 @@ def logic_branch_decode(
         depth, node, (cur_ids, cur_past) = item.depth, item.node, item.past
 
         # This path generation loop
-        while True:
+        for _ in range(max_new_tokens):
             # one-step forward using last token id and past_kv
             # print("cur_id: ", cur_ids)
             if cur_past is None:
@@ -416,7 +417,7 @@ def pretty_print_tree(node: Node, prefix: str = "", depth: int = 1, step: int = 
 
 # ====== Demo ======
 def main():
-    model_name = "/mnt/public/gpfs-jd/model/Qwen/Official/Qwen2_5/Qwen2.5-7B-Instruct" 
+    model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct" 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name,attn_implementation="eager").to(DEVICE)
 
@@ -424,20 +425,20 @@ def main():
         tokenizer.pad_token = tokenizer.eos_token
 
     with open(f"./sys_prompt.json", "r") as f:
-        system_prompt = json.load(f)["reclor"]
+        system_prompt = json.load(f)["gsm8k"]
     # system_prompt = ''
-    # query = '''Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?'''
-    query = '''Context: In a business whose owners and employees all belong to one family, the employees can be paid exceptionally low wages. Hence, general operating expenses are much lower than they would be for other business ventures, making profits higher. So a family business is a family' s surest road to financial prosperity.
-    Question: The reasoning in the argument is flawed because the argument
-    A. ignores the fact that in a family business, paying family members low wages may itself reduce the family's prosperity
-    B. presumes, without providing justification, that family members are willing to work for low wages in a family business because they believe that doing so promotes the family's prosperity
-    C. ignores the fact that businesses that achieve high levels of customer satisfaction are often profitable even if they pay high wages
-    D. presumes, without providing justification, that only businesses with low general operating expenses can succeed'''
+    query = '''Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?'''
+    # query = '''Context: In a business whose owners and employees all belong to one family, the employees can be paid exceptionally low wages. Hence, general operating expenses are much lower than they would be for other business ventures, making profits higher. So a family business is a family' s surest road to financial prosperity.
+    # Question: The reasoning in the argument is flawed because the argument
+    # A. ignores the fact that in a family business, paying family members low wages may itself reduce the family's prosperity
+    # B. presumes, without providing justification, that family members are willing to work for low wages in a family business because they believe that doing so promotes the family's prosperity
+    # C. ignores the fact that businesses that achieve high levels of customer satisfaction are often profitable even if they pay high wages
+    # D. presumes, without providing justification, that only businesses with low general operating expenses can succeed'''
     prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n"
 
     for i in range(3):
         # torch.cuda.manual_seed_all(41)
-        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, M=3)
+        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, branches_m=3)
 
         print("\n--- Logic Tree ---")
         pretty_print_tree(root)
