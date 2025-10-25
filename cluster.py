@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from utils import parse_model_answer
 
 # 读取数据
-with open('./results/gsm8k/logic_tree_results_100.json', 'r') as f:
+with open('./results/reclor/logic_tree_results_100.json', 'r') as f:
     data = json.load(f)
 
 answer_counts = []
