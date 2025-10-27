@@ -14,7 +14,7 @@ if __name__ == "__main__":
     # 配置参数
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, required=True)
-    parser.add_argument("--sample", type=bool, default=True)
+    parser.add_argument("--sample", type=bool, default=False)
     args = parser.parse_args()
     dataset = args.dataset
     sample = args.sample

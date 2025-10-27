@@ -15,14 +15,19 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--samples", type=int, default=5)
+    parser.add_argument("--test_size", type=int, default=-1)
     args = parser.parse_args()
     dataset = args.dataset
     num_samples = args.samples
+    test_size = args.test_size
 
     model_name = '/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct'
     device = "cuda" if torch.cuda.is_available() else "cpu"
     dataset_path = f"./data/{dataset}/test.json"
-    output_file = f'./results/{dataset}/multi_answers_{num_samples}samples.json'
+    if test_size == -1:
+        output_file = f'./results/{dataset}/multi_answers_{num_samples}samples.json'
+    else:
+        output_file = f'./results/{dataset}/multi_answers_{num_samples}samples_{test_size}.json'
 
     # 加载模型和tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -34,7 +39,10 @@ if __name__ == '__main__':
         sys_prompt = json.load(f)[dataset]
 
     with open(dataset_path, 'r') as f:
-        data = json.load(f)
+        if test_size == -1:
+            data = json.load(f)
+        else:
+            data = json.load(f)[:test_size]
 
     results = []
     start_time = time.time()
