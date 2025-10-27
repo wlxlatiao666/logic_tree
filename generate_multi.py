@@ -1,12 +1,14 @@
 import json
 import time
+import math
 from datetime import datetime
+from collections import Counter
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 import torch.nn.functional as F
 import sys
 import argparse
-from utils import generate_usr_prompt
+from utils import generate_usr_prompt, parse_model_answer, parse_gsm8k_answer
 
 if __name__ == '__main__':
     sys.stdout = open(f'./logs/output_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', 'w', encoding='utf-8')
@@ -25,10 +27,10 @@ if __name__ == '__main__':
     device = "cuda" if torch.cuda.is_available() else "cpu"
     dataset_path = f"./data/{dataset}/test.json"
     if test_size == -1:
-        output_file = f'./results/{dataset}/multi_answers_{num_samples}samples.json'
+        output_file = f'./results/{dataset}/generated_answers_{num_samples}samples.json'
     else:
-        output_file = f'./results/{dataset}/multi_answers_{num_samples}samples_{test_size}.json'
-
+        output_file = f'./results/{dataset}/generated_answers_{num_samples}samples_{test_size}.json'
+        
     # 加载模型和tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
@@ -38,7 +40,7 @@ if __name__ == '__main__':
     with open('./sys_prompt.json', 'r') as f:
         sys_prompt = json.load(f)[dataset]
 
-    with open(dataset_path, 'r') as f:
+    with open(dataset_path, "r") as f:
         if test_size == -1:
             data = json.load(f)
         else:
@@ -46,7 +48,8 @@ if __name__ == '__main__':
 
     results = []
     start_time = time.time()
-    for item in data:
+    for i, item in enumerate(data):
+        print(f'Processing item {i}')
         usr_prompt = generate_usr_prompt(dataset, item)
         messages = [{"role": "system", "content": sys_prompt}, {"role": "user", "content": usr_prompt}]
         inputs = tokenizer.apply_chat_template(
@@ -94,11 +97,36 @@ if __name__ == '__main__':
             sampled_entropies.append(avg_logprob)
             num_tokens.append(len(generated_ids[0][inputs["input_ids"].shape[-1]:]))
 
+        parsed_answers = [parse_model_answer(ans) for ans in sampled_answers]
+        answer_counts = Counter(parsed_answers)
+        total_answers = len(parsed_answers)
+        predictive_entropy = 0.0
+        for count in answer_counts.values():
+            p = count / total_answers
+            predictive_entropy -= p * math.log(p)
+        # 找出出现次数最多的答案
+        most_common_answer, _ = answer_counts.most_common(1)[0]
+        if dataset == "gsm8k":
+            label = int(parse_gsm8k_answer(item["answer"]) == most_common_answer)
+        elif dataset == "reclor":
+            label_to_answer = {
+                0: "A",
+                1: "B",
+                2: "C",
+                3: "D",
+            }
+            gt = label_to_answer[item["label"]]
+            label = int(gt == most_common_answer)
+        else:
+            label = 0
+
         results.append({
             "original_data": item,
+            "sampled_answers": sampled_answers,
             "num_tokens": num_tokens,
             "sampled_entropies": sampled_entropies,
-            "sampled_answers": sampled_answers
+            "predictive_entropy": predictive_entropy,
+            "label": label,
         })
     end_time = time.time()
     duration = end_time - start_time
