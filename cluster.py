@@ -6,13 +6,13 @@ import matplotlib.pyplot as plt
 from utils import parse_model_answer
 
 # 读取数据
-with open('./results/reclor/logic_tree_results_100.json', 'r') as f:
-    data = json.load(f)
+with open('/Users/weilongxuan/codes/logic_tree/results/reclor/generated_answers_5samples.json', 'r') as f:
+    data = json.load(f)[:100]
 
 answer_counts = []
 
 for item in data:
-    texts = item['texts']
+    texts = item['sampled_answers']
     # 解析所有答案
     answers = [parse_model_answer(t) for t in texts]
     # 合并同类项
