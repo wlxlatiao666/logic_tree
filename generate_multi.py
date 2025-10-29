@@ -1,6 +1,7 @@
 import json
 import time
 import math
+import logging
 from datetime import datetime
 from collections import Counter
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -10,8 +11,15 @@ import sys
 import argparse
 from utils import generate_usr_prompt, parse_model_answer, parse_gsm8k_answer
 
+logger = logging.getLogger(__name__)
+
 if __name__ == '__main__':
-    sys.stdout = open(f'./logs/output_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', 'w', encoding='utf-8')
+    logging.basicConfig(
+        filename='./logs/app.log',  # 使用绝对路径
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
 
     # 配置参数
     parser = argparse.ArgumentParser()
@@ -49,7 +57,7 @@ if __name__ == '__main__':
     results = []
     start_time = time.time()
     for i, item in enumerate(data):
-        print(f'Processing item {i}')
+        logger.info(f'Processing item {i}')
         usr_prompt = generate_usr_prompt(dataset, item)
         messages = [{"role": "system", "content": sys_prompt}, {"role": "user", "content": usr_prompt}]
         inputs = tokenizer.apply_chat_template(
@@ -130,7 +138,7 @@ if __name__ == '__main__':
         })
     end_time = time.time()
     duration = end_time - start_time
-    print(f"\n[运行统计] 总耗时: {duration:.2f}秒 ({duration/60:.2f}分钟)")
+    logger.info(f"\n[运行统计] 总耗时: {duration:.2f}秒 ({duration/60:.2f}分钟)")
 
     # 保存结果
     with open(output_file, 'w') as f:

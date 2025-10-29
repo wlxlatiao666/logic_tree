@@ -1,6 +1,7 @@
 import argparse
 import json
 import math
+import logging
 from collections import deque
 from typing import List
 
@@ -10,6 +11,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from utils import generate_usr_prompt
 
+logger = logging.getLogger(__name__)
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -72,6 +74,13 @@ def get_threshold(tokenizer, model, dataset: str, max_items: int = 10, max_gen_t
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        filename='./logs/app.log',  # 使用绝对路径
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+
     model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct"
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -84,4 +93,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
     dataset = args.dataset
     thr = get_threshold(tokenizer, model, dataset)
-    print(f"Threshold: {thr}")
+    logger.info(f"Threshold: {thr}")
