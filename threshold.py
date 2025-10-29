@@ -13,7 +13,7 @@ from utils import generate_usr_prompt
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-def get_threshold(tokenizer, model, dataset: str, max_items: int = 100, max_gen_tokens: int = 1024) -> float:
+def get_threshold(tokenizer, model, dataset: str, max_items: int = 10, max_gen_tokens: int = 1024) -> float:
     model.eval()
 
     dataset_path = f"./data/{dataset}/test.json"
