@@ -1,6 +1,7 @@
 import json
 import time
 import argparse
+import logging
 import torch
 import torch.nn.functional as F
 from datetime import datetime
@@ -8,8 +9,15 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from utils import generate_usr_prompt, parse_gsm8k_answer, parse_model_answer
 import sys
 
+logger = logging.getLogger(__name__)
+
 if __name__ == "__main__":
-    sys.stdout = open(f'./logs/output_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', 'w', encoding='utf-8')
+    logging.basicConfig(
+        filename='./logs/app.log',  # 使用绝对路径
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
 
     # 配置参数
     parser = argparse.ArgumentParser()
@@ -113,7 +121,7 @@ if __name__ == "__main__":
         })
     end_time = time.time()
     duration = end_time - start_time
-    print(f"\n[运行统计] 总耗时: {duration:.2f}秒 ({duration/60:.2f}分钟)")
+    logger.info(f"\n[运行统计] 总耗时: {duration:.2f}秒 ({duration/60:.2f}分钟)")
 
     # 保存结果
     with open(output_file, 'w') as f:

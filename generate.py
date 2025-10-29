@@ -2,12 +2,21 @@ import torch
 import json
 import argparse
 import time
+import logging
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from logic_tree_decode import logic_branch_decode
 from utils import generate_usr_prompt
 from threshold import get_threshold
 
+logger = logging.getLogger(__name__)
+
 if __name__ == "__main__":
+    logging.basicConfig(
+        filename='./logs/app.log',  # 使用绝对路径
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--test_size", type=int, default=-1)
@@ -34,7 +43,7 @@ if __name__ == "__main__":
         sys_prompt = json.load(f)[dataset]
 
     thr = get_threshold(tokenizer, model, dataset)
-    print(f"Threshold (98th percentile): {thr}")
+    logger.info(f"Threshold (98th percentile): {thr}")
 
     # generate
     results = []
@@ -58,10 +67,10 @@ if __name__ == "__main__":
             "entropies": entropies,
             "texts": texts
         })
-        print(f"Processed {i+1} items")
+        logger.info(f"Processed {i+1} items")
     end_time = time.time()
     duration = end_time - start_time
-    print(f"generate {len(results)} results in {duration:.2f} seconds({duration/60:.2f} minutes)")
+    logger.info(f"generate {len(results)} results in {duration:.2f} seconds({duration/60:.2f} minutes)")
 
     if test_size == -1:
         output_path = f"./results/{dataset}/logic_tree_results_all.json"

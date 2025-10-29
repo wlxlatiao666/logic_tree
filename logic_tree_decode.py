@@ -13,6 +13,7 @@ import os
 import time
 import copy
 import random
+import logging
 import numpy as np
 from dataclasses import dataclass, field
 from typing import List, Optional, Tuple, Dict
@@ -25,8 +26,7 @@ from sentence_transformers import SentenceTransformer, util
 
 import sys
 
-sys.stdout = open(f'./logs/output_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log', 'w', encoding='utf-8', buffering=1)
-# set_seed(41)
+logger = logging.getLogger(__name__)
 embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
 
 # ====== Config ====== 
@@ -210,8 +210,8 @@ def logic_branch_decode(
     input_ids = inputs["input_ids"]
     attention_mask = inputs["attention_mask"]
     past_kv = None
-    # print("token_id: ", input_ids)
-    # print("key_value: ", past_kv)
+    # logger.info("token_id: ", input_ids)
+    # logger.info("key_value: ", past_kv)
 
     root = Node(text="", cum_logprob=0.0, prob=1.0, length=0, depth=0)
     frontier: List[PrioritizedItem] = []
@@ -227,15 +227,15 @@ def logic_branch_decode(
         # This path generation loop
         for _ in range(max_new_tokens):
             # one-step forward using last token id and past_kv
-            # print("cur_id: ", cur_ids)
+            # logger.info("cur_id: ", cur_ids)
             if cur_past is None:
                 out = model(input_ids=cur_ids, attention_mask=attention_mask, use_cache=True)
             else:
                 out = model(input_ids=cur_ids, past_key_values=cur_past, use_cache=True)
-                # print("cur_token: ", tokenizer.decode(cur_ids[0, -1].item()), "cur_ids: ", cur_ids, "key_value: ", cur_past[0][0].shape)
+                # logger.info("cur_token: ", tokenizer.decode(cur_ids[0, -1].item()), "cur_ids: ", cur_ids, "key_value: ", cur_past[0][0].shape)
             logits = out.logits[:, -1, :].squeeze(0)  # [V]
             cur_past = out.past_key_values
-            # print("key_value: ", cur_past)
+            # logger.info("key_value: ", cur_past)
 
             logprobs = log_softmax(logits)
             H_norm = normalized_entropy_from_logprobs(logprobs)
@@ -264,24 +264,24 @@ def logic_branch_decode(
                 # materialize children, commit one token for each branch
                 total_p = sum(p for _, p in conn_candidates)
                 for tid, p in conn_candidates:
-                    # print("token: ", tokenizer.decode([tid], clean_up_tokenization_spaces=False), " prob: ", p, " total_p: ", total_p)
+                    # logger.info("token: ", tokenizer.decode([tid], clean_up_tokenization_spaces=False), " prob: ", p, " total_p: ", total_p)
                     new_ids = torch.tensor([[tid]], device=DEVICE)
                     child_text = node.text + tokenizer.decode([tid], clean_up_tokenization_spaces=False)
                     new_tokens_cnt += 1
                     child_logprob = node.cum_logprob + math.log(max(p, 1e-12))
                     child_prob = node.prob * p / total_p
-                    # print("node_prob: ", node.prob, "child_prob: ", child_prob)
+                    # logger.info("node_prob: ", node.prob, "child_prob: ", child_prob)
                     child_length = node.length + 1
                     child = Node(text=child_text, cum_logprob=child_logprob, prob=child_prob, length=child_length, depth=depth+1)
 
                     tmp_ids, tmp_past = new_ids, copy.deepcopy(cur_past)
-                    # print("cur_past: ", cur_past, cur_past[0][0].shape)
+                    # logger.info("cur_past: ", cur_past, cur_past[0][0].shape)
                     skip_child = False
                     # all_head_attentions = None
                     if not stop_condition(tid, tokenizer):
                         for i in range(steps_branch):  # short span
                             out2 = model(input_ids=tmp_ids, past_key_values=tmp_past, use_cache=True)
-                            # print("cur_token: ", tokenizer.decode(tmp_ids[0, -1].item()), "cur_ids: ", tmp_ids, "key_value: ", tmp_past[0][0].shape)
+                            # logger.info("cur_token: ", tokenizer.decode(tmp_ids[0, -1].item()), "cur_ids: ", tmp_ids, "key_value: ", tmp_past[0][0].shape)
                             # attentions = out2.attentions[-1][0]
                             # head_attentions = attentions[:, -1, child_length-1].unsqueeze(-1)
                             # seq_length = attentions.shape[-1]
@@ -306,7 +306,7 @@ def logic_branch_decode(
 
                         # max_per_head = torch.max(all_head_attentions, dim=-1).values
                         # avg_max = torch.mean(max_per_head).item()
-                        # print("token: ", tokenizer.decode([tid], clean_up_tokenization_spaces=False), " avg_max: ", avg_max)
+                        # logger.info("token: ", tokenizer.decode([tid], clean_up_tokenization_spaces=False), " avg_max: ", avg_max)
                         # if avg_max < 0.4:
                         #     skip_child = True
 
@@ -326,7 +326,7 @@ def logic_branch_decode(
                             node=child,
                             past=(tmp_ids, tmp_past)
                         ))
-                        # print("tmp_past: ", tmp_past, tmp_past[0][0].shape)
+                        # logger.info("tmp_past: ", tmp_past, tmp_past[0][0].shape)
 
                 for child in children:
                     node.children.append(child)
@@ -404,7 +404,7 @@ def pretty_print_tree(node: Node, prefix: str = "", depth: int = 1, step: int = 
     branch = "│   " if node.children else "    "
     
     # 输出分割后的文本部分
-    print(f"L{depth}-S{step} {prefix}{connector}{new_text_part}")
+    logger.info(f"L{depth}-S{step} {prefix}{connector}{new_text_part}")
     
     # 递归处理子节点
     for i, child in enumerate(node.children):
@@ -440,23 +440,29 @@ def main():
         # torch.cuda.manual_seed_all(41)
         root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, branches_m=3)
 
-        print("\n--- Logic Tree ---")
+        logger.info("\n--- Logic Tree ---")
         pretty_print_tree(root)
 
-        print("\n--- Leaves ---")
+        logger.info("\n--- Leaves ---")
         # total_prob = sum(leaf.prob for leaf in leaves)
         for i, leaf in enumerate(leaves):
             txt = leaf.text.replace("\n", " ")
-            print(f"[{i:02d}] p={leaf.prob:.3f}  text_tail='{txt}'")
-        print(f"new_tokens_cnt: {new_tokens_cnt}")
+            logger.info(f"[{i:02d}] p={leaf.prob:.3f}  text_tail='{txt}'")
+        logger.info(f"new_tokens_cnt: {new_tokens_cnt}")
 
         # diversity = calculate_diversity(leaves)
-        # print("diversity", diversity)
-        # print(f"Diversity score: {diversity:.3f}")
+        # logger.info("diversity", diversity)
+        # logger.info(f"Diversity score: {diversity:.3f}")
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        filename='./logs/app.log',  # 使用绝对路径
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
     start_time = time.time()
     main()
     end_time = time.time()
     duration = end_time - start_time
-    print(f"\n[运行统计] 总耗时: {duration:.2f}秒 ({duration/60:.2f}分钟)")
+    logging.info(f"[运行统计] 总耗时: {duration:.2f}秒 ({duration/60:.2f}分钟)")

@@ -1,5 +1,6 @@
 import json
 import argparse
+import logging
 import math
 from typing import List
 from sentence_transformers import SentenceTransformer, util
@@ -27,7 +28,16 @@ from utils import parse_model_answer, parse_gsm8k_answer
 #     diversity = sum(distances)
 #     return diversity.item()
 
+logger = logging.getLogger(__name__)
+
 if __name__ == "__main__":
+    logging.basicConfig(
+        filename='./logs/app.log',  # 使用绝对路径
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--file_name", type=str, required=True, help="Include .json suffix")
@@ -119,9 +129,9 @@ if __name__ == "__main__":
             "label": labels,
             "uncertainty": uncertainties
         })
-        print(f"Processed {i+1} items")
+        logger.info(f"Processed {i+1} items")
 
     with open(output_path, 'w') as f:
         json.dump(results, f, indent=2)
         
-    print(f"\nResults saved to {output_path}")
+    logger.info(f"\nResults saved to {output_path}")
