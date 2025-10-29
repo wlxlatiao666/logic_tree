@@ -1,2 +1,0 @@
-nohup: ignoring input
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.56s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.54s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:07<00:02,  2.57s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.43s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:09<00:00,  2.48s/it]
