@@ -9,7 +9,12 @@ from utils import generate_usr_prompt
 from threshold import get_threshold
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+    logging.basicConfig(
+        filename='./logs/app.log',  # 使用绝对路径
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
     logger = logging.getLogger(__name__)
 
     parser = argparse.ArgumentParser()

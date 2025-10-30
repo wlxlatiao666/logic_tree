@@ -1,6 +1,8 @@
 import re
 import logging
 
+logger = logging.getLogger(__name__)
+
 def generate_usr_prompt(dataset: str, item: dict) -> str:
     if dataset == "gsm8k":
         usr_prompt = item["question"]
@@ -40,7 +42,6 @@ def parse_model_answer(model_answer):
     return str(model_answer).strip()
 
 def test_f():
-    logger = logging.getLogger(__name__)
     logger.info("这是一条测试日志")
 
 if __name__ == "__main__":

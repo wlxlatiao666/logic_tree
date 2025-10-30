@@ -38,16 +38,17 @@ def kl_divergence(p_counter, q_counter, smooth=1e-8):
     kl = np.sum(p * np.log(p / q))
     return kl
 
-with open('results/gsm8k/generated_answers_50samples_3.json', 'r') as f:
-    data_sc = json.load(f)[2:3]
-with open('results/gsm8k/logic_tree_results_100.json', 'r') as f:
-    data_lt = json.load(f)[2:3]
+index = 0
+with open('/Users/weilongxuan/codes/logic_tree/results/reclor/generated_answers_50samples_3.json', 'r') as f:
+    data_sc = json.load(f)[index:index+1]
+with open('./results/reclor/logic_tree_results_10repeats.json', 'r') as f:
+    data_lt = json.load(f)[index:index+1]
     
 for item_sc, item_lt in zip(data_sc, data_lt):
     answer_counter_sc = defaultdict(float)
     answer_counter_lt = defaultdict(float)
     texts_sc = item_sc.get('sampled_answers', [])
-    for t in texts_sc[:50]:
+    for t in texts_sc[:20]:
         ans = parse_model_answer(t)
         answer_counter_sc[ans] += 1.0
     texts_lt = item_lt.get('texts', [])
@@ -61,5 +62,5 @@ for item_sc, item_lt in zip(data_sc, data_lt):
     print(answer_counter_sc)
     print(answer_counter_lt)
 
-    kl_value = kl_divergence(answer_counter_sc, answer_counter_lt)
-    print(f'KL散度（generated_answers_50samples_3.json || logic_tree_results_100.json，probs加权）: {kl_value:.4f}')
+    # kl_value = kl_divergence(answer_counter_sc, answer_counter_lt)
+    # print(f'KL散度（generated_answers_50samples_3.json || logic_tree_results_100.json，probs加权）: {kl_value:.4f}')
