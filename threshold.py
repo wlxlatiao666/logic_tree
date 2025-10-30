@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-def get_threshold(tokenizer, model, dataset: str, max_items: int = 100, max_gen_tokens: int = 1024) -> float:
+def get_threshold(tokenizer, model, dataset: str, max_items: int = 10, max_gen_tokens: int = 1024) -> float:
     model.eval()
 
     dataset_path = f"./data/{dataset}/test.json"
@@ -66,7 +66,7 @@ def get_threshold(tokenizer, model, dataset: str, max_items: int = 100, max_gen_
     if len(entropies) == 0:
         return float('nan')
     arr = np.array(entropies)
-    threshold = float(np.percentile(arr, 98))
+    threshold = float(np.percentile(arr, 99.5))
     # min_v = float(np.min(arr))
     # max_v = float(np.max(arr))
     # threshold = min_v + 0.95 * (max_v - min_v)
@@ -74,12 +74,11 @@ def get_threshold(tokenizer, model, dataset: str, max_items: int = 100, max_gen_
 
 
 if __name__ == "__main__":
-    logging.basicConfig(
-        filename='./logs/app.log',  # 使用绝对路径
-        level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S'
-    )
+    fh = logging.FileHandler('./logs/app.log', encoding='utf-8')
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+    logger.setLevel(logging.INFO)
 
     model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct"
 

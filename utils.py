@@ -1,5 +1,10 @@
 import re
 import logging
+from sentence_transformers import SentenceTransformer, util
+
+logger = logging.getLogger(__name__)
+embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
+
 
 logger = logging.getLogger(__name__)
 
@@ -45,6 +50,11 @@ def test_f():
     logger.info("这是一条测试日志")
 
 if __name__ == "__main__":
+    fh = logging.FileHandler('./logs/app.log', encoding='utf-8')
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+    logger.setLevel(logging.INFO)
     # 测试
     print(parse_gsm8k_answer("The answer is #### 18"))  # 18
     print(parse_gsm8k_answer("####42"))  # 42
