@@ -21,10 +21,8 @@ from collections import defaultdict
 from datetime import datetime
 
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
+from transformers import AutoModelForCausalLM, AutoTokenizer
 from sentence_transformers import SentenceTransformer, util
-
-import sys
 
 logger = logging.getLogger(__name__)
 embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
@@ -240,8 +238,9 @@ def logic_branch_decode(
             logprobs = log_softmax(logits)
             H_norm = normalized_entropy_from_logprobs(logprobs)
             # is_split_point = node.text.endswith((".","?","!","\n")) and H_norm >= tau
-            random_factor = random.random()
-            is_split_point = H_norm >= tau and random_factor < 0.5
+            # random_factor = random.random()
+            # is_split_point = H_norm >= tau and random_factor < 0.5
+            is_split_point = H_norm >= tau
 
             if times >= max_times:
                 is_split_point = False
@@ -313,7 +312,7 @@ def logic_branch_decode(
                     current_embedding = embedder.encode(child.text[len(node.text):], convert_to_tensor=True)
                     for index, embedding in enumerate(child_embeddings): 
                         sim = util.cos_sim(embedding, current_embedding)
-                        if sim > 0.6:
+                        if sim > 0.5:
                             children[index].prob += child.prob # children[index]和items[index].node引用了同一个node
                             skip_child = True
                             break
@@ -436,7 +435,7 @@ def main():
     # D. presumes, without providing justification, that only businesses with low general operating expenses can succeed'''
     prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n"
 
-    for i in range(3):
+    for i in range(1):
         # torch.cuda.manual_seed_all(41)
         root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, branches_m=3)
 
@@ -455,14 +454,14 @@ def main():
         # logger.info(f"Diversity score: {diversity:.3f}")
 
 if __name__ == "__main__":
-    logging.basicConfig(
-        filename='./logs/app.log',  # 使用绝对路径
-        level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S'
-    )
+    fh = logging.FileHandler('./logs/app.log', encoding='utf-8')
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+    logger.setLevel(logging.INFO)
+    
     start_time = time.time()
     main()
     end_time = time.time()
     duration = end_time - start_time
-    logging.info(f"[运行统计] 总耗时: {duration:.2f}秒 ({duration/60:.2f}分钟)")
+    logger.info(f"[运行统计] 总耗时: {duration:.2f}秒 ({duration/60:.2f}分钟)")

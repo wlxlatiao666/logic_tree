@@ -31,12 +31,11 @@ from utils import parse_model_answer, parse_gsm8k_answer
 logger = logging.getLogger(__name__)
 
 if __name__ == "__main__":
-    logging.basicConfig(
-        filename='./logs/app.log',  # 使用绝对路径
-        level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        datefmt='%Y-%m-%d %H:%M:%S'
-    )
+    fh = logging.FileHandler('./logs/app.log', encoding='utf-8')
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+    logger.setLevel(logging.INFO)
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, required=True)
