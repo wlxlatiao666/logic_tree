@@ -75,6 +75,7 @@ if __name__ == "__main__":
     y_true = defaultdict(list)
     y_score = defaultdict(list)
     pe_true = []
+    pe_passk = []
     greedy_score = []
     topp_score = []
     pe_score = []
@@ -85,6 +86,7 @@ if __name__ == "__main__":
         y_true['topk_topp'].append(topp_item['label'])
         topp_score.append(-topp_item['avg_logprob'])
         pe_true.append(pe_item['label'])
+        pe_passk.append(pe_item['passk'])
         pe_score.append(-pe_item['predictive_entropy'])
         labels = item["label"]
         for index in labels:
@@ -111,6 +113,7 @@ if __name__ == "__main__":
 
     print("\n\nPredictive Entropy Results:")
     print("accuracy:", sum(pe_true) / len(pe_true))
+    print("pass@k:", sum(pe_passk) / len(pe_passk))
     auroc = roc_auc_score(y_true['greedy'], pe_score)
     print(f"Predictive Entropy AUROC: {auroc:.4f}")
     auarc = compute_auarc(pe_score, y_true['greedy'])

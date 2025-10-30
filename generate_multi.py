@@ -114,7 +114,8 @@ if __name__ == '__main__':
         # 找出出现次数最多的答案
         most_common_answer, _ = answer_counts.most_common(1)[0]
         if dataset == "gsm8k":
-            label = int(parse_gsm8k_answer(item["answer"]) == most_common_answer)
+            gt_answer = parse_gsm8k_answer(item["answer"])
+            label = int(gt_answer == most_common_answer)
         elif dataset == "reclor":
             label_to_answer = {
                 0: "A",
@@ -122,10 +123,16 @@ if __name__ == '__main__':
                 2: "C",
                 3: "D",
             }
-            gt = label_to_answer[item["label"]]
-            label = int(gt == most_common_answer)
+            gt_answer = label_to_answer[item["label"]]
+            label = int(gt_answer == most_common_answer)
         else:
             label = 0
+
+        passk = 0
+        for answer in parsed_answers:
+            if answer == gt_answer:
+                passk = 1
+                break
 
         results.append({
             "original_data": item,
@@ -134,6 +141,7 @@ if __name__ == '__main__':
             "sampled_entropies": sampled_entropies,
             "predictive_entropy": predictive_entropy,
             "label": label,
+            "passk": passk
         })
     end_time = time.time()
     duration = end_time - start_time
