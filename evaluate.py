@@ -127,6 +127,7 @@ if __name__ == "__main__":
     ece = compute_ece(pe_score, pe_true)
     print(f"Predictive Entropy ECE(pe label): {ece:.4f}")
 
+
     print("\n\nLogic Tree Results:")
     for label in y_true:
         print(f"accuracy for label {label}: {sum(y_true[label]) / len(y_true[label])}")
