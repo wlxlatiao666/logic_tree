@@ -62,14 +62,14 @@ if __name__ == "__main__":
 
     dataset = args.dataset
     file_name = args.file_name
-    sys.stdout = open(f'./results/{dataset}/output_100_merged.txt', 'w', encoding='utf-8')
+    sys.stdout = open(f'./results/{dataset}/output_all_20.txt', 'w', encoding='utf-8')
     with open(f'./results/{dataset}/{file_name}') as f:
         data = json.load(f)
     with open(f'./results/{dataset}/generated_answers_greedy.json') as f:
         greedy_data = json.load(f)
     with open(f'./results/{dataset}/generated_answers_topk_topp.json') as f:
         topk_topp_data = json.load(f)
-    with open(f'./results/{dataset}/generated_answers_5samples.json') as f:
+    with open(f'./results/{dataset}/generated_answers_20samples.json') as f:
         data_5samples = json.load(f)
 
     y_true = defaultdict(list)
@@ -115,11 +115,17 @@ if __name__ == "__main__":
     print("accuracy:", sum(pe_true) / len(pe_true))
     print("pass@k:", sum(pe_passk) / len(pe_passk))
     auroc = roc_auc_score(y_true['greedy'], pe_score)
-    print(f"Predictive Entropy AUROC: {auroc:.4f}")
+    print(f"Predictive Entropy AUROC(greedy label): {auroc:.4f}")
+    auroc = roc_auc_score(pe_true, pe_score)
+    print(f"Predictive Entropy AUROC(pe label): {auroc:.4f}")
     auarc = compute_auarc(pe_score, y_true['greedy'])
-    print(f"Predictive Entropy AUARC: {auarc:.4f}")
+    print(f"Predictive Entropy AUARC(greedy label): {auarc:.4f}")
+    auarc = compute_auarc(pe_score, pe_true)
+    print(f"Predictive Entropy AUARC(pe label): {auarc:.4f}")
     ece = compute_ece(pe_score, y_true['greedy'])
-    print(f"Predictive Entropy ECE: {ece:.4f}")
+    print(f"Predictive Entropy ECE(greedy label): {ece:.4f}")
+    ece = compute_ece(pe_score, pe_true)
+    print(f"Predictive Entropy ECE(pe label): {ece:.4f}")
 
     print("\n\nLogic Tree Results:")
     for label in y_true:
