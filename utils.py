@@ -18,6 +18,12 @@ def generate_usr_prompt(dataset: str, item: dict) -> str:
             "\nC. " + item['answers'][2] + \
             "\nD. " + item['answers'][3]
         print("usr_prompt: ", usr_prompt)
+    elif dataset == "gpqa":
+        usr_prompt = "Question: " + item['question'] + \
+            "\nA. " + item['candidates'][0] + \
+            "\nB. " + item['candidates'][1] + \
+            "\nC. " + item['candidates'][2] + \
+            "\nD. " + item['candidates'][3]
     else:
         raise ValueError(f"dataset {dataset} not supported")
     return usr_prompt
@@ -45,6 +51,29 @@ def parse_model_answer(model_answer):
     if match:
         return match.group(1).strip()
     return str(model_answer).strip()
+
+def get_gt_answer(dataset: str, item: dict) -> str:
+    if dataset == "gsm8k":
+        gt_answer = parse_gsm8k_answer(item["answer"])
+    elif dataset == "reclor":
+        label_to_answer = {
+            0: "A",
+            1: "B",
+            2: "C",
+            3: "D",
+        }
+        gt_answer = label_to_answer[item["label"]]
+    elif dataset == "gpqa":
+        label_to_answer = {
+            0: "A",
+            1: "B",
+            2: "C",
+            3: "D",
+        }
+        gt_answer = label_to_answer[item["answer_index"]]
+    else:
+        gt_answer = 'No answer.'
+    return gt_answer
 
 def test_f():
     logger.info("这是一条测试日志")

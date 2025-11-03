@@ -9,7 +9,7 @@ import torch
 import torch.nn.functional as F
 import sys
 import argparse
-from utils import generate_usr_prompt, parse_model_answer, parse_gsm8k_answer
+from utils import generate_usr_prompt, parse_model_answer, get_gt_answer
 
 logger = logging.getLogger(__name__)
 
@@ -113,20 +113,8 @@ if __name__ == '__main__':
             predictive_entropy -= p * math.log(p)
         # 找出出现次数最多的答案
         most_common_answer, _ = answer_counts.most_common(1)[0]
-        if dataset == "gsm8k":
-            gt_answer = parse_gsm8k_answer(item["answer"])
-            label = int(gt_answer == most_common_answer)
-        elif dataset == "reclor":
-            label_to_answer = {
-                0: "A",
-                1: "B",
-                2: "C",
-                3: "D",
-            }
-            gt_answer = label_to_answer[item["label"]]
-            label = int(gt_answer == most_common_answer)
-        else:
-            label = 0
+        gt_answer = get_gt_answer(dataset, item)
+        label = int(gt_answer == most_common_answer)
 
         passk = 0
         for answer in parsed_answers:

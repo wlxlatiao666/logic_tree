@@ -6,7 +6,7 @@ import torch
 import torch.nn.functional as F
 from datetime import datetime
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from utils import generate_usr_prompt, parse_gsm8k_answer, parse_model_answer
+from utils import generate_usr_prompt, parse_model_answer, get_gt_answer
 import sys
 
 logger = logging.getLogger(__name__)
@@ -98,19 +98,8 @@ if __name__ == "__main__":
         # 计算平均对数概率
         avg_logprob = sum(neg_logprobs) / len(neg_logprobs) if neg_logprobs else 0.0
 
-        if dataset == "gsm8k":
-            label = int(parse_gsm8k_answer(item["answer"]) == parse_model_answer(generated_text))
-        elif dataset == "reclor":
-            label_to_answer = {
-                0: "A",
-                1: "B",
-                2: "C",
-                3: "D",
-            }
-            gt = label_to_answer[item["label"]]
-            label = int(gt == parse_model_answer(generated_text))
-        else:
-            label = 0
+        gt_answer = get_gt_answer(dataset, item)
+        label = int(parse_model_answer(generated_text) == gt_answer)
 
         results.append({
             "original_data": item,
