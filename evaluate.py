@@ -62,14 +62,14 @@ if __name__ == "__main__":
 
     dataset = args.dataset
     file_name = args.file_name
-    sys.stdout = open(f'./results/{dataset}/output_all_20.txt', 'w', encoding='utf-8')
+    sys.stdout = open(f'./results/{dataset}/output_200.txt', 'w', encoding='utf-8')
     with open(f'./results/{dataset}/{file_name}') as f:
         data = json.load(f)
     with open(f'./results/{dataset}/generated_answers_greedy.json') as f:
         greedy_data = json.load(f)
     with open(f'./results/{dataset}/generated_answers_topk_topp.json') as f:
         topk_topp_data = json.load(f)
-    with open(f'./results/{dataset}/generated_answers_20samples.json') as f:
+    with open(f'./results/{dataset}/generated_answers_5samples.json') as f:
         data_5samples = json.load(f)
 
     y_true = defaultdict(list)
