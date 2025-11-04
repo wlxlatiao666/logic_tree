@@ -66,7 +66,7 @@ def get_threshold(tokenizer, model, dataset: str, max_items: int = 100, max_gen_
     if len(entropies) == 0:
         return float('nan')
     arr = np.array(entropies)
-    threshold = float(np.percentile(arr, 95))
+    threshold = float(np.percentile(arr, 80))
     # min_v = float(np.min(arr))
     # max_v = float(np.max(arr))
     # threshold = min_v + 0.95 * (max_v - min_v)

@@ -43,7 +43,7 @@ if __name__ == "__main__":
         sys_prompt = json.load(f)[dataset]
 
     thr = get_threshold(tokenizer, model, dataset)
-    logger.info(f"Threshold: {thr}")
+    logger.info(f"Threshold for {dataset}: {thr}")
 
     # generate
     results = []

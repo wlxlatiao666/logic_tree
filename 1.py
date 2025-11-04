@@ -1,7 +1,7 @@
 import json
 
-sc_path = ""
-lt_path = ""
+sc_path = "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/logic_tree/results/reclor/generated_answers_20samples.json"
+lt_path = "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/logic_tree/results/reclor/logic_tree_results_200_metrics.json"
 
 with open(sc_path) as f:
     sc_data = json.load(f)

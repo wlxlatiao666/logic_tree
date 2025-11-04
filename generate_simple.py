@@ -25,6 +25,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     dataset = args.dataset
     sample = args.sample
+    logger.info(f"Sample: {sample}")
 
     model_name = '/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct'
     device = "cuda" if torch.cuda.is_available() else "cpu"

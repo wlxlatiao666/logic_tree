@@ -1,2 +1,3 @@
-python generate.py --dataset gsm8k --test_size 200
-python generate.py --dataset reclor --test_size 200
+python generate_simple.py --dataset gpqa --sample True
+# python generate_simple.py --dataset gpqa --sample False
+python generate_multi.py --dataset gpqa --samples 5
