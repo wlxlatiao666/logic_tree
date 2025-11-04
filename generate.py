@@ -58,6 +58,8 @@ if __name__ == "__main__":
         probs = [leaf.prob for leaf in leaves]
         texts = [leaf.text for leaf in leaves]
         entropies = [-leaf.cum_logprob / leaf.length if leaf.length > 0 else 0.0 for leaf in leaves]
+        split_positions = [leaf.split_positions for leaf in leaves]
+        lengths = [leaf.length for leaf in leaves]
         results.append({
             "original_data": item,
             "num_new_tokens": new_tokens_cnt,
@@ -65,6 +67,8 @@ if __name__ == "__main__":
             "complexity": complexity,
             "probs": probs,
             "entropies": entropies,
+            "split_positions": split_positions,
+            "lengths": lengths,
             "texts": texts
         })
         logger.info(f"Processed {i+1} items")

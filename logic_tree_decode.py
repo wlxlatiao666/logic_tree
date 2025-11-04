@@ -153,6 +153,7 @@ class Node:
     length: int = field(default=0)
     depth: int = field(default=0)
     children: List["Node"] = field(default_factory=list)
+    split_positions: List[int] = field(default_factory=list)
 
 # def calculate_entropy(node: Node):
 #     if not node.children:  # 叶子节点
@@ -271,7 +272,8 @@ def logic_branch_decode(
                     child_prob = node.prob * p / total_p
                     # logger.info("node_prob: ", node.prob, "child_prob: ", child_prob)
                     child_length = node.length + 1
-                    child = Node(text=child_text, cum_logprob=child_logprob, prob=child_prob, length=child_length, depth=depth+1)
+                    node.split_positions.append(node.length)
+                    child = Node(text=child_text, cum_logprob=child_logprob, prob=child_prob, length=child_length, depth=depth+1, split_positions=node.split_positions.copy())
 
                     tmp_ids, tmp_past = new_ids, copy.deepcopy(cur_past)
                     # logger.info("cur_past: ", cur_past, cur_past[0][0].shape)
