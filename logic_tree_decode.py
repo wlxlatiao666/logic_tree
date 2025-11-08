@@ -247,6 +247,7 @@ def logic_branch_decode(
                 is_split_point = False
 
             if is_split_point:
+                node.split_positions.append(node.length)
                 filt_probs = softmax(logits)
                 top_vals, top_idx = torch.topk(filt_probs, k=branches_m)
                 top_idx = top_idx.tolist()
@@ -272,7 +273,6 @@ def logic_branch_decode(
                     child_prob = node.prob * p / total_p
                     # logger.info("node_prob: ", node.prob, "child_prob: ", child_prob)
                     child_length = node.length + 1
-                    node.split_positions.append(node.length)
                     child = Node(text=child_text, cum_logprob=child_logprob, prob=child_prob, length=child_length, depth=depth+1, split_positions=node.split_positions.copy())
 
                     tmp_ids, tmp_past = new_ids, copy.deepcopy(cur_past)
