@@ -1,0 +1,105 @@
+nohup: ignoring input
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:10<00:31, 10.48s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:23<00:23, 11.79s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:37<00:12, 12.96s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:45<00:00, 11.17s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:45<00:00, 11.49s/it]
+INFO:__main__:Sample: True
+INFO:__main__:Threshold for reclor: 0.6537747530001146
+INFO:__main__:Processed 1 items
+INFO:__main__:Processed 2 items
+INFO:__main__:Processed 3 items
+INFO:__main__:Processed 4 items
+INFO:__main__:Processed 5 items
+INFO:__main__:Processed 6 items
+INFO:__main__:Processed 7 items
+INFO:__main__:Processed 8 items
+INFO:__main__:Processed 9 items
+INFO:__main__:Processed 10 items
+INFO:__main__:Processed 11 items
+INFO:__main__:Processed 12 items
+INFO:__main__:Processed 13 items
+INFO:__main__:Processed 14 items
+INFO:__main__:Processed 15 items
+INFO:__main__:Processed 16 items
+INFO:__main__:Processed 17 items
+INFO:__main__:Processed 18 items
+INFO:__main__:Processed 19 items
+INFO:__main__:Processed 20 items
+INFO:__main__:Processed 21 items
+INFO:__main__:Processed 22 items
+INFO:__main__:Processed 23 items
+INFO:__main__:Processed 24 items
+INFO:__main__:Processed 25 items
+INFO:__main__:Processed 26 items
+INFO:__main__:Processed 27 items
+INFO:__main__:Processed 28 items
+INFO:__main__:Processed 29 items
+INFO:__main__:Processed 30 items
+INFO:__main__:Processed 31 items
+INFO:__main__:Processed 32 items
+INFO:__main__:Processed 33 items
+INFO:__main__:Processed 34 items
+INFO:__main__:Processed 35 items
+INFO:__main__:Processed 36 items
+INFO:__main__:Processed 37 items
+INFO:__main__:Processed 38 items
+INFO:__main__:Processed 39 items
+INFO:__main__:Processed 40 items
+INFO:__main__:Processed 41 items
+INFO:__main__:Processed 42 items
+INFO:__main__:Processed 43 items
+INFO:__main__:Processed 44 items
+INFO:__main__:Processed 45 items
+INFO:__main__:Processed 46 items
+INFO:__main__:Processed 47 items
+INFO:__main__:Processed 48 items
+INFO:__main__:Processed 49 items
+INFO:__main__:Processed 50 items
+INFO:__main__:Processed 51 items
+INFO:__main__:Processed 52 items
+INFO:__main__:Processed 53 items
+INFO:__main__:Processed 54 items
+INFO:__main__:Processed 55 items
+INFO:__main__:Processed 56 items
+INFO:__main__:Processed 57 items
+INFO:__main__:Processed 58 items
+INFO:__main__:Processed 59 items
+INFO:__main__:Processed 60 items
+INFO:__main__:Processed 61 items
+INFO:__main__:Processed 62 items
+INFO:__main__:Processed 63 items
+INFO:__main__:Processed 64 items
+INFO:__main__:Processed 65 items
+INFO:__main__:Processed 66 items
+INFO:__main__:Processed 67 items
+INFO:__main__:Processed 68 items
+INFO:__main__:Processed 69 items
+INFO:__main__:Processed 70 items
+INFO:__main__:Processed 71 items
+INFO:__main__:Processed 72 items
+INFO:__main__:Processed 73 items
+INFO:__main__:Processed 74 items
+INFO:__main__:Processed 75 items
+INFO:__main__:Processed 76 items
+INFO:__main__:Processed 77 items
+INFO:__main__:Processed 78 items
+INFO:__main__:Processed 79 items
+INFO:__main__:Processed 80 items
+INFO:__main__:Processed 81 items
+INFO:__main__:Processed 82 items
+INFO:__main__:Processed 83 items
+INFO:__main__:Processed 84 items
+INFO:__main__:Processed 85 items
+INFO:__main__:Processed 86 items
+INFO:__main__:Processed 87 items
+INFO:__main__:Processed 88 items
+INFO:__main__:Processed 89 items
+INFO:__main__:Processed 90 items
+INFO:__main__:Processed 91 items
+INFO:__main__:Processed 92 items
+INFO:__main__:Processed 93 items
+INFO:__main__:Processed 94 items
+INFO:__main__:Processed 95 items
+INFO:__main__:Processed 96 items
+INFO:__main__:Processed 97 items
+INFO:__main__:Processed 98 items
+INFO:__main__:Processed 99 items
+INFO:__main__:Processed 100 items
+INFO:__main__:generate 100 results in 9547.24 seconds(159.12 minutes)

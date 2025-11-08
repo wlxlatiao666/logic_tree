@@ -1,6 +1,95 @@
+Greedy Results:
+Greedy AUROC: 0.5247
+Greedy AUARC: 0.4067
+Greedy ECE: 0.1729
+
+
+Top-K/Top-P Results:
+Top-K/Top-P AUROC: 0.5104
+Top-K/Top-P AUARC: 0.3468
+Top-K/Top-P ECE: 0.2629
+
+
+Predictive Entropy Results:
+accuracy: 0.365
+pass@k: 0.595
+Predictive Entropy AUROC(greedy label): 0.5753
+Predictive Entropy AUROC(pe label): 0.5986
+Predictive Entropy AUARC(greedy label): 0.4157
+Predictive Entropy AUARC(pe label): 0.4204
+Predictive Entropy ECE(greedy label): 0.2472
+Predictive Entropy ECE(pe label): 0.2622
 
 
 Logic Tree Results:
+accuracy for label greedy: 0.38
+greedy + weighted_leaf_avg_entropy AUROC: 0.5331
+greedy + weighted_leaf_avg_entropy AUARC: 0.4111
+greedy + weighted_leaf_avg_entropy ECE: 0.1812
+
+
+greedy + max_leaf_avg_entropy AUROC: 0.5276
+greedy + max_leaf_avg_entropy AUARC: 0.4048
+greedy + max_leaf_avg_entropy ECE: 0.2479
+
+
+greedy + avg_leaf_avg_entropy AUROC: 0.5452
+greedy + avg_leaf_avg_entropy AUARC: 0.4178
+greedy + avg_leaf_avg_entropy ECE: 0.1519
+
+
+greedy + complexity AUROC: 0.4808
+greedy + complexity AUARC: 0.3792
+greedy + complexity ECE: 0.3817
+
+
+greedy + predictive_entropy_weighted AUROC: 0.5504
+greedy + predictive_entropy_weighted AUARC: 0.4110
+greedy + predictive_entropy_weighted ECE: 0.3446
+
+
+greedy + probs_entropy AUROC: 0.4231
+greedy + probs_entropy AUARC: 0.3148
+greedy + probs_entropy ECE: 0.2414
+
+
+
+
+
+accuracy for label topk_topp: 0.35
+topk_topp + weighted_leaf_avg_entropy AUROC: 0.4981
+topk_topp + weighted_leaf_avg_entropy AUARC: 0.3369
+topk_topp + weighted_leaf_avg_entropy ECE: 0.2251
+
+
+topk_topp + max_leaf_avg_entropy AUROC: 0.5115
+topk_topp + max_leaf_avg_entropy AUARC: 0.3524
+topk_topp + max_leaf_avg_entropy ECE: 0.2788
+
+
+topk_topp + avg_leaf_avg_entropy AUROC: 0.5143
+topk_topp + avg_leaf_avg_entropy AUARC: 0.3437
+topk_topp + avg_leaf_avg_entropy ECE: 0.1754
+
+
+topk_topp + complexity AUROC: 0.4948
+topk_topp + complexity AUARC: 0.3620
+topk_topp + complexity ECE: 0.4105
+
+
+topk_topp + predictive_entropy_weighted AUROC: 0.5565
+topk_topp + predictive_entropy_weighted AUARC: 0.3751
+topk_topp + predictive_entropy_weighted ECE: 0.3417
+
+
+topk_topp + probs_entropy AUROC: 0.4299
+topk_topp + probs_entropy AUARC: 0.2795
+topk_topp + probs_entropy ECE: 0.2114
+
+
+
+
+
 accuracy for label answer_vote_weighted_nothreshold: 0.35
 answer_vote_weighted_nothreshold + weighted_leaf_avg_entropy AUROC: 0.5270
 answer_vote_weighted_nothreshold + weighted_leaf_avg_entropy AUARC: 0.3641

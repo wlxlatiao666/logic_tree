@@ -1,0 +1,1702 @@
+[
+  {
+    "gt_answer": "18",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2386916266285692,
+      "max_leaf_avg_entropy": 0.2600927108758183,
+      "avg_leaf_avg_entropy": 0.2945392556038993,
+      "complexity": 5.961881957209563,
+      "predictive_entropy_weighted": 0.00529744943342551,
+      "probs_entropy": 1.0345554320802017
+    }
+  },
+  {
+    "gt_answer": "3",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.28082881862495196,
+      "max_leaf_avg_entropy": 0.3207547230572992,
+      "avg_leaf_avg_entropy": 0.3424847141411323,
+      "complexity": 4.978177334423284,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.8005383014687038
+    }
+  },
+  {
+    "gt_answer": "70000",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.21362406081929378,
+      "max_leaf_avg_entropy": 0.2916447120175435,
+      "avg_leaf_avg_entropy": 0.33279945259291055,
+      "complexity": 4.0,
+      "predictive_entropy_weighted": 0.6791351894744485,
+      "probs_entropy": 0.7453623892354915
+    }
+  },
+  {
+    "gt_answer": "540",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.18931651527961552,
+      "max_leaf_avg_entropy": 0.20178290149157616,
+      "avg_leaf_avg_entropy": 0.21977568746934295,
+      "complexity": 6.0636244583942505,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.1791436848642014
+    }
+  },
+  {
+    "gt_answer": "20",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.22112390930066386,
+      "max_leaf_avg_entropy": 0.22112390930066386,
+      "avg_leaf_avg_entropy": 0.22112390930066386,
+      "complexity": 6.0,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": -0.0
+    }
+  },
+  {
+    "gt_answer": "64",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2569364759136452,
+      "max_leaf_avg_entropy": 0.23133183712806987,
+      "avg_leaf_avg_entropy": 0.2905896606443698,
+      "complexity": 7.767508252352109,
+      "predictive_entropy_weighted": 0.4562568589200176,
+      "probs_entropy": 0.9932804983211193
+    }
+  },
+  {
+    "gt_answer": "260",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.18590550616958168,
+      "max_leaf_avg_entropy": 0.22634955208591556,
+      "avg_leaf_avg_entropy": 0.18509085065787306,
+      "complexity": 3.260941584526026,
+      "predictive_entropy_weighted": 0.6581801396753306,
+      "probs_entropy": 1.056488337516403
+    }
+  },
+  {
+    "gt_answer": "160",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.1499191368395667,
+      "max_leaf_avg_entropy": 0.14951796599456563,
+      "avg_leaf_avg_entropy": 0.25088742940894115,
+      "complexity": 3.9985945397649476,
+      "predictive_entropy_weighted": 0.02754412130280222,
+      "probs_entropy": 0.03764923034569955
+    }
+  },
+  {
+    "gt_answer": "45",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.253160734964837,
+      "max_leaf_avg_entropy": 0.24851616786448874,
+      "avg_leaf_avg_entropy": 0.2675867439186536,
+      "complexity": 4.0,
+      "predictive_entropy_weighted": 0.07643150562698128,
+      "probs_entropy": 1.09289573494909
+    }
+  },
+  {
+    "gt_answer": "460",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.1852787130869602,
+      "max_leaf_avg_entropy": 0.1818372948471549,
+      "avg_leaf_avg_entropy": 0.2080580219578311,
+      "complexity": 6.026480581018795,
+      "predictive_entropy_weighted": 0.1499735873759239,
+      "probs_entropy": 0.22374478186162597
+    }
+  },
+  {
+    "gt_answer": "366",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.1973034988095291,
+      "max_leaf_avg_entropy": 0.190886838111565,
+      "avg_leaf_avg_entropy": 0.1789911893498913,
+      "complexity": 5.422205881599974,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.724553682904318
+    }
+  },
+  {
+    "gt_answer": "694",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.10150908465484407,
+      "max_leaf_avg_entropy": 0.09563056298736415,
+      "avg_leaf_avg_entropy": 0.11076723099487795,
+      "complexity": 5.805818504291636,
+      "predictive_entropy_weighted": 0.4922296851862108,
+      "probs_entropy": 0.4922296851862109
+    }
+  },
+  {
+    "gt_answer": "13",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.5001537503810676,
+      "max_leaf_avg_entropy": 0.6211777833715526,
+      "avg_leaf_avg_entropy": 0.41591985202413806,
+      "complexity": 5.386578418612801,
+      "predictive_entropy_weighted": 0.5189779722803495,
+      "probs_entropy": 1.085997153835966
+    }
+  },
+  {
+    "gt_answer": "18",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.13747424073176814,
+      "max_leaf_avg_entropy": 0.13521117018368833,
+      "avg_leaf_avg_entropy": 0.23546885608266646,
+      "complexity": 5.942996075175353,
+      "predictive_entropy_weighted": 0.2269168245079757,
+      "probs_entropy": 0.2663844346684034
+    }
+  },
+  {
+    "gt_answer": "60",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.14243466935652413,
+      "max_leaf_avg_entropy": 0.1182546441463567,
+      "avg_leaf_avg_entropy": 0.1512736880197335,
+      "complexity": 6.4693966564514485,
+      "predictive_entropy_weighted": 0.6627883426563588,
+      "probs_entropy": 1.0964209580855
+    }
+  },
+  {
+    "gt_answer": "125",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.30288004037185845,
+      "max_leaf_avg_entropy": 0.335466804550026,
+      "avg_leaf_avg_entropy": 0.2934102880339104,
+      "complexity": 6.0,
+      "predictive_entropy_weighted": 1.201522248137438,
+      "probs_entropy": 1.4503161206520367
+    }
+  },
+  {
+    "gt_answer": "230",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.407185576414464,
+      "max_leaf_avg_entropy": 0.4139457588657185,
+      "avg_leaf_avg_entropy": 0.4533255750016801,
+      "complexity": 4.0,
+      "predictive_entropy_weighted": 0.23771409750850772,
+      "probs_entropy": 1.7956590488787156
+    }
+  },
+  {
+    "gt_answer": "57500",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 0
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.15788877035321397,
+      "max_leaf_avg_entropy": 0.15788877035321397,
+      "avg_leaf_avg_entropy": 0.15788877035321397,
+      "complexity": 9.0,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": -0.0
+    }
+  },
+  {
+    "gt_answer": "7",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.20256107962617437,
+      "max_leaf_avg_entropy": 0.1861600238900636,
+      "avg_leaf_avg_entropy": 0.22938817119022642,
+      "complexity": 5.638802586408876,
+      "predictive_entropy_weighted": 0.0007490599252216603,
+      "probs_entropy": 0.9426305431987121
+    }
+  },
+  {
+    "gt_answer": "6",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.19781442437694036,
+      "max_leaf_avg_entropy": 0.19559709574643297,
+      "avg_leaf_avg_entropy": 0.2484877316789007,
+      "complexity": 10.985146507625789,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.16585803823577497
+    }
+  },
+  {
+    "gt_answer": "15",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.1979968933858034,
+      "max_leaf_avg_entropy": 0.2208934622686051,
+      "avg_leaf_avg_entropy": 0.22023126378060806,
+      "complexity": 4.481211698617956,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.72847358179979
+    }
+  },
+  {
+    "gt_answer": "14",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.25398963566597965,
+      "max_leaf_avg_entropy": 0.2453773968014165,
+      "avg_leaf_avg_entropy": 0.2979539034162869,
+      "complexity": 4.999999999999999,
+      "predictive_entropy_weighted": 0.4960860142522546,
+      "probs_entropy": 0.4963928899673472
+    }
+  },
+  {
+    "gt_answer": "7",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.13347219726946397,
+      "max_leaf_avg_entropy": 0.13202727624495633,
+      "avg_leaf_avg_entropy": 0.17344730245242174,
+      "complexity": 6.000049577444411,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.4437273168621765
+    }
+  },
+  {
+    "gt_answer": "8",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.1938236245325486,
+      "max_leaf_avg_entropy": 0.1954372386262929,
+      "avg_leaf_avg_entropy": 0.2631800681398271,
+      "complexity": 4.399676382943289,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.8684249504021614
+    }
+  },
+  {
+    "gt_answer": "26",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.17403502757297729,
+      "max_leaf_avg_entropy": 0.16069709447171046,
+      "avg_leaf_avg_entropy": 0.20152817894139305,
+      "complexity": 8.128122946184694,
+      "predictive_entropy_weighted": 0.25549953002349823,
+      "probs_entropy": 1.1869740518237475
+    }
+  },
+  {
+    "gt_answer": "2",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.19221072238442016,
+      "max_leaf_avg_entropy": 0.22119950865497764,
+      "avg_leaf_avg_entropy": 0.22400017645580847,
+      "complexity": 6.0,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.102150069642319
+    }
+  },
+  {
+    "gt_answer": "243",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.13741251043448513,
+      "max_leaf_avg_entropy": 0.1157496822523327,
+      "avg_leaf_avg_entropy": 0.1683598131354878,
+      "complexity": 5.395078753581189,
+      "predictive_entropy_weighted": 1.2060246960535796,
+      "probs_entropy": 1.21600574132568
+    }
+  },
+  {
+    "gt_answer": "16",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.21615265313026785,
+      "max_leaf_avg_entropy": 0.21825700422250066,
+      "avg_leaf_avg_entropy": 0.21003397358553758,
+      "complexity": 8.0,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.1684908984416584
+    }
+  },
+  {
+    "gt_answer": "25",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.24423994263584717,
+      "max_leaf_avg_entropy": 0.22456120415363756,
+      "avg_leaf_avg_entropy": 0.3784766134187549,
+      "complexity": 4.999999425315361,
+      "predictive_entropy_weighted": 2.5182267224525392e-06,
+      "probs_entropy": 0.6972592161913566
+    }
+  },
+  {
+    "gt_answer": "104",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.30641428903259516,
+      "max_leaf_avg_entropy": 0.3059900724483745,
+      "avg_leaf_avg_entropy": 0.30798835820547243,
+      "complexity": 5.0,
+      "predictive_entropy_weighted": 0.07883744895682705,
+      "probs_entropy": 0.09188302829643964
+    }
+  },
+  {
+    "gt_answer": "109",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.25050907635271513,
+      "max_leaf_avg_entropy": 0.29856407463360696,
+      "avg_leaf_avg_entropy": 0.2652726253478479,
+      "complexity": 3.9999999999999996,
+      "predictive_entropy_weighted": 0.9420078315009848,
+      "probs_entropy": 0.9959417703810092
+    }
+  },
+  {
+    "gt_answer": "80",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.14177057252280828,
+      "max_leaf_avg_entropy": 0.1389656158846389,
+      "avg_leaf_avg_entropy": 0.19877004896358233,
+      "complexity": 5.995570817466146,
+      "predictive_entropy_weighted": 0.013843506511876314,
+      "probs_entropy": 0.2960872065710534
+    }
+  },
+  {
+    "gt_answer": "35",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.24922134418444367,
+      "max_leaf_avg_entropy": 0.2533904228698345,
+      "avg_leaf_avg_entropy": 0.2767298953220877,
+      "complexity": 4.141671681871272,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.8645923382368138
+    }
+  },
+  {
+    "gt_answer": "70",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.13682906867075048,
+      "max_leaf_avg_entropy": 0.1681127635419941,
+      "avg_leaf_avg_entropy": 0.1698279352739067,
+      "complexity": 4.119797586783831,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.2978881700394373
+    }
+  },
+  {
+    "gt_answer": "23",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.10539261654876673,
+      "max_leaf_avg_entropy": 0.10538614631013965,
+      "avg_leaf_avg_entropy": 0.17176200479905757,
+      "complexity": 7.00006472691358,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.0007316996696614655
+    }
+  },
+  {
+    "gt_answer": "9",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.1723576746849639,
+      "max_leaf_avg_entropy": 0.16914446724348217,
+      "avg_leaf_avg_entropy": 0.26537000902087093,
+      "complexity": 5.978021061666264,
+      "predictive_entropy_weighted": 0.10705018467060634,
+      "probs_entropy": 0.2542050070020579
+    }
+  },
+  {
+    "gt_answer": "75",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.0962440429938187,
+      "max_leaf_avg_entropy": 0.09477005220403568,
+      "avg_leaf_avg_entropy": 0.11706786631788658,
+      "complexity": 6.191169645194964,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.4867117734175235
+    }
+  },
+  {
+    "gt_answer": "2",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 0
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.23054908003181307,
+      "max_leaf_avg_entropy": 0.23108503358693175,
+      "avg_leaf_avg_entropy": 0.26302348828451694,
+      "complexity": 7.987482770135268,
+      "predictive_entropy_weighted": 0.10428229107599571,
+      "probs_entropy": 0.5435594051586006
+    }
+  },
+  {
+    "gt_answer": "10",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.36942570613209796,
+      "max_leaf_avg_entropy": 0.3009813350294709,
+      "avg_leaf_avg_entropy": 0.42081923917930997,
+      "complexity": 4.0,
+      "predictive_entropy_weighted": 0.16203687014847099,
+      "probs_entropy": 1.0426074799271088
+    }
+  },
+  {
+    "gt_answer": "18",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.14583142574293492,
+      "max_leaf_avg_entropy": 0.14556207789212405,
+      "avg_leaf_avg_entropy": 0.212053265211383,
+      "complexity": 8.999999391322541,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.039574699958165885
+    }
+  },
+  {
+    "gt_answer": "8",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.15654658373567149,
+      "max_leaf_avg_entropy": 0.1960139695814818,
+      "avg_leaf_avg_entropy": 0.1835791344305057,
+      "complexity": 4.000000000000001,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.2171205861913947
+    }
+  },
+  {
+    "gt_answer": "200",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.31070987836897723,
+      "max_leaf_avg_entropy": 0.301801395943075,
+      "avg_leaf_avg_entropy": 0.3540829882186489,
+      "complexity": 4.870951110980864,
+      "predictive_entropy_weighted": 0.7209268053695548,
+      "probs_entropy": 1.4220017500814492
+    }
+  },
+  {
+    "gt_answer": "26",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 0
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.14603455058480647,
+      "max_leaf_avg_entropy": 0.1460345505848065,
+      "avg_leaf_avg_entropy": 0.1460345505848065,
+      "complexity": 4.999999999999999,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.1102230246251564e-16
+    }
+  },
+  {
+    "gt_answer": "48",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.17731025932016253,
+      "max_leaf_avg_entropy": 0.17043248397140212,
+      "avg_leaf_avg_entropy": 0.2323920001511371,
+      "complexity": 3.999156403007784,
+      "predictive_entropy_weighted": 0.4515072899829444,
+      "probs_entropy": 0.7721006820434199
+    }
+  },
+  {
+    "gt_answer": "20",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.13649060595596413,
+      "max_leaf_avg_entropy": 0.1254939307786616,
+      "avg_leaf_avg_entropy": 0.19762682722376124,
+      "complexity": 4.0,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.641114785983559
+    }
+  },
+  {
+    "gt_answer": "104",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2552182435245992,
+      "max_leaf_avg_entropy": 0.2558023279952397,
+      "avg_leaf_avg_entropy": 0.20835519639225608,
+      "complexity": 3.99893056499468,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.060093552020419064
+    }
+  },
+  {
+    "gt_answer": "163",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.26125669970806276,
+      "max_leaf_avg_entropy": 0.2535019600547726,
+      "avg_leaf_avg_entropy": 0.2827795449111946,
+      "complexity": 5.98406732968218,
+      "predictive_entropy_weighted": 0.8893130225436153,
+      "probs_entropy": 1.0721838797439551
+    }
+  },
+  {
+    "gt_answer": "800",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.15633564345672962,
+      "max_leaf_avg_entropy": 0.14947654029091018,
+      "avg_leaf_avg_entropy": 0.17820080875283997,
+      "complexity": 4.740002028078454,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.2349756184382723
+    }
+  },
+  {
+    "gt_answer": "8",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.11102682010872532,
+      "max_leaf_avg_entropy": 0.10352855900102415,
+      "avg_leaf_avg_entropy": 0.16400849167730935,
+      "complexity": 5.9708512575919155,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.851661822417571
+    }
+  },
+  {
+    "gt_answer": "30",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.1939141341758903,
+      "max_leaf_avg_entropy": 0.2023743393889287,
+      "avg_leaf_avg_entropy": 0.13713186612164263,
+      "complexity": 5.0871501368765255,
+      "predictive_entropy_weighted": 0.3052820191609368,
+      "probs_entropy": 0.30823375517366824
+    }
+  },
+  {
+    "gt_answer": "294",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2222488578259892,
+      "max_leaf_avg_entropy": 0.23776181553961484,
+      "avg_leaf_avg_entropy": 0.24874481884780078,
+      "complexity": 3.6716818421572777,
+      "predictive_entropy_weighted": 0.5577454395667238,
+      "probs_entropy": 1.5280249373292767
+    }
+  },
+  {
+    "gt_answer": "5",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.3422538437433758,
+      "max_leaf_avg_entropy": 0.32684193150781005,
+      "avg_leaf_avg_entropy": 0.4171800248953429,
+      "complexity": 3.9999999999999996,
+      "predictive_entropy_weighted": 0.6244221935305428,
+      "probs_entropy": 0.6367587521550918
+    }
+  },
+  {
+    "gt_answer": "15",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.19293295626983165,
+      "max_leaf_avg_entropy": 0.1923295688462997,
+      "avg_leaf_avg_entropy": 0.2510288061530202,
+      "complexity": 4.999342321212353,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.12447612938443324
+    }
+  },
+  {
+    "gt_answer": "40",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.11866034332763112,
+      "max_leaf_avg_entropy": 0.12241353005276837,
+      "avg_leaf_avg_entropy": 0.1549777976930519,
+      "complexity": 7.993991373696146,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.1961124737580466
+    }
+  },
+  {
+    "gt_answer": "40",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.4059247722728691,
+      "max_leaf_avg_entropy": 0.38650180182439364,
+      "avg_leaf_avg_entropy": 0.3550256042868787,
+      "complexity": 4.581775365352934,
+      "predictive_entropy_weighted": 0.7556211313408088,
+      "probs_entropy": 1.0090837584389976
+    }
+  },
+  {
+    "gt_answer": "14",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.14607543461426295,
+      "max_leaf_avg_entropy": 0.14582465599783967,
+      "avg_leaf_avg_entropy": 0.24317555578240735,
+      "complexity": 3.0265103948831196,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.05321572327600482
+    }
+  },
+  {
+    "gt_answer": "3",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.21159412835255464,
+      "max_leaf_avg_entropy": 0.211519680611491,
+      "avg_leaf_avg_entropy": 0.37843806357342374,
+      "complexity": 3.9999999999999996,
+      "predictive_entropy_weighted": 0.010632199956704806,
+      "probs_entropy": 0.010694685111856898
+    }
+  },
+  {
+    "gt_answer": "83",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.30203404497100456,
+      "max_leaf_avg_entropy": 0.319697915364107,
+      "avg_leaf_avg_entropy": 0.2862165392327573,
+      "complexity": 4.178369096599025,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.5617076399284513
+    }
+  },
+  {
+    "gt_answer": "57",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.1967954685451466,
+      "max_leaf_avg_entropy": 0.20059730230573738,
+      "avg_leaf_avg_entropy": 0.2196772806453735,
+      "complexity": 5.520811081683516,
+      "predictive_entropy_weighted": 0.021278367638292797,
+      "probs_entropy": 1.2676732237511765
+    }
+  },
+  {
+    "gt_answer": "187",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.15829761644058035,
+      "max_leaf_avg_entropy": 0.15829761644058038,
+      "avg_leaf_avg_entropy": 0.15829761644058038,
+      "complexity": 3.9999999999999996,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.1102230246251564e-16
+    }
+  },
+  {
+    "gt_answer": "17",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.19405933489380478,
+      "max_leaf_avg_entropy": 0.19228571884715698,
+      "avg_leaf_avg_entropy": 0.22130901453237745,
+      "complexity": 6.0,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.8752036241006184
+    }
+  },
+  {
+    "gt_answer": "1430",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2414598815497562,
+      "max_leaf_avg_entropy": 0.2303204536148254,
+      "avg_leaf_avg_entropy": 0.2461525764544759,
+      "complexity": 5.821115756629762,
+      "predictive_entropy_weighted": 0.5755155930640696,
+      "probs_entropy": 0.9905791561954571
+    }
+  },
+  {
+    "gt_answer": "25000",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 0
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.31343737342324074,
+      "max_leaf_avg_entropy": 0.31849131426822647,
+      "avg_leaf_avg_entropy": 0.30904376743642975,
+      "complexity": 6.574604617032138,
+      "predictive_entropy_weighted": 0.9014979715702307,
+      "probs_entropy": 1.413894815377001
+    }
+  },
+  {
+    "gt_answer": "1596",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2122131912944736,
+      "max_leaf_avg_entropy": 0.1581118298282784,
+      "avg_leaf_avg_entropy": 0.24970684001350293,
+      "complexity": 3.0,
+      "predictive_entropy_weighted": 1.34308491072034,
+      "probs_entropy": 1.7436486292931836
+    }
+  },
+  {
+    "gt_answer": "300",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.1752466195443059,
+      "max_leaf_avg_entropy": 0.17677771642886014,
+      "avg_leaf_avg_entropy": 0.1833252384503292,
+      "complexity": 8.57335118625583,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.113911072504755
+    }
+  },
+  {
+    "gt_answer": "36",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.21572503055802622,
+      "max_leaf_avg_entropy": 0.2130352285806528,
+      "avg_leaf_avg_entropy": 0.24629036537160204,
+      "complexity": 9.120072974664765,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.8700585297625089
+    }
+  },
+  {
+    "gt_answer": "48",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2786470427499552,
+      "max_leaf_avg_entropy": 0.28603799288155896,
+      "avg_leaf_avg_entropy": 0.26380528473642667,
+      "complexity": 3.9999999999999996,
+      "predictive_entropy_weighted": 0.0527277885397596,
+      "probs_entropy": 0.6271905883274957
+    }
+  },
+  {
+    "gt_answer": "595",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.17427824109880394,
+      "max_leaf_avg_entropy": 0.18778013769307897,
+      "avg_leaf_avg_entropy": 0.19739389692678358,
+      "complexity": 4.272116243013331,
+      "predictive_entropy_weighted": 0.6218864205762378,
+      "probs_entropy": 0.7559651268954239
+    }
+  },
+  {
+    "gt_answer": "36",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.15893250055550356,
+      "max_leaf_avg_entropy": 0.15900306722006982,
+      "avg_leaf_avg_entropy": 0.19058251826260517,
+      "complexity": 7.0,
+      "predictive_entropy_weighted": 0.13277134941635155,
+      "probs_entropy": 0.2670020910232149
+    }
+  },
+  {
+    "gt_answer": "60",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.26438671626073873,
+      "max_leaf_avg_entropy": 0.2561983964878745,
+      "avg_leaf_avg_entropy": 0.3259090602903168,
+      "complexity": 3.9999719205805775,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.6469157486222614
+    }
+  },
+  {
+    "gt_answer": "7425",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2724236444112186,
+      "max_leaf_avg_entropy": 0.3027398617737233,
+      "avg_leaf_avg_entropy": 0.2473305702644399,
+      "complexity": 7.999814308977767,
+      "predictive_entropy_weighted": 0.5340090011173511,
+      "probs_entropy": 0.5355741364557608
+    }
+  },
+  {
+    "gt_answer": "60",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.13685115131097111,
+      "max_leaf_avg_entropy": 0.14825571493932052,
+      "avg_leaf_avg_entropy": 0.1629415088663721,
+      "complexity": 3.4620543536680577,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.6430285667636302
+    }
+  },
+  {
+    "gt_answer": "221",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.27039198782026896,
+      "max_leaf_avg_entropy": 0.2703921561279439,
+      "avg_leaf_avg_entropy": 0.25082071268561673,
+      "complexity": 6.000001623254088,
+      "predictive_entropy_weighted": 2.5159933695328123e-05,
+      "probs_entropy": 2.524550270486484e-05
+    }
+  },
+  {
+    "gt_answer": "255",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.21139680527738658,
+      "max_leaf_avg_entropy": 0.22076364417442498,
+      "avg_leaf_avg_entropy": 0.18155004164927302,
+      "complexity": 6.657388176040848,
+      "predictive_entropy_weighted": 0.3878175896897914,
+      "probs_entropy": 0.4063763494091603
+    }
+  },
+  {
+    "gt_answer": "88",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.130451685091881,
+      "max_leaf_avg_entropy": 0.10033528906326716,
+      "avg_leaf_avg_entropy": 0.2020292997266965,
+      "complexity": 6.1893451046675745,
+      "predictive_entropy_weighted": 0.11612295608362724,
+      "probs_entropy": 0.9059851096493879
+    }
+  },
+  {
+    "gt_answer": "60",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.24084860138351424,
+      "max_leaf_avg_entropy": 0.2557249571987284,
+      "avg_leaf_avg_entropy": 0.26770724912324556,
+      "complexity": 4.999843057512129,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.6875102539094105
+    }
+  },
+  {
+    "gt_answer": "5",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.30182349593130775,
+      "max_leaf_avg_entropy": 0.28845275742651505,
+      "avg_leaf_avg_entropy": 0.3385217643781108,
+      "complexity": 3.999655941859363,
+      "predictive_entropy_weighted": 1.0430367417770705,
+      "probs_entropy": 1.199268848095929
+    }
+  },
+  {
+    "gt_answer": "100",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.13199336343887758,
+      "max_leaf_avg_entropy": 0.12672552416480665,
+      "avg_leaf_avg_entropy": 0.21402943925832932,
+      "complexity": 4.999975330915636,
+      "predictive_entropy_weighted": 0.06425909920091376,
+      "probs_entropy": 0.7123532949136654
+    }
+  },
+  {
+    "gt_answer": "6",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2388878942781868,
+      "max_leaf_avg_entropy": 0.2848751879776205,
+      "avg_leaf_avg_entropy": 0.24148318365469512,
+      "complexity": 7.0,
+      "predictive_entropy_weighted": 1.3188194066175576,
+      "probs_entropy": 1.6486249719206494
+    }
+  },
+  {
+    "gt_answer": "70",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.21584742581065816,
+      "max_leaf_avg_entropy": 0.2169633195561202,
+      "avg_leaf_avg_entropy": 0.21497601365647567,
+      "complexity": 4.414122848693959,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.0357065400599113
+    }
+  },
+  {
+    "gt_answer": "10",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2287832499476889,
+      "max_leaf_avg_entropy": 0.18988871004151664,
+      "avg_leaf_avg_entropy": 0.24111874460286492,
+      "complexity": 6.000000000000001,
+      "predictive_entropy_weighted": 0.4174450500026406,
+      "probs_entropy": 1.189556357921002
+    }
+  },
+  {
+    "gt_answer": "17",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.14707957659796705,
+      "max_leaf_avg_entropy": 0.1475603859062821,
+      "avg_leaf_avg_entropy": 0.19221920893702277,
+      "complexity": 6.000000000000001,
+      "predictive_entropy_weighted": 0.03899145803223358,
+      "probs_entropy": 0.20836957710565104
+    }
+  },
+  {
+    "gt_answer": "623",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.16285799985981814,
+      "max_leaf_avg_entropy": 0.1481523956038783,
+      "avg_leaf_avg_entropy": 0.20307872042395653,
+      "complexity": 7.530425600350901,
+      "predictive_entropy_weighted": 0.6918515464446426,
+      "probs_entropy": 0.6918795383536023
+    }
+  },
+  {
+    "gt_answer": "600",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.15379777646810677,
+      "max_leaf_avg_entropy": 0.1618496171612648,
+      "avg_leaf_avg_entropy": 0.20674909067574926,
+      "complexity": 5.009034318127828,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.7252520745305394
+    }
+  },
+  {
+    "gt_answer": "15",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.1242598836018808,
+      "max_leaf_avg_entropy": 0.12195755608914906,
+      "avg_leaf_avg_entropy": 0.1882865180779063,
+      "complexity": 5.963258679212564,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.3339161390055063
+    }
+  },
+  {
+    "gt_answer": "44",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.24873822415078012,
+      "max_leaf_avg_entropy": 0.24594941055173103,
+      "avg_leaf_avg_entropy": 0.3574831206950315,
+      "complexity": 5.000000000000001,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.35046976903771315
+    }
+  },
+  {
+    "gt_answer": "22",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2210499878289441,
+      "max_leaf_avg_entropy": 0.20352217766616862,
+      "avg_leaf_avg_entropy": 0.3007083724977664,
+      "complexity": 3.8682442761289515,
+      "predictive_entropy_weighted": 0.020254873444429757,
+      "probs_entropy": 0.6819469899322762
+    }
+  },
+  {
+    "gt_answer": "9360",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 0
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.4225420882696732,
+      "max_leaf_avg_entropy": 0.41496965326907187,
+      "avg_leaf_avg_entropy": 0.4296060293638712,
+      "complexity": 6.982323524700361,
+      "predictive_entropy_weighted": 1.1268858531212933,
+      "probs_entropy": 1.1268858531212933
+    }
+  },
+  {
+    "gt_answer": "8000",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.18160294594223034,
+      "max_leaf_avg_entropy": 0.19670515666808272,
+      "avg_leaf_avg_entropy": 0.17459949362976948,
+      "complexity": 4.836183665964416,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 1.6155503722284146
+    }
+  },
+  {
+    "gt_answer": "24",
+    "label": {
+      "answer_vote_weighted_nothreshold": 0,
+      "answer_vote_weighted_threshold": 0,
+      "answer_min_entropy": 0,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2637778908739749,
+      "max_leaf_avg_entropy": 0.2967222766330819,
+      "avg_leaf_avg_entropy": 0.28019795434176437,
+      "complexity": 3.999821920582325,
+      "predictive_entropy_weighted": 0.9822191735178337,
+      "probs_entropy": 1.3508656015536076
+    }
+  },
+  {
+    "gt_answer": "225",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.17161037652731026,
+      "max_leaf_avg_entropy": 0.14452180125860936,
+      "avg_leaf_avg_entropy": 0.20286090778566662,
+      "complexity": 3.968952640871649,
+      "predictive_entropy_weighted": 0.5316340599961948,
+      "probs_entropy": 1.2985212505402244
+    }
+  },
+  {
+    "gt_answer": "28",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.0967019105434267,
+      "max_leaf_avg_entropy": 0.0966997122156669,
+      "avg_leaf_avg_entropy": 0.24398541373321794,
+      "complexity": 6.999984178746469,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.00018508951774225458
+    }
+  },
+  {
+    "gt_answer": "4",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.23056517208598326,
+      "max_leaf_avg_entropy": 0.22705592362687696,
+      "avg_leaf_avg_entropy": 0.26850083152489074,
+      "complexity": 8.937127716045483,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.23540630020095085
+    }
+  },
+  {
+    "gt_answer": "36",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.24151073534268808,
+      "max_leaf_avg_entropy": 0.25774116126058944,
+      "avg_leaf_avg_entropy": 0.327534026461326,
+      "complexity": 4.685550894250936,
+      "predictive_entropy_weighted": 0.007009089329705738,
+      "probs_entropy": 0.8036834424530221
+    }
+  },
+  {
+    "gt_answer": "348",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.13950932696512605,
+      "max_leaf_avg_entropy": 0.1170147027190546,
+      "avg_leaf_avg_entropy": 0.17981422271784336,
+      "complexity": 5.947792216479675,
+      "predictive_entropy_weighted": 0.20480904114449808,
+      "probs_entropy": 1.0264365830443114
+    }
+  },
+  {
+    "gt_answer": "40",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.15224759854705106,
+      "max_leaf_avg_entropy": 0.15028775020017993,
+      "avg_leaf_avg_entropy": 0.15743233872313886,
+      "complexity": 5.8230180764836135,
+      "predictive_entropy_weighted": 0.00023024546360459196,
+      "probs_entropy": 1.390625289700331
+    }
+  },
+  {
+    "gt_answer": "3",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.14546635349829606,
+      "max_leaf_avg_entropy": 0.13497609070746958,
+      "avg_leaf_avg_entropy": 0.17452635807025163,
+      "complexity": 5.0,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.3913358532318718
+    }
+  },
+  {
+    "gt_answer": "12",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.2042352375856413,
+      "max_leaf_avg_entropy": 0.17142593467962042,
+      "avg_leaf_avg_entropy": 0.3095759781064879,
+      "complexity": 4.999633412970101,
+      "predictive_entropy_weighted": -0.0,
+      "probs_entropy": 0.7534229295841823
+    }
+  },
+  {
+    "gt_answer": "5",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.21636395573305514,
+      "max_leaf_avg_entropy": 0.2146621704128469,
+      "avg_leaf_avg_entropy": 0.29292900121574017,
+      "complexity": 4.985857483022465,
+      "predictive_entropy_weighted": 0.04244847176536746,
+      "probs_entropy": 0.11945812134566972
+    }
+  },
+  {
+    "gt_answer": "58",
+    "label": {
+      "answer_vote_weighted_nothreshold": 1,
+      "answer_vote_weighted_threshold": 1,
+      "answer_min_entropy": 1,
+      "pass@k": 1
+    },
+    "uncertainty": {
+      "weighted_leaf_avg_entropy": 0.3086344991143185,
+      "max_leaf_avg_entropy": 0.323449116850634,
+      "avg_leaf_avg_entropy": 0.2632158844649852,
+      "complexity": 3.2351105358697305,
+      "predictive_entropy_weighted": 0.4304464180667704,
+      "probs_entropy": 0.829397923647599
+    }
+  }
+]
