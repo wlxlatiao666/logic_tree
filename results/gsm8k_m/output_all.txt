@@ -1,0 +1,228 @@
+Greedy Results:
+Greedy AUROC: 0.7220
+Greedy AUARC: 0.8076
+Greedy ECE: 0.0955
+
+
+Top-K/Top-P Results:
+Top-K/Top-P AUROC: 0.7638
+Top-K/Top-P AUARC: 0.8264
+Top-K/Top-P ECE: 0.0769
+
+
+Predictive Entropy Results:
+accuracy: 0.79
+pass@k: 0.91
+Predictive Entropy AUROC(greedy label): 0.7351
+Predictive Entropy AUROC(pe label): 0.8376
+Predictive Entropy AUARC(greedy label): 0.8380
+Predictive Entropy AUARC(pe label): 0.9271
+Predictive Entropy ECE(greedy label): 0.1309
+Predictive Entropy ECE(pe label): 0.1809
+
+
+Logic Tree Results:
+accuracy for label greedy: 0.68
+greedy + weighted_leaf_avg_entropy AUROC: 0.6526
+greedy + weighted_leaf_avg_entropy AUARC: 0.7850
+greedy + weighted_leaf_avg_entropy ECE: 0.1523
+
+
+greedy + max_leaf_avg_entropy AUROC: 0.6268
+greedy + max_leaf_avg_entropy AUARC: 0.7674
+greedy + max_leaf_avg_entropy ECE: 0.1349
+
+
+greedy + avg_leaf_avg_entropy AUROC: 0.6549
+greedy + avg_leaf_avg_entropy AUARC: 0.7982
+greedy + avg_leaf_avg_entropy ECE: 0.1293
+
+
+greedy + complexity AUROC: 0.4761
+greedy + complexity AUARC: 0.6479
+greedy + complexity ECE: 0.1724
+
+
+greedy + predictive_entropy_weighted AUROC: 0.6365
+greedy + predictive_entropy_weighted AUARC: 0.7778
+greedy + predictive_entropy_weighted ECE: 0.2049
+
+
+greedy + probs_entropy AUROC: 0.4660
+greedy + probs_entropy AUARC: 0.6767
+greedy + probs_entropy ECE: 0.2502
+
+
+
+
+
+accuracy for label topk_topp: 0.68
+topk_topp + weighted_leaf_avg_entropy AUROC: 0.5740
+topk_topp + weighted_leaf_avg_entropy AUARC: 0.7144
+topk_topp + weighted_leaf_avg_entropy ECE: 0.1990
+
+
+topk_topp + max_leaf_avg_entropy AUROC: 0.5800
+topk_topp + max_leaf_avg_entropy AUARC: 0.7227
+topk_topp + max_leaf_avg_entropy ECE: 0.1675
+
+
+topk_topp + avg_leaf_avg_entropy AUROC: 0.5781
+topk_topp + avg_leaf_avg_entropy AUARC: 0.7157
+topk_topp + avg_leaf_avg_entropy ECE: 0.1488
+
+
+topk_topp + complexity AUROC: 0.4858
+topk_topp + complexity AUARC: 0.6573
+topk_topp + complexity ECE: 0.1728
+
+
+topk_topp + predictive_entropy_weighted AUROC: 0.6466
+topk_topp + predictive_entropy_weighted AUARC: 0.7887
+topk_topp + predictive_entropy_weighted ECE: 0.2435
+
+
+topk_topp + probs_entropy AUROC: 0.5391
+topk_topp + probs_entropy AUARC: 0.7247
+topk_topp + probs_entropy ECE: 0.2302
+
+
+
+
+
+accuracy for label answer_vote_weighted_nothreshold: 0.61
+answer_vote_weighted_nothreshold + weighted_leaf_avg_entropy AUROC: 0.7255
+answer_vote_weighted_nothreshold + weighted_leaf_avg_entropy AUARC: 0.7629
+answer_vote_weighted_nothreshold + weighted_leaf_avg_entropy ECE: 0.1491
+
+
+answer_vote_weighted_nothreshold + max_leaf_avg_entropy AUROC: 0.7440
+answer_vote_weighted_nothreshold + max_leaf_avg_entropy AUARC: 0.7628
+answer_vote_weighted_nothreshold + max_leaf_avg_entropy ECE: 0.0718
+
+
+answer_vote_weighted_nothreshold + avg_leaf_avg_entropy AUROC: 0.6667
+answer_vote_weighted_nothreshold + avg_leaf_avg_entropy AUARC: 0.7311
+answer_vote_weighted_nothreshold + avg_leaf_avg_entropy ECE: 0.1080
+
+
+answer_vote_weighted_nothreshold + complexity AUROC: 0.4393
+answer_vote_weighted_nothreshold + complexity AUARC: 0.5457
+answer_vote_weighted_nothreshold + complexity ECE: 0.2224
+
+
+answer_vote_weighted_nothreshold + predictive_entropy_weighted AUROC: 0.7507
+answer_vote_weighted_nothreshold + predictive_entropy_weighted AUARC: 0.8032
+answer_vote_weighted_nothreshold + predictive_entropy_weighted ECE: 0.2219
+
+
+answer_vote_weighted_nothreshold + probs_entropy AUROC: 0.4145
+answer_vote_weighted_nothreshold + probs_entropy AUARC: 0.5738
+answer_vote_weighted_nothreshold + probs_entropy ECE: 0.3098
+
+
+
+
+
+accuracy for label answer_vote_weighted_threshold: 0.59
+answer_vote_weighted_threshold + weighted_leaf_avg_entropy AUROC: 0.7110
+answer_vote_weighted_threshold + weighted_leaf_avg_entropy AUARC: 0.7427
+answer_vote_weighted_threshold + weighted_leaf_avg_entropy ECE: 0.1412
+
+
+answer_vote_weighted_threshold + max_leaf_avg_entropy AUROC: 0.7396
+answer_vote_weighted_threshold + max_leaf_avg_entropy AUARC: 0.7486
+answer_vote_weighted_threshold + max_leaf_avg_entropy ECE: 0.0718
+
+
+answer_vote_weighted_threshold + avg_leaf_avg_entropy AUROC: 0.6461
+answer_vote_weighted_threshold + avg_leaf_avg_entropy AUARC: 0.7055
+answer_vote_weighted_threshold + avg_leaf_avg_entropy ECE: 0.1080
+
+
+answer_vote_weighted_threshold + complexity AUROC: 0.4279
+answer_vote_weighted_threshold + complexity AUARC: 0.5240
+answer_vote_weighted_threshold + complexity ECE: 0.2424
+
+
+answer_vote_weighted_threshold + predictive_entropy_weighted AUROC: 0.7842
+answer_vote_weighted_threshold + predictive_entropy_weighted AUARC: 0.8022
+answer_vote_weighted_threshold + predictive_entropy_weighted ECE: 0.2287
+
+
+answer_vote_weighted_threshold + probs_entropy AUROC: 0.4481
+answer_vote_weighted_threshold + probs_entropy AUARC: 0.5714
+answer_vote_weighted_threshold + probs_entropy ECE: 0.2898
+
+
+
+
+
+accuracy for label answer_min_entropy: 0.8
+answer_min_entropy + weighted_leaf_avg_entropy AUROC: 0.6238
+answer_min_entropy + weighted_leaf_avg_entropy AUARC: 0.8486
+answer_min_entropy + weighted_leaf_avg_entropy ECE: 0.2668
+
+
+answer_min_entropy + max_leaf_avg_entropy AUROC: 0.5969
+answer_min_entropy + max_leaf_avg_entropy AUARC: 0.8348
+answer_min_entropy + max_leaf_avg_entropy ECE: 0.2539
+
+
+answer_min_entropy + avg_leaf_avg_entropy AUROC: 0.6869
+answer_min_entropy + avg_leaf_avg_entropy AUARC: 0.8715
+answer_min_entropy + avg_leaf_avg_entropy ECE: 0.2166
+
+
+answer_min_entropy + complexity AUROC: 0.5288
+answer_min_entropy + complexity AUARC: 0.8089
+answer_min_entropy + complexity ECE: 0.1268
+
+
+answer_min_entropy + predictive_entropy_weighted AUROC: 0.6188
+answer_min_entropy + predictive_entropy_weighted AUARC: 0.8750
+answer_min_entropy + predictive_entropy_weighted ECE: 0.1835
+
+
+answer_min_entropy + probs_entropy AUROC: 0.4169
+answer_min_entropy + probs_entropy AUARC: 0.7612
+answer_min_entropy + probs_entropy ECE: 0.3084
+
+
+
+
+
+accuracy for label pass@k: 0.88
+pass@k + weighted_leaf_avg_entropy AUROC: 0.7140
+pass@k + weighted_leaf_avg_entropy AUARC: 0.9368
+pass@k + weighted_leaf_avg_entropy ECE: 0.3402
+
+
+pass@k + max_leaf_avg_entropy AUROC: 0.6799
+pass@k + max_leaf_avg_entropy AUARC: 0.9197
+pass@k + max_leaf_avg_entropy ECE: 0.3214
+
+
+pass@k + avg_leaf_avg_entropy AUROC: 0.6506
+pass@k + avg_leaf_avg_entropy AUARC: 0.9245
+pass@k + avg_leaf_avg_entropy ECE: 0.2831
+
+
+pass@k + complexity AUROC: 0.6591
+pass@k + complexity AUARC: 0.9291
+pass@k + complexity ECE: 0.1580
+
+
+pass@k + predictive_entropy_weighted AUROC: 0.5246
+pass@k + predictive_entropy_weighted AUARC: 0.9068
+pass@k + predictive_entropy_weighted ECE: 0.1959
+
+
+pass@k + probs_entropy AUROC: 0.3343
+pass@k + probs_entropy AUARC: 0.8343
+pass@k + probs_entropy ECE: 0.3543
+
+
+
+
+

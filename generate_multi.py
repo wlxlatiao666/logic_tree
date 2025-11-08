@@ -71,7 +71,7 @@ if __name__ == '__main__':
         for _ in range(num_samples):
             outputs = model.generate(
                 **inputs,
-                max_length=1024,
+                max_new_tokens=1024,
                 do_sample=True,
                 temperature=0.7,
                 top_k=50,

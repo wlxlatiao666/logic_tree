@@ -311,15 +311,15 @@ def logic_branch_decode(
                         # if avg_max < 0.4:
                         #     skip_child = True
 
-                    current_embedding = embedder.encode(child.text[len(node.text):], convert_to_tensor=True)
-                    for index, embedding in enumerate(child_embeddings): 
-                        sim = util.cos_sim(embedding, current_embedding)
-                        if sim > 0.5:
-                            children[index].prob += child.prob # children[index]和items[index].node引用了同一个node
-                            skip_child = True
-                            break
+                    # current_embedding = embedder.encode(child.text[len(node.text):], convert_to_tensor=True)
+                    # for index, embedding in enumerate(child_embeddings): 
+                    #     sim = util.cos_sim(embedding, current_embedding)
+                    #     if sim > 0.5:
+                    #         children[index].prob += child.prob # children[index]和items[index].node引用了同一个node
+                    #         skip_child = True
+                    #         break
                     if not skip_child:
-                        child_embeddings.append(current_embedding)
+                        # child_embeddings.append(current_embedding)
                         children.append(child)
                         items.append(PrioritizedItem(
                             depth=depth + 1,

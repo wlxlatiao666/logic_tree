@@ -1,0 +1,902 @@
+[
+  {
+    "original_data": {
+      "question": "Janet\u2019s ducks lay 12 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?",
+      "answer": "<think>First, I need to determine how many eggs Janet has left to sell at the farmers' market. She starts with 12 eggs per day. Janet eats 3 eggs for breakfast, which reduces the total count by 3. Then, she uses 4 eggs daily for baking muffins for her friends, further reducing the total count by 4. Therefore, the number of eggs remaining after breakfast and muffin making is:\n12 eggs - 3 eggs - 4 eggs = 5 eggs remaining. \n\nNext, I need to find out how much Janet makes by selling these eggs at the market. She sells each remaining egg for $2. With 5 eggs left for sale, the daily earnings from the market will be:\n5 eggs \u00d7 $2 per egg = $10.\n\nThus, Janet makes $10 every day at the farmers' market by selling the fresh duck eggs.</think>\n<answer>10</answer>"
+    },
+    "model_answer": "<think>First, calculate the total number of eggs used by Janet: 3 for breakfast + 4 for muffins = 7 eggs per day. Then subtract this from the total laid to find how many are left for selling: 12 - 7 = 5 eggs. Finally, multiply the remaining eggs by the price per egg to find the daily earnings: 5 * $2 = $10.</think>\n<answer>10</answer>",
+    "label": 1,
+    "avg_logprob": 0.19547356703539484
+  },
+  {
+    "original_data": {
+      "question": "A robe takes 8 bolts of blue fiber and half that much white fiber. How many bolts in total does it take?",
+      "answer": "<think>To find out the total number of bolts required to make a robe, we need to consider both the number of blue fiber bolts and the white fiber bolts used. According to the problem, the robe requires 8 bolts of blue fiber. It also requires half that many bolts of white fiber. Since half of 8 is 4, the robe needs 4 bolts of white fiber. To find the total number, we simply add the two quantities together: 8 bolts of blue fiber + 4 bolts of white fiber = 12 bolts in total.</think>\n<answer>12</answer>"
+    },
+    "model_answer": "<think>The problem states that a robe requires 8 bolts of blue fiber and half that amount of white fiber. To find the total bolts needed, we first need to determine how many bolts of white fiber are required, which is half of the blue fiber's quantity. Then, we add the two quantities together.</think>\n<answer>12</answer>",
+    "label": 1,
+    "avg_logprob": 0.221001115803783
+  },
+  {
+    "original_data": {
+      "question": "Josh decides to try flipping a house. He buys a house for $90,000 and then puts in $60,000 in repairs. This increased the value of the house by 160%. How much profit did he make?",
+      "answer": "<think>\nFirst, I calculate the total investment Josh made in flipping the house. He bought the house for $90,000 and invested $60,000 in repairs, so the total investment is:\n\n$90,000 (purchase price) + $60,000 (repairs) = $150,000\n\nNext, I determine the increase in the value of the house. The repairs increased the value of the house by 160%. The original purchase price of the house was $90,000, so the increased value is:\n\n160% of $90,000 = 1.6 * $90,000 = $144,000\n\nThe new value of the house after the repairs is the original price plus the increased value:\n\n$90,000 (original value) + $144,000 (increase in value) = $234,000\n\nFinally, I calculate the profit by subtracting the total investment from the new value of the house:\n\n$234,000 (new value) - $150,000 (total investment) = $84,000\n\nJosh made a profit of $84,000.\n</think>\n<answer>84,000</answer>"
+    },
+    "model_answer": "<think>\nFirst, we need to calculate the new value of the house after the increase.\nThe original cost of the house is $90,000 and the repairs are $60,000, so the total investment is $90,000 + $60,000 = $150,000.\nThe value of the house increased by 160%, so the increase in value is 160% of $150,000.\nTo find the new value, we add this increase to the initial investment.\nFinally, the profit is the new value minus the initial investment.\n</think>\n<answer>240000</answer>",
+    "label": 0,
+    "avg_logprob": 0.1396581411704813
+  },
+  {
+    "original_data": {
+      "question": "James decides to run 5 sprints 4 times a week. He runs 75 meters each sprint. How many total meters does he run a week?",
+      "answer": "<think>To find out how many meters James runs in total per week, we need to first calculate how many meters he runs in a day, and then multiply that by the number of days he runs in a week.\n\n1. First, calculate the total distance James runs in one day.\n   - He runs 5 sprints per day.\n   - Each sprint is 75 meters.\n   - So, the distance run in one day is 5 sprints \u00d7 75 meters/sprint = 375 meters.\n\n2. Next, calculate the total distance he runs in a week.\n   - He runs 4 days a week.\n   - Each day he runs 375 meters.\n   - Therefore, the total distance run in a week is 4 days \u00d7 375 meters/day = 1500 meters.\n\nHence, James runs a total of 1500 meters per week.</think>\n<answer>1500</answer>"
+    },
+    "model_answer": "<think>James runs 5 sprints each time, and each sprint is 75 meters. So, the distance he covers in one session is 5 * 75 meters. Since he does this 4 times a week, we need to multiply the distance of one session by 4 to get the weekly total.</think>\n<answer>1500</answer>",
+    "label": 1,
+    "avg_logprob": 0.09944879282265902
+  },
+  {
+    "original_data": {
+      "question": "Every day, Wendi feeds each of her chickens four cups of mixed chicken feed, containing seeds, mealworms and vegetables to help keep them healthy. She gives the chickens their feed in four separate meals. In the morning, she gives her flock of chickens 20 cups of feed. In the afternoon, she gives her chickens another 30 cups of feed. How many cups of feed does she need to give her chickens in the final meal of the day if the size of Wendi's flock is 25 chickens?",
+      "answer": "<think>\nWendi feeds each chicken four cups of mixed chicken feed each day. There are 25 chickens in her flock. To find the total amount of feed needed per day, we multiply the number of chickens by the amount of feed each chicken receives: \n\n25 chickens * 4 cups per chicken = 100 cups.\n\nThroughout the day, Wendi gives her chickens their feed in several meals. She has already given out:\n\n- 20 cups in the morning\n- 30 cups in the afternoon\n\nThus, we add these two amounts to find the total feed given so far: \n\n20 cups + 30 cups = 50 cups.\n\nTo find out how many more cups she needs to give, subtract the amount already provided (50 cups) from the total needed (100 cups): \n\n100 cups - 50 cups = 50 cups.\n\nTherefore, Wendi needs to give 50 cups of feed in the final meal of the day.\n</think>\n<answer>50</answer>"
+    },
+    "model_answer": "<think>Let's break down the information given: Each chicken needs 4 cups of feed per day, split into 4 meals. We know how much is given in the morning and afternoon, so we need to calculate the total required for the day and subtract what has already been given to find out how much is left for the evening.</think>\n\n1. Calculate total daily feed needed: 25 chickens * 4 cups/chicken = 100 cups.\n2. Calculate total feed given in the morning and afternoon: 20 cups + 30 cups = 50 cups.\n3. Subtract the amount already given from the total needed: 100 cups - 50 cups = 50 cups.\n\n<answer>50</answer>",
+    "label": 1,
+    "avg_logprob": 0.19249083870090544
+  },
+  {
+    "original_data": {
+      "question": "Kylar went to the store to buy glasses for his new apartment. One glass costs $6, but every second glass costs only 70% of the price. Kylar wants to buy 20 glasses. How much does he need to pay for them?",
+      "answer": "<think>To determine the total cost, we need to calculate the price for 20 glasses with the given discount condition. \n\nThe price for one glass is $6. Every second glass costs 70% of $6.\n\nStep 1: Calculate the cost of a regular priced glass:\nRegular glass = $6\n\nStep 2: Calculate the cost of a discounted glass (second glass):\nDiscount = 70% of $6 = 0.70 * $6 = $4.20\n\nKylar is purchasing 20 glasses. The glasses alternate in price:\n- 1st glass: $6 \n- 2nd glass: $4.20\n- 3rd glass: $6 \n- 4th glass: $4.20\n- ...\n\nStep 3: Determine how many full-priced and discounted glasses are in 20:\nThere are 10 full-priced glasses and 10 discounted glasses in 20 glasses.\n\nStep 4: Calculate the total cost for full-priced glasses:\nTotal cost of full-priced glasses = 10 * $6 = $60\n\nStep 5: Calculate the total cost for discounted glasses:\nTotal cost of discounted glasses = 10 * $4.20 = $42\n\nStep 6: Add both totals to get the final cost:\nTotal cost = $60 + $42 = $102\n\nThus, the total amount Kylar needs to pay is $102.</think>\n<answer>102</answer>"
+    },
+    "model_answer": "<think>The cost pattern is that every first glass costs $6 and every second glass costs 70% of $6. We can calculate the cost of each pair of glasses (first + second) and then multiply by the number of pairs in 20 glasses.</think>\n<answer>138</answer>",
+    "label": 0,
+    "avg_logprob": 0.20767415281551987
+  },
+  {
+    "original_data": {
+      "question": "Toulouse has twice as many sheep as Charleston. Charleston has 3 times as many sheep as Seattle. How many sheep do Toulouse, Charleston, and Seattle have together if Seattle has 30 sheep?",
+      "answer": "<think>First, I need to determine the number of sheep in each location based on the given relationships. \n\nSeattle has 30 sheep. \nCharleston has 3 times as many sheep as Seattle, so Charleston has:\n3 * 30 = 90 sheep.\n\nToulouse has twice as many sheep as Charleston, so Toulouse has:\n2 * 90 = 180 sheep.\n\nFinally, to find the total number of sheep in all three locations, I add up the number of sheep each one has:\nSeattle: 30 sheep\nCharleston: 90 sheep\nToulouse: 180 sheep\n\nTotal sheep = 30 + 90 + 180 = 300.\n</think>\n<answer>300</answer>"
+    },
+    "model_answer": "<think>First, let's determine how many sheep Charleston has. Since Charleston has 3 times as many sheep as Seattle, and Seattle has 30 sheep, we calculate: 3 * 30 = 90 sheep for Charleston. Next, we find out how many sheep Toulouse has. Given that Toulouse has twice as many sheep as Charleston, and Charleston has 90 sheep, we calculate: 2 * 90 = 180 sheep for Toulouse. Finally, to find the total number of sheep, we add the sheep from all three cities: 30 (Seattle) + 90 (Charleston) + 180 (Toulouse) = 300 sheep.</think>\n<answer>300</answer>",
+    "label": 1,
+    "avg_logprob": 0.10156801310967814
+  },
+  {
+    "original_data": {
+      "question": "Carla is downloading a 100 GB file. Normally she can download 1 GB/minute, but 20% of the way through the download, Windows forces a restart to install updates, which takes 10 minutes. Then Carla has to restart the download from the beginning. How load does it take to download the file?",
+      "answer": "<think>Carla starts downloading a 100 GB file with a download speed of 1 GB per minute. She downloads 20% of the file before a forced restart. \nFirst, we calculate 20% of the file size: \n20% of 100 GB = 0.20 * 100 = 20 GB.\n\nIt takes Carla 20 minutes to download 20 GB since she downloads at 1 GB per minute:\nTime to download 20 GB = 20 minutes.\n\nAt this point, Windows forces a restart to install updates, which takes 10 additional minutes. After the restart, she has to start over from the beginning.\n\nSo, the time taken before starting over is:\nTime before restart = 20 minutes (downloading) + 10 minutes (restart) = 30 minutes.\n\nNow, she begins the download again from 0 GB. Downloading the entire 100 GB now takes:\nTime to download 100 GB = 100 minutes.\n\nAdding the time taken before she had to restart (30 minutes), the total download time is:\nTotal time = 30 minutes (initial elapsed time) + 100 minutes (new download) = 130 minutes.</think>\n<answer>130</answer>"
+    },
+    "model_answer": "<think>\n1. First, calculate the time it would normally take to download the entire file without any interruptions: 100 GB * 1 minute/GB = 100 minutes.\n2. Determine how long it takes to download 20% of the file: 100 GB * 20% = 20 GB; 20 GB / 1 GB/min = 20 minutes.\n3. Add the 10-minute restart time after 20% of the file is downloaded: 20 minutes + 10 minutes = 30 minutes.\n4. After the restart, Carla has to start over from the beginning, so add another 100 minutes: 30 minutes + 100 minutes = 130 minutes.\n</think>\n<answer>130</answer>",
+    "label": 1,
+    "avg_logprob": 0.14170527803664767
+  },
+  {
+    "original_data": {
+      "question": "John drives for 5 hours at a speed of 65 mph and then turns around because he realizes he forgot something very important at home. He tries to get home in 3 hours but spends the first 1 hour in standstill traffic. He spends the next half-hour driving at a speed of 40mph, before being able to drive the remaining time of the 3 hours going at 90 mph. How far is he from home at the end of those 3 hours?",
+      "answer": "<think>\nFirst, I determine the total distance John initially traveled away from home. He drove for 5 hours at 65 mph:\n\nDistance = Speed \u00d7 Time = 65 mph \u00d7 5 hours = 325 miles\n\nSecondly, I compute the distance he travels back home within those 3 hours under varied conditions as described:\n\n1. The first hour in standstill traffic means he covers 0 miles in that hour.\n2. The next half-hour at 40 mph means he covers:\n\nDistance = Speed \u00d7 Time = 40 mph \u00d7 0.5 hours = 20 miles\n\n3. The remaining 1.5 hours at 90 mph means he covers:\n\nDistance = Speed \u00d7 Time = 90 mph \u00d7 1.5 hours = 135 miles\n\nAdding these segments together gives the total distance he has traveled towards home in 3 hours:\n\nTotal return distance = 0 miles + 20 miles + 135 miles = 155 miles\n\nFinally, the difference between the initial distance (325 miles) and the return distance (155 miles) will give his remaining distance from home:\n\nDistance from home = Initial distance - Return distance = 325 miles - 155 miles = 170 miles\n\n</think>\n<answer>170</answer>"
+    },
+    "model_answer": "<think>\nTo solve this problem, we need to calculate the distance John travels in each segment of his trip and then find the total distance from home after 3 hours.\n\n1. Calculate the distance to the turn-around point: \\( \\text{distance} = \\text{speed} \\times \\text{time} = 65 \\, \\text{mph} \\times 5 \\, \\text{hours} \\).\n2. Calculate the distance driven back in standstill traffic: Since he is not moving, the distance is 0.\n3. Calculate the distance driven in slow traffic: \\( \\text{distance} = 40 \\, \\text{mph} \\times 0.5 \\, \\text{hours} \\).\n4. Calculate the distance driven at higher speed: \\( \\text{distance} = 90 \\, \\text{mph} \\times 1.5 \\, \\text{hours} \\) (since 3 - 1 - 0.5 = 1.5).\n\nFinally, subtract the distance he covered going back from the initial distance to find out how far he is from home.\n</think>\n<answer>287.5</answer>",
+    "label": 0,
+    "avg_logprob": 0.24080103267676276
+  },
+  {
+    "original_data": {
+      "question": "Eliza's rate per hour for the first 50 hours she works each week is $15. She also receives an overtime pay of 1.2 times her regular hourly rate. If Eliza worked for 55 hours this week, how much are her earnings for this week?",
+      "answer": "<think>Eliza's pay structure consists of a regular pay rate for the first 50 hours and an overtime pay rate for any hours beyond 50.\n\n1. Calculate the earnings for the first 50 hours:\n   Regular hourly rate = $15\n   Regular earnings = 50 hours * $15/hour = $750\n\n2. Determine the overtime hours:\n   Total hours worked = 55\n   Overtime hours = 55 - 50 = 5 hours\n\n3. Calculate the overtime pay rate:\n   Overtime pay rate = 1.2 times regular rate = 1.2 * $15 = $18/hour\n\n4. Calculate the earnings from overtime hours:\n   Overtime earnings = 5 hours * $18/hour = $90\n\n5. Sum the regular earnings and overtime earnings to find the total earnings for the week:\n   Total earnings = Regular earnings + Overtime earnings = $750 + $90 = $840\n\nThus, Eliza's total earnings for the week are $840.</think>\n\n<answer>840</answer>"
+    },
+    "model_answer": "<think>First, calculate Eliza's earnings for the first 50 hours at the regular rate. Then, calculate her overtime pay for the additional hours worked beyond 50. Finally, sum these two amounts to get her total earnings.</think>\n<answer>870</answer>",
+    "label": 0,
+    "avg_logprob": 0.16237412248888322
+  },
+  {
+    "original_data": {
+      "question": "A new program had 50 downloads in the first month. The number of downloads in the second month was three times as many as the downloads in the first month, but then reduced by 20% in the third month. How many downloads did the program have total over the three months?",
+      "answer": "<think>To find the total downloads over the three months, we first need to calculate the downloads each month separately.\n\nFirst Month: \nThe program had 50 downloads.\n\nSecond Month:\nDownloads are three times the first month:\nDownloads in the second month = 3 * 50 = 150\n\nThird Month:\nDownloads were reduced by 20% compared to the second month. \n20% of the second month downloads = 0.20 * 150 = 30\nDownloads in the third month = 150 - 30 = 120\n\nTotal downloads over the three months:\nFirst Month + Second Month + Third Month = 50 + 150 + 120\n\nThe total downloads = 320</think>\n<answer>320</answer>"
+    },
+    "model_answer": "<think>Let's break down the problem into steps:\n1. First month: 50 downloads.\n2. Second month: 3 times the first month, so 3 * 50 = 150 downloads.\n3. Third month: 80% of the second month because it reduced by 20%, so 0.8 * 150 = 120 downloads.\n4. Total downloads over the three months would be the sum of these numbers.</think>\n<answer>320</answer>",
+    "label": 1,
+    "avg_logprob": 0.1353472604236582
+  },
+  {
+    "original_data": {
+      "question": "Toula went to the bakery and bought various types of pastries. She bought 4 dozen donuts which cost $72 per dozen, 5 dozen mini cupcakes which cost $83 per dozen, and 7 dozen mini cheesecakes for $58 per dozen. How much was the total cost?",
+      "answer": "<think>\nTo find the total cost, we need to calculate the cost of each type of pastry and then sum them up. \n\nFirst, calculate the cost of the donuts:\n- Toula bought 4 dozen donuts, and each dozen costs $72.\n- Thus, the cost for the donuts is 4 dozens * $72/dozen = $288.\n\nNext, calculate the cost of the mini cupcakes:\n- Toula bought 5 dozen mini cupcakes, and each dozen costs $83.\n- Thus, the cost for the mini cupcakes is 5 dozens * $83/dozen = $415.\n\nFinally, calculate the cost of the mini cheesecakes:\n- Toula bought 7 dozen mini cheesecakes, and each dozen costs $58.\n- Thus, the cost for the mini cheesecakes is 7 dozens * $58/dozen = $406.\n\nCombine the costs to determine the total cost:\n- Total cost = Cost of donuts + Cost of mini cupcakes + Cost of mini cheesecakes\n- Total cost = $288 + $415 + $406 = $1109\n\nTherefore, the total cost is $1109.\n</think>\n<answer>1109</answer>"
+    },
+    "model_answer": "<think>First, let's calculate the cost for each type of pastry separately.\nFor donuts: 4 dozens * $72/dozen = $288\nFor mini cupcakes: 5 dozens * $83/dozen = $415\nFor mini cheesecakes: 7 dozens * $58/dozen = $406\nNow, we sum these amounts to get the total cost.\n$288 + $415 + $406 = $1109</think>\n<answer>1109</answer>",
+    "label": 1,
+    "avg_logprob": 0.09282398150592554
+  },
+  {
+    "original_data": {
+      "question": "Carlos is planting a lemon tree. The tree will cost $100 to plant. Each year it will grow 8 lemons, which he can sell for $2 each. It costs $4 a year to water and feed the tree. How many years will it take before he starts earning money on the lemon tree?",
+      "answer": "<think>\nTo find out when Carlos will start making a profit, we need to calculate the net income from the tree each year and see when this total becomes greater than the initial cost of planting. Here's the breakdown:\n\n1. The initial cost of planting the lemon tree is $100.\n2. Each year, the tree produces 8 lemons.\n3. The lemons can be sold for $2 each, so each year's income from selling lemons is 8 lemons * $2/lemons = $16.\n4. It costs $4 a year to maintain the tree (water and feed).\n5. Therefore, the net income from the tree each year is the income from lemons minus the maintenance cost. This is $16 (from selling lemons) - $4 (maintenance cost) = $12 net income per year.\n\nNow, we calculate how many years it will take for the $12 net income per year to cover the $100 initial planting cost. We set up the equation:\n\n$12 * n >= $100\n\nwhere n is the number of years.\n\nSolving for n gives us:\n\nn = $100 / $12 = 8.3333...\n\nSince a partial year doesn't count, Carlos needs a full 9 years to cover the initial planting cost and start earning a profit.\n</think>\n<answer>9</answer>"
+    },
+    "model_answer": "<think>Let's break down the problem:\n- Initial cost: $100\n- Annual growth: 8 lemons\n- Selling price per lemon: $2\n- Annual maintenance cost: $4\n\nWe need to find when the total revenue from selling lemons exceeds the initial cost plus the cumulative maintenance cost.</think>\n<answer>13</answer>",
+    "label": 0,
+    "avg_logprob": 0.23756301804230764
+  },
+  {
+    "original_data": {
+      "question": "Melanie is a door-to-door saleswoman. She sold a third of her vacuum cleaners at the green house, 4 more to the red house, and half of what was left at the orange house. If Melanie has 7 vacuum cleaners left, how many did she start with?",
+      "answer": "<think>\nLet \\( x \\) be the number of vacuum cleaners Melanie started with.\n\n1. At the green house, she sold a third of the vacuum cleaners:\n   \\[\n   \\frac{x}{3}\n   \\]\n   So, she has:\n   \\[\n   x - \\frac{x}{3} = \\frac{2x}{3}\n   \\]\n   vacuum cleaners remaining.\n\n2. At the red house, she sold 3 more:\n   \\[\n   \\frac{2x}{3} - 3\n   \\]\n   vacuum cleaners remain now.\n\n3. At the orange house, she sold half of the remaining number:\n   \\[\n   \\frac{1}{2} \\left( \\frac{2x}{3} - 3 \\right) = \\frac{2x}{6} - \\frac{3}{2} = \\frac{x}{3} - \\frac{3}{2}\n   \\]\n   So, she has:\n   \\[\n   \\left( \\frac{2x}{3} - 3 \\right) - \\left( \\frac{x}{3} - \\frac{3}{2} \\right)\n   \\]\n   remaining after the orange house:\n   \\[\n   \\frac{2x}{3} - 3 - \\frac{x}{3} + \\frac{3}{2} = \\frac{x}{3} - 3 + \\frac{3}{2}\n   \\]\n   Simplifying further,\n   \\[\n   = \\frac{x}{3} - \\frac{6}{2} + \\frac{3}{2} = \\frac{x}{3} - \\frac{3}{2}\n   \\]\n\nShe ends up with 7 vacuum cleaners:\n\\[\n\\frac{x}{3} - \\frac{3}{2} = 7\n\\]\n\nSolving for \\( x \\):\n1. Multiply every term by 6 to eliminate the fractions:\n   \\[\n   6 \\times \\frac{x}{3} - 6 \\times \\frac{3}{2} = 6 \\times 7\n   \\]\n   \\[\n   2x - 9 = 42\n   \\]\n2. Add 9 to both sides:\n   \\[\n   2x = 51\n   \\]\n\n3. Divide by 2:\n   \\[\n   x = \\frac{51}{2} = 25.5\n   \\]\n\nSince Melanie cannot start with a fractional vacuum cleaner and must have started with an integer number of vacuum cleaners, checking the calculation led to correcting the assumption. After revisiting, when performing linear steps correctly:\n\nFrom post selling:\n   \\[\n   \\frac{2x}{3} - \\left(\\frac{x}{3} - \\frac{3}{2}\\right) = 7 \n   \\]\nFurther fixing:\n   \\[\n   \\frac{x}{3} - \\frac{3}{2} = 7 \\Rightarrow \n   \\frac{x}{3} - \\frac{6}{2} = 7 \\Rightarrow \n   \\frac{x}{3} - 3 = 7\n   \\]\nSimplified,\n   \\[\n   \\frac{x}{3} = 10 \\Rightarrow x = 30 \n   \\]\n\nThus, after revisiting calculations, Melanie started with 30 vacuum cleaners.\n   \n</think>\n<answer>27</answer>"
+    },
+    "model_answer": "<think>Let's denote the initial number of vacuum cleaners as X.\n- At the green house, she sold 1/3 of X, leaving 2/3 of X.\n- She then sold 4 more to the red house, so we have 2/3X - 4 left.\n- She sold half of what was left at the orange house, which means she had (2/3X - 4) / 2 left after this sale.\n- We know that after all these sales, she has 7 vacuum cleaners left. So, (2/3X - 4) / 2 = 7.\nWe can solve this equation to find X.</think>\n<answer>36</answer>",
+    "label": 0,
+    "avg_logprob": 0.15625508359976506
+  },
+  {
+    "original_data": {
+      "question": "In a dance class of 40 students, 30% enrolled in contemporary dance, 40% of the remaining enrolled in jazz dance, and the rest enrolled in hip-hop dance. What percentage of the entire students enrolled in hip-hop dance?",
+      "answer": "<think>First, calculate the number of students who enrolled in contemporary dance. Given that 30% of the 40 students enrolled in contemporary dance:\n\nNumber of students in contemporary = 30% of 40 = 0.30 * 40 = 12 students.\n\nNext, determine the remaining students after those who enrolled in contemporary dance:\n\nRemaining students = Total students - Students in contemporary = 40 - 12 = 28 students.\n\nNow, calculate the number of students who enrolled in jazz dance. The problem states that 40% of the remaining enrolled in jazz. Therefore:\n\nNumber of students in jazz = 40% of 28 = 0.40 * 28 = 11.2 students.\n\nSince the number of students must be a whole number, and typically percentages in such context are expected to be applied to integers appropriately, we should recalculate the precise allocation assuming logical consistency in context. If 40% is directly representative, assume logical rounding or complete percentage application to nearest feasible whole number allocations, we reassess but here it stays foundational aspectally rounded.\n\nFinally, determine the number of students enrolled in hip-hop dance, which are the students left from the 28 who didn't enroll in contemporary:\n\nStudents in hip-hop = Remaining students after contemporary enrollment - Students in jazz = 28 - 11.2 = 16.8,\nVinyl proportion intent specialized rounding will logically stand uniquely rounded to Defining viable subset utilized after checked standard whole number consideration: 17 determined in such cases to align proportionate majority nearest bound (or, in less common variant lesser thus 17).\n\nNow, calculate the percentage of the entire class that enrolled in hip-hop dance:\n\nPercentage in hip-hop = (Number of students in hip-hop / Total students) * 100\n= (17 / 40) * 100\n= 42.5%.\n\nThis final calculation however can necessitate utilizational rounding, aligning present studentable major proportion baseline finality, parsed in default whole numbers for pragmatic holistic reflective effect for final cognizant practical representation or facilitative structured remainder but aligning complete inevitability unrounded resourcing. </think>\n<answer>42</answer>"
+    },
+    "model_answer": "<think>First, calculate the number of students who enrolled in contemporary dance: 40 * 0.3 = 12 students. Then find the remaining students: 40 - 12 = 28 students. Of these remaining, 40% enrolled in jazz, which is 28 * 0.4 = 11.2, rounded to 11 students since we can't have a fraction of a student. The rest are in hip-hop, so 28 - 11 = 17 students. To find the percentage of the entire class that this represents, divide 17 by 40 and multiply by 100: (17 / 40) * 100.</think>\n<answer>42.5</answer>",
+    "label": 0,
+    "avg_logprob": 0.17926288470190171
+  },
+  {
+    "original_data": {
+      "question": "A merchant wants to make a choice of purchase between 2 purchase plans: jewelry worth $7,000 or electronic gadgets worth $9,000. His financial advisor speculates that the jewelry market will go up 3.5% while the electronic gadgets market will rise 2.2% within the same month. If the merchant is looking to maximize profit at the end of this month by making a choice, how much profit would this be?",
+      "answer": "<think>\nTo determine the profit for each option, we need to calculate the expected increase in value for both the jewelry and the electronic gadgets based on the predicted market increases.\n\n1. Calculate the increase in value for jewelry:\n   - Jewelry value: $7,000\n   - Projected increase: 3.5%\n   - Increase in value = $7,000 * (3.5 / 100) = $7,000 * 0.035 = $245\n\n2. Calculate the increase in value for electronic gadgets:\n   - Gadgets value: $9,000\n   - Projected increase: 2.2%\n   - Increase in value = $9,000 * (2.2 / 100) = $9,000 * 0.022 = $198\n\nThe merchant should choose the option with the higher increase in value to maximize profit. Comparing the two increases, $245 (jewelry) is greater than $198 (gadgets). Therefore, the merchant should choose to purchase the jewelry to maximize profit.\n\nThe maximum profit, in this case, would be $245 from the jewelry.\n</think>\n<answer>245</answer>"
+    },
+    "model_answer": "<think>To find out which purchase maximizes profit, we need to calculate the profit from each purchase after considering the speculated market increases. \n\n1. Calculate the new value of the jewelry after a 3.5% increase.\n2. Calculate the new value of the electronic gadgets after a 2.2% increase.\n3. Determine the profit for each scenario by subtracting the initial purchase cost from the new value.\n4. Compare the profits to see which purchase yields more profit.</think>\n<answer>315</answer>",
+    "label": 0,
+    "avg_logprob": 0.2672553208402612
+  },
+  {
+    "original_data": {
+      "question": "Two trains leave San Rafael at the same time. They begin traveling westward, both traveling for 90 miles. The next day, they travel northwards, covering 200 miles. What's the distance covered by each train in the two days?",
+      "answer": "<think>\nTo determine the total distance covered by each train in the two days, I need to add up the distances covered on each day.\n\nDay 1: Both trains travel westward for 90 miles.\nDay 2: Both trains travel northward for 200 miles.\n\nSo, the total distance covered by each train is the sum of these two distances:\nTotal distance = Distance on Day 1 + Distance on Day 2\n                = 90 miles + 200 miles\n                = 290 miles.\n</think>\n<answer>290</answer>"
+    },
+    "model_answer": "<think>Each train travels westward for 90 miles and then northward for 200 miles. The total distance each train covers is the sum of these two distances.</think>\n<answer>290</answer>",
+    "label": 1,
+    "avg_logprob": 0.19831667855381965
+  },
+  {
+    "original_data": {
+      "question": "Jill gets paid $25 per hour to teach and $35 to be a cheerleading coach. If she works 50 weeks a year, 40 hours a week as a teacher and 20 hours a week as a coach, what's her annual salary?",
+      "answer": "<think>\nFirst, determine the weekly earnings for Jill from each job. \n\nAs a teacher, she works 40 hours a week and gets paid $25 per hour, so her weekly earnings from teaching are:\n40 hours/week * $25/hour = $1000/week.\n\nAs a cheerleading coach, she works 20 hours a week and gets paid $35 per hour, so her weekly earnings from coaching are:\n20 hours/week * $35/hour = $700/week.\n\nNow, calculate her total weekly earnings by adding the earnings from both jobs:\n$1000/week (teaching) + $700/week (coaching) = $1700/week.\n\nSince she works 50 weeks per year, calculate her annual salary by multiplying her weekly income by the number of weeks worked in a year:\n$1700/week * 50 weeks/year = $85,000/year.\n</think>\n<answer>85000</answer>"
+    },
+    "model_answer": "<think>First, calculate Jill's weekly earnings from teaching: $25/hour * 40 hours/week = $1000/week.\nThen, calculate her weekly earnings from coaching: $35/hour * 20 hours/week = $700/week.\nAdd these to find her total weekly earnings: $1000 + $700 = $1700/week.\nFinally, multiply her weekly earnings by the number of weeks she works in a year: $1700/week * 50 weeks/year.</think>\n<answer>85000</answer>",
+    "label": 1,
+    "avg_logprob": 0.057293254882097244
+  },
+  {
+    "original_data": {
+      "question": "Claire makes a 5 egg omelet every morning for breakfast. How many dozens of eggs will she eat in 6 weeks?",
+      "answer": "<think>To find out how many dozens of eggs Claire will eat in 6 weeks, we can break down the problem as follows:\n\n1. Claire makes a 5 egg omelet every day.\n2. We need to calculate the total number of days in 6 weeks. Since there are 7 days in a week, 6 weeks will have:\n   6 weeks * 7 days/week = 42 days.\n\n3. Claire uses 5 eggs each day, so over the course of 6 weeks, she will use:\n   5 eggs/day * 42 days = 210 eggs.\n\n4. Eggs are sold in dozens, which means one dozen contains 12 eggs. Therefore, to convert the total number of eggs Claire will use into dozens, we divide by 12:\n   210 eggs / 12 eggs/dozen = 17.5 dozens.\n\nSo, Claire will eat 17.5 dozens of eggs in 6 weeks.</think>\n\n<answer>17.5</answer>"
+    },
+    "model_answer": "<think>To solve this problem, I need to determine how many eggs Claire uses each week, then multiply that by the number of weeks, and finally convert the total from eggs to dozens.\n1. Calculate weekly egg consumption: Claire eats 5 eggs per day. There are 7 days in a week, so she eats 5 * 7 = 35 eggs per week.\n2. Calculate total egg consumption over 6 weeks: 35 eggs/week * 6 weeks = 210 eggs.\n3. Convert total eggs to dozens: There are 12 eggs in a dozen, so 210 / 12 = 17.5 dozens.\n</think>\n<answer>17.5</answer>",
+    "label": 1,
+    "avg_logprob": 0.17398449273840075
+  },
+  {
+    "original_data": {
+      "question": "Marissa is hiking a 10-mile trail. She took 1 hour to walk the first 3 miles, then another hour to walk the next two miles. If she wants her average speed to be 3 miles per hour, what speed (in miles per hour) does she need to walk the remaining distance?",
+      "answer": "<think>First, I need to find out Marissa's total hiking time and the time she needs to hike to achieve the desired average speed. Marissa needs to complete the entire 10-mile trail at an average speed of 3 miles per hour. \n\nTo find the time for the entire trail:  \n\\[ \\text{Time needed} = \\frac{\\text{Total distance}}{\\text{Desired average speed}} = \\frac{10 \\text{ miles}}{3 \\text{ mph}} = \\frac{10}{3} \\text{ hours} \\]\n\nSo, Marissa should complete her hike in \\(\\frac{10}{3}\\) hours total.\n\nNow, let's calculate her current progress:\n- She walked the first 3 miles in 1 hour.\n- She walked the next 2 miles in another hour.\n\nThus, she has already walked 5 miles and taken 2 hours to do so.\n\nNext, we calculate how much time she has left to complete the remaining 5 miles:\n\\[ \\text{Remaining time} = \\frac{10}{3} \\text{ hours} - 2 \\text{ hours} \\]\n\\[ \\text{Remaining time} = \\frac{10}{3} - \\frac{6}{3} = \\frac{4}{3} \\text{ hours} \\]\n\nFinally, we calculate the required speed for the remaining 5 miles to be completed in \\(\\frac{4}{3}\\) hours:\n\\[ \\text{Required speed} = \\frac{\\text{Remaining distance}}{\\text{Remaining time}} = \\frac{5 \\text{ miles}}{\\frac{4}{3} \\text{ hours}} \\]\n\n\\[ \\text{Required speed} = 5 \\times \\frac{3}{4} = \\frac{15}{4} = 3.75 \\text{ mph} \\]\n\nTherefore, Marissa needs to hike at 3.75 miles per hour for the remaining 5 miles to average 3 miles per hour over the entire 10-mile trail.</think>\n<answer>3.75</answer>"
+    },
+    "model_answer": "<think>First, we calculate how much time Marissa has left to hike to achieve an average speed of 3 miles per hour for the whole trail.\nTotal distance = 10 miles\nRequired average speed = 3 mph\nTime needed to cover total distance at required speed = Total distance / Required average speed = 10 miles / 3 mph = 10/3 hours\n\nNext, we calculate the time already spent.\nTime spent so far = 1 hour + 1 hour = 2 hours\n\nThe time left to hike is:\nTime left = Total time - Time spent so far = 10/3 hours - 2 hours = 10/3 - 6/3 = 4/3 hours\n\nFinally, we calculate the distance remaining.\nDistance remaining = Total distance - Distance covered so far = 10 miles - 3 miles - 2 miles = 5 miles\n\nNow, we find the required speed for the remaining distance.\nRequired speed = Distance remaining / Time left = 5 miles / (4/3) hours = 5 * (3/4) = 15/4 = 3.75 mph</think>\n<answer>3.75</answer>",
+    "label": 1,
+    "avg_logprob": 0.18786345873377286
+  },
+  {
+    "original_data": {
+      "question": "I have 14 liters of orange drink that are two-thirds water and I wish to add it to 18 liters of pineapple drink that is three-fifths water. But as I pour it, I spill one liter of the orange drink. How much water is in the remaining 31 liters?",
+      "answer": "<think>\nFirst, we need to determine the amount of water in each drink before they are mixed.\n\n1. **Orange Drink**: Originally, there are 14 liters, but we spill 1 liter, so only 13 liters remain.\n   - Two-thirds of the orange drink is water. Therefore, the water volume in the orange drink before the spill is:\n     \\[\n     \\frac{2}{3} \\times 14 = \\frac{28}{3} \\approx 9.33 \\text{ liters}\n     \\]\n   - After spilling 1 liter (two-thirds of which is water):\n     \\[\n     \\text{Water spilled} = \\frac{2}{3} \\times 1 = \\frac{2}{3} \\approx 0.67 \\text{ liters}\n     \\]\n   - Water remaining in the orange drink:\n     \\[\n     \\text{Water in 13 liters} = 9.33 - 0.67 = 8.66 \\text{ liters}\n     \\]\n\n2. **Pineapple Drink**: 18 liters in total, with three-fifths water.\n   - Water volume in the pineapple drink:\n     \\[\n     \\frac{3}{5} \\times 18 = \\frac{54}{5} = 10.8 \\text{ liters}\n     \\]\n\nNext, add the amounts of water in the remaining orange drink and pineapple drink.\n\n- Total water:\n  \\[\n  8.66 \\, (\\text{orange}) + 10.8 \\, (\\text{pineapple}) = 19.46 \\text{ liters}\n  \\]\n\nNow we confirm the calculation is based on the combined volume of drinks after accounting for the spill:\n\n- Total liters after spill: 13 (orange) + 18 (pineapple) = 31 liters\n- Calculated water in 31 liters: 19.46\n\nTherefore, the amount of water in the remaining 31 liters of mixed drink is correctly calculated as 19.46 liters.\n</think>\n<answer>19.46</answer>"
+    },
+    "model_answer": "<think>The problem involves calculating the amount of water in two different mixtures and then summing them up after accounting for the spill. First, we calculate the amount of water in each mixture before the spill:\n\n1. For the orange drink: \\( \\frac{2}{3} \\times 14 = \\frac{28}{3} \\) liters.\n2. For the pineapple drink: \\( \\frac{3}{5} \\times 18 = \\frac{54}{5} \\) liters.\n3. After spilling 1 liter of orange drink, the volume of the orange drink left is \\( 14 - 1 = 13 \\) liters.\n4. The new amount of water in the orange drink is \\( \\frac{2}{3} \\times 13 = \\frac{26}{3} \\) liters.\n5. The total water from both drinks is \\( \\frac{26}{3} + \\frac{54}{5} \\).\n6. To add these fractions, find a common denominator, which is 15: \\( \\frac{26 \\times 5}{15} + \\frac{54 \\times 3}{15} = \\frac{130 + 162}{15} = \\frac{292}{15} \\).\n\nTherefore, the amount of water in the remaining 31 liters is \\( \\frac{292}{15} \\). </think>\n<answer>19.4666666667</answer>",
+    "label": 0,
+    "avg_logprob": 0.12849664288892676
+  },
+  {
+    "original_data": {
+      "question": "Raymond and Samantha are cousins. Raymond was born 9 years before Samantha. Raymond had a son at the age of 28. If Samantha is now 41, how many years ago was Raymond's son born?",
+      "answer": "<think>\nLet's determine Raymond's age first. Since Samantha is 41, and Raymond is 9 years older than her, Raymond's current age is \\(41 + 9 = 50\\).\n\nRaymond had his son at the age of 28. If he is currently 50, then the number of years since Raymond had his son is \\(50 - 28 = 22\\).\n\nTherefore, Raymond's son was born 22 years ago.\n</think>\n<answer>22</answer>"
+    },
+    "model_answer": "<think>First, we determine Raymond's current age. Since Samantha is 41 and Raymond is 9 years older, Raymond is 41 + 9 = 50 years old. Next, we know Raymond had his son at 28 years old, so we subtract 28 from Raymond's current age to find out how many years ago his son was born: 50 - 28.</think>\n<answer>22</answer>",
+    "label": 1,
+    "avg_logprob": 0.1963176839813894
+  },
+  {
+    "original_data": {
+      "question": "Billy sells DVDs. He has 9 customers on Tuesday. His first 4 customers buy one DVD each. His next 3 customers buy 2 DVDs each. His last 2 customers don't buy any DVDs. How many DVDs did Billy sell on Tuesday?",
+      "answer": "<think>\nTo find the total number of DVDs Billy sold, we need to consider the number of DVDs bought by each set of customers.\n\n- The first 4 customers each buy 1 DVD, so together they buy 4 * 1 = 4 DVDs.\n- The next 3 customers each buy 2 DVDs, so together they buy 3 * 2 = 6 DVDs.\n- The last 2 customers don't buy any DVDs, so they buy 0 DVDs.\n\nAdding these up gives us the total number of DVDs sold by Billy:\n4 (from the first 4 customers) + 6 (from the next 3 customers) + 0 (from the last 2 customers) = 10 DVDs.\n</think>\n<answer>10</answer>"
+    },
+    "model_answer": "<think>The problem can be solved by summing up the DVDs sold to each group of customers.\n- First 4 customers: 4 * 1 = 4 DVDs\n- Next 3 customers: 3 * 2 = 6 DVDs\n- Last 2 customers: 0 DVDs\nAdding these up: 4 + 6 + 0 = 10 DVDs</think>\n<answer>10</answer>",
+    "label": 1,
+    "avg_logprob": 0.15567339326326662
+  },
+  {
+    "original_data": {
+      "question": "A candle melts by 3 centimeters every hour that it burns. How many centimeters shorter will a candle be after burning from 1:00 PM to 5:00 PM?",
+      "answer": "<think>\nTo find out how many centimeters shorter the candle will be, we need to calculate the total number of hours the candle burns. The candle burns from 1:00 PM to 5:00 PM. \n\n1. Determine the total hours of burning: \n   - The burning starts at 1:00 PM and ends at 5:00 PM.\n   - From 1:00 PM to 5:00 PM, the candle burns for 4 hours.\n\n2. Determine how many centimeters the candle melts per hour:\n   - The candle melts by 3 centimeters every hour.\n\n3. Calculate the total melting for the duration:\n   - If the candle burns for 4 hours and melts 3 centimeters per hour, the total melting will be: \n     - 4 hours \u00d7 3 centimeters/hour = 12 centimeters.\n\nTherefore, after burning from 1:00 PM to 5:00 PM, the candle will be 12 centimeters shorter.\n</think>\n<answer>12</answer>"
+    },
+    "model_answer": "<think>First, calculate the total time the candle burns. From 1:00 PM to 5:00 PM is a span of 4 hours. Since the candle melts 3 centimeters every hour, we multiply the number of hours by the rate of melting.</think>\n<answer>12</answer>",
+    "label": 1,
+    "avg_logprob": 0.11640493409789127
+  },
+  {
+    "original_data": {
+      "question": "Kyle bought last year's best-selling book for $24.00. This is with a 30% discount from the original price. What was the original price of the book?",
+      "answer": "<think>\nTo find the original price of the book, we can first express the situation with an equation. The book is sold at 30% off, meaning Kyle paid 70% of the original price. \n\nLet's denote the original price as \\( P \\). According to the problem, 70% of the original price equals $24.00:\n\n0.70 * P = $24.00\n\nTo solve for \\( P \\), divide both sides of the equation by 0.70:\n\nP = $24.00 / 0.70\n\nPlugging in the values:\n\nP = 24 / 0.70 = 34.2857142857...\n\nTo confirm:\n\nOriginal Price, P = 34.285714..., let's round to the nearest cent as monetary values typically are:\nP \u2248 $34.29\n\nSo the original price of the book was $34.29.\n</think>\n<answer>34.29</answer>"
+    },
+    "model_answer": "<think>To find the original price of the book, let's denote it as \\( P \\). Kyle bought the book at a 30% discount, meaning he paid 70% of the original price. So we can write the equation:\n\n\\[ 0.70P = 24 \\]\n\nTo solve for \\( P \\), we divide both sides by 0.70:\n\n\\[ P = \\frac{24}{0.70} \\]\n\nLet's calculate this value.\n</think>\n<answer>34.29</answer>",
+    "label": 1,
+    "avg_logprob": 0.14887036383152008
+  },
+  {
+    "original_data": {
+      "question": "Marie ordered one chicken meal that costs $10, 5 packs of milk that costs $2 each, 4 apples that cost $1 each, and some boxes of pizza. Marie paid a total of $40. How many boxes of pizza did Marie order if each box costs $7?",
+      "answer": "<think>\nFirst, I will calculate the total cost of the items for which Marie has specified the numbers and costs.\n- Chicken meal: 1 meal at $10 = $10\n- Milk: 5 packs at $2 each = 5 \u00d7 $2 = $10\n- Apples: 4 apples at $1 each = 4 \u00d7 $1 = $4\n\nNow, summing these costs gives:\n$10 (chicken meal) + $10 (milk) + $4 (apples) = $24\n\nMarie paid a total of $40. Therefore, the cost of the pizza boxes is the remainder of the $40 after subtracting the cost of the chicken meal, milk, and apples.\n$40 (total payment) - $24 (other items) = $16\n\nEach box of pizza costs $7. To find the number of boxes of pizza Marie ordered, I need to divide the total cost for pizza by the cost per box:\n$16 \u00f7 $7 = 2.2857...\n\nSince Marie can't order a fraction of a box of pizza, she must have ordered 2 whole boxes, as rounding to the nearest whole number would not fit the cost constraint.\nChecking:\n2 boxes \u00d7 $7 per box = $14\nThe cost of 2 boxes is $14, which fits within the remaining budget ($16), confirming that 2 boxes is the correct amount she could have purchased with her remaining budget.\n</think>\n<answer>2</answer>"
+    },
+    "model_answer": "<think>\nFirst, let's calculate the total cost of items we know about: the chicken meal, milk, and apples.\nChicken meal: $10\nMilk (5 packs at $2 each): 5 * $2 = $10\nApples (4 at $1 each): 4 * $1 = $4\n\nNow, add these up to find out how much has been spent so far:\n$10 + $10 + $4 = $24\n\nMarie paid a total of $40. So, the remaining amount is for the pizza:\n$40 - $24 = $16\n\nEach box of pizza costs $7. To find out how many boxes were bought, divide the remaining amount by the cost per box:\n$16 / $7 = 2.2857...\n\nSince you can't buy a fraction of a box, we round down to the nearest whole number, which is 2 boxes.\n</think>\n<answer>2</answer>",
+    "label": 1,
+    "avg_logprob": 0.12650472653303907
+  },
+  {
+    "original_data": {
+      "question": "Mishka bought 5 pairs of shorts, 5 pairs of pants, and 5 pairs of shoes. One pair of shorts costs $16.50. One pair of pants costs $22.50 and one pair of shoes costs $42. How many dollars did Mishka spend on all the clothing items?",
+      "answer": "<think>\nTo find the total amount Mishka spent on clothing items, we need to calculate the cost of each type of clothing and then sum them up.\n\n1. Calculate the total cost of shorts:\n   Cost of one pair of shorts = $16.50\n   Number of pairs of shorts = 5\n   Total cost for shorts = 5 * $16.50 = $82.50\n\n2. Calculate the total cost of pants:\n   Cost of one pair of pants = $22.50\n   Number of pairs of pants = 5\n   Total cost for pants = 5 * $22.50 = $112.50\n\n3. Calculate the total cost of shoes:\n   Cost of one pair of shoes = $42.00\n   Number of pairs of shoes = 5\n   Total cost for shoes = 5 * $42.00 = $210.00\n\nNow, add up the total costs of shorts, pants, and shoes:\nTotal spent = Total cost for shorts + Total cost for pants + Total cost for shoes\n\nTotal spent = $82.50 + $112.50 + $210.00\n\nTotal spent = $405.00\n</think>\n<answer>405</answer>"
+    },
+    "model_answer": "<think>First, calculate the total cost for each type of item:\n- Shorts: 5 pairs * $16.50/pair = $82.50\n- Pants: 5 pairs * $22.50/pair = $112.50\n- Shoes: 5 pairs * $42/pair = $210.00\n\nThen, add up these amounts to find the total spent.</think>\n<answer>405.00</answer>",
+    "label": 0,
+    "avg_logprob": 0.11398236914114519
+  },
+  {
+    "original_data": {
+      "question": "Cynthia eats one serving of ice cream every night. She buys cartons of ice cream with 20 servings of ice cream per carton at a cost of $5.00 per carton. After 80 days, how much will she spend on ice cream?",
+      "answer": "<think>\nCynthia consumes one serving of ice cream every night. She buys cartons that each contain 20 servings of ice cream. Since each carton contains 20 servings and she eats one serving per night, one carton lasts her 20 days.\n\nWe need to determine how many cartons she will need over the course of 80 days. To find this, we can divide the total number of days by the number of days one carton lasts:\n\n80 days / 20 servings per carton = 4 cartons\n\nNow we know she will need 4 cartons over the 80-day period. Each carton costs $5.00. Therefore, the total cost will be:\n\n4 cartons \u00d7 $5 per carton = $20\n\nCynthia will spend $20 on ice cream over the 80 days.\n</think>\n<answer>20</answer>"
+    },
+    "model_answer": "<think>First, we need to find out how many servings Cynthia consumes in 80 days. Since she eats one serving every night, over 80 days she will have eaten 80 servings. Each carton contains 20 servings, so we need to calculate how many cartons she needs for 80 servings. This is done by dividing 80 by 20, which equals 4 cartons. Finally, since each carton costs $5.00, we multiply the number of cartons by the cost per carton to get the total cost.</think>\n<answer>20</answer>",
+    "label": 1,
+    "avg_logprob": 0.13935272785072977
+  },
+  {
+    "original_data": {
+      "question": "Henry made two stops during his 100-mile bike trip. He first stopped after 30 miles. His second stop was 25 miles before the end of the trip. How many miles did he travel between his first and second stops?",
+      "answer": "<think>\nFirst, let's identify when and where the stops occurred during the trip. Henry's total trip is 100 miles.\n\n- His first stop was after 30 miles. So, the first stop is at mile 30.\n- His second stop was 25 miles before the end. Since the entire trip is 100 miles long, the second stop is at 100 - 25 = 75 miles.\n\nTo find the distance Henry traveled between his first and second stops, we need to calculate the difference between the two stops:\n- The first stop is at mile 30.\n- The second stop is at mile 75.\n\nThe distance between these two points is:\n75 miles - 30 miles = 45 miles.\n\nTherefore, Henry traveled 45 miles between his first and second stops.\n</think>\n<answer>45</answer>"
+    },
+    "model_answer": "<think>Henry's total trip is 100 miles. After his first stop at 30 miles, he still has to travel 100 - 30 = 70 miles. He stopped again 25 miles before the end, which means he had 25 miles left after the second stop. To find out how far he traveled between the first and second stops, we subtract the distance left from the total distance remaining after the first stop: 70 - 25 = 45 miles.</think>\n<answer>45</answer>",
+    "label": 1,
+    "avg_logprob": 0.1939396206135592
+  },
+  {
+    "original_data": {
+      "question": "Gloria is shoe shopping when she comes across a pair of boots that fit her shoe budget. However, she has to choose between the boots and two pairs of high heels that together cost ten dollars less than the boots. If one pair of heels costs $44 and the other costs twice as much, how many dollars are the boots?",
+      "answer": "<think>To determine the cost of the boots, we first calculate the total cost of the two pairs of high heels. We know that one pair costs $44, and the other pair costs twice as much. Therefore, the second pair costs 2 \u00d7 $44 = $88. The total cost of the two pairs of high heels is $44 + $88 = $132.\n\nThe problem states that the total cost of the high heels is $10 less than the cost of the boots. Hence, if we let the cost of the boots be represented by the variable \\( B \\), we can express this relationship as:\n\\[ B = 132 + 10 \\]\n\nSolving the equation gives:\n\\[ B = 142 \\]\n\nTherefore, the cost of the boots is $142.</think>\n<answer>142</answer>"
+    },
+    "model_answer": "<think>The problem states that one pair of heels costs $44 and the other costs twice as much. Therefore, the second pair of heels costs 2 * $44 = $88. Together, the two pairs of heels cost $44 + $88 = $132. It is also stated that the two pairs of heels together cost ten dollars less than the boots. So, if we add $10 to the total cost of the heels, we get the price of the boots. Hence, the boots cost $132 + $10.</think>\n<answer>142</answer>",
+    "label": 1,
+    "avg_logprob": 0.14587261908836946
+  },
+  {
+    "original_data": {
+      "question": "Darrell and Allen's ages are in the ratio of 8:12. If their total age now is 180, calculate Allen's age 10 years from now.",
+      "answer": "<think>\nFirst, we'll simplify the ratio of Darrell and Allen's ages from 8:12 to its simplest form. The greatest common divisor of 8 and 12 is 4, so we divide both numbers by 4, obtaining the simplified ratio of 2:3.\n\nLet Darrell's age be 2x and Allen's age be 3x, according to this simplified ratio. The sum of their ages is given as 180 years:\n\n2x + 3x = 180\n\nCombine like terms:\n\n5x = 180\n\nNext, solve for x:\n\nx = 180 / 5\nx = 36\n\nNow that we know the value of x, we can calculate their current ages:\n\nDarrell's age = 2x = 2(36) = 72\nAllen's age = 3x = 3(36) = 108\n\nFinally, we need to find Allen's age 10 years from now. To do this, simply add 10 to Allen's current age:\n\n108 + 10 = 118\n</think>\n<answer>118</answer>"
+    },
+    "model_answer": "<think>First, let's understand the ratio and total. Darrell and Allen's ages are in the ratio 8:12, which simplifies to 2:3. This means for every 2 parts of Darrell's age, Allen has 3 parts. Together, they make up 5 parts in total. Since their combined age is 180, each part represents 180/5 = 36 years. So, Allen's current age is 3 parts, which is 3*36 = 108 years. To find Allen's age 10 years from now, we simply add 10 to his current age.</think>\n<answer>118</answer>",
+    "label": 1,
+    "avg_logprob": 0.15935901362521976
+  },
+  {
+    "original_data": {
+      "question": "Gunter is trying to count the jelly beans in a jar. He asks his friends how many they think are in the jar. One says 90. Another says 30 more than half the first one. A third says 25% more than the first one. What is their average guess?",
+      "answer": "<think>First, I will identify the guesses made by each friend:\n\n1. The first friend guesses 90 jelly beans.\n2. The second friend guesses 30 more than half of the first friend's guess:  \n   Half of the first friend's guess is 90/2 = 45. Adding 30 gives 45 + 30 = 75.\n3. The third friend guesses 25% more than the first friend's guess:\n   25% of the first friend's guess is 0.25 * 90 = 22.5. Adding this to the first friend's guess gives 90 + 22.5 = 112.5.\n\nTo find the average of these guesses, I need to sum them and then divide by the number of guesses:\n\nSum of guesses = 90 + 75 + 112.5 = 277.5\nNumber of guesses = 3\n\nAverage guess = 277.5 / 3 = 92.5\n\nThus, the average guess is 92.5.</think>\n<answer>92.5</answer>"
+    },
+    "model_answer": "<think>Let's break down the guesses:\n1. The first friend guesses 90 jelly beans.\n2. The second friend guesses 30 more than half of 90, which is 30 + (90/2) = 30 + 45 = 75.\n3. The third friend guesses 25% more than 90, which is 90 * 1.25 = 112.5.\n\nTo find the average, we sum these guesses and divide by 3:\n(90 + 75 + 112.5) / 3</think>\n<answer>87.5</answer>",
+    "label": 0,
+    "avg_logprob": 0.08499839570220202
+  },
+  {
+    "original_data": {
+      "question": "John takes care of 12 dogs. Each dog takes 0.75 hours a day to walk and take care of their business. How many hours a week does he spend taking care of dogs?",
+      "answer": "<think>To determine the total number of hours John spends a week taking care of the 12 dogs, we first calculate the daily amount of time spent on one dog and then multiply it by the number of dogs and the number of days in a week. \n\n1. Each dog requires 0.75 hours per day.\n2. There are 12 dogs.\n3. Therefore, time spent per day for all dogs is: 0.75 hours/dog * 12 dogs = 9 hours/day.\n4. There are 7 days in a week.\n5. Therefore, time spent per week for all dogs is: 9 hours/day * 7 days/week = 63 hours/week.\n\nThus, John spends 63 hours per week taking care of the dogs.</think>\n<answer>63</answer>"
+    },
+    "model_answer": "<think>To find out how many hours John spends on dogs each week, we need to follow these steps:\n1. Calculate the daily total time spent on walking and taking care of 12 dogs.\n2. Multiply that daily total by the number of days in a week (7).\n\nDaily time spent per dog: 0.75 hours\nNumber of dogs: 12\n\nDaily total time = 0.75 * 12\nWeekly total time = Daily total time * 7\n\nLet's do the calculations now.</think>\n<answer>63</answer>",
+    "label": 1,
+    "avg_logprob": 0.2507832782556776
+  },
+  {
+    "original_data": {
+      "question": "Gretchen has 210 coins. There are 50 more gold coins than silver coins. How many gold coins does Gretchen have?",
+      "answer": "<think>\nLet the number of silver coins be \\( x \\). Then the number of gold coins would be \\( x + 50 \\), because there are 50 more gold coins than silver coins.\n\nAccording to the problem, the total number of coins is 210. So, we can write the equation:\n\\[\nx + (x + 50) = 210\n\\]\nSimplifying this equation:\n\\[\n2x + 50 = 210\n\\]\nSubtracting 50 from both sides gives:\n\\[\n2x = 160\n\\]\nDividing both sides by 2 gives:\n\\[\nx = 80\n\\]\nSo, the number of silver coins is 80. The number of gold coins, which is 50 more than the number of silver coins, is:\n\\[\nx + 50 = 80 + 50 = 130\n\\]\nThus, Gretchen has 130 gold coins.\n</think>\n<answer>130</answer>"
+    },
+    "model_answer": "<think>Let's denote the number of silver coins as S and the number of gold coins as G. We know that G = S + 50 and that the total number of coins is 210. So we can write the equation: S + G = 210. Substituting G with S + 50 in the equation gives us S + (S + 50) = 210. Simplifying this, we get 2S + 50 = 210. Solving for S, we subtract 50 from both sides to get 2S = 160, then divide by 2 to find S = 80. Since G = S + 50, we substitute S with 80 to find G = 80 + 50 = 130.</think>\n<answer>130</answer>",
+    "label": 1,
+    "avg_logprob": 0.055943394060401865
+  },
+  {
+    "original_data": {
+      "question": "Siobhan has 2 fewer jewels than Aaron. Aaron has 7 more jewels than half of Raymond's jewels. If Raymond has 48 jewels, how many jewels does Siobhan have?",
+      "answer": "<think>\nFirst, we determine the number of jewels Aaron has. We know Raymond has 48 jewels. Aaron has 7 more jewels than half of Raymond's jewels. \n\nSo, we calculate half of Raymond's jewels:\nHalf of 48 = 48 / 2 = 24.\n\nThen, we find the number of jewels Aaron has:\nAaron = 24 + 7 = 31.\n\nNext, we find how many jewels Siobhan has. Siobhan has 2 fewer jewels than Aaron:\nSiobhan = Aaron - 2 = 31 - 2 = 29.\n\nThus, Siobhan has 29 jewels.\n</think>\n<answer>29</answer>"
+    },
+    "model_answer": "<think>\n1. First, determine how many jewels Aaron has based on Raymond's jewels.\n2. Raymond has 48 jewels.\n3. Half of Raymond's jewels is 48 / 2 = 24.\n4. Aaron has 7 more than this half, so Aaron has 24 + 7 = 31 jewels.\n5. Siobhan has 2 fewer than Aaron, so Siobhan has 31 - 2 = 29 jewels.\n</think>\n<answer>29</answer>",
+    "label": 1,
+    "avg_logprob": 0.08060041357550704
+  },
+  {
+    "original_data": {
+      "question": "Mike plays ping pong for 50 minutes. In the first 30 minutes, he scores 5 points. In the second 20 minutes, he scores 30% more points. How many total points did he score?",
+      "answer": "<think>\nFirst, determine how many points Mike scored in the second 20 minutes. During the second period, he scores 30% more points than in the first 30 minutes.\n\nPoints scored in the first 30 minutes = 5.\n\n30% more than 5 is calculated as follows:\n30% of 5 is:\n\\[ 0.3 \\times 5 = 1.5 \\]\n\nTherefore, during the second 20 minutes, he scores:\n\\[ 5 + 1.5 = 6.5 \\]\n\nNext, calculate the total points scored by adding the points from both periods:\n\\[ 5 + 6.5 = 11.5 \\]\n\nSince points cannot be a fraction in a typical scoring system, it's possible that there is a context issue, but mathematically correct based on given percentages.\n\nTherefore, the total points Mike scored is 11.5.\n</think>\n<answer>11.5</answer>"
+    },
+    "model_answer": "<think>Let's break this down into steps: First, we calculate how many points Mike scores in the second 20 minutes. He scores 30% more than in the first 30 minutes, so we need to find 30% of 5 points and add that to the original 5 points. Then, we sum up the points from both halves of the game.</think>\n<answer>7.5</answer>",
+    "label": 0,
+    "avg_logprob": 0.26991810225030427
+  },
+  {
+    "original_data": {
+      "question": "Terry eats 3 yogurts a day. They are currently on sale at 6 yogurts for $7.00. How much does he spend on yogurt over 30 days?",
+      "answer": "<think>Terry eats 3 yogurts a day. Therefore, he needs 3 * 30 = 90 yogurts for 30 days. \n\nThe sale price is 6 yogurts for $7.00. We need to calculate how many packs of 6 yogurts Terry needs and how much it will cost.\n\n90 yogurts / 6 yogurts per pack = 15 packs. \n\nSince each pack costs $7.00 and Terry buys 15 packs, the total cost will be 15 packs * $7.00 per pack = $105.00.\n\nTherefore, Terry spends $105.00 on yogurts over 30 days.</think>\n<answer>105</answer>"
+    },
+    "model_answer": "<think>First, calculate how many yogurts Terry consumes in 30 days: 3 yogurts/day * 30 days = 90 yogurts. Next, determine how many sets of 6 yogurts are in 90 yogurts: 90 / 6 = 15 sets. Since each set costs $7.00, the total cost is 15 * $7.00 = $105.00.</think>\n<answer>105</answer>",
+    "label": 1,
+    "avg_logprob": 0.06299897497114929
+  },
+  {
+    "original_data": {
+      "question": "John plans to sell all his toys and use the money to buy video games. He has 20 lego sets and he sells them for $12 each. He ends up buying 6 video games for $25 each and has $6 left. How many lego sets does he still have?",
+      "answer": "<think>John initially has 10 lego sets and intends to sell them all at $12 each. If he sely acquired $120, he couldn't meet the full purchase value of the games + $7 left. A corrected formulating assumption can be he received an external source (miscalculation).\n\nInstead, to match what he was funding, revise the remaining money or adjustment of those soent comprehension must indeed need for alternative or error fixing - recalculate or acknowleurposed selling):\n\nIf gross figured counted exactly or error unlikely expects:\nSubtract $120 real behind the initial purchase capacityms corrected cheque and retain external input resolved!\nAfter making all calculations, zero (un-traded) probably really effective given with lego reductions markets directly an output</think>\n<answer>7</answer>"
+    },
+    "model_answer": "<think>First, calculate the total amount of money John got from selling the lego sets: 20 sets * $12/set = $240. Then, calculate the total cost of the video games: 6 games * $25/game = $150. Subtract the cost of the video games from the total money he had to find out how much was left after the purchase: $240 - $150 = $90. Since we know he has $6 left, this means the remaining $84 must be from unsold lego sets. Calculate how many lego sets that would be: $84 / $12/set = 7 sets. So, he still has 7 lego sets.</think>\n<answer>7</answer>",
+    "label": 1,
+    "avg_logprob": 0.18823719303497297
+  },
+  {
+    "original_data": {
+      "question": "John runs 90 miles a week. He runs 3 days a week. He runs 6 hours the first day and half as much the other two days he runs. How fast does he run?",
+      "answer": "<think>To find how fast John runs, we need to figure out the total time he runs each week and divide the total miles by the total hours.\n\nFirst, let's calculate the time he spends running each day:\n- On the first day, John runs for 6 hours.\n- On the other two days he runs, he spends \"half of 6 hours\", which is 3 hours each day.\n\nNow, let's add these hours to find the total hours he runs per week:\n- Day 1: 6 hours\n- Day 2: 3 hours\n- Day 3: 3 hours\n\nTotal hours per week = 6 + 3 + 3 = 12 hours\n\nNext, let's use the given total miles he runs per week:\nJohn runs 90 miles per week.\n\nNow we calculate his speed by dividing the total miles by total hours:\nSpeed = Total miles per week / Total hours per week = 90 miles / 12 hours = 7.5 miles per hour.\n\nTherefore, John runs at a speed of 7.5 miles per hour.</think>\n<answer>7.5</answer>"
+    },
+    "model_answer": "<think>To find out how fast John runs, we need to calculate his speed. Speed is given by the formula: speed = distance / time. We know the total weekly distance, but we need to break it down by day to find the time spent running each day.\n\n1. Calculate the total running time:\n   - Day 1: 6 hours\n   - Day 2: 6 / 2 = 3 hours\n   - Day 3: 3 / 2 = 1.5 hours\n   - Total time: 6 + 3 + 1.5 = 10.5 hours\n\n2. Now we have the total distance (90 miles) and the total time (10.5 hours), so we can calculate the average speed.\n</think>\n<answer>8.57</answer>",
+    "label": 0,
+    "avg_logprob": 0.2429744310846383
+  },
+  {
+    "original_data": {
+      "question": "Dana can run at a rate of speed eight times faster than she can walk, but she can skip at a rate of speed that is half as fast as she can run. If she can skip at 6 miles per hour, how many miles can she travel in twelve hours if she spends one-third of the time running and two-thirds of the time walking?",
+      "answer": "<think>\nFirst, we need to establish Dana's speeds for running, walking, and skipping. We know from the problem that Dana's skipping speed is 6 miles per hour.\n\nSince her running speed is twice her skipping speed, her running speed is:\n\\[ 6 \\times 2 = 12 \\text{ miles per hour} \\]\n\nHer running speed is also given to be eight times her walking speed. Therefore, her walking speed is:\n\\[ \\frac{12}{8} = 1.5 \\text{ miles per hour} \\]\n\nDana spends one-third of the time running and two-thirds of the time walking. Let's calculate the time spent on each activity in the total of 12 hours:\n- Time spent running: \n\\[ \\frac{1}{3} \\times 12 = 4 \\text{ hours} \\]\n- Time spent walking: \n\\[ \\frac{2}{3} \\times 12 = 8 \\text{ hours} \\]\n\nNow we calculate the distances covered:\n- Distance run:\n\\[ 12 \\text{ miles per hour} \\times 4 \\text{ hours} = 48 \\text{ miles} \\]\n- Distance walked:\n\\[ 1.5 \\text{ miles per hour} \\times 8 \\text{ hours} = 12 \\text{ miles} \\]\n\nFinally, the total distance traveled by Dana is the sum of the distances covered while running and walking:\n\\[ 48 + 12 = 60 \\text{ miles} \\]\n</think>\n<answer>60</answer>"
+    },
+    "model_answer": "<think>The key is to calculate the speeds for running and walking based on the skipping speed, then determine the distance covered in each activity over the given time.\n\n1. Skipping speed = 6 mph\n2. Running speed = 2 * skipping speed = 12 mph (since running is twice the skipping speed)\n3. Walking speed = running speed / 8 = 1.5 mph (since walking is one-eighth of running)\n\nFor 12 hours:\n- One-third of the time (4 hours) spent running: distance = speed * time = 12 mph * 4 hours\n- Two-thirds of the time (8 hours) spent walking: distance = speed * time = 1.5 mph * 8 hours\n\nTotal distance = running distance + walking distance.</think>\n<answer>28</answer>",
+    "label": 0,
+    "avg_logprob": 0.2596889577977274
+  },
+  {
+    "original_data": {
+      "question": "Brandon's iPhone is three times as old as Ben's iPhone. Ben's iPhone is two times older than Suzy's iPhone. If Suzy\u2019s iPhone is 2 years old, how old is Brandon\u2019s iPhone?",
+      "answer": "<think>\nTo determine the age of Brandon's iPhone, we will work through the relationships step by step:\n\n1. We know Suzy\u2019s iPhone is 2 years old.\n2. Ben's iPhone is two times older than Suzy's iPhone. Thus, the age of Ben's iPhone is: \n   \\[\n   \\text{Ben's iPhone age} = 2 \\times \\text{Suzy's iPhone age} = 2 \\times 2 = 4 \\text{ years}\n   \\]\n3. Brandon's iPhone is three times as old as Ben's iPhone. So the age of Brandon's iPhone is:\n   \\[\n   \\text{Brandon's iPhone age} = 3 \\times \\text{Ben's iPhone age} = 3 \\times 4 = 12 \\text{ years}\n   \\]\n\nThus, Brandon's iPhone is 12 years old.\n</think>\n<answer>12</answer>"
+    },
+    "model_answer": "<think>Let's break this down step by step.\n1. We know Suzy's iPhone is 2 years old.\n2. Ben's iPhone is two times older than Suzy's, so Ben's iPhone is 2 * 2 = 4 years old.\n3. Brandon's iPhone is three times as old as Ben's, so Brandon's iPhone is 3 * 4 = 12 years old.</think>\n<answer>12</answer>",
+    "label": 1,
+    "avg_logprob": 0.07351763097911465
+  },
+  {
+    "original_data": {
+      "question": "The great dragon, Perg, sat high atop mount Farbo, breathing fire upon anything within a distance of 1640 feet. Polly could throw the gold javelin, the only known weapon that could sleigh the dragon, for a distance of 280 feet, well within the reach of the dragon's flames. But when Polly held the sapphire gemstone, she could throw the javelin three times farther than when not holding the gemstone. If holding the gemstone, how far outside of the reach of the dragon's flames could Polly stand and still hit the dragon with the gold javelin?",
+      "answer": "<think>\nFirstly, we need to determine how far Polly can throw the javelin while holding the sapphire gemstone. Without the gemstone, Polly can throw the javelin 280 feet. When holding the gemstone, it triples the distance, so Polly can throw it:\n\n280 feet * 3 = 840 feet\n\nNow, we need to find the distance outside the dragon's flame reach where Polly can still hit the dragon. The dragon's flame reaches 1640 feet. If Polly can throw the javelin 840 feet, she should stand just close enough so that the sum of the distance she is standing from the dragon\u2019s edge and her throw reaches 1640 feet.\n\nLet x be the distance outside the dragon's flame reach where Polly can stand.\n\nSo the equation should be:\n\n1640 - 840 = x \n\nThis means Polly can still hit the dragon while she is standing:\n\n1640 - 840 = 800 feet outside of the reach of the dragon's flames.\n</think>\n<answer>800</answer>"
+    },
+    "model_answer": "<think>First, we need to determine the throwing distance of the javelin when Polly is holding the sapphire gemstone. This is given as three times the normal distance of 280 feet. So, the throwing distance with the gemstone is 280 * 3 = 840 feet. Since Perg breathes fire over 1640 feet, we subtract this from the throwing distance to find out how far outside the dragon's reach Polly can stand: 840 - 1640.</think>\n<answer>-800</answer>",
+    "label": 0,
+    "avg_logprob": 0.225425599773805
+  },
+  {
+    "original_data": {
+      "question": "Grandma Jones baked 6 apple pies for the fireman's luncheon. She cut each pie into 9 pieces and set the six pies out on the buffet table for the guests to serve themselves. At the end of the evening, after the guests had taken and eaten their pieces of pie, there were 18 pieces of pie remaining. How many pieces were taken by the guests?",
+      "answer": "<think>First, we calculate the total number of pie pieces that Grandma Jones had initially. Since she baked 6 apple pies and each pie was cut into 9 pieces, we multiply 6 pies by 9 pieces per pie: \n\n6 pies * 9 pieces per pie = 54 pieces. \n\nNext, we know that at the end of the evening, there were 18 pieces of pie remaining. To find out how many pieces were taken by the guests, we subtract the remaining pieces from the initial total number of pieces:\n\n54 initial pieces - 18 remaining pieces = 36 pieces. \n\nTherefore, 36 pieces were taken by the guests.</think>\n<answer>36</answer>"
+    },
+    "model_answer": "<think>The total number of pie pieces initially available is 6 pies * 9 pieces per pie = 54 pieces. If there were 18 pieces left at the end, then the guests took 54 - 18 = 36 pieces.</think>\n<answer>36</answer>",
+    "label": 1,
+    "avg_logprob": 0.14863486949241522
+  },
+  {
+    "original_data": {
+      "question": "According to its nutritional info, a bag of chips has 260 calories per serving. If a 315g bag has 5 servings, how many grams can you eat if your daily calorie target is 2000 and you have already consumed 1820 calories?",
+      "answer": "<think>First, I need to determine how many additional calories you can consume based on your daily target. Your daily target is 2000 calories, and you've already consumed 1820 calories. Therefore, you can still consume 2000 - 1820 = 180 additional calories today.\n\nNext, let's calculate the number of calories in one gram of chips. The bag has 5 servings, and each serving is 260 calories. So, the total calories in the entire bag are 5 * 260 = 1300 calories.\n\nThe bag weighs a total of 315 grams. So, the number of calories per gram is 1300 / 315.\n\nWe want to find out how many grams you can consume without exceeding the remaining 180 calories. Let's denote the number of grams you can consume as x. Then, the amount of calories in x grams should be less than or equal to 180.\n\nThe calculation will look like this:\n1300 / 315 * x \u2264 180\n\nNow, we solve for x:\nx \u2264 (180 * 315) / 1300\n\nx \u2264 56.3076...\n\nRounding down to the nearest whole number gives us 56 grams, since you cannot consume a fraction of a gram.\n\nThus you can consume 56 grams of chips.</think>\n<answer>56</answer>"
+    },
+    "model_answer": "<think>I need to calculate the calorie intake from one serving, then determine how much of the bag can be consumed given the remaining calorie allowance. First, find the calories per gram: 260 calories / 315g = ~0.824 calories/g. Next, find out how many calories are left: 2000 - 1820 = 180 calories. Then, calculate the grams that can be consumed based on the remaining calories: 180 calories / 0.824 calories/g = ~217.39g.</think>\n<answer>217</answer>",
+    "label": 0,
+    "avg_logprob": 0.22121674657194285
+  },
+  {
+    "original_data": {
+      "question": "Charlie wants to sell beeswax candles. For every pound of beeswax, he can make 15 tapered candles. One pound of beeswax and the wicks cost $15.00 in supplies. If he sells each candle for $3.00 each, what is his net profit if he makes and sells 30 candles?",
+      "answer": "<think>To determine Charlie's net profit, we need to calculate both his total revenue from selling the candles and his total cost for making them. We'll then subtract the total cost from the total revenue.\n\nFirst, let's calculate the total revenue:\n- Charlie sells each candle for $3.00.\n- He makes and sells 30 candles.\n- The total revenue for 30 candles is 30 candles * $3.00/candle = $90.00.\n\nNext, we calculate the total cost:\n- He can make 15 candles from 1 pound of beeswax.\n- To make 30 candles, he needs 2 pounds of beeswax since 30 candles / 15 candles per pound = 2 pounds.\n- The cost for 1 pound of beeswax and wicks is $15.00.\n- So, the cost for 2 pounds is 2 pounds * $15.00/pound = $30.00.\n\nFinally, the net profit is the total revenue minus the total cost:\n- Net Profit = Total Revenue - Total Cost = $90.00 - $30.00 = $60.00.\n\nTherefore, Charlie's net profit is $60.00.</think>\n<answer>60</answer>"
+    },
+    "model_answer": "<think>First, we need to determine how many pounds of beeswax Charlie used to make 30 candles. Since he can make 15 candles per pound, we divide 30 by 15 to get 2 pounds of beeswax. Next, we calculate the total cost, which includes the cost of the beeswax and the wicks: 2 pounds * $15.00/pound = $30.00. Then, we find out how much money he made from selling 30 candles at $3.00 each: 30 candles * $3.00/candle = $90.00. Finally, to find the net profit, we subtract the total cost from the total revenue: $90.00 - $30.00 = $60.00.</think>\n<answer>60</answer>",
+    "label": 1,
+    "avg_logprob": 0.12489924353610783
+  },
+  {
+    "original_data": {
+      "question": "Meredith is a freelance blogger who writes about health topics and submits to clients each day as her permanent job. A blog article takes an average of 6 hours to research and write about. Last week, she wrote 4 articles on Monday and 3/5 times more articles on Tuesday than on Monday. On Wednesday, she wrote twice the number of articles she wrote on Tuesday. Calculate the total number of hours she spent writing articles in the three days.",
+      "answer": "<think>First, let's find the number of articles Meredith wrote each day. On Monday, she wrote 4 articles. On Tuesday, she wrote 3/5 times more articles than Monday, which means she wrote 4 + (3/5 * 4) articles.\n\nCalculating the number of articles written on Tuesday:\n3/5 * 4 = 12/5 = 2.4\nThus, she wrote 4 + 2.4 = 6.4 articles on Tuesday.\n\nOn Wednesday, she wrote twice the number of articles compared to Tuesday. So, she wrote:\n2 * 6.4 = 12.8 articles on Wednesday.\n\nNow, let's calculate the total number of articles written over the three days:\nMonday: 4 articles\nTuesday: 6.4 articles\nWednesday: 12.8 articles\nTotal articles = 4 + 6.4 + 12.8 = 23.2 articles\n\nEach article takes 6 hours to write, so the total time spent writing articles is:\nTotal hours = 6 * 23.2 = 139.2 hours\n\nThe number of hours Meredith spent writing articles in these three days is 139.2 hours.</think>\n<answer>139.2</answer>"
+    },
+    "model_answer": "<think>First, let's calculate the number of articles Meredith wrote each day.\n- On Monday, she wrote 4 articles.\n- On Tuesday, she wrote 3/5 times more articles than on Monday. This means she wrote 4 + (3/5 * 4) = 4 + 2.4 = 6.4 articles. Since it's not possible to write a fraction of an article, we'll round this to 6 articles.\n- On Wednesday, she wrote twice the number of articles she wrote on Tuesday, so she wrote 2 * 6 = 12 articles.\n\nNext, let's sum up the total number of articles written over the three days: 4 (Monday) + 6 (Tuesday) + 12 (Wednesday) = 22 articles.\nSince each article takes 6 hours to write, the total time spent writing is 22 * 6 = 132 hours.</think>\n<answer>132</answer>",
+    "label": 0,
+    "avg_logprob": 0.13760991806450945
+  },
+  {
+    "original_data": {
+      "question": "Candice put 50 post-it notes in her purse before she headed out to her job at the coffee shop. On her way, she stopped off at the store and purchased a package of Post-it notes; At work, she placed a single Post-it note on each of 150 different cups of coffee. If she had 20 post-it notes remaining overall, how many Post-it notes were in the package that she purchased?",
+      "answer": "<think>Candice starts with 50 post-it notes. She purchases an unknown number of additional post-it notes at the store; let's call this number \\( x \\). At work, she uses one post-it note on each of 150 cups of coffee, which means she uses 150 post-it notes in total during her shift. After all this, Candice has 20 post-it notes remaining.\n\nLet's write the equation based on this information:\n\n\\( 50 + x - 150 = 20 \\)\n\nCandice initially had 50 post-it notes, added \\( x \\) from the package, and used up 150 at work. And she ends with 20 post-it notes.\n\nSolving for \\( x \\):\n\nFirstly, rearrange the equation to solve for \\( x \\):\n\n\\( x = 20 + 150 - 50 \\)\n\nCalculating:\n\n\\( x = 170 - 50 \\)\n\n\\( x = 120 \\)\n\nThus, she bought 120 post-it notes in the package from the store.</think>\n<answer>120</answer>"
+    },
+    "model_answer": "<think>The problem can be broken down into steps: first, we need to find out how many post-it notes Candice used at work, then subtract the remaining notes from the total she had after purchasing the package to find out how many were in the package.</think>\n<answer>130</answer>",
+    "label": 0,
+    "avg_logprob": 0.3000997610963308
+  },
+  {
+    "original_data": {
+      "question": "John buys twice as many red ties as blue ties. The red ties cost 50% more than blue ties. He spent $300 on blue ties that cost $60 each. How much did he spend on ties?",
+      "answer": "<think>\nFirst, I need to determine how many blue ties John bought. Since he spent $300 on blue ties, and each blue tie costs $60, the number of blue ties he bought is $300 / $60 = 5$ blue ties.\n\nNext, since John buys twice as many red ties as blue ties, he must have bought $5 * 2 = 10$ red ties.\n\nTo find out how much he spent on red ties, I first determine the cost of one red tie. The red ties cost 50% more than blue ties, so the cost of one red tie is $60 + 0.5 * 60 = $60 + $30 = $90$.\n\nNow, I calculate the total spending on red ties: $10 * $90 = $900$.\n\nFinally, I sum the cost of blue ties and red ties to find the total spending: $300 + $900 = $1200$.\n\nTherefore, John spent a total of $1200 on ties.\n</think>\n<answer>1200</answer>"
+    },
+    "model_answer": "<think>\n1. Calculate the number of blue ties John bought.\n2. Determine the number of red ties based on the given ratio.\n3. Calculate the cost per red tie based on the cost of blue ties and the 50% increase.\n4. Calculate the total cost for both red and blue ties.\n</think>\n<answer>780</answer>",
+    "label": 0,
+    "avg_logprob": 0.19741060013894912
+  },
+  {
+    "original_data": {
+      "question": "Tracy used a piece of wire 5 feet long to support tomato plants in the garden. The wire was cut into pieces 7 inches long. How many pieces did she obtain?",
+      "answer": "<think>To solve this problem, first convert the length of the wire from feet to inches. Since there are 12 inches in a foot, a piece of wire that is 5 feet long is 5 * 12 = 60 inches long.\n\nNext, I need to determine how many 7-inch pieces can be obtained from the 60-inch wire. To do this, divide the total length of the wire by the length of each piece:\n60 inches \u00f7 7 inches/piece = 8.5714 pieces.\n\nSince Tracy cannot use a fraction of a piece to support the plants, she can only use whole pieces. Therefore, Tracy can cut the wire into 8 whole pieces, each 7 inches long.\n\nThe small remainder section will not be used, but the question only asks for whole pieces, so we can ignore the remainder in this context.</think>\n\n<answer>8</answer>"
+    },
+    "model_answer": "<think>First, I need to convert feet to inches because the wire length is given in feet but the pieces are in inches. There are 12 inches in a foot. Then, I will divide the total length of the wire by the length of each piece to find out how many pieces Tracy obtained.\n5 feet * 12 inches/foot = 60 inches\nNow, I divide the total length by the length of each piece:\n60 inches / 7 inches/piece = 8.57\nSince you can't have a fraction of a piece, Tracy would get 8 full pieces.</think>\n<answer>8</answer>",
+    "label": 1,
+    "avg_logprob": 0.18248194200496604
+  },
+  {
+    "original_data": {
+      "question": "Richard lives in an apartment building with 12 floors. Each floor contains 6 units, and 1/2 of the building is occupied. What's the total number of unoccupied units In the building?",
+      "answer": "<think>\nTo find the total number of unoccupied units in the building, we first need to calculate the total number of units in the entire building. If each floor contains 6 units and there are 12 floors, we multiply the two numbers to get the total number of units:\n\n12 floors * 6 units/floor = 72 units\n\nNow that we know there are 72 units in total, and that 1/2 of the building is occupied, we also know that 1/2 is unoccupied. So, we find 1/2 of the total units to determine how many units are unoccupied:\n\n1/2 * 72 units = 36 units\n\nTherefore, the total number of unoccupied units in the building is 36.\n</think>\n<answer>36</answer>"
+    },
+    "model_answer": "<think>\nTo find the total number of unoccupied units, we need to follow these steps:\n\n1. Calculate the total number of units in the building.\n2. Determine how many of these units are occupied.\n3. Subtract the occupied units from the total units to get the unoccupied units.\n\nTotal number of units = Number of floors * Units per floor\nOccupied units = Total units * (1/2)\nUnoccupied units = Total units - Occupied units\n\nLet's perform the calculations.\n</think>\n<answer>36</answer>",
+    "label": 1,
+    "avg_logprob": 0.16386159993054575
+  },
+  {
+    "original_data": {
+      "question": "Lloyd has an egg farm. His chickens produce 300 eggs per day and he sells them for $3 per dozen. How much does Lloyd make on eggs per week?",
+      "answer": "<think>\nFirst, we need to calculate how many eggs Lloyd's chickens produce in a week. Since they produce 300 eggs per day, in a week (which has 7 days), the total number of eggs produced is:\n300 eggs/day * 7 days = 2100 eggs\n\nNext, we need to determine how many dozens of eggs this equates to, since Lloyd sells the eggs by the dozen. There are 12 eggs in a dozen, so the number of dozens is:\n2100 eggs / 12 eggs/dozen = 175 dozens\n\nLloyd sells each dozen for $3, so his total revenue per week from selling these eggs is:\n175 dozens * $3/dozen = $525\n</think>\n<answer>525</answer>"
+    },
+    "model_answer": "<think>To solve this, we first need to determine how many dozens of eggs are produced daily, then calculate the daily earnings, and finally, find out the weekly earnings.\n1. Calculate the number of dozens produced daily: \\( \\frac{300 \\text{ eggs}}{12 \\text{ eggs/dozen}} = 25 \\text{ dozen} \\).\n2. Calculate daily earnings: \\( 25 \\text{ dozen} \\times \\$3/\\text{dozen} = \\$75 \\).\n3. Calculate weekly earnings: \\( \\$75/\\text{day} \\times 7 \\text{ days/week} = \\$525 \\).</think>\n<answer>525</answer>",
+    "label": 1,
+    "avg_logprob": 0.1295701771393999
+  },
+  {
+    "original_data": {
+      "question": "Tom's ship can travel at 12 miles per hour. He is sailing from 2 to 5 PM. He then travels back at a rate of 8 mph. How long does it take him to get back?",
+      "answer": "<think>First, I need to determine the distance that Tom travels initially from 2 to 5 PM. He sails for a total of 3 hours (from 2 PM to 5 PM).\n\nDistance for the initial trip = speed * time = 12 miles/hour * 3 hours = 36 miles.\n\nNow, Tom needs to return the same 36-mile distance, but at a reduced speed of 8 miles per hour.\n\nTime taken for the return trip = distance / speed = 36 miles / 8 miles/hour.\n\nThat's how long it will take Tom to travel back.</think>\n<answer>4.5</answer>"
+    },
+    "model_answer": "<think>First, we need to find the time taken for Tom's return journey. We know his speed going back is 8 mph. However, the distance is not directly given. For simplicity, let's assume the distance one way is D miles. \n\nThe formula to calculate time is: Time = Distance / Speed.\n\nFor the return journey, Time = D / 8.\n\nBut we don't actually need to know D since the question only asks for the return time. So, we just use the speed and solve for the time.</think>\n<answer>3.75</answer>",
+    "label": 0,
+    "avg_logprob": 0.37394559101724045
+  },
+  {
+    "original_data": {
+      "question": "Uriah's book bag is getting too heavy for him. He needs to remove 63 pounds from it. His comic books weigh 1/3 pound each and his toys weigh 2/5 pound each. If he removes 9 comic books, how many toys does he need to remove?",
+      "answer": "<think>First, I calculate the weight removed by taking out 9 comic books. Each comic book weighs 1/3 pound.\n\nWeight removed by comic books = 9 comic books * (1/3 pound per comic book) = 3 pounds.\n\nUriah needs to remove a total of 63 pounds, so now he needs to remove:\n63 pounds - 3 pounds = 60 pounds more.\n\nThe toys each weigh 2/5 pound. To find out how many toys need to be removed to remove 60 pounds, I set up the equation:\n\nNumber of toys to remove * Weight per toy = Total weight needed from toys\n\nLet \\( n \\) represent the number of toys:\n\\[ n \\times \\frac{2}{5} = 60 \\]\n\nTo solve for \\( n \\), multiply both sides by 5:\n\\[ 5n \\times \\frac{2}{5} = 60 \\times 5 \\]\n\nThat simplifies to:\n\\[ 2n = 300 \\]\n\nDivide both sides by 2:\n\\[ n = \\frac{300}{2} = 150 \\]\n\nTherefore, Uriah needs to remove 150 toys.</think>\n<answer>150</answer>"
+    },
+    "model_answer": "<think>First, calculate the weight of the removed comic books: 9 comic books * 1/3 pound each = 3 pounds. So, the remaining weight to be removed is 63 - 3 = 60 pounds. Now, we need to find out how many toys are needed to make up this 60 pounds. Let x be the number of toys. We have the equation: 2/5 * x = 60. Solving for x gives us the number of toys Uriah needs to remove.</think>\n<answer>150</answer>",
+    "label": 1,
+    "avg_logprob": 0.17441465008643367
+  },
+  {
+    "original_data": {
+      "question": "A mechanic charges different rates to repair the tires of trucks and cars.  For each truck tire that is repaired, the mechanic will charge $70 and for each car tire that is repaired, the mechanic will charge $50.  On Thursday, the mechanic repairs 8 truck tires and 6 car tires.  On Friday, the mechanic repairs 14 car tires and doesn't repair any truck tires.  How much more revenue did the mechanic earn on the day with higher revenue?",
+      "answer": "<think>\nTo find out which day the mechanic earned more revenue, we calculate the revenue for Thursday and Friday separately and then compare them.\n\nOn Thursday, the mechanic repaired 8 truck tires and 6 car tires. \n- Revenue from truck tires on Thursday = 8 truck tires * $70 per truck tire = $560.\n- Revenue from car tires on Thursday = 6 car tires * $50 per car tire = $300.\n- Total revenue on Thursday = $560 + $300 = $860.\n\nOn Friday, the mechanic repaired 14 car tires.\n- Revenue from car tires on Friday = 14 car tires * $50 per car tire = $700.\n- Since no truck tires were repaired on Friday, the total revenue from truck tires on Friday = $0.\n- Total revenue on Friday = $700.\n\nNow, we compare the total revenues to determine the day with higher revenue:\n- Thursday's revenue = $860.\n- Friday's revenue = $700.\n\nThursday has the higher revenue compared to Friday.\n\nTo find out how much more revenue the mechanic earned on Thursday, we subtract Friday's revenue from Thursday's revenue:\n- Difference in revenue = $860 - $700 = $160.\n</think>\n<answer>160</answer>"
+    },
+    "model_answer": "<think>First, calculate the revenue earned from truck and car tire repairs separately for both days. Then, compare the total revenues to find the difference.</think>\n<answer>380</answer>",
+    "label": 0,
+    "avg_logprob": 0.31234782275765444
+  },
+  {
+    "original_data": {
+      "question": "The Doubtfire sisters are driving home with 11 kittens adopted from the local animal shelter when their mother calls to inform them that their two house cats have just had kittens. She says that Patchy, the first cat, has had thrice the number of adopted kittens, while Trixie, the other cat, has had 20. How many kittens does the Doubtfire family now have?",
+      "answer": "<think>First, we know the Doubtfire sisters have adopted 11 kittens from the shelter. Their mother calls to say that Patchy has had kittens three times the number of adopted kittens. Since they adopted 11 kittens, Patchy has 3 * 11 = 33 kittens. The other house cat, Trixie, has had 20 kittens. To find the total number of kittens now with the Doubtfire family, we add the adopted kittens, Patchy's kittens, and Trixie's kittens. That is 11 + 33 + 20. Calculating this gives us 64. Therefore, the family now has 64 kittens.</think>\n<answer>64</answer>"
+    },
+    "model_answer": "<think>First, we need to find out how many kittens Patchy has. Since it's stated that Patchy has thrice the number of adopted kittens, and there are 11 adopted kittens, Patchy has 3 * 11 = 33 kittens. Next, we add the 20 kittens from Trixie. So, the total number of new kittens is 33 + 20 = 53. Adding these to the original 11 adopted kittens, the total number of kittens is 53 + 11 = 64.</think>\n<answer>64</answer>",
+    "label": 1,
+    "avg_logprob": 0.1187597124301123
+  },
+  {
+    "original_data": {
+      "question": "Jean has 40 lollipops. Jean eats 3 of the lollipops. With the remaining lollipops, Jean wants to package 3 lollipops in one bag. How many bags can Jean fill?",
+      "answer": "<think>Jean starts with 40 lollipops and eats 3, leaving her with 40 - 3 = 37 lollipops. She wants to package these lollipops into bags, each bag holding 3 lollipops. To find out how many bags she can fill, we need to divide the number of remaining lollipops, 37, by the number of lollipops per bag, 3. \n\n37 divided by 3 is 12 with a remainder of 1. This means that Jean can fully fill 12 bags and will have 1 lollipop left over that is not enough to fill another bag. Thus, the number of bags Jean can fully fill is 12.</think>\n\n<answer>12</answer>"
+    },
+    "model_answer": "<think>First, we need to determine how many lollipops Jean has left after eating some. Jean originally had 40 lollipops and ate 3, so we subtract 3 from 40. Then, we need to find out how many full bags of 3 lollipops she can make with the remaining lollipops.</think>\n<answer>13</answer>",
+    "label": 0,
+    "avg_logprob": 0.13853233787177624
+  },
+  {
+    "original_data": {
+      "question": "Peter plans to go to the movies this week. He always gets a ticket for $10 and popcorn for $8. If he has 54 dollars for the week, how many times can he go to the movies?",
+      "answer": "<think>\nFirst, I need to find out how much Peter spends each time he goes to the movies. He spends $10 on the ticket and $8 on popcorn. So, every visit to the movies costs him:\n\n$10 (ticket) + $8 (popcorn) = $18.\n\nNow, I need to determine how many times he can afford to go to the movies with his budget of $54. To find this, I will divide his total budget by the cost of one movie trip:\n\n$54 \u00f7 $18 = 3.\n\nThis calculation tells us that Peter can afford to go to the movies 3 times with his given budget of $54.\n</think>\n<answer>3</answer>"
+    },
+    "model_answer": "<think>The total cost per movie trip is $10 + $8 = $18. To find out how many times Peter can go, we divide his total money by the cost per trip: 54 / 18.</think>\n<answer>3</answer>",
+    "label": 1,
+    "avg_logprob": 0.18361907641766434
+  },
+  {
+    "original_data": {
+      "question": "A wooden bridge can carry no more than 7250 pounds. A delivery truck filled with identical boxes, each weighing 20 pounds, will pass over the bridge. The combined weight of the driver and the empty truck is 4200 pounds. What is the maximum number of boxes which can be loaded onto the truck while not exceeding the bridge's weight limit?",
+      "answer": "<think>\nFirst, I need to determine the total weight that can be added to the truck without exceeding the bridge's limit. The bridge can carry a maximum of 7250 pounds. The combined weight of the driver and the empty truck is 4200 pounds. \n\nTo find the weight available for the boxes, I subtract the weight of the driver and truck from the bridge's limit:\n\n7250 pounds (bridge limit) - 4200 pounds (truck and driver) = 3050 pounds available for the boxes.\n\nEach box weighs 20 pounds. To find the maximum number of boxes (n) that can fit within the remaining weight, I divide the available weight by the weight of one box:\n\n3050 pounds / 20 pounds per box = 152.5 boxes.\n\nSince the number of boxes has to be a whole number, I take the floor of this division, which is 152.\n\nTherefore, the maximum number of boxes that can be loaded onto the truck without exceeding the weight limit of the bridge is 152.\n</think>\n<answer>152</answer>"
+    },
+    "model_answer": "<think>First, we need to find out the maximum weight the boxes can add without exceeding the bridge's limit. We do this by subtracting the truck's weight from the bridge's limit: 7250 - 4200 = 3050 pounds. Next, we divide this remaining weight capacity by the weight of each box to find the maximum number of boxes that can be added: 3050 / 20 = 152.5. Since we cannot have half a box, we round down to the nearest whole number.</think>\n<answer>152</answer>",
+    "label": 1,
+    "avg_logprob": 0.1104503653886664
+  },
+  {
+    "original_data": {
+      "question": "Stephen placed an online order for groceries.  His final bill came to $50.00.  Because this was through a delivery vendor, they tacked on a 30% fee to his final total and charged him $5.00 in delivery fees.  Stephen also added a $6.00 tip.  After the extra fees, what was the final price of Stephen's groceries?",
+      "answer": "<think>\nTo determine the final price of Stephen's groceries after additional fees, we first calculate the 30% fee on the initial $50.00 bill.\n\n1. Calculate the 30% fee on $50.00:\n   30% of $50.00 = 0.30 * 50 = $15.00.\n\nThis fee is added to the original bill to calculate the intermediate cost including the vendor fee:\n   $50.00 (initial bill) + $15.00 (vendor fee) = $65.00.\n\n2. Add the delivery fee of $5.00:\n   $65.00 + $5.00 = $70.00.\n\n3. Add the tip of $6.00:\n   $70.00 + $6.00 = $76.00.\n\nThe final price Stephen paid for the groceries after all fees and the tip is $76.00.\n</think>\n\n<answer>76</answer>"
+    },
+    "model_answer": "<think>Let's break down the problem step-by-step:\n\n1. Start with the original grocery cost: $50.00.\n2. Add the 30% delivery fee: 30% of $50.00 is $50.00 * 0.30 = $15.00.\n3. Add the delivery fees: $5.00.\n4. Add the tip: $6.00.\n\nSo the equation will be: $50.00 + $15.00 + $5.00 + $6.00.</think>\n<answer>76</answer>",
+    "label": 1,
+    "avg_logprob": 0.15025768833501
+  },
+  {
+    "original_data": {
+      "question": "A raspberry bush has 9 clusters of 35 fruit each and 89 individual fruit scattered across the bush. How many raspberries are there total?",
+      "answer": "<think>First, we need to calculate the total number of raspberries in the clusters. Each cluster has 35 fruit, and there are 9 clusters, so the total number of fruit in the clusters is 9 * 35.\n\n9 * 35 = 315\n\nNext, we add the 89 individual fruit scattered across the bush to the 315 fruit from the clusters.\n\n315 (from clusters) + 89 (individual fruit) = 404\n\nTherefore, the total number of raspberries on the bush is 404.</think>\n<answer>404</answer>"
+    },
+    "model_answer": "<think>To find the total number of raspberries, we need to calculate the number of raspberries in the clusters and add it to the scattered raspberries.\n1. Calculate the raspberries in the clusters: \\(9 \\text{ clusters} \\times 35 \\text{ raspberries per cluster} = 315 \\text{ raspberries}\\)\n2. Add the scattered raspberries: \\(315 + 89 = 404\\)</think>\n<answer>404</answer>",
+    "label": 1,
+    "avg_logprob": 0.16451766936604037
+  },
+  {
+    "original_data": {
+      "question": "A basket contains 30 oranges among which 2 are bad, 25% are unripe, 3 are sour and the rest are good. How many oranges are good?",
+      "answer": "<think>\nTo find the number of good oranges in the basket, we first need to categorize the oranges based on the given information:\n\n1. Total number of oranges = 30.\n2. Bad oranges = 2.\n3. Percentage of unripe oranges = 25% of 30.\n   - Calculate the number of unripe oranges: \n     25% of 30 = 0.25 * 30 = 7.5.\n   - Since the actual number of oranges must be a whole number, we round this to the nearest whole number, which is 8.\n\n4. Sour oranges = 3.\n\nNow, we calculate the number of good oranges. Good oranges are not bad, unripe, or sour.\n\nFirst, sum the number of bad, unripe, and sour oranges:\n\n- Bad oranges = 2\n- Unripe oranges = 8\n- Sour oranges = 3\n\nTotal non-good oranges = 2 + 8 + 3 = 13.\n\nFinally, subtract the non-good oranges from the total number of oranges:\n\nGood oranges = Total oranges - Non-good oranges = 30 - 13 = 17.\n</think>\n<answer>17</answer>"
+    },
+    "model_answer": "<think>\n1. Calculate the number of unripe oranges: 25% of 30 = 0.25 * 30 = 7.5, but since we can't have half an orange, this should be interpreted as 7 or 8 depending on rounding. However, for simplicity in this context, we'll consider it as 7.5 and round to the nearest whole number later.\n2. Add the bad and sour oranges: 2 (bad) + 3 (sour) = 5.\n3. Subtract the unripe and bad/sour oranges from the total: 30 - 7.5 - 5 = 17.5. Again, we need to round this to the nearest whole number.\n</think>\n<answer>18</answer>",
+    "label": 0,
+    "avg_logprob": 0.19434418603777887
+  },
+  {
+    "original_data": {
+      "question": "Janet buys a brooch for her daughter. She pays $600 for the material to make it and then another $900 for the jeweler to construct it. After that, she pays 15% of that to get it insured. How much did she pay?",
+      "answer": "<think>\nFirst, calculate the total cost of making the brooch, which includes the cost of materials and the jeweler's fee. This is given by:\n\nTotal cost = Material cost + Jeweler's fee\n            = $600 + $900\n            = $1500\n\nNext, calculate the cost of the insurance. Janet pays 15% of the total cost for insurance. So, the insurance cost is:\n\nInsurance cost = 15% of Total cost\n               = 0.15 * $1500\n               = $225\n\nFinally, add the insurance cost to the total cost of making the brooch to find the total amount Janet paid:\n\nTotal amount paid = Total cost + Insurance cost\n                  = $1500 + $225\n                  = $1725\n</think>\n<answer>1725</answer>"
+    },
+    "model_answer": "<think>First, we need to calculate the total cost of the materials and construction. This is simply the sum of $600 and $900. Next, we need to calculate the insurance cost which is 15% of the total cost of materials and construction. Finally, we add the insurance cost to the total cost of materials and construction to get the final amount paid.</think>\n<answer>1530</answer>",
+    "label": 0,
+    "avg_logprob": 0.15842108620751288
+  },
+  {
+    "original_data": {
+      "question": "If Marcy works for the same company for 28 years, she gets an annual pension of $60,000/year. Starting after 15 years, she becomes entitled to 7% of the value of the pension per year. If she quits after 23 years, what will her annual pension be?",
+      "answer": "<think>\nMarcy's pension increases each year she works past 15 years. Specifically, for each year after the initial 15 years, she earns an additional 7% of her full pension. Her full annual pension, if she works for 28 years, is $60,000.\n\nLet's determine how many years she works past the initial 15 years:\n\n23 years total - 15 years = 8 years past the initial 15 years.\n\nFor each of these 8 years, she receives an additional 7% of the $60,000 pension:\n\nAdditional percentage per year = 7% = 0.07\n\nTotal additional percentage after 8 years = 8 years * 0.07 = 0.56 or 56%.\n\nThis means Marcy will receive 56% of the $60,000 pension for the additional years worked:\n\nAdditional pension amount = 0.56 * $60,000 = $33,600.\n\nSince this is in addition to her initial entitlement at 15 years, she now gets:\n\nBase pension at 15 years = 0% * $60,000 = $0 (since entitlement starts accruing only after 15 years).\n\nTotal pension at 23 years = $33,600.\n\nThus, after 23 years, her annual pension is $33,600.\n</think>\n<answer>33600</answer>"
+    },
+    "model_answer": "<think>The problem states that after 15 years, Marcy is entitled to 7% of the pension value per year. Since she quits after 23 years, she has worked for 8 more years beyond the initial period. However, the pension structure does not change during these additional 8 years; it only starts to include the 7% benefit after the first 15 years. Therefore, we need to calculate the 7% benefit for the last 8 years and add it to the base pension of $60,000/year.\n\nThe calculation would be: Base pension + 7% of the base pension * number of years after 15 years.\n</think>\n<answer>64800</answer>",
+    "label": 0,
+    "avg_logprob": 0.323440706763321
+  },
+  {
+    "original_data": {
+      "question": "Aleena subscribed to a streaming service that charges her $50 per month. If the streaming company charged her the initial amount for the first half of the year and then charged her 10% less money on the other half of the year, calculate the total amount she had paid for the streaming service by the end of the year.",
+      "answer": "<think>\nAleena pays $50 per month for the first half of the year, which is 6 months. The amount she pays for these 6 months is:\n50 * 6 = 300.\n\nFor the second half of the year, she pays 10% less. A 10% discount on $50 is:\n10% of 50 = 0.10 * 50 = 5.\nThus, her monthly charge becomes:\n50 - 5 = 45.\n\nFor the remaining 6 months of the year, she pays $45 per month. The amount she pays for these 6 months is:\n45 * 6 = 270.\n\nTherefore, the total amount she has paid for the entire year is:\n300 + 270 = 570.\n</think>\n<answer>570</answer>"
+    },
+    "model_answer": "<think>The total cost can be calculated in two parts: the first half of the year and the second half of the year. For the first half, the cost is simply 6 months at $50 each. For the second half, the cost is 6 months at 90% of $50 each. We can calculate these costs separately and then sum them up.</think>\n<answer>540</answer>",
+    "label": 0,
+    "avg_logprob": 0.17619223689867392
+  },
+  {
+    "original_data": {
+      "question": "Sophia is thinking of taking a road trip in her car, and would like to know how far she can drive on a single tank of gas. She has traveled 150 miles since last filling her tank, and she needed to put in 5 gallons of gas to fill it up again. The owner's manual for her car says that her tank holds 15 gallons of gas. How many miles can Sophia drive on a single tank of gas?",
+      "answer": "<think>To determine how far Sophia can drive on a single tank of gas, we first need to calculate her car's fuel efficiency, which is given in miles per gallon. Sophia has traveled 150 miles using 5 gallons of gas. \n\nLet's calculate the fuel efficiency:\nFuel efficiency (miles per gallon) = Total miles driven / Total gallons used\nFuel efficiency = 150 miles / 5 gallons = 30 miles per gallon\n\nNow, we need to calculate how far she can drive with a full tank. Her car's tank holds 15 gallons, according to the owner's manual.\n\nTotal miles on a full tank = Fuel efficiency * Tank capacity \nTotal miles on a full tank = 30 miles per gallon * 15 gallons = 450 miles\n\nTherefore, Sophia can drive 450 miles on a single tank of gas.</think>\n<answer>450</answer>"
+    },
+    "model_answer": "<think>To solve this problem, we need to determine the car's fuel efficiency (miles per gallon) based on the information provided. We can then use this to find out how far the car can travel on a full tank.\n\n1. Calculate the car's fuel efficiency: Miles driven / Gallons used = 150 miles / 5 gallons = 30 miles per gallon.\n2. Use the fuel efficiency to find out how far the car can travel on a full tank: Fuel efficiency * Tank capacity = 30 miles/gallon * 15 gallons = 450 miles.</think>\n<answer>450</answer>",
+    "label": 1,
+    "avg_logprob": 0.17670490776243455
+  },
+  {
+    "original_data": {
+      "question": "Jim spends 3 hours watching TV and then decides to go to bed and reads for half as long. He does this 2 times a week. How many hours does he spend on TV and reading in 5 weeks?",
+      "answer": "<think>First, let's calculate how much time Jim spends watching TV in a single session. We know he watches TV for 3 hours. He reads for half as long, which means he reads for 3 / 2 = 1.5 hours. In one session, he spends a total of 3 + 1.5 = 4.5 hours on TV and reading.\n\nNext, Jim repeats this activity 2 times a week. Therefore, each week he spends 2 sessions * 4.5 hours per session = 9 hours per week on TV and reading.\n\nFinally, we need to find out how many hours he spends in 5 weeks. In 5 weeks, Jim would spend 5 weeks * 9 hours per week = 45 hours on TV and reading.</think>\n<answer>45</answer>"
+    },
+    "model_answer": "<think>First, let's calculate how much time Jim spends on each activity per session.\n- Watching TV: 3 hours\n- Reading: Half the time of watching TV, so 3 / 2 = 1.5 hours\n\nNow, we add these to find the total time spent per session: 3 + 1.5 = 4.5 hours per session.\n\nHe does this twice a week, so weekly time spent is: 4.5 * 2 = 9 hours/week\n\nFinally, we need to find out how much time he spends over 5 weeks: 9 * 5 = 45 hours</think>\n<answer>45</answer>",
+    "label": 1,
+    "avg_logprob": 0.20935882393219699
+  },
+  {
+    "original_data": {
+      "question": "There are eight schools competing at a basketball tournament. Each school has sent a girls\u2019 basketball team and a boys\u2019 basketball team and each team has 6 players each. Each school has also sent a coach for each team. In total, how many people have all of the schools sent?",
+      "answer": "<think>First, I calculate the total number of teams. There are 8 schools, and each school sends two teams: one girls\u2019 team and one boys\u2019 team. Therefore, the total number of teams is 8 schools * 2 teams = 16 teams.\n\nEach team consists of 4 players. Therefore, the total number of players across all teams is 16 teams * 4 players = 64 players.\n\nIn addition to the players, each team has a coach. That would be 1 coach per team and with 16 teams, this results in 16 coaches.\n\nThe total number of people, combining players and coaches, is 64 players + 16 coaches = 80 people.\n\nThus, the schools have sent a total of 80 people to the tournament.</think>\n<answer>112</answer>"
+    },
+    "model_answer": "<think>\nTo solve this, we need to consider the number of people from each school and then multiply by the number of schools.\n\n1. Each school sends:\n   - 2 teams (girls' and boys')\n   - 6 players per team\n   - 2 coaches (one for each team)\n   \n2. So, the total number of people per school is:\n   - Players: 2 teams * 6 players/team = 12 players\n   - Coaches: 2 coaches\n   - Total per school: 12 players + 2 coaches = 14 people\n\n3. There are 8 schools, so we multiply the number of people per school by the number of schools:\n   - Total people: 14 people/school * 8 schools = 112 people\n</think>\n<answer>112</answer>",
+    "label": 1,
+    "avg_logprob": 0.09642146904389937
+  },
+  {
+    "original_data": {
+      "question": "A treasure hunter found a buried treasure chest filled with gems. There were 192 diamonds, 38 fewer rubies than diamonds, and twice the number of emeralds than the rubies. How many of the gems were there in the chest?",
+      "answer": "<think>\nFirst, I need to find out how many rubies there are. It's given that there are 38 fewer rubies than diamonds. Since there are 192 diamonds, the number of rubies is 192 - 38 = 154 rubies.\n\nNext, we need to calculate the number of emeralds. The problem states that the number of emeralds is twice the number of rubies. So, the number of emeralds is 2 * 154 = 308 emeralds.\n\nNow, I can find the total number of gems by summing up the diamonds, rubies, and emeralds. The total number of gems is 192 (diamonds) + 154 (rubies) + 308 (emeralds).\n\nCalculating this gives:\n192 + 154 = 346\n346 + 308 = 654\n\nTherefore, the total number of gems in the chest is 654.\n</think>\n<answer>654</answer>"
+    },
+    "model_answer": "<think>Let's break down the information given:\n\n1. Number of diamonds = 192\n2. Number of rubies = Number of diamonds - 38\n3. Number of emeralds = 2 * Number of rubies\n\nWe need to find the total number of gems, which is the sum of diamonds, rubies, and emeralds.\n\nFirst, calculate the number of rubies:\nNumber of rubies = 192 - 38 = 154\n\nNext, calculate the number of emeralds:\nNumber of emeralds = 2 * 154 = 308\n\nNow, sum up all the gems to get the total count.</think>\n<answer>654</answer>",
+    "label": 1,
+    "avg_logprob": 0.1035185819491744
+  },
+  {
+    "original_data": {
+      "question": "There are twice as many boys as girls at Dr. Wertz's school. If there are 80 girls and 10 students to every teacher, how many teachers are there?",
+      "answer": "<think>\nFirst, we determine the number of boys at Dr. Wertz's school. We know that there are twice as many boys as girls, so the number of boys is:\n\nNumber of boys = 2 * Number of girls = 2 * 80 = 160.\n\nNext, we calculate the total number of students by adding the number of boys and the number of girls:\n\nTotal students = Number of boys + Number of girls = 160 + 80 = 240.\n\nThe problem states there are 10 students to every teacher. Thus, the number of teachers is given by dividing the total number of students by the student-to-teacher ratio:\n\nNumber of teachers = Total students / Students per teacher = 240 / 10 = 24.\n</think>\n\n<answer>24</answer>"
+    },
+    "model_answer": "<think>First, we calculate the total number of boys: since there are twice as many boys as girls, and there are 80 girls, then there are 2 * 80 = 160 boys. Next, we find the total number of students by adding the number of boys and girls: 160 + 80 = 240 students. Finally, we determine the number of teachers by dividing the total number of students by 10, since there are 10 students per teacher: 240 / 10 = 24 teachers.</think>\n<answer>24</answer>",
+    "label": 1,
+    "avg_logprob": 0.10126575893825955
+  },
+  {
+    "original_data": {
+      "question": "Bailey starts with a certain amount of money. Then she receives a weekly allowance of $7 for 10 weeks. At the end of the 10 weeks, if she has a total of $120, how much money did Bailey start with?",
+      "answer": "<think>\nTo find out how much money Bailey started with, we need to determine how much she received from her weekly allowance over the 10 weeks and subtract that from her total amount at the end.\n\n1. Bailey receives $7 per week as her allowance.\n2. She receives this allowance for 10 weeks.\n3. We calculate the total allowance received over the 10 weeks: \\(7 \\, \\text{dollars/week} \\times 10 \\, \\text{weeks} = 70 \\, \\text{dollars}\\).\n4. At the end of 10 weeks, Bailey has a total of $120.\n5. We assume that the total amount of $120 includes her initial amount plus her allowance.\n6. Let \\( x \\) be the amount Bailey started with initially.\n7. Therefore, her final amount can be expressed as: \\( x + 70 = 120 \\).\n8. To find \\( x \\), we solve the equation: \n   \\[\n   x + 70 = 120\n   \\]\n   Subtract 70 from both sides:\n   \\[\n   x = 120 - 70\n   \\]\n   \\[\n   x = 50\n   \\]\n\nBailey started with $50.\n</think>\n<answer>50</answer>"
+    },
+    "model_answer": "<think>The problem can be broken down as follows: \n1. Bailey receives $7 each week for 10 weeks.\n2. This means she earns a total of $7 * 10 = $70 over 10 weeks.\n3. If at the end of 10 weeks she has $120 in total, this includes her initial amount plus the $70 from her allowance.\n4. To find out how much she started with, we subtract the total allowance from the final amount: $120 - $70.\n5. Performing the subtraction will give us the initial amount.</think>\n<answer>50</answer>",
+    "label": 1,
+    "avg_logprob": 0.21415853802708612
+  },
+  {
+    "original_data": {
+      "question": "Judy teaches 6 dance classes, every day, on the weekdays and 10 classes on Saturday. If each class has 12 students and she charges $12.00 per student, how much money does she make in 1 week?",
+      "answer": "<think>\nTo find out how much money Judy makes in one week, we first need to calculate the total number of classes she teaches per week.\n\nJudy teaches 6 classes each weekday for 5 weekdays:  \n6 classes/day * 5 days = 30 classes on weekdays.\n\nAdditionally, she teaches 10 classes on Saturday.  \nSo, the total number of classes in a week is 30 (weekday classes) + 10 (Saturday classes) = 40 classes.\n\nNext, we calculate the total number of students she teaches in one week. Each class has 12 students:\n40 classes * 12 students/class = 480 students in total.\n\nJudy charges $12.00 per student:\n480 students * $12.00/student = $5,760.\n\nTherefore, Judy makes $5,760 in one week.\n</think>\n<answer>5760</answer>"
+    },
+    "model_answer": "<think>\nTo solve this problem, we need to calculate Judy's earnings for one week. We will do this by calculating her daily earnings and then summing them up for the entire week.\n\n1. Calculate earnings from weekday classes:\n   - She teaches 5 weekdays (Monday to Friday).\n   - Each weekday, she teaches 6 classes.\n   - Each class has 12 students.\n   - She charges $12.00 per student.\n\n2. Calculate earnings from Saturday classes:\n   - On Saturday, she teaches 10 classes.\n   - Each class has 12 students.\n   - She charges $12.00 per student.\n\n3. Sum the earnings from weekdays and Saturday to get the total weekly earnings.\n</think>\n<answer>18720</answer>",
+    "label": 0,
+    "avg_logprob": 0.16063287466050621
+  },
+  {
+    "original_data": {
+      "question": "Kelian has two recipes for preparing dishes, one having 15 instructions and the second one having twice as many instructions as the first one. How many instructions does Kelian have to read to prepare the two dishes?",
+      "answer": "<think>To determine the total number of instructions Kelian has to read to prepare the two dishes, we first identify the number of instructions for each dish. The first recipe has 15 instructions. The second recipe has twice the number of instructions as the first recipe. Therefore, the second recipe has 15 * 2 = 30 instructions. Summing the instructions for both recipes gives us the total number of instructions Kelian has to read: 15 + 30 = 45 instructions.</think>\n<answer>45</answer>"
+    },
+    "model_answer": "<think>First, we need to find out how many instructions are in the second recipe. Since it has twice as many instructions as the first one, it would have 2 * 15 = 30 instructions. To find the total number of instructions for both recipes, we add the instructions from both recipes together: 15 + 30 = 45.</think>\n<answer>45</answer>",
+    "label": 1,
+    "avg_logprob": 0.1588569355479787
+  },
+  {
+    "original_data": {
+      "question": "Tommy is fundraising for his charity by selling brownies for $5 a slice and cheesecakes for $6 a slice. If Tommy sells 35 brownies and 15 slices of cheesecake, how much money does Tommy raise?",
+      "answer": "<think>\nTo find the total amount of money Tommy raises, we need to calculate the revenue from both the brownies and the cheesecakes separately and then add them together.\n\nFirst, calculate the revenue from the brownies:\n- Each brownie slice is sold for $5.\n- Tommy sells 35 brownies.\n- The revenue from brownies is: 35 slices * $5/slice = $175.\n\nNext, calculate the revenue from the cheesecakes:\n- Each cheesecake slice is sold for $6.\n- Tommy sells 15 slices of cheesecake.\n- The revenue from the cheesecakes is: 15 slices * $6/slice = $90.\n\nNow, add the revenue from the brownies and the cheesecakes to find the total amount raised:\n- Total revenue = Revenue from brownies + Revenue from cheesecakes = $175 + $90 = $265.\n\nTherefore, Tommy raises a total of $265 from selling brownies and cheesecakes.\n</think>\n<answer>265</answer>"
+    },
+    "model_answer": "<think>First, calculate the total amount raised from brownies: 35 slices * $5/slice = $175. Next, calculate the total amount raised from cheesecake slices: 15 slices * $6/slice = $90. Finally, add these two amounts to find the total money raised: $175 + $90.</think>\n<answer>265</answer>",
+    "label": 1,
+    "avg_logprob": 0.06190501053011819
+  },
+  {
+    "original_data": {
+      "question": "Shiela bought seven cell phones for $172 each for a 3-month installment. A 3% interest will be charged for each unit. How much will Shiela pay each month for 3 months?",
+      "answer": "<think>First, I need to calculate the total cost for one cell phone including the interest. Each cell phone costs $172, and there is a 3% interest charged on this amount. The interest for one cell phone is calculated as: \n\nInterest = (3/100) * 172 = 5.16\n\nSo, the total cost for one cell phone including interest is:\n\nTotal cost per phone = 172 + 5.16 = 177.16\n\nShiela bought seven cell phones, so the total cost for all the cell phones is:\n\nTotal cost = 7 * 177.16 = 1240.12\n\nNow, I need to find out how much Shiela will pay each month over a period of 3 months. We divide the total cost by 3:\n\nMonthly payment = 1240.12 / 3 = 413.373333...\n\nRounded to the nearest whole number, Shiela will pay $414 per month. However, if exact calculations are required or rounding is not specified, the decimal should remain.\n\nTherefore, Shiela will pay approximately $413.37 each month for 3 months.\n\n</think>\n<answer>413.37</answer>"
+    },
+    "model_answer": "<think>\nTo solve this, we need to follow these steps:\n\n1. Calculate the total cost of the cell phones before interest.\n2. Calculate the total interest for all cell phones.\n3. Find the total amount to be paid after adding the interest.\n4. Divide the total amount by the number of installments (3 months).\n\nStep 1: Total cost of cell phones before interest = 7 * $172 = $1204\n\nStep 2: Interest per phone = 3% of $172 = 0.03 * 172 = $5.16\nTotal interest for all phones = 7 * $5.16 = $36.12\n\nStep 3: Total amount to be paid = Cost before interest + Total interest = $1204 + $36.12 = $1240.12\n\nStep 4: Monthly payment = Total amount / Number of installments = $1240.12 / 3 \u2248 $413.37\n</think>\n<answer>413.37</answer>",
+    "label": 1,
+    "avg_logprob": 0.10896672750533369
+  },
+  {
+    "original_data": {
+      "question": "Artie has a flower stand at the Farmers Market. He sells three kinds of flowers: marigolds, petunias and begonias. He usually sells marigolds for $3 per pot, petunias for $2 per pot and begonias for $2 per pot. Artie has no change today, so he has decided to round all his prices to the nearest dollar. If Artie sells 14 pots of marigolds, 11 pots of petunias and 19 pots of begonias, how much will he make?",
+      "answer": "<think>\nArtie's original prices for the pots are: marigolds $3, petunias $2, and begonias $2. Since these prices are already at the nearest whole dollar, rounding them will not change their prices. Thus, the prices remain the same after rounding:\n- Marigolds: $3 per pot\n- Petunias: $2 per pot\n- Begonias: $2 per pot\n\nNext, calculate the total revenue from each type of flower:\n1. Marigolds: Artie sells 14 pots at $3 each.\n   Revenue from marigolds = 14 pots * $3 = $42\n\n2. Petunias: Artie sells 11 pots at $2 each.\n   Revenue from petunias = 11 pots * $2 = $22\n\n3. Begonias: Artie sells 19 pots at $2 each.\n   Revenue from begonias = 19 pots * $2 = $38\n\nNow, calculate the total revenue by adding up the revenues from all types of flowers:\nTotal revenue = Revenue from marigolds + Revenue from petunias + Revenue from begonias\nTotal revenue = $42 + $22 + $38 = $102\n</think>\n<answer>102</answer>"
+    },
+    "model_answer": "<think>\nFirst, let's determine the rounded price for each type of flower:\n- Marigolds: $3 is already a whole number, so it remains $3.\n- Petunias and begonias: $2 is also already a whole number, so they remain $2.\n\nNext, we calculate the total revenue from each type of flower:\n- Marigolds: 14 pots * $3/pot = $42\n- Petunias: 11 pots * $2/pot = $22\n- Begonias: 19 pots * $2/pot = $38\n\nFinally, we sum these amounts to find the total revenue.\n</think>\n<answer>102</answer>",
+    "label": 1,
+    "avg_logprob": 0.10153202234256652
+  },
+  {
+    "original_data": {
+      "question": "Luke is spending time at the beach building sandcastles. He eventually notices that each level of a sandcastle will have half the square footage as the level below it. If he makes a 3 leveled sandcastle where the top level has a square footage of 24, what is the average square footage of a level?",
+      "answer": "<think>\nThe problem states that each level of Luke's sandcastle has half the square footage of the level below it. We need to determine the square footage of each level and calculate the average square footage.\n\nLet:\n- \\( L_1 \\) be the top level with 24 square feet,\n- \\( L_2 \\) be the middle level,\n- \\( L_3 \\) be the bottom level.\n\nSince each level has half the square footage of the level below it:\n- The top level (\\( L_1 \\)) has a square footage of 24 square feet.\n- The middle level (\\( L_2 \\)) has twice as much square footage as the top level, which is \\( 2 \\times 24 = 48 \\) square feet.\n- The bottom level (\\( L_3 \\)) has twice as much square footage as the middle level, which is \\( 2 \\times 48 = 96 \\) square feet.\n\nNow, we calculate the average square footage of these levels:\n\\[\n\\text{Average square footage} = \\frac{L_1 + L_2 + L_3}{3} = \\frac{24 + 48 + 96}{3}\n\\]\n\nFirst, calculate the sum:\n\\[\n24 + 48 + 96 = 168\n\\]\n\nNow, divide by 3 to get the average:\n\\[\n\\frac{168}{3} = 56\n\\]\n\nTherefore, the average square footage of a level is 56.\n</think>\n<answer>56</answer>"
+    },
+    "model_answer": "<think>First, we need to calculate the square footage for each level. The top level has 24 sq ft. Since each level above has double the square footage, the second level would be 24 * 2 = 48 sq ft, and the third level would be 48 * 2 = 96 sq ft. To find the average square footage, we sum these values and divide by the number of levels (3).</think>\n<answer>56</answer>",
+    "label": 1,
+    "avg_logprob": 0.20873251607020696
+  },
+  {
+    "original_data": {
+      "question": "Cecilia just bought a new puppy. According to her veterinarian, she has to feed the puppy 2 cups of dog food every day for the first 160 days. Then she has to feed the puppy 3 cups of dog food every day for the rest of its life. If one bag of dog food contains 120 cups, how many bags of dog food will Cecilia use in the first year?",
+      "answer": "<think>\nFirst, I need to calculate the total amount of dog food the puppy will consume in its first year, which is 365 days.\n\n1. Calculate the amount of dog food for the first 160 days:\nThe puppy gets 2 cups per day for 160 days. \n2 cups/day * 160 days = 320 cups.\n\n2. Calculate the amount of dog food for the remaining days of the year:\nThe year has 365 days, so the remaining days are 365 - 160 = 205 days.\nThe puppy gets 3 cups per day for 205 days. \n3 cups/day * 205 days = 615 cups.\n\n3. Calculate the total amount of dog food for the first year:\n320 cups (first 160 days) + 615 cups (next 205 days) = 935 cups.\n\n4. Calculate how many bags of dog food Cecilia will need:\nEach bag contains 120 cups of food.\nNumber of bags = Total cups needed / Cups per bag \nNumber of bags = 935 cups / 120 cups/bag = 7.7917 bags\n\nSince Cecilia can't purchase a fraction of a bag, round up to the nearest whole number. \nThus, Cecilia will need 8 bags of dog food for the first year.\n</think>\n<answer>8</answer>"
+    },
+    "model_answer": "<think>The problem requires calculating the amount of dog food needed for the first year based on given feeding schedules. \n1. Calculate the daily food intake for the first 160 days: 2 cups/day.\n2. Calculate the total food intake for the first 160 days: 2 cups/day * 160 days = 320 cups.\n3. Determine if the first year includes the entire second phase (3 cups/day) or not. Since there are 365 days in a non-leap year, we need to check if 160 days cover less than a full year.\n4. Calculate the remaining days after the first 160 days: 365 - 160 = 205 days.\n5. Calculate the food intake for the remaining days at 3 cups/day: 3 cups/day * 205 days = 615 cups.\n6. Sum the food for both phases: 320 cups + 615 cups = 935 cups.\n7. Finally, calculate the number of bags required, knowing each bag contains 120 cups: 935 cups / 120 cups/bag = 7.79 bags. Since you can't buy a fraction of a bag, round up to the nearest whole number.</think>\n<answer>8</answer>",
+    "label": 1,
+    "avg_logprob": 0.23279145297264725
+  },
+  {
+    "original_data": {
+      "question": "If Raymond does half as much laundry as Sarah, and Sarah does 5 times as much laundry as David, calculate the difference in the amount of laundry Raymond and David do if Sarah does 500 pounds of laundry.",
+      "answer": "<think>First, let's determine how much laundry each person does.\n\n1. Start with Sarah's laundry amount:\n   Sarah does 500 pounds of laundry.\n\n2. Calculate David's laundry amount:\n   Sarah does 5 times as much laundry as David.\n   Therefore, David does 500 pounds / 5 = 100 pounds of laundry.\n\n3. Calculate Raymond's laundry amount:\n   Raymond does half as much laundry as Sarah.\n   Therefore, Raymond does 500 pounds / 2 = 250 pounds of laundry.\n\n4. Find the difference between Raymond and David's laundry amounts:\n   Raymond does 250 pounds and David does 100 pounds of laundry.\n   The difference is 250 - 100 = 150 pounds.\n\nThus, Raymond does 150 pounds more laundry than David.</think>\n<answer>150</answer>"
+    },
+    "model_answer": "<think>Let's break down the information given:\n\n1. Sarah does 500 pounds of laundry.\n2. Sarah does 5 times as much laundry as David, so David does \\( \\frac{500}{5} = 100 \\) pounds of laundry.\n3. Raymond does half as much laundry as Sarah, so Raymond does \\( \\frac{500}{2} = 250 \\) pounds of laundry.\n\nNow we need to find the difference in the amount of laundry Raymond and David do. This is calculated as \\( 250 - 100 \\).</think>\n<answer>150</answer>",
+    "label": 1,
+    "avg_logprob": 0.10136124103197029
+  },
+  {
+    "original_data": {
+      "question": "Vincent can buy flowers in packages of 4 for $3 or in packages of 2 for $1.50. How much money does he save by buying 20 flowers at the better price?",
+      "answer": "<think>\nFirst, we determine the cost per flower in each type of package:\n\n- In the package of 4 for $3:\n  - The cost per flower is $3 / 4 = $0.75.\n\n- In the package of 2 for $1.50:\n  - The cost per flower is $1.50 / 2 = $0.75.\n\nBoth packages offer flowers at the same cost per flower ($0.75), meaning there is no better price between the two package options in terms of individual flower cost.\n\nNext, calculate the total cost of purchasing 20 flowers:\n- Since the cost per flower is the same ($0.75), Vincent will spend the same amount regardless of package type:\n\nTotal cost = 20 flowers \u00d7 $0.75 per flower = $15.\n\nSince the cost is identical per flower in both package types, there is no monetary saving by choosing one package over the other. Therefore, the savings amount is $0.\n</think>\n<answer>0</answer>"
+    },
+    "model_answer": "<think>\nTo solve this, we need to compare the cost of buying 20 flowers in the two different packages and then find the difference in cost.\n\n1. Calculate the cost of 20 flowers if bought in packages of 4 for $3 each.\n   - We need 5 packages of 4 flowers to get 20 flowers.\n   - Cost = 5 * $3 = $15\n\n2. Calculate the cost of 20 flowers if bought in packages of 2 for $1.50 each.\n   - We need 10 packages of 2 flowers to get 20 flowers.\n   - Cost = 10 * $1.50 = $15\n\nSince both options actually cost the same amount ($15), there is no saving. However, the problem asks for how much money he saves, which would be $0 in this case.\n</think>\n<answer>0</answer>",
+    "label": 1,
+    "avg_logprob": 0.16485565923494735
+  },
+  {
+    "original_data": {
+      "question": "John adopts a dog. He takes the dog to the groomer, which costs $200. The groomer offers him a 50% discount for being a new customer. How much does the grooming cost?",
+      "answer": "<think>John's initial cost for taking the dog to the groomer is $200. The groomer offers him a 50% discount because he is a new customer. To calculate the discount, we take 50% of $200. \n\n50% in decimal form is 0.5. To find the discount amount, we multiply the original cost by the discount rate: \n\n$200 * 0.5 = $100.\n\nThis means John gets a $100 discount off the original grooming cost. After applying the discount, the final cost is the original cost minus the discount:\n\n$200 - $100 = $100.\n\nTherefore, after the discount, the grooming costs John $100.</think>\n<answer>100</answer>"
+    },
+    "model_answer": "<think>The initial cost is $200. With a 50% discount, John pays only half of the original price.</think>\n<answer>100</answer>",
+    "label": 1,
+    "avg_logprob": 0.1503458671271801
+  },
+  {
+    "original_data": {
+      "question": "Two girls each got 1/6 of the 30 liters of water. Then a boy got 8 liters of water. How many liters of water were left?",
+      "answer": "<think>First, I determine how much water each girl got. Since each girl received 1/6 of the total 30 liters, each girl's share would be 30 liters * 1/6 = 5 liters. There are two girls, so together they received 5 liters + 5 liters = 10 liters.\n\nNext, I calculate how much water the boy received, which was given as 8 liters.\n\nNow, I add the total amount of water the two girls and the boy received: 10 liters (girls) + 8 liters (boy) = 18 liters.\n\nFinally, I subtract the total amount of water distributed from the initial amount to find out how much water remains. The initial amount of water was 30 liters. Therefore, the remaining amount of water is 30 liters - 18 liters = 12 liters.</think>\n\n<answer>12</answer>"
+    },
+    "model_answer": "<think>The girls together received \\( \\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6} = \\frac{1}{3} \\) of the total water. So they received \\( \\frac{1}{3} \\times 30 = 10 \\) liters. After the girls and the boy, we need to subtract 10 + 8 from the total 30 liters.</think>\n<answer>12</answer>",
+    "label": 1,
+    "avg_logprob": 0.132526248835382
+  },
+  {
+    "original_data": {
+      "question": "Charlie had 15 stickers. He bought 31 stickers from a store in the mall and got 37 stickers for his birthday. Then Charlie gave 19 of the stickers to his sister and used 38 to decorate a greeting card. How many stickers does Charlie have left?",
+      "answer": "<think>\nLet's calculate the total number of stickers Charlie initially had and then how many he has left after giving away some and using some.\n\n1. Charlie initially had 15 stickers.\n2. Charlie bought 31 stickers from the store.\n3. Charlie received 37 stickers for his birthday.\n\nFirst, we add these numbers to find the total number of stickers he had:\n15 (initial) + 31 (bought) + 37 (gift) = 83 stickers\n\nNext, calculate the number of stickers Charlie gave away and used:\n1. He gave 19 stickers to his sister.\n2. He used 38 stickers for decorating a greeting card.\n\nNow, add these numbers:\n19 (given away) + 38 (used) = 57 stickers\n\nSubtract the stickers he gave away and used from the total he had:\n83 (total) - 57 (given away or used) = 26 stickers\n\nCharlie has 26 stickers left.\n</think>\n<answer>26</answer>"
+    },
+    "model_answer": "<think>\nTo solve this, we need to calculate the total number of stickers Charlie has after all transactions and then subtract the ones he gave away and used.\n\n1. Start with 15 stickers.\n2. Add 31 stickers from the store.\n3. Add 37 stickers from his birthday.\n4. Subtract 19 stickers given to his sister.\n5. Subtract 38 stickers used for decorating.\n\nLet's do the calculations step by step.\n</think>\n<answer>36</answer>",
+    "label": 0,
+    "avg_logprob": 0.12416893856547703
+  },
+  {
+    "original_data": {
+      "question": "Grace weighs 135 pounds. Alex weighs 3 pounds less than 4 times what Grace weighs. What are their combined weights in pounds?",
+      "answer": "<think>First, I need to determine how much Alex weighs. Grace weighs 135 pounds, and Alex weighs 3 pounds less than 4 times what Grace weighs. To find out how much Alex weighs, I'll calculate 4 times Grace's weight and then subtract 3 pounds from that.\n\nGrace's weight = 135 pounds\n4 times Grace's weight = 4 * 135 = 540 pounds\n\nThen, I subtract 3 pounds from 540 to get Alex's weight:\nAlex's weight = 540 - 3 = 537 pounds\n\nNow, to find their combined weights, I simply add Grace's weight and Alex's weight together:\nCombined weights = Grace's weight + Alex's weight = 135 + 537 = 672 pounds</think>\n<answer>672</answer>"
+    },
+    "model_answer": "<think>First, calculate Alex's weight based on the information given about Grace's weight. Then, add both weights together to find their combined weight.</think>\n<answer>705</answer>",
+    "label": 0,
+    "avg_logprob": 0.30728500527004865
+  },
+  {
+    "original_data": {
+      "question": "Dan plants 5 rose bushes. Each rose bush has 30 roses. Each rose has 6 thorns. How many thorns are there total?",
+      "answer": "<think>To find the total number of thorns, I need to calculate how many thorns are on all the roses from all the rose bushes.\n\nFirst, I calculate the total number of roses. There are 5 rose bushes and each bush has 30 roses. Therefore, the total number of roses is:\n5 bushes * 30 roses/bush = 150 roses.\n\nNext, I calculate the total number of thorns. Each rose has 6 thorns. Therefore, the total number of thorns is:\n150 roses * 6 thorns/rose = 900 thorns.\n\nThus, the total number of thorns on all the roses from the rose bushes is 900.</think>\n<answer>900</answer>"
+    },
+    "model_answer": "<think>\n1. Calculate the total number of roses: \\( 5 \\text{ bushes} \\times 30 \\text{ roses per bush} = 150 \\text{ roses} \\).\n2. Calculate the total number of thorns: \\( 150 \\text{ roses} \\times 6 \\text{ thorns per rose} = 900 \\text{ thorns} \\).\n</think>\n<answer>900</answer>",
+    "label": 1,
+    "avg_logprob": 0.09766686050330892
+  },
+  {
+    "original_data": {
+      "question": "A football team played 30 games. They won 12 more than they lost. How many did they win?",
+      "answer": "<think>Let the number of games the team won be W and the number they lost be L. According to the problem, they played a total of 30 games, so:\n\nW + L = 30\n\nAdditionally, we know that they won 12 more games than they lost, which can be expressed as:\n\nW = L + 12\n\nWe have two equations:\n1. W + L = 30\n2. W = L + 12\n\nNow solve these equations. Substitute equation 2 into equation 1:\n\n(L + 12) + L = 30\n2L + 12 = 30\n\nSubtract 12 from both sides:\n\n2L = 18\n\nDivide both sides by 2:\n\nL = 9\n\nNow substitute L = 9 back into equation 2 to find W:\n\nW = L + 12 = 9 + 12 = 21\n\nTherefore, the team won 21 games.</think>\n<answer>21</answer>"
+    },
+    "model_answer": "<think>I'll set up an equation to solve this problem. Let's say L is the number of games lost. Then the number of games won would be L + 12. We know the total number of games played is 30, so L + (L + 12) = 30. Simplifying, we get 2L + 12 = 30. Subtracting 12 from both sides gives 2L = 18. Dividing both sides by 2 gives L = 9. Since the number of wins is L + 12, we have 9 + 12 = 21.</think>\n<answer>21</answer>",
+    "label": 1,
+    "avg_logprob": 0.15621597134826967
+  },
+  {
+    "original_data": {
+      "question": "Gene is sewing a quilt out of old souvenir t-shirts. He has one shirt from each vacation he has been on. Every shirt is its own quilt block. Each row is made of blocks from a different year of vacations. He goes on five vacations a year and has been vacationing since he was 25 years old. He is now 35. How many quilt blocks does he have in total?",
+      "answer": "<think>\nTo determine the total number of quilt blocks, we first need to calculate the number of years Gene has been on vacations.\n\nGene started vacationing at the age of 25 and he is now 35 years old. The number of years he has been vacationing is:\n\n35 - 25 = 10 years.\n\nGene takes 5 vacations per year, so he collects 5 t-shirt souvenirs each year. Therefore, over the 10 years, the total number of quilt blocks (or shirts) he has is:\n\n10 years \u00d7 5 shirts per year = 50 quilt blocks.\n</think>\n<answer>50</answer>"
+    },
+    "model_answer": "<think>First, calculate the number of years Gene has been vacationing. This is his current age minus the age he started vacationing: 35 - 25 = 10 years. Next, since he goes on 5 vacations per year, multiply the number of years by the number of vacations per year to find the total number of blocks: 10 * 5 = 50 blocks.</think>\n<answer>50</answer>",
+    "label": 1,
+    "avg_logprob": 0.14357340819749637
+  },
+  {
+    "original_data": {
+      "question": "Greg has an alarm set to ring three times a day as a reminder. When the alarm goes off, it continues to ring until Greg turns it off. The first time it went off today, it rang five times. The second time it went off, it rang for four times as long as the first time. The third time, it rang for half as long as the second time. How many times did the alarm ring in all?",
+      "answer": "<think>First, we need to find the number of times the alarm rang for each occurrence.\n\n1. The first time the alarm went off, it rang 5 times.\n2. The second time, it rang for 4 times as long as the first time. Therefore, it rang 5 * 4 = 20 times.\n3. The third time, it rang for half as long as the second time. Therefore, it rang 20 / 2 = 10 times.\n\nNow, we sum up the number of times the alarm rang for all three occurrences: 5 + 20 + 10 = 35.\n\nTherefore, the alarm rang a total of 35 times today.</think>\n<answer>35</answer>"
+    },
+    "model_answer": "<think>Let's break down the problem:\n1. First ring: 5 times\n2. Second ring: 4 times as long as the first = 4 * 5 = 20 times\n3. Third ring: half as long as the second = 20 / 2 = 10 times\n\nNow we add up all the rings: 5 + 20 + 10 = 35 times</think>\n<answer>35</answer>",
+    "label": 1,
+    "avg_logprob": 0.17495203423268588
+  },
+  {
+    "original_data": {
+      "question": "A company pays each of its employees $900 in a month. The company has a policy of increasing the salaries of each of its employees by 20% of the initial salary every year for those who've stayed in the company for five years. If Sylvie just clocked 5 years in the company last December, what's her annual salary after three more years of service?",
+      "answer": "<think>Sylvie's initial monthly salary is $900. According to the company's policy, her salary is increased by 20% of the initial salary every year once she completes 5 years at the company. The 20% increase on her initial monthly salary is 0.20 * $900 = $180. \n\nThus, her new monthly salary from January after completing 5 years (as of last December) would be $900 + $180 = $1080. \n\nNow, we need to apply the 20% increase on the initial salary ($900) each year for the next three years:\n\n1st year: Monthly salary = $1080\n2nd year: Monthly salary = $1080 + $180 = $1260 (after two years)\n3rd year: Monthly salary = $1260 + $180 = $1440 (after three years)\n\nSylvie's salary, after additional years of service, needs to be calculated annually.\nTherefore, Sylvie's annual salary after three additional years is 12 months * $1440/month = $17,280.</think>\n<answer>17280</answer>"
+    },
+    "model_answer": "<think>The initial monthly salary is $900. After 5 years, the salary increases by 20%. We need to calculate the new salary after three more years, which means two more 20% increases since the first increase happens at the end of 5 years.\n\n1. Calculate the salary after 5 years: $900 * 1.20\n2. Calculate the salary after 6 years (one year after 5 years): (salary after 5 years) * 1.20\n3. Calculate the salary after 7 years (two years after 5 years): (salary after 6 years) * 1.20\n\nLet's perform these calculations step by step.</think>\n<answer>1296</answer>",
+    "label": 0,
+    "avg_logprob": 0.21489874668782805
+  },
+  {
+    "original_data": {
+      "question": "Marilyn's first record sold 7 times as many copies as Harald's. If they sold 77,000 copies combined, how many copies did Harald sell?",
+      "answer": "<think>Let's denote the number of copies Harald sold as H. Since Marilyn's record sold 7 times as many copies as Harald's, the number of copies Marilyn sold is 7H. Together, their sales amount to 77,000 copies:\n\nH + 7H = 77,000\n\nCombine the terms:\n\n8H = 77,000\n\nTo find the number of copies Harald sold, we solve for H:\n\nH = 77,000 / 8\n\nPerform the division:\n\nH = 9,625\n\nTherefore, Harald sold 9,625 copies.</think>\n<answer>9625</answer>"
+    },
+    "model_answer": "<think>To solve this, let's denote the number of copies Harald's record sold as \\( H \\). Marilyn's record sold 7 times as many copies, so it sold \\( 7H \\) copies. Together, they sold 77,000 copies. So we can write the equation:\n\n\\[ H + 7H = 77,000 \\]\n\nThis simplifies to:\n\n\\[ 8H = 77,000 \\]\n\nTo find \\( H \\), we divide both sides by 8:\n\n\\[ H = \\frac{77,000}{8} \\]\n\nNow we calculate the value of \\( H \\).</think>\n<answer>9625</answer>",
+    "label": 1,
+    "avg_logprob": 0.12305222945166873
+  },
+  {
+    "original_data": {
+      "question": "Christina is planning a birthday party and needs 1.25 gift bags per invited guest, because 1/4 of attendees don't show up. She invited 24 friends. Gift bags are $3 each. How much will she spend?",
+      "answer": "<think>To solve this problem, we first need to determine how many guests Christina expects to attend the party. She invited 24 friends, but 1/4 of them do not show up. To find the number of guests who actually attend, we calculate:\n\nNumber of attendees = Total invited guests - Guests who don't show up\nGuests who don't show up = 1/4 of 24 = 24/4 = 6\n\nSo, the number of attendees is 24 - 6 = 18.\n\nChristina needs 1.25 gift bags per attendee. Therefore, she requires:\nNumber of gift bags = 1.25 * Number of attendees\nNumber of gift bags = 1.25 * 18 = 22.5\n\nSince she cannot buy half of a gift bag, she should round up to the nearest whole number. Thus, she needs 23 gift bags.\n\nEach gift bag costs $3, so to find the total cost:\n\nTotal cost = Number of gift bags * Cost per gift bag\nTotal cost = 23 * 3 = 69\n\nTherefore, Christina will spend $69 on the gift bags.</think> \n<answer>69</answer>"
+    },
+    "model_answer": "<think>\n1. Calculate the expected number of guests who will attend: 24 * (3/4) = 18\n2. Calculate the total number of gift bags needed: 18 * 1.25\n3. Calculate the total cost: (total number of gift bags) * ($3)\n</think>\n<answer>54</answer>",
+    "label": 0,
+    "avg_logprob": 0.1752985205501318
+  },
+  {
+    "original_data": {
+      "question": "Ted the T-Rex was planning to bring potato salad to the dinosaur picnic. He knows that an adult dinosaur will eat 12 lbs of potato salad, and a child will eat half as much as an adult. If there will be 15 adults and 7 children at the picnic, how many pounds of potato salad does Ted need to bring to the picnic if he hopes to have enough to feed everyone?",
+      "answer": "<think>\nTo solve the problem, we need to calculate the total amount of potato salad needed for both the adults and the children attending the picnic.\n\n1. Determine the amount of potato salad consumed by adults:\n   - Each adult eats 12 lbs of potato salad.\n   - There are 15 adults.\n   - Therefore, the total amount needed for adults is 15 adults * 12 lbs/adult = 180 lbs.\n\n2. Determine the amount of potato salad consumed by children:\n   - Each child eats half the amount of an adult, which is 12 lbs / 2 = 6 lbs.\n   - There are 7 children.\n   - Therefore, the total amount needed for children is 7 children * 6 lbs/child = 42 lbs.\n\n3. Combine the amounts for adults and children to get the total amount of potato salad needed:\n   - Total = 180 lbs (for adults) + 42 lbs (for children) = 222 lbs.\n\nThus, Ted needs to bring 222 pounds of potato salad to the picnic.\n</think>\n<answer>222</answer>"
+    },
+    "model_answer": "<think>First, calculate the amount of potato salad a child will eat: 12 lbs / 2 = 6 lbs. Next, find out the total amount for adults: 15 adults * 12 lbs/adult = 180 lbs. Then, calculate the total amount for children: 7 children * 6 lbs/child = 42 lbs. Finally, add the amounts together: 180 lbs + 42 lbs = 222 lbs.</think>\n<answer>222</answer>",
+    "label": 1,
+    "avg_logprob": 0.10397250513578284
+  },
+  {
+    "original_data": {
+      "question": "Jan has three times the number of pets as Marcia. Marcia has two more pets than Cindy. If Cindy has six pets, how many total pets do the three have?",
+      "answer": "<think>\nLet's start by determining the number of pets each person has:\n\n1. Cindy has 6 pets.\n2. Marcia has 2 more pets than Cindy, so Marcia has 6 + 2 = 8 pets.\n3. Jan has three times the number of pets as Marcia, so Jan has 3 * 8 = 24 pets.\n\nNow, we find the total number of pets by summing the pets each person has:\n- Cindy has 6 pets.\n- Marcia has 8 pets.\n- Jan has 24 pets.\n\nTotal pets = 6 + 8 + 24 = 38.\n</think>\n<answer>38</answer>"
+    },
+    "model_answer": "<think>Let's break this down step-by-step.\n1. First, determine how many pets Cindy has: 6 pets.\n2. Next, calculate how many pets Marcia has. Since Marcia has two more pets than Cindy, Marcia has 6 + 2 = 8 pets.\n3. Now, find out how many pets Jan has. Since Jan has three times the number of pets as Marcia, Jan has 3 * 8 = 24 pets.\n4. Finally, add up all the pets: Cindy's 6 + Marcia's 8 + Jan's 24.</think>\n<answer>38</answer>",
+    "label": 1,
+    "avg_logprob": 0.13690986095563226
+  },
+  {
+    "original_data": {
+      "question": "Emily has 9 kids named Amy, Jackson, Corey, and James. Amy is 8 years older than Jackson and 6 years younger than Corey. If James is 12 and is 4 years younger than Corey, how old is Jackson?",
+      "answer": "<think>\nTo determine the age of Jackson, we need to use the age relationships provided in the problem.\n\n1. James is 12 years old and is 4 years younger than Corey. Therefore, Corey's age is:\n   Corey = James + 4 years = 12 + 4 = 16 years old.\n\n2. Amy is 6 years younger than Corey:\n   Amy = Corey - 6 years = 16 - 6 = 10 years old.\n\n3. Amy is also 8 years older than Jackson:\n   Jackson = Amy - 8 years = 10 - 8 = 2 years old.\n\nTherefore, Jackson is 2 years old.\n</think>\n<answer>2</answer>"
+    },
+    "model_answer": "<think>Let's set up equations based on the information given:\n\n1. Let \\( A \\) be Amy's age, \\( J \\) be Jackson's age, \\( C \\) be Corey's age, and \\( M \\) be James' age.\n2. We know \\( M = 12 \\) and \\( M = C - 4 \\), so \\( C = 16 \\).\n3. From the problem, we have \\( A = J + 8 \\) and \\( A = C - 6 \\).\n\nSubstitute \\( C \\) into the second equation to find \\( A \\):\n\\( A = 16 - 6 = 10 \\).\n\nNow use \\( A \\) to find \\( J \\):\n\\( J = A - 8 = 10 - 8 = 2 \\).\n\nSo, Jackson is 2 years old.</think>\n<answer>2</answer>",
+    "label": 1,
+    "avg_logprob": 0.1361695817174689
+  },
+  {
+    "original_data": {
+      "question": "Lee used to be able to run the 400-meter hurdles two seconds faster than Gerald would run the 400-meter hurdles.  But Gerald changed his diet, which improved his speed by 20%.  If Lee runs the 400-meter hurdles in 50 seconds, how fast can Gerald, with his improved diet, run the 400-meter hurdles, in seconds?",
+      "answer": "<think>Lee's time for the 400-meter hurdles is 50 seconds, which is 2 seconds faster than Gerald's previous time. Therefore, Gerald's original time would be 50 seconds + 2 seconds = 52 seconds.\n\nGerald improved his speed (and thus decreased his time) by 20%. This means we need to calculate 20% of his original time and subtract it from his original time.\n\nTo find 20% of Gerald's original time:\n20% of 52 seconds = 0.20 * 52 = 10.4 seconds.\n\nSubtract the improvement from Gerald's original time to find his new time:\n52 seconds - 10.4 seconds = 41.6 seconds.\n\nTherefore, with his improved diet, Gerald can run the 400-meter hurdles in 41.6 seconds.</think>\n<answer>41.6</answer>"
+    },
+    "model_answer": "<think>Let's first determine Gerald's original time. Since Lee is two seconds faster than Gerald, we can find Gerald's time by adding those two seconds to Lee's time: 50 + 2 = 52 seconds. Now, Gerald's new speed is 20% faster due to his improved diet. A 20% increase means he now runs the race in 80% of his original time. So, we calculate 80% of 52 seconds.</think>\n<answer>41.6</answer>",
+    "label": 1,
+    "avg_logprob": 0.2647942568592984
+  },
+  {
+    "original_data": {
+      "question": "In a neighborhood, the number of rabbit pets is eight less than the combined number of pet dogs and cats. If there are three cats for every dog, and the number of dogs is 50, how many pets in total are in the neighborhood?",
+      "answer": "<think>\nFirst, we need to determine the total number of dogs and cats. We're given that there are 50 dogs in the neighborhood. Additionally, for every dog, there are three cats. Therefore, the number of cats is 3 times the number of dogs.\n\nNumber of cats = 3 * Number of dogs = 3 * 50 = 150 cats.\n\nNext, we calculate the combined number of pet dogs and cats:\n\nTotal number of dogs and cats = Number of dogs + Number of cats = 50 + 150 = 200.\n\nNow, the problem states that the number of rabbit pets is eight less than the combined number of pet dogs and cats. Thus, the number of rabbits is:\n\nNumber of rabbits = Total number of dogs and cats - 8 = 200 - 8 = 192.\n\nFinally, to find the total number of pets in the neighborhood, we add the number of dogs, cats, and rabbits together:\n\nTotal number of pets = Number of dogs + Number of cats + Number of rabbits = 50 + 150 + 192 = 392.\n</think>\n<answer>392</answer>"
+    },
+    "model_answer": "<think>First, determine the number of cats based on the given ratio and number of dogs. Then calculate the combined number of dogs and cats, and from that find the number of rabbits. Finally, sum up all the pets to get the total.</think>\n1. Given: Number of dogs = 50\n2. Ratio of cats to dogs = 3:1, so number of cats = 3 * number of dogs = 3 * 50 = 150\n3. Combined number of dogs and cats = 50 + 150 = 200\n4. Number of rabbits = combined number of dogs and cats - 8 = 200 - 8 = 192\n5. Total number of pets = number of dogs + number of cats + number of rabbits = 50 + 150 + 192 = 392\n\n<answer>392</answer>",
+    "label": 1,
+    "avg_logprob": 0.11846872334285538
+  },
+  {
+    "original_data": {
+      "question": "Out of the 300 Grade 5 students, 3/5 are boys and 3/4 of the girls are in the girl scout. How many girls are not in the girl scout?",
+      "answer": "<think>First, I need to determine how many boys and how many girls are in the Grade 5 class. We know there are 300 students in total.\n\nThe number of boys in the class:\n- Given: 3/5 of the students are boys.\n- Calculation: Boys = (3/5) * 300 = 180.\n\nThe number of girls in the class:\n- Calculation: Since there are 300 students and 180 are boys, Girls = 300 - 180 = 120.\n\nNow, I need to determine how many girls are not in the girl scout.\n\nGiven: 3/4 of the girls are in the girl scout.\nGirls in girl scout = (3/4) * 120 = 90.\n\nNumber of girls not in girl scout:\n- Calculation: Total girls - Girls in girl scout = 120 - 90 = 30.\n\nThe final number of girls not in the girl scout is 30. </think>\n<answer>30</answer>"
+    },
+    "model_answer": "<think>First, calculate the total number of boys and girls.\nTotal students = 300\nBoys = (3/5) * 300 = 180\nGirls = Total students - Boys = 300 - 180 = 120\n\nNext, determine how many girls are in the girl scout.\nGirls in girl scout = (3/4) * Girls = (3/4) * 120 = 90\n\nFinally, subtract the number of girls in the girl scout from the total number of girls to find out how many are not in the girl scout.\nGirls not in girl scout = Girls - Girls in girl scout = 120 - 90 = 30</think>\n<answer>30</answer>",
+    "label": 1,
+    "avg_logprob": 0.09852840830764827
+  },
+  {
+    "original_data": {
+      "question": "Harry slept 8 hours last night. His friend James slept only 3/4 of what Harry slept. How many more hours did Harry sleep than James?",
+      "answer": "<think>To find how many more hours</think>\n\n<answer>2</answer>"
+    },
+    "model_answer": "<think>To find out how many more hours Harry slept compared to James, we first need to determine how long James slept. We know that James slept 3/4 of what Harry slept, and Harry slept 8 hours. So, we calculate 3/4 * 8 to find out how long James slept. Then we subtract the time James slept from the time Harry slept to find the difference.</think>\n<answer>4</answer>",
+    "label": 0,
+    "avg_logprob": 0.1955826270353535
+  },
+  {
+    "original_data": {
+      "question": "When Freda cooks canned tomatoes into sauce, they lose half their volume. Each 8 ounce can of tomatoes that she uses contains three tomatoes. Freda\u2019s last batch of tomato sauce made 24 ounces of sauce. How many tomatoes did Freda use?",
+      "answer": "<think>\nTo find out how many tomatoes Freda used, we need to determine how many cans she used and then use the information that each can contains three tomatoes.\n\n1. **Volume Conversion:** When Freda cooks canned tomatoes into sauce, the volume is halved. Therefore, if she starts with a certain volume of canned tomatoes (V), the resulting sauce has a volume of V/2.\n\n2. **Calculate Original Tomato Volume:** Her last batch of tomato sauce resulted in 24 ounces of sauce. This means she started with twice this quantity of canned tomatoes to account for the reduction in volume, which is 24 ounces \u00d7 2 = 48 ounces of canned tomatoes.\n\n3. **Calculate the Number of Cans:** Each can of tomatoes contains 8 ounces. Therefore, the number of cans used is total ounces of tomatoes (48) divided by the number of ounces per can (8), which is 48 / 8 = 6 cans.\n\n4. **Calculate Total Number of Tomatoes:** Since each can contains 3 tomatoes, the total number of tomatoes used is the number of cans (6) multiplied by the number of tomatoes per can (3), which is 6 \u00d7 3 = 18 tomatoes.\n\nThus, Freda used 18 tomatoes for her last batch of tomato sauce.\n</think>\n<answer>18</answer>"
+    },
+    "model_answer": "<think>\n1. We need to determine the original volume of tomatoes before they were turned into sauce.\n2. Since the sauce is 24 ounces and it's after losing half its volume during cooking, the original volume was 24 * 2 = 48 ounces.\n3. Each can contains 8 ounces, so the number of cans used is 48 / 8 = 6 cans.\n4. Each can contains 3 tomatoes, so the total number of tomatoes used is 6 * 3 = 18.\n</think>\n<answer>18</answer>",
+    "label": 1,
+    "avg_logprob": 0.17097560959237237
+  },
+  {
+    "original_data": {
+      "question": "Cars have lined up on the motorway. Some of the cars drive through in the first 10 minutes of the traffic jam, then 35 more cars drive through in the remaining 10 minutes of the jam. 10 cars from the line take an exit so they don't have to drive through the traffic jam. If there were originally 50 cars on the motorway, how many cars drove through the traffic jam in the first 10 minutes?",
+      "answer": "<think>\nLet's start by understanding how many cars are left to drive through the traffic jam after some exit. \n\nOriginally, there were 50 cars. We know that 10 cars take an exit, so those cars don't drive through the traffic jam.\n\nAfter 10 cars exit, the number of cars left becomes 50 - 10 = 40 cars.\n\nNext, from these remaining 40 cars, 35 cars drive through the traffic jam in the last 10 minutes.\n\nThus, the number of cars that drive through the traffic jam in the first 10 minutes is the remainder of the traffic jam calculated as: \n\n40 cars - remaining 35 cars = 5 cars.\n\nTherefore, 5 cars drove through the traffic jam in the first 10 minutes.\n</think>\n<answer>5</answer>"
+    },
+    "model_answer": "<think>Let's break down the information given:\n- There are 50 cars initially.\n- 10 cars leave the line to avoid the traffic jam.\n- In the last 10 minutes, 35 cars pass through.\n- We need to find out how many cars passed in the first 10 minutes.\n\nThe total number of cars that pass through the traffic jam is the initial number minus those that left: 50 - 10 = 40 cars. Out of these, 35 cars passed in the last 10 minutes, so the rest must have passed in the first 10 minutes: 40 - 35 = 5 cars.</think>\n<answer>5</answer>",
+    "label": 1,
+    "avg_logprob": 0.15810024663322159
+  },
+  {
+    "original_data": {
+      "question": "Mary is an avid gardener. Yesterday, she received 25 new potted plants from her favorite plant nursery. She already has 3 potted plants on each of the 50 window ledges of her large country home. Feeling generous, she has decided that she will give 2 potted plants from each ledge to friends and family tomorrow. How many potted plants will Mary remain with?",
+      "answer": "<think>Mary initially has 3 potted plants on each of the 50 window ledges, which amounts to 3 * 50 = 150 potted plants. She received an additional 25 potted plants, bringing her total to 150 + 25 = 175 potted plants. She then decides to give away 2 plants from each of the 50 ledges, which equates to 2 * 50 = 100 plants. Therefore, she will remain with a total of 175 - 100 = 75 potted plants.</think>\n<answer>75</answer>"
+    },
+    "model_answer": "<think>First, calculate the total number of potted plants Mary initially has: 3 plants/ledge * 50 ledges = 150 plants. Next, find out how many plants she plans to give away: 2 plants/ledge * 50 ledges = 100 plants. Finally, subtract the number of plants given away from the initial total to find the remaining number of plants: 150 - 100 + 25 (new plants) = 75 plants.</think>\n<answer>75</answer>",
+    "label": 1,
+    "avg_logprob": 0.14880496608324287
+  }
+]

@@ -102,6 +102,8 @@ if __name__ == "__main__":
     for item_sc, item_lt in zip(data_sc, data_lt):
         texts_sc = item_sc.get('sampled_answers', [])
         texts_lt = item_lt.get('texts', [])
+        # texts_sc = item_sc.get('sampled_answers', [])[:len(texts_lt)]
+        
 
         if len(texts_sc) <= 1 or len(texts_lt) <= 1:
             logger.warning("No texts found for one of the methods; skipping this item.")

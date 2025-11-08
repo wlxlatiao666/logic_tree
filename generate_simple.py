@@ -61,7 +61,7 @@ if __name__ == "__main__":
         if sample:
             output = model.generate(
                 **inputs,
-                max_length=1024,
+                max_new_tokens=1024,
                 do_sample=True,
                 temperature=0.7,
                 top_k=50,
@@ -73,7 +73,7 @@ if __name__ == "__main__":
         else:
             output = model.generate(
                 **inputs,
-                max_length=1024,
+                max_new_tokens=1024,
                 do_sample=False,
                 output_scores=True,
                 return_dict_in_generate=True,

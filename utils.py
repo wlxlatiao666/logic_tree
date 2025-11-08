@@ -9,16 +9,16 @@ embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108
 logger = logging.getLogger(__name__)
 
 def generate_usr_prompt(dataset: str, item: dict) -> str:
-    if dataset == "gsm8k":
+    if "gsm8k" in dataset:
         usr_prompt = item["question"]
-    elif dataset == "reclor":
+    elif "reclor" in dataset:
         usr_prompt = "Context: " + item['context'] + "\nQuestion: " + item['question'] + \
             "\nA. " + item['answers'][0] + \
             "\nB. " + item['answers'][1] + \
             "\nC. " + item['answers'][2] + \
             "\nD. " + item['answers'][3]
-        print("usr_prompt: ", usr_prompt)
-    elif dataset == "gpqa":
+        # print("usr_prompt: ", usr_prompt)
+    elif "gpqa" in dataset:
         usr_prompt = "Question: " + item['question'] + \
             "\nA. " + item['candidates'][0] + \
             "\nB. " + item['candidates'][1] + \
@@ -55,7 +55,9 @@ def parse_model_answer(model_answer):
 def get_gt_answer(dataset: str, item: dict) -> str:
     if dataset == "gsm8k":
         gt_answer = parse_gsm8k_answer(item["answer"])
-    elif dataset == "reclor":
+    elif dataset == "gsm8k_m":
+        gt_answer = parse_model_answer(item["answer"])
+    elif "reclor" in dataset:
         label_to_answer = {
             0: "A",
             1: "B",
