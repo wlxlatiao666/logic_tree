@@ -4,7 +4,7 @@ import logging
 import math
 from typing import List
 from sentence_transformers import SentenceTransformer, util
-from utils import parse_model_answer, get_gt_answer
+from utils import parse_model_answer, get_gt_answer, match_answer
 
 # embedder = SentenceTransformer('/mnt/public/gpfs-jd/code/weilongxuan/all-mpnet-base-v2')
 
@@ -93,18 +93,18 @@ if __name__ == "__main__":
         # calculate labels
         final_answer_vote_weighted = max(answer_buckets.items(), key=lambda x: x[1]) if answer_buckets else ""
         final_answer_vote_weighted_nothreshold = final_answer_vote_weighted[0]
-        labels["answer_vote_weighted_nothreshold"] = int(final_answer_vote_weighted_nothreshold == gt_answer) if gt_answer else 0
+        labels["answer_vote_weighted_nothreshold"] = int(match_answer(gt_answer, final_answer_vote_weighted_nothreshold, dataset)) if gt_answer else 0
 
         final_answer_vote_weighted_threshold = final_answer_vote_weighted[0] if final_answer_vote_weighted[1] > 0.5 else ""
-        labels["answer_vote_weighted_threshold"] = int(final_answer_vote_weighted_threshold == gt_answer) if gt_answer else 0
+        labels["answer_vote_weighted_threshold"] = int(match_answer(gt_answer, final_answer_vote_weighted_threshold, dataset)) if gt_answer else 0
 
         min_entropy_index = entropies.index(min(entropies))
         final_answer_min_entropy = parse_model_answer(texts[min_entropy_index])
-        labels["answer_min_entropy"] = int(final_answer_min_entropy == gt_answer) if gt_answer else 0
+        labels["answer_min_entropy"] = int(match_answer(gt_answer, final_answer_min_entropy, dataset)) if gt_answer else 0
             
         passk = False
         for answer in answer_buckets:
-            if answer == gt_answer:
+            if match_answer(gt_answer, answer, dataset):
                 passk = True
                 break
         labels["pass@k"] = int(passk)

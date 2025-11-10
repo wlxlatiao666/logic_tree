@@ -1,6 +1,7 @@
 import re
 import logging
-from sentence_transformers import SentenceTransformer, util
+from sentence_transformers import SentenceTransformer
+from math_equivalence import is_equiv
 
 logger = logging.getLogger(__name__)
 embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
@@ -8,8 +9,17 @@ embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108
 
 logger = logging.getLogger(__name__)
 
+def remove_boxed(s):
+    left = "\\boxed{"
+    try:
+        assert s[:len(left)] == left
+        assert s[-1] == "}"
+        return s[len(left):-1]
+    except:
+        return None
+    
 def generate_usr_prompt(dataset: str, item: dict) -> str:
-    if "gsm8k" in dataset or "aime" in dataset:
+    if "gsm8k" in dataset or "math" in dataset or "aime" in dataset:
         usr_prompt = item["question"]
     elif "reclor" in dataset:
         usr_prompt = "Context: " + item['context'] + "\nQuestion: " + item['question'] + \
@@ -73,11 +83,18 @@ def get_gt_answer(dataset: str, item: dict) -> str:
             3: "D",
         }
         gt_answer = label_to_answer[item["answer_index"]]
+    elif dataset == "math":
+        gt_answer = remove_boxed(item["answer"])
     elif dataset == "aime":
         gt_answer = item["answer"]
     else:
         gt_answer = 'No answer.'
     return gt_answer
+
+def match_answer(gt_answer: str, model_answer: str, dataset: str) -> bool:
+    if dataset == "math":
+        return is_equiv(gt_answer, model_answer)
+    return gt_answer == model_answer
 
 def test_f():
     logger.info("这是一条测试日志")

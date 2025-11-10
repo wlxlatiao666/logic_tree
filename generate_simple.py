@@ -6,7 +6,7 @@ import torch
 import torch.nn.functional as F
 from datetime import datetime
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from utils import generate_usr_prompt, parse_model_answer, get_gt_answer
+from utils import generate_usr_prompt, parse_model_answer, get_gt_answer, match_answer
 import sys
 
 logger = logging.getLogger(__name__)
@@ -100,7 +100,8 @@ if __name__ == "__main__":
         avg_logprob = sum(neg_logprobs) / len(neg_logprobs) if neg_logprobs else 0.0
 
         gt_answer = get_gt_answer(dataset, item)
-        label = int(parse_model_answer(generated_text) == gt_answer)
+        model_answer = parse_model_answer(generated_text)
+        label = int(match_answer(gt_answer, model_answer, dataset))
 
         results.append({
             "original_data": item,

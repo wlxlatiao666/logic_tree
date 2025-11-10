@@ -9,7 +9,7 @@ import torch
 import torch.nn.functional as F
 import sys
 import argparse
-from utils import generate_usr_prompt, parse_model_answer, get_gt_answer
+from utils import generate_usr_prompt, parse_model_answer, get_gt_answer, match_answer
 
 logger = logging.getLogger(__name__)
 
@@ -114,11 +114,11 @@ if __name__ == '__main__':
         # 找出出现次数最多的答案
         most_common_answer, _ = answer_counts.most_common(1)[0]
         gt_answer = get_gt_answer(dataset, item)
-        label = int(gt_answer == most_common_answer)
+        label = int(match_answer(gt_answer, most_common_answer, dataset))
 
         passk = 0
         for answer in parsed_answers:
-            if answer == gt_answer:
+            if match_answer(gt_answer, answer, dataset):
                 passk = 1
                 break
 
