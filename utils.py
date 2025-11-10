@@ -9,7 +9,7 @@ embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108
 logger = logging.getLogger(__name__)
 
 def generate_usr_prompt(dataset: str, item: dict) -> str:
-    if "gsm8k" in dataset:
+    if "gsm8k" in dataset or "aime" in dataset:
         usr_prompt = item["question"]
     elif "reclor" in dataset:
         usr_prompt = "Context: " + item['context'] + "\nQuestion: " + item['question'] + \
@@ -73,6 +73,8 @@ def get_gt_answer(dataset: str, item: dict) -> str:
             3: "D",
         }
         gt_answer = label_to_answer[item["answer_index"]]
+    elif dataset == "aime":
+        gt_answer = item["answer"]
     else:
         gt_answer = 'No answer.'
     return gt_answer
