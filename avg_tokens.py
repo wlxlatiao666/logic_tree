@@ -39,6 +39,7 @@ if __name__ == "__main__":
         lens.append(l)
         num_new_tokens_lt.append(item_lt['num_new_tokens'])
 
+    logger.info(f"Dataset {dataset}:")
     logger.info(f"avg_lengths_sc: {sum(lengths_sc) / len(lengths_sc)}")
     logger.info(f"avg_lengths_lt: {sum(lengths_lt) / len(lengths_lt)}")
     logger.info(f"avg_tokens_sc: {sum(lengths_sc) / len(lengths_sc)}")
