@@ -100,9 +100,9 @@ if __name__ == "__main__":
     bleu_sc_list = []
     bleu_lt_list = []
     for item_sc, item_lt in zip(data_sc, data_lt):
-        texts_sc = item_sc.get('sampled_answers', [])
+        # texts_sc = item_sc.get('sampled_answers', [])
         texts_lt = item_lt.get('texts', [])
-        # texts_sc = item_sc.get('sampled_answers', [])[:len(texts_lt)]
+        texts_sc = item_sc.get('sampled_answers', [])[:len(texts_lt)]
         
 
         if len(texts_sc) <= 1 or len(texts_lt) <= 1:
