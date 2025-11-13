@@ -4,10 +4,6 @@ from sentence_transformers import SentenceTransformer
 from math_equivalence import is_equiv
 
 logger = logging.getLogger(__name__)
-embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
-
-
-logger = logging.getLogger(__name__)
 
 def remove_boxed(s):
     left = "\\boxed{"
