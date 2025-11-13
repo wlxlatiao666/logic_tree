@@ -113,6 +113,7 @@ if __name__ == "__main__":
         # sce.append(diversity * 10000 / item["num_new_tokens"])
         results.append({
             "gt_answer": gt_answer,
+            "num_new_tokens": item["num_new_tokens"],
             "label": labels,
             "uncertainty": uncertainties
         })
