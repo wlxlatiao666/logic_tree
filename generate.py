@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
     if test_size == -1:
         if sample:
-            output_path = f"./results/{dataset}/logic_tree_results_all_topk_topp.json"
+            output_path = f"./results/{dataset}/logic_tree_results_all_topk_topp_nomerge.json"
         else:
             output_path = f"./results/{dataset}/logic_tree_results_all_greedy.json"
     else:
