@@ -1,6 +1,7 @@
 [
   {
     "gt_answer": "C",
+    "num_new_tokens": 1685,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -18,6 +19,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 2439,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -35,6 +37,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 2304,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -52,6 +55,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 2196,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -69,6 +73,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 2786,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -86,6 +91,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 2140,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -103,6 +109,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 2669,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -120,6 +127,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 5837,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -137,6 +145,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 1264,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -154,6 +163,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 2219,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -171,6 +181,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1586,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -188,6 +199,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 2608,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -205,6 +217,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 4174,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -222,6 +235,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 2284,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -239,6 +253,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1908,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -256,6 +271,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1380,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -273,6 +289,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 4057,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 0,
@@ -290,6 +307,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 1974,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -307,6 +325,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 3082,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -324,6 +343,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 2476,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -341,6 +361,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1484,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -358,6 +379,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 3807,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -375,6 +397,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 3667,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -392,6 +415,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 2100,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -409,6 +433,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 4130,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -426,6 +451,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 1640,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -443,6 +469,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 1501,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -460,6 +487,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1811,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -477,6 +505,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1766,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -494,6 +523,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 1584,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -511,6 +541,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 2491,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -528,6 +559,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 1734,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -545,6 +577,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 2117,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -562,6 +595,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 2166,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -579,6 +613,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 2792,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -596,6 +631,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 1030,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -613,6 +649,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 1671,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -630,6 +667,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 1718,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -647,6 +685,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 3550,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -664,6 +703,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1849,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -681,6 +721,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1861,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -698,6 +739,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1850,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -715,6 +757,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 820,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -732,6 +775,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 1025,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -749,6 +793,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 2406,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -766,6 +811,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 2969,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -783,6 +829,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 4337,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -800,6 +847,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 1316,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -817,6 +865,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 2639,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -834,6 +883,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 2168,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -851,6 +901,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 2312,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -868,6 +919,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1116,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -885,6 +937,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 4052,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -902,6 +955,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 2507,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -919,6 +973,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 2223,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -936,6 +991,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 1762,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -953,6 +1009,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 1437,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -970,6 +1027,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 2367,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -987,6 +1045,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 3736,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1004,6 +1063,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1329,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1021,6 +1081,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 2127,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1038,6 +1099,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 2258,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1055,6 +1117,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 2510,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -1072,6 +1135,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 3352,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1089,6 +1153,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 1538,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -1106,6 +1171,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 1139,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1123,6 +1189,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1569,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -1140,6 +1207,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 2253,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1157,6 +1225,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 3889,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1174,6 +1243,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 1741,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1191,6 +1261,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 2416,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1208,6 +1279,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 2820,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1225,6 +1297,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 1202,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1242,6 +1315,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 1202,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1259,6 +1333,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 4018,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -1276,6 +1351,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 3338,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1293,6 +1369,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 3484,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1310,6 +1387,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 4392,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -1327,6 +1405,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1922,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1344,6 +1423,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 2363,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1361,6 +1441,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 3966,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1378,6 +1459,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 2187,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -1395,6 +1477,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 2715,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1412,6 +1495,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 4047,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1429,6 +1513,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 3379,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -1446,6 +1531,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 3183,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1463,6 +1549,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 1477,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1480,6 +1567,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 1880,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1497,6 +1585,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 1187,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1514,6 +1603,7 @@
   },
   {
     "gt_answer": "D",
+    "num_new_tokens": 1494,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1531,6 +1621,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 3196,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1548,6 +1639,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 3787,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -1565,6 +1657,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 1547,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 1,
@@ -1582,6 +1675,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 3204,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 0,
@@ -1599,6 +1693,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 1635,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1616,6 +1711,7 @@
   },
   {
     "gt_answer": "B",
+    "num_new_tokens": 2866,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1633,6 +1729,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 5007,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1650,6 +1747,7 @@
   },
   {
     "gt_answer": "C",
+    "num_new_tokens": 3901,
     "label": {
       "answer_vote_weighted_nothreshold": 1,
       "answer_vote_weighted_threshold": 0,
@@ -1667,6 +1765,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 1642,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
@@ -1684,6 +1783,7 @@
   },
   {
     "gt_answer": "A",
+    "num_new_tokens": 1572,
     "label": {
       "answer_vote_weighted_nothreshold": 0,
       "answer_vote_weighted_threshold": 0,
