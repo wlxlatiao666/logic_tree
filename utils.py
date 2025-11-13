@@ -2,6 +2,7 @@ import re
 import logging
 from sentence_transformers import SentenceTransformer
 from math_equivalence import is_equiv
+from math_equivalence_gaokao import is_equiv_gaokao
 
 logger = logging.getLogger(__name__)
 
@@ -15,7 +16,7 @@ def remove_boxed(s):
         return None
     
 def generate_usr_prompt(dataset: str, item: dict) -> str:
-    if "gsm8k" in dataset or "math" in dataset or "aime" in dataset:
+    if "gsm8k" in dataset or dataset == "math" or "aime" in dataset:
         usr_prompt = item["question"]
     elif "reclor" in dataset:
         usr_prompt = "Context: " + item['context'] + "\nQuestion: " + item['question'] + \
@@ -30,6 +31,14 @@ def generate_usr_prompt(dataset: str, item: dict) -> str:
             "\nB. " + item['candidates'][1] + \
             "\nC. " + item['candidates'][2] + \
             "\nD. " + item['candidates'][3]
+    elif dataset == "gaokao-mathcloze":
+        usr_prompt = item['question']
+    elif dataset == "gaokao-mathqa":
+        usr_prompt = "Question: " + item['question'] + \
+            "\n" + item['options'][0] + \
+            "\n" + item['options'][1] + \
+            "\n" + item['options'][2] + \
+            "\n" + item['options'][3]
     else:
         raise ValueError(f"dataset {dataset} not supported")
     return usr_prompt
@@ -83,6 +92,10 @@ def get_gt_answer(dataset: str, item: dict) -> str:
         gt_answer = remove_boxed(item["answer"])
     elif dataset == "aime":
         gt_answer = item["answer"]
+    elif dataset == "gaokao-mathcloze":
+        gt_answer = item["answer"]
+    elif dataset == "gaokao-mathqa":
+        gt_answer = item["label"]
     else:
         gt_answer = 'No answer.'
     return gt_answer
@@ -90,6 +103,8 @@ def get_gt_answer(dataset: str, item: dict) -> str:
 def match_answer(gt_answer: str, model_answer: str, dataset: str) -> bool:
     if dataset == "math":
         return is_equiv(gt_answer, model_answer)
+    if dataset == "gaokao-mathcloze":
+        return is_equiv_gaokao(model_answer, gt_answer)
     return gt_answer == model_answer
 
 def test_f():
