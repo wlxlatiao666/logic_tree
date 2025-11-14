@@ -1,0 +1,1772 @@
+[
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5 $a \\in \\mathrm{R}$, \u51fd\u6570 $f(x)=\\left\\{\\begin{array}{l}x^{2}-4, x>2 \\\\ |x-3|+a, x \\leq 2,\\end{array}\\right.$ \u82e5 $f[f(\\sqrt{6})]=3$, \u5219 $a=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "2",
+      "other": {
+        "source": "2021\u5e74\u6d59\u6c5f\u5377\u2014\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\u8ba1\u7b97$f(\\sqrt{6})$\u3002\u7531\u4e8e$\\sqrt{6}>2$\uff0c\u4f7f\u7528\u7b2c\u4e00\u4e2a\u8868\u8fbe\u5f0f$x^2-4$\u3002\u63a5\u7740\uff0c\u5c06\u7ed3\u679c\u4ee3\u5165$f(x)$\u4e2d\u6c42\u89e3$a$\u7684\u503c\u3002\n1. \u8ba1\u7b97$f(\\sqrt{6}) = (\\sqrt{6})^2 - 4 = 6 - 4 = 2$\u3002\n2. \u7136\u540e\u8ba1\u7b97$f(2)$\u3002\u56e0\u4e3a$2 \\leq 2$\uff0c\u4f7f\u7528\u7b2c\u4e8c\u4e2a\u8868\u8fbe\u5f0f$|x-3| + a$\u3002\n3. \u6839\u636e\u9898\u76ee\u6761\u4ef6$f[f(\\sqrt{6})] = f(2) = 3$\uff0c\u5373$|2-3| + a = 3$\u3002\n4. \u89e3\u65b9\u7a0b$1 + a = 3$\u5f97\u5230$a = 2$\u3002\n</think>\n<answer>2</answer>",
+    "label": 1,
+    "avg_logprob": 0.19010347888248835
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u591a\u9879\u5f0f $(x-1)^{3}+(x+1)^{4}=x^{4}+a_{1} x^{3}+a_{2} x^{2}+a_{3} x+a_{4}$, \u5219 $a_{1}=(\\quad)$, $a_{2}+a_{3}+a_{4}=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$5$;$10$",
+      "other": {
+        "source": "2021\u5e74\u6d59\u6c5f\u5377\u2014\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u5c55\u5f00\u7ed9\u5b9a\u7684\u591a\u9879\u5f0f $(x-1)^{3}+(x+1)^{4}$ \u5e76\u5c06\u5176\u4e0e\u53f3\u8fb9\u7684\u591a\u9879\u5f0f\u8fdb\u884c\u6bd4\u8f83\u3002\u6211\u4eec\u53ef\u4ee5\u5206\u522b\u5c55\u5f00\u6bcf\u4e00\u9879\uff0c\u7136\u540e\u5408\u5e76\u540c\u7c7b\u9879\u3002\n\n\u5bf9\u4e8e $(x-1)^{3}$\uff0c\u4f7f\u7528\u4e8c\u9879\u5f0f\u5b9a\u7406\u53ef\u4ee5\u5f97\u5230\uff1a\n\\[ (x-1)^{3} = x^3 - 3x^2 + 3x - 1 \\]\n\n\u5bf9\u4e8e $(x+1)^{4}$\uff0c\u540c\u6837\u4f7f\u7528\u4e8c\u9879\u5f0f\u5b9a\u7406\u53ef\u4ee5\u5f97\u5230\uff1a\n\\[ (x+1)^{4} = x^4 + 4x^3 + 6x^2 + 4x + 1 \\]\n\n\u5c06\u8fd9\u4e24\u9879\u76f8\u52a0\uff0c\u6211\u4eec\u5f97\u5230\uff1a\n\\[ x^4 + 4x^3 + 6x^2 + 4x + 1 + x^3 - 3x^2 + 3x - 1 = x^4 + 5x^3 + 3x^2 + 7x \\]\n\n\u56e0\u6b64\uff0c$a_1 = 5$\uff1b$a_2 + a_3 + a_4 = 3 + 7 = 10$\u3002</think>\n<answer>$5;10$</answer>",
+    "label": 0,
+    "avg_logprob": 0.16102214097288672
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u888b\u4e2d\u6709 4 \u4e2a\u7ea2\u7403 $m$ \u4e2a\u9ec4\u7403, $n$ \u4e2a\u7eff\u7403. \u73b0\u4ece\u4e2d\u4efb\u53d6\u4e24\u4e2a\u7403, \u8bb0\u53d6\u51fa\u7684\u7ea2\u7403\u6570\u4e3a $\\xi$, \u82e5\u53d6\u51fa\u7684\u4e24\u4e2a\u7403\u90fd\u662f \u7ea2\u7403\u7684\u6982\u7387\u4e3a $\\frac{1}{6}$, \u4e00\u7ea2\u4e00\u9ec4\u7684\u6982\u7387\u4e3a $\\frac{1}{3}$, \u5219 $m-n=(\\quad)$, $E(\\xi)=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "1;$\\frac{8}{9}$",
+      "other": {
+        "source": "2021\u5e74\u6d59\u6c5f\u5377\u2014\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u8bbe\u603b\u7403\u6570\u4e3a $N = 4 + m + n$\u3002\u6839\u636e\u9898\u610f\uff0c\u6709\u4ee5\u4e0b\u4e24\u4e2a\u6761\u4ef6\uff1a\n\n1. \u53d6\u51fa\u4e24\u4e2a\u7ea2\u7403\u7684\u6982\u7387\u4e3a $\\frac{1}{6}$\uff0c\u5373 $\\frac{\\binom{4}{2}}{\\binom{N}{2}} = \\frac{1}{6}$\u3002\n2. \u53d6\u51fa\u4e00\u7ea2\u4e00\u9ec4\u7684\u6982\u7387\u4e3a $\\frac{1}{3}$\uff0c\u5373 $\\frac{\\binom{4}{1}\\binom{m}{1}}{\\binom{N}{2}} = \\frac{1}{3}$\u3002\n\n\u5229\u7528\u8fd9\u4e24\u4e2a\u6761\u4ef6\u53ef\u4ee5\u89e3\u51fa $m$ \u548c $n$ \u7684\u5173\u7cfb\uff0c\u8fdb\u800c\u6c42\u51fa $m - n$\u3002\u540c\u65f6\uff0c$\\xi$ \u7684\u671f\u671b\u503c\u53ef\u4ee5\u901a\u8fc7\u6982\u7387\u5206\u5e03\u8ba1\u7b97\u5f97\u51fa\u3002</think>\n<answer>\\frac{1}{3};\\frac{8}{5}</answer>",
+    "label": 0,
+    "avg_logprob": 0.2261723390955323
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u692d\u5706 $\\frac{x^{2}}{a^{2}}+\\frac{y^{2}}{b^{2}}=1(a>b>0)$, \u7126\u70b9 $F_{1}(-c, 0)$, $F_{2}(c, 0)(c>0)$, \u82e5\u8fc7 $F_{1}$ \u7684\u76f4\u7ebf\u548c\u5706 $\\left(x-\\frac{1}{2} c\\right)^{2}+y^{2}=c^{2}$ \u76f8\u5207, \u4e0e\u692d\u5706\u5728\u7b2c\u4e00\u8c61\u9650\u4ea4\u4e8e\u70b9 $P$, \u4e14 $P F_{2} \\perp x$ \u8f74, \u5219\u8be5\u76f4\u7ebf\u7684\u659c\u7387\u662f $(\\quad)$, \u692d\u5706\u7684\u79bb\u5fc3\u7387\u662f $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{2\\sqrt{5}}{5}$;$\\frac{\\sqrt{5}}{5}$",
+      "other": {
+        "source": "2021\u5e74\u6d59\u6c5f\u5377\u2014\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u786e\u5b9a\u76f4\u7ebf\u7684\u65b9\u7a0b\u3002\u7531\u4e8e\u76f4\u7ebf\u901a\u8fc7\u7126\u70b9 $F_1(-c, 0)$ \u5e76\u4e0e\u5706\u76f8\u5207\uff0c\u6211\u4eec\u53ef\u4ee5\u8bbe\u76f4\u7ebf\u65b9\u7a0b\u4e3a $y = k(x + c)$\u3002\u63a5\u4e0b\u6765\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u8fd9\u4e2a\u76f4\u7ebf\u4e0e\u5706\u76f8\u5207\u7684\u6761\u4ef6\u3002\u5706\u7684\u65b9\u7a0b\u4e3a $\\left(x - \\frac{1}{2}c\\right)^2 + y^2 = c^2$\u3002\u5c06\u76f4\u7ebf\u65b9\u7a0b\u4ee3\u5165\u5706\u7684\u65b9\u7a0b\u4e2d\uff0c\u5f97\u5230\u4e00\u4e2a\u5173\u4e8e$x$\u7684\u4e00\u5143\u4e8c\u6b21\u65b9\u7a0b\u3002\u7531\u4e8e\u76f4\u7ebf\u4e0e\u5706\u76f8\u5207\uff0c\u8be5\u65b9\u7a0b\u7684\u5224\u522b\u5f0f\u5e94\u4e3a0\u3002\u89e3\u8fd9\u4e2a\u65b9\u7a0b\u53ef\u4ee5\u5f97\u5230$k$\u7684\u503c\u3002\u63a5\u7740\uff0c\u5229\u7528$PF_2 \\perp x$\u8f74\u7684\u4fe1\u606f\uff0c\u786e\u5b9a\u70b9$P$\u7684\u5750\u6807\uff0c\u8fdb\u800c\u6c42\u51fa\u692d\u5706\u7684\u79bb\u5fc3\u7387\u3002\n</think>\n<answer>\\frac{\\sqrt{3}}{3};\\frac{\\sqrt{3}}{2}</answer>",
+    "label": 0,
+    "avg_logprob": 0.32273856427720615
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u8bb0 $S_{n}$ \u4e3a\u6570\u5217 $\\left\\{a_{n}\\right\\}$ \u7684\u524d $n$ \u9879\u548c. \u82e5 $S_{n}=2 a_{n}+1$, \u5219 $S_{6}=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "-63",
+      "other": {
+        "source": "2018\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6839\u636e\u9898\u76ee\u6761\u4ef6 $S_{n}=2a_{n}+1$\uff0c\u6211\u4eec\u53ef\u4ee5\u5c1d\u8bd5\u627e\u51fa\u6570\u5217 $\\{a_n\\}$ \u7684\u901a\u9879\u516c\u5f0f\u3002\u7531\u4e8e $S_{n}$ \u662f\u524d $n$ \u9879\u548c\uff0c\u6211\u4eec\u6709 $S_{n} = a_1 + a_2 + \\cdots + a_n$\u3002\u5bf9\u4e8e $n=1$\uff0c\u6211\u4eec\u6709 $S_1 = a_1 = 2a_1 + 1$\uff0c\u89e3\u5f97 $a_1 = -1$\u3002\u5bf9\u4e8e $n \\geq 2$\uff0c\u6211\u4eec\u6709 $S_{n-1} = 2a_{n-1} + 1$\uff0c\u56e0\u6b64 $S_n - S_{n-1} = a_n = (2a_n + 1) - (2a_{n-1} + 1)$\uff0c\u5316\u7b80\u5f97\u5230 $a_n = -2a_{n-1}$\u3002\u8fd9\u662f\u4e00\u4e2a\u7b49\u6bd4\u6570\u5217\uff0c\u9996\u9879 $a_1 = -1$\uff0c\u516c\u6bd4 $r = -2$\u3002\u6240\u4ee5 $a_n = (-1)(-2)^{n-1}$\u3002\u63a5\u4e0b\u6765\u8ba1\u7b97 $S_6$\u3002</think>\n<answer>\\(-63\\)</answer>",
+    "label": 0,
+    "avg_logprob": 0.20459869172520712
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\uff085 \u5206) \u4ece 2 \u4f4d\u5973\u751f, 4 \u4f4d\u7537\u751f\u4e2d\u9009 3 \u4eba\u53c2\u52a0\u79d1\u6280\u6bd4\u8d5b, \u4e14\u81f3\u5c11\u6709 1 \u4f4d\u5973\u751f \u5165\u9009, \u5219\u4e0d\u540c\u7684\u9009\u6cd5\u5171\u6709 $(\\quad)$ \u79cd. (\u7528\u6570\u5b57\u586b\u5199\u7b54\u6848)",
+      "options": null,
+      "label": null,
+      "answer": "16",
+      "other": {
+        "source": "2018\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u603b\u7684\u9009\u62e9\u65b9\u6cd5\u662f\u4ece6\u4e2a\u4eba\u4e2d\u9009\u62e93\u4eba\uff0c\u5373C(6,3)\u79cd\u65b9\u5f0f\u3002\u7136\u540e\uff0c\u6211\u4eec\u6392\u9664\u6ca1\u6709\u5973\u751f\u5165\u9009\u7684\u60c5\u51b5\uff0c\u5373\u5168\u90e8\u4e3a\u7537\u751f\u7684\u9009\u62e9\u65b9\u6cd5\uff0c\u5373C(4,3)\u79cd\u3002\u6240\u4ee5\uff0c\u81f3\u5c11\u67091\u4f4d\u5973\u751f\u5165\u9009\u7684\u65b9\u6cd5\u6570\u4e3a\u603b\u65b9\u6cd5\u6570\u51cf\u53bb\u5168\u4e3a\u7537\u751f\u7684\u65b9\u6cd5\u6570\u3002</think>\n<answer>20</answer>",
+    "label": 0,
+    "avg_logprob": 0.3326487047552454
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\uff085 \u5206\uff09\u5df2\u77e5\u51fd\u6570 $f(x)=2 \\sin x+\\sin 2 x$, \u5219 $f(x)$ \u7684\u6700\u5c0f\u503c\u662f $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$-\\frac{3\\sqrt{3}}{2}$",
+      "other": {
+        "source": "2018\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230\u51fd\u6570$f(x)=2 \\sin x + \\sin 2x$\u7684\u6700\u5c0f\u503c\uff0c\u6211\u4eec\u9996\u5148\u53ef\u4ee5\u5229\u7528\u4e09\u89d2\u6052\u7b49\u5f0f$\\sin 2x = 2 \\sin x \\cos x$\u6765\u7b80\u5316\u8868\u8fbe\u5f0f\u3002\u63a5\u7740\uff0c\u6211\u4eec\u53ef\u4ee5\u5bf9\u8fd9\u4e2a\u51fd\u6570\u6c42\u5bfc\uff0c\u627e\u5230\u5176\u4e34\u754c\u70b9\uff0c\u8fdb\u800c\u786e\u5b9a\u6700\u5c0f\u503c\u3002\u5177\u4f53\u6b65\u9aa4\u5982\u4e0b\uff1a\n\n1. \u5c06$f(x)$\u7b80\u5316\u4e3a$f(x) = 2 \\sin x + 2 \\sin x \\cos x$\u3002\n2. \u5bf9$f(x)$\u6c42\u5bfc\u5f97\u5230$f'(x) = 2 \\cos x + 2 (\\cos^2 x - \\sin^2 x)$\u3002\n3. \u8bbe$f'(x) = 0$\u89e3\u65b9\u7a0b\u627e\u5230\u4e34\u754c\u70b9\u3002\n4. \u68c0\u67e5\u8fd9\u4e9b\u4e34\u754c\u70b9\u4ee5\u53ca\u7aef\u70b9\u5904\u7684\u51fd\u6570\u503c\uff0c\u786e\u5b9a\u6700\u5c0f\u503c\u3002\n\n\u901a\u8fc7\u6c42\u5bfc\u548c\u89e3\u65b9\u7a0b\uff0c\u6211\u4eec\u53ef\u4ee5\u627e\u5230\u51fd\u6570\u7684\u6781\u503c\u70b9\uff0c\u8fdb\u800c\u786e\u5b9a\u6700\u5c0f\u503c\u3002</think>\n<answer>\\frac{-3\\sqrt{3}}{2};-2\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.2786865015775971
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$(x+a)^{10}$ \u7684\u5c55\u5f00\u5f0f\u4e2d, $x^{7}$ \u7684\u7cfb\u6570\u4e3a 15 , \u5219 $a=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{1}{2}$",
+      "other": {
+        "source": "2014\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u6839\u636e\u4e8c\u9879\u5f0f\u5b9a\u7406\uff0c$(x+a)^{10}$ \u5c55\u5f00\u540e\u7684\u901a\u9879\u662f $\\binom{10}{k}x^{10-k}a^k$\u3002\u8981\u627e\u5230$x^7$\u7684\u7cfb\u6570\uff0c\u6211\u4eec\u9700\u8981$k=3$\uff0c\u56e0\u4e3a$10-3=7$\u3002\u6240\u4ee5\u7cfb\u6570\u662f$\\binom{10}{3}a^3$\u3002\u5df2\u77e5\u8fd9\u4e2a\u7cfb\u6570\u7b49\u4e8e15\uff0c\u6211\u4eec\u53ef\u4ee5\u5efa\u7acb\u65b9\u7a0b\u6c42\u89e3$a$\u3002\n</think>\n<answer>1</answer>",
+    "label": 0,
+    "avg_logprob": 0.19185247664376875
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\uff085 \u5206\uff09\u5df2\u77e5 $\\alpha$ \u662f\u7b2c\u4e09\u8c61\u9650\u89d2, $\\sin \\alpha=-\\frac{1}{3}$, \u5219 $\\cot\\alpha=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$2\\sqrt{2}$",
+      "other": {
+        "source": "2013\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5927\u7eb2\u7248\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053 $\\sin \\alpha = -\\frac{1}{3}$ \u4e14 $\\alpha$ \u5728\u7b2c\u4e09\u8c61\u9650\u3002\u5728\u7b2c\u4e09\u8c61\u9650\uff0c\u6b63\u5f26\u503c\u4e3a\u8d1f\uff0c\u4f59\u5f26\u503c\u4e5f\u4e3a\u8d1f\u3002\u6211\u4eec\u9700\u8981\u627e\u5230 $\\cos \\alpha$ \u7684\u503c\u6765\u8ba1\u7b97 $\\cot \\alpha$\u3002\u5229\u7528\u4e09\u89d2\u6052\u7b49\u5f0f $\\sin^2 \\alpha + \\cos^2 \\alpha = 1$\uff0c\u6211\u4eec\u53ef\u4ee5\u89e3\u51fa $\\cos \\alpha$\u3002\u7531\u4e8e $\\alpha$ \u5728\u7b2c\u4e09\u8c61\u9650\uff0c$\\cos \\alpha$ \u4e5f\u662f\u8d1f\u6570\u3002\u6700\u540e\uff0c$\\cot \\alpha = \\frac{\\cos \\alpha}{\\sin \\alpha}$\u3002</think>\n<answer>3;</answer>",
+    "label": 0,
+    "avg_logprob": 0.17400987862406858
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u51fd\u6570 $y=\\sin x-\\sqrt{3} \\cos x$ \u7684\u56fe\u8c61\u53ef\u7531\u51fd\u6570 $y=\\sin x+\\sqrt{3} \\cos x$ \u7684\u56fe\u8c61\u81f3\u5c11\u5411 \u53f3\u5e73\u79fb $(\\quad)$ \u4e2a\u5355\u4f4d\u957f\u5ea6\u5f97\u5230.",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{2\\pi}{3}$",
+      "other": {
+        "source": "2016\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2172\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u8003\u8651\u4e24\u4e2a\u51fd\u6570\u7684\u5f62\u5f0f\u3002\u7ed9\u5b9a\u7684\u4e24\u4e2a\u51fd\u6570\u5206\u522b\u662f $y = \\sin x - \\sqrt{3} \\cos x$ \u548c $y = \\sin x + \\sqrt{3} \\cos x$\u3002\u6211\u4eec\u53ef\u4ee5\u5c06\u8fd9\u4e24\u4e2a\u51fd\u6570\u5206\u522b\u8868\u793a\u4e3a\u6b63\u5f26\u51fd\u6570\u7684\u5f62\u5f0f\uff0c\u5373 $y = A \\sin(x - \\phi)$ \u7684\u5f62\u5f0f\uff0c\u5176\u4e2d $A$ \u662f\u632f\u5e45\uff0c$\\phi$ \u662f\u76f8\u4f4d\u504f\u79fb\u3002\n\n\u5bf9\u4e8e $y = \\sin x - \\sqrt{3} \\cos x$\uff0c\u6211\u4eec\u53ef\u4ee5\u5c06\u5176\u91cd\u5199\u4e3a $y = 2 \\left(\\frac{1}{2}\\sin x - \\frac{\\sqrt{3}}{2}\\cos x\\right) = 2 \\sin(x - \\frac{2\\pi}{3})$\u3002\n\u5bf9\u4e8e $y = \\sin x + \\sqrt{3} \\cos x$\uff0c\u6211\u4eec\u53ef\u4ee5\u5c06\u5176\u91cd\u5199\u4e3a $y = 2 \\left(\\frac{1}{2}\\sin x + \\frac{\\sqrt{3}}{2}\\cos x\\right) = 2 \\sin(x + \\frac{\\pi}{3})$\u3002\n\n\u8981\u4ece $y = 2 \\sin(x + \\frac{\\pi}{3})$ \u5f97\u5230 $y = 2 \\sin(x - \\frac{2\\pi}{3})$\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u4e00\u4e2a\u76f8\u4f4d\u504f\u79fb $\\Delta \\phi$\uff0c\u4f7f\u5f97 $x + \\frac{\\pi}{3} - \\Delta \\phi = x - \\frac{2\\pi}{3}$\u3002\u89e3\u8fd9\u4e2a\u65b9\u7a0b\u53ef\u4ee5\u5f97\u5230 $\\Delta \\phi = \\pi$\u3002\u7531\u4e8e\u76f8\u4f4d\u504f\u79fb\u4e0e\u56fe\u50cf\u5e73\u79fb\u7684\u5173\u7cfb\u662f $\\Delta \\phi = -\\Delta x$\uff0c\u6240\u4ee5 $\\Delta x = -\\pi$\uff0c\u5373\u56fe\u50cf\u9700\u8981\u5411\u53f3\u5e73\u79fb $\\pi$ \u4e2a\u5355\u4f4d\u957f\u5ea6\u3002</think>\n<answer>\\pi</answer>",
+    "label": 0,
+    "avg_logprob": 0.18206547631785158
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\uff085 \u5206) \u5df2\u77e5 $f(x)$ \u4e3a\u5076\u51fd\u6570, \u5f53 $x<0$ \u65f6, $f(x)=\\ln (-x)+3 x$, \u5219\u66f2\u7ebf $y=f(x)$ \u5728\u70b9 $(1,-3)$ \u5904\u7684\u5207\u7ebf\u65b9\u7a0b\u662f $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$2x+y+1=0$",
+      "other": {
+        "source": "2016\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2172\uff09"
+      }
+    },
+    "model_answer": "<think>\u7531\u4e8e$f(x)$\u662f\u5076\u51fd\u6570\uff0c\u6240\u4ee5$f(x) = f(-x)$\u3002\u5f53$x < 0$\u65f6\uff0c$f(x) = \\ln(-x) + 3x$\u3002\u5bf9\u4e8e$x > 0$\u7684\u60c5\u51b5\uff0c\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u5076\u51fd\u6570\u7684\u6027\u8d28\u6765\u786e\u5b9a$f(x)$\u7684\u5f62\u5f0f\u3002\u9996\u5148\u8ba1\u7b97$f(1)$\uff0c\u7136\u540e\u6c42\u5bfc\u5f97\u5230$f'(x)$\uff0c\u6700\u540e\u5229\u7528\u70b9\u659c\u5f0f\u65b9\u7a0b\u6c42\u89e3\u5207\u7ebf\u65b9\u7a0b\u3002\n1. \u8ba1\u7b97$f(1)$\uff1a\u56e0\u4e3a$f(x)$\u662f\u5076\u51fd\u6570\uff0c\u6240\u4ee5$f(1) = f(-1) = \\ln(-(-1)) + 3(-1) = \\ln(1) - 3 = -3$\u3002\n2. \u6c42\u5bfc\u6570$f'(x)$\uff1a\u5f53$x < 0$\u65f6\uff0c$f'(x) = \\frac{1}{-x} \\cdot (-1) + 3 = \\frac{1}{x} + 3$\u3002\u7531\u4e8e$f(x)$\u662f\u5076\u51fd\u6570\uff0c$f'(x)$\u5e94\u8be5\u662f\u5947\u51fd\u6570\uff0c\u56e0\u6b64\u5f53$x > 0$\u65f6\uff0c$f'(x) = -(\\frac{1}{x} + 3) = -\\frac{1}{x} - 3$\u3002\n3. \u8ba1\u7b97$f'(1)$\uff1a$f'(1) = -\\frac{1}{1} - 3 = -4$\u3002\n4. \u4f7f\u7528\u70b9\u659c\u5f0f\u65b9\u7a0b$y - y_1 = m(x - x_1)$\uff0c\u5176\u4e2d$m = f'(1) = -4$\uff0c$(x_1, y_1) = (1, -3)$\uff0c\u4ee3\u5165\u5f97$y + 3 = -4(x - 1)$\uff0c\u5316\u7b80\u5f97$y = -4x + 1$\u3002\n</think>\n<answer>1. y=-4x+1</answer>",
+    "label": 0,
+    "avg_logprob": 0.1759060580947095
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u76f4\u7ebf $\\mid: m x+y+3 m-\\sqrt{3}=0$ \u4e0e\u5706 $x^{2}+y^{2}=12$ \u4ea4\u4e8e $A, B$ \u4e24\u70b9, \u8fc7 $A$,$B$ \u5206\u522b\u4f5c $\\mid$ \u7684\u5782\u7ebf\u4e0e $x$ \u8f74\u4ea4\u4e8e $C, D$ \u4e24\u70b9, \u82e5 $|A B|=2 \\sqrt{3}$, \u5219 $|C D|=4$.",
+      "options": null,
+      "label": null,
+      "answer": "4",
+      "other": {
+        "source": "2016\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2172\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053\u76f4\u7ebf\u4e0e\u5706\u76f8\u4ea4\uff0c\u4e14\u4ea4\u70b9\u4e3aA\u3001B\uff0cAB\u957f\u5ea6\u4e3a$2\\sqrt{3}$\u3002\u6839\u636e\u9898\u610f\uff0c\u8fc7A\u3001B\u5206\u522b\u4f5c$\\mid$\u7684\u5782\u7ebf\u4e0e$x$\u8f74\u4ea4\u4e8e$C, D$\u4e24\u70b9\uff0c\u8981\u6c42$|CD|$\u7684\u957f\u5ea6\u3002\u7531\u4e8e$|AB|=2\\sqrt{3}$\uff0c\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u5706\u7684\u6027\u8d28\u548c\u5782\u5f84\u5b9a\u7406\u6765\u89e3\u51b3\u8fd9\u4e2a\u95ee\u9898\u3002\n\n\u8bbe\u5706\u5fc3\u4e3aO\uff0c\u534a\u5f84\u4e3a$r=2\\sqrt{3}$\uff0c\u5219\u5706\u5fc3\u5230\u76f4\u7ebf\u7684\u8ddd\u79bb$d=\\sqrt{r^2-(\\frac{|AB|}{2})^2}=\\sqrt{(2\\sqrt{3})^2-(\\sqrt{3})^2}=\\sqrt{9}=3$\u3002\u76f4\u7ebf\u65b9\u7a0b\u53ef\u6539\u5199\u4e3a$mx+y+3m-\\sqrt{3}=0$\uff0c\u5373$y=-mx-3m+\\sqrt{3}$\uff0c\u5176\u659c\u7387\u4e3a$m$\u3002\u5782\u7ebf\u7684\u659c\u7387\u4e3a$-\\frac{1}{m}$\uff0c\u56e0\u6b64\u5782\u7ebf\u65b9\u7a0b\u53ef\u4ee5\u8868\u793a\u4e3a$y=m(x-x_0)+y_0$\uff0c\u5176\u4e2d$(x_0,y_0)$\u662f\u5782\u8db3\u5750\u6807\u3002\n\n\u5782\u8db3\u5230\u5706\u5fc3\u7684\u8ddd\u79bb\u7b49\u4e8e\u5706\u7684\u534a\u5f84\u51cf\u53bb\u5706\u5fc3\u5230\u76f4\u7ebf\u7684\u8ddd\u79bb\uff0c\u5373$\\sqrt{(2\\sqrt{3})^2-3^2}=0$\uff0c\u8bf4\u660e\u5782\u8db3\u5728\u5706\u4e0a\u3002\u5782\u7ebf\u4e0e$x$\u8f74\u7684\u4ea4\u70b9$C, D$\u7684\u6a2a\u5750\u6807\u53ef\u4ee5\u901a\u8fc7\u4ee4$y=0$\u89e3\u5f97\u3002\u8bbe\u5782\u7ebf\u65b9\u7a0b\u4e3a$y=m(x-x_0)+y_0$\uff0c\u4ee3\u5165$y=0$\u5f97$x=x_0-\\frac{y_0}{m}$\u3002\u56e0\u4e3a\u5782\u8db3\u5728\u76f4\u7ebf\u4e0a\uff0c\u6240\u4ee5$y_0=-mx_0-3m+\\sqrt{3}$\uff0c\u4ee3\u5165\u5f97$x=x_0-\\frac{-mx_0-3m+\\sqrt{3}}{m}=2x_0+\\frac{3}{m}-\\sqrt{3}$\u3002\u7531\u4e8e\u5782\u8db3\u5728\u5706\u4e0a\uff0c\u6211\u4eec\u6709$x_0^2+y_0^2=12$\uff0c\u5c06$y_0$\u4ee3\u5165\u5f97$x_0^2+(-mx_0-3m+\\sqrt{3})^2=12$\u3002\u7b80\u5316\u540e\u5f97\u5230\u5173\u4e8e$x_0$\u7684\u4e8c\u6b21\u65b9\u7a0b\uff0c\u89e3\u5f97$x_0$\u7684\u503c\u3002\u8fdb\u4e00\u6b65\u8ba1\u7b97$|CD|$\uff0c\u5373\u4e24\u5782\u8db3\u6a2a\u5750\u6807\u7684\u5dee\u7684\u7edd\u5bf9\u503c\u3002\n\n\u901a\u8fc7\u4e0a\u8ff0\u5206\u6790\uff0c\u6211\u4eec\u53ef\u4ee5\u76f4\u63a5\u5f97\u51fa\u7ed3\u8bba\uff1a$|CD|=4$\u3002</think>\n<answer>$4$</answer>",
+    "label": 0,
+    "avg_logprob": 0.2765251959482276
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u5355\u4f4d\u5411\u91cf $a, b$ \u7684\u5939\u89d2\u4e3a $45^{\\circ}, k a-b$ \u4e0e $a$ \u5782\u76f4, \u5219 $k=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{\\sqrt{2}}{2}$",
+      "other": {
+        "source": "2020\u5e74\u65b0\u8bfe\u6807\u2161\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u77e5\u9053\u5411\u91cf $ka - b$ \u4e0e\u5411\u91cf $a$ \u5782\u76f4\uff0c\u8fd9\u610f\u5473\u7740\u5b83\u4eec\u7684\u70b9\u79ef\u4e3a0\u3002\u5373 $(ka - b) \\cdot a = 0$\u3002\u5c55\u5f00\u8fd9\u4e2a\u7b49\u5f0f\uff0c\u6211\u4eec\u5f97\u5230 $k(a \\cdot a) - (b \\cdot a) = 0$\u3002\u7531\u4e8e $a$ \u548c $b$ \u662f\u5355\u4f4d\u5411\u91cf\uff0c\u6240\u4ee5 $a \\cdot a = 1$\u3002\u56e0\u6b64\uff0c\u7b49\u5f0f\u7b80\u5316\u4e3a $k - (b \\cdot a) = 0$\u3002\u5df2\u77e5 $a$ \u548c $b$ \u7684\u5939\u89d2\u4e3a $45^{\\circ}$\uff0c\u53ef\u4ee5\u5229\u7528\u4f59\u5f26\u5b9a\u7406\u8ba1\u7b97 $b \\cdot a = \\cos(45^{\\circ}) = \\frac{\\sqrt{2}}{2}$\u3002\u5c06\u8fd9\u4e9b\u503c\u4ee3\u5165\u7b49\u5f0f\u4e2d\u6c42\u89e3 $k$\u3002</think>\n<answer>\\frac{\\sqrt{2}}{2}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.19805866640946107
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u8bbe\u590d\u6570 $z_{1}, z_{2}$ \u6ee1\u8db3 $\\left|z_{1}\\right|=\\left|z_{2}\\right|=2, \\quad z_{1}+z_{2}=\\sqrt{3}+i$, \u5219 $\\left|z_{1}-z_{2}\\right|=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$2\\sqrt{3}$",
+      "other": {
+        "source": "2020\u5e74\u65b0\u8bfe\u6807\u2161\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u7531\u9898\u610f\u77e5$z_1$\u548c$z_2$\u662f\u5355\u4f4d\u5706\u4e0a\u7684\u70b9\uff0c\u4e14\u5b83\u4eec\u7684\u548c\u4e3a$\\sqrt{3} + i$\u3002\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u590d\u6570\u7684\u51e0\u4f55\u610f\u4e49\u6765\u89e3\u51b3\u8fd9\u4e2a\u95ee\u9898\u3002\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053$|z_1| = |z_2| = 2$\uff0c\u6240\u4ee5$z_1$\u548c$z_2$\u90fd\u5728\u4ee5\u539f\u70b9\u4e3a\u4e2d\u5fc3\uff0c\u534a\u5f84\u4e3a2\u7684\u5706\u4e0a\u3002\u8bbe$z_1 = a + bi$\uff0c$z_2 = c + di$\uff0c\u5219\u6709$a^2 + b^2 = 4$\uff0c$c^2 + d^2 = 4$\uff0c\u4ee5\u53ca$(a+c) + (b+d)i = \\sqrt{3} + i$\u3002\u7531\u6b64\u53ef\u4ee5\u5f97\u5230$a+c = \\sqrt{3}$\uff0c$b+d = 1$\u3002\u6211\u4eec\u9700\u8981\u6c42\u7684\u662f$|z_1 - z_2|$\uff0c\u5373$\\sqrt{(a-c)^2 + (b-d)^2}$\u3002\u6211\u4eec\u53ef\u4ee5\u901a\u8fc7\u5411\u91cf\u7684\u77e5\u8bc6\u6765\u7b80\u5316\u8ba1\u7b97\uff0c\u5229\u7528\u5411\u91cf\u7684\u6a21\u957f\u516c\u5f0f\u548c\u5411\u91cf\u7684\u52a0\u51cf\u6cd5\u3002</think>\n<answer>\\sqrt{8};4\\sqrt{2}</answer>",
+    "label": 0,
+    "avg_logprob": 0.24181061444853122
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u53cc\u66f2\u7ebf $\\frac{x^{2}}{a^{2}}-\\frac{y^{2}}{b^{2}}=1(a>0, b>0)$ \u7684\u79bb\u5fc3\u7387\u4e3a 2 , \u5219\u8be5\u53cc\u66f2\u7ebf\u7684\u6e10\u8fd1\u7ebf\u65b9\u7a0b\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$y=\\pm\\sqrt{3}x$",
+      "other": {
+        "source": "2021\u5168\u56fd\u65b0\u9ad8\u8003\u2161\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053\u53cc\u66f2\u7ebf\u7684\u6807\u51c6\u5f62\u5f0f\u662f \\(\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1\\)\uff0c\u5176\u79bb\u5fc3\u7387 \\(e = \\sqrt{1 + \\frac{b^2}{a^2}}\\)\u3002\u9898\u76ee\u4e2d\u7ed9\u51fa\u7684\u79bb\u5fc3\u7387 \\(e = 2\\)\uff0c\u53ef\u4ee5\u7528\u6765\u6c42\u89e3 \\(a\\) \u548c \\(b\\) \u7684\u5173\u7cfb\u3002\u63a5\u7740\uff0c\u53cc\u66f2\u7ebf\u7684\u6e10\u8fd1\u7ebf\u65b9\u7a0b\u662f \\(\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 0\\)\uff0c\u5373 \\(y = \\pm \\frac{b}{a}x\\)\u3002</think>\n<answer>\\frac{b}{a}x=\\pm y</answer>",
+    "label": 0,
+    "avg_logprob": 0.15923900376079597
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u5411\u91cf $\\vec{a}+\\vec{b}+\\vec{c}=\\overrightarrow{0},|\\vec{a}|=1,|\\vec{b}|=|\\vec{c}|=2, \\vec{a} \\cdot \\vec{b}+\\vec{b} \\cdot \\vec{c}+\\vec{c} \\cdot \\vec{a}=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$-\\frac{9}{2}$",
+      "other": {
+        "source": "2021\u5168\u56fd\u65b0\u9ad8\u8003\u2161\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u7531\u9898\u610f\u77e5$\\vec{a}+\\vec{b}+\\vec{c}=\\overrightarrow{0}$\uff0c\u53ef\u4ee5\u63a8\u5bfc\u51fa$\\vec{c}=-\\vec{a}-\\vec{b}$\u3002\u5c06$\\vec{c}$\u4ee3\u5165$\\vec{a} \\cdot \\vec{b}+\\vec{b} \\cdot \\vec{c}+\\vec{c} \\cdot \\vec{a}$\u4e2d\uff0c\u5229\u7528\u5411\u91cf\u70b9\u79ef\u7684\u6027\u8d28\u8fdb\u884c\u8ba1\u7b97\u3002\u540c\u65f6\uff0c\u6839\u636e$|\\vec{a}|=1,|\\vec{b}|=|\\vec{c}|=2$\uff0c\u53ef\u4ee5\u5f97\u5230$\\vec{a} \\cdot \\vec{a}=1,\\vec{b} \\cdot \\vec{b}=4,\\vec{c} \\cdot \\vec{c}=4$\u3002</think>\n<answer>-5</answer>",
+    "label": 0,
+    "avg_logprob": 0.196189583356014
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u51fd\u6570 $f(x)=\\left|e^{x}-1\\right|, x_{1}<0, x_{2}>0$, \u51fd\u6570 $f(x)$ \u7684\u56fe\u8c61\u5728\u70b9 $A\\left(x_{1}, f\\left(x_{1}\\right)\\right)$ \u548c\u70b9 $B\\left(x_{2}, f\\left(x_{2}\\right)\\right)$ \u7684\u4e24\u6761 \u5207\u7ebf\u4e92\u76f8\u5782\u76f4, \u4e14\u5206\u522b\u4ea4 $y$ \u8f74\u4e8e $M, N$ \u4e24\u70b9, \u5219 $\\frac{|A M|}{|B N|}$ \u53d6\u503c\u8303\u56f4\u662f $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$(0,1)$",
+      "other": {
+        "source": "2021\u5168\u56fd\u65b0\u9ad8\u8003\u2161\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u51fd\u6570$f(x)=\\left|e^{x}-1\\right|$\u5728$x_1$\u548c$x_2$\u5904\u7684\u5bfc\u6570\uff0c\u5373\u5207\u7ebf\u659c\u7387\u3002\u7531\u4e8e$x_1<0$\uff0c$x_2>0$\uff0c\u6211\u4eec\u5206\u522b\u8003\u8651\u4e24\u79cd\u60c5\u51b5\u4e0b\u7684\u5bfc\u6570\u8868\u8fbe\u5f0f\u3002\u7136\u540e\u5229\u7528\u5207\u7ebf\u5782\u76f4\u7684\u6761\u4ef6\u6c42\u89e3$x_1$\u548c$x_2$\u7684\u5173\u7cfb\u3002\u6700\u540e\uff0c\u901a\u8fc7\u8ba1\u7b97$AM$\u548c$BN$\u7684\u957f\u5ea6\u6765\u786e\u5b9a$\\frac{|AM|}{|BN|}$\u7684\u53d6\u503c\u8303\u56f4\u3002</think>\n<answer>\\frac{1}{2};2</answer>",
+    "label": 0,
+    "avg_logprob": 0.2881066925391618
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\uff085 \u5206) \u4e0d\u7b49\u5f0f $\\sqrt{2 x^{2}+1}-x \\leqslant 1$ \u7684\u89e3\u96c6\u662f $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$[0,2]$",
+      "other": {
+        "source": "2010\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5927\u7eb2\u7248\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u5bf9\u65b9\u7a0b\u4e24\u8fb9\u540c\u65f6\u5e73\u65b9\u6765\u6d88\u53bb\u6839\u53f7\uff0c\u5f97\u5230 $2x^2 + 1 - 2x\\sqrt{2x^2 + 1} + x^2 \\leq 1$\uff0c\u7b80\u5316\u540e\u5f97\u5230 $3x^2 - 2x\\sqrt{2x^2 + 1} \\leq 0$\u3002\u8fdb\u4e00\u6b65\u6574\u7406\u5f97\u5230 $x(3x - 2\\sqrt{2x^2 + 1}) \\leq 0$\u3002\u63a5\u4e0b\u6765\u9700\u8981\u8003\u8651\u4e0d\u7b49\u5f0f\u7684\u89e3\u96c6\u3002</think>\n<answer>\\left(-\\infty, 0\\right] \\cup \\left[0, \\frac{2}{3}\\right] = \\left(-\\infty, \\frac{2}{3}\\right]</answer>",
+    "label": 0,
+    "avg_logprob": 0.16028635929341029
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u8bbe\u5411\u91cf $\\vec{a}=(1,2), \\vec{b}=(2,3)$, \u82e5\u5411\u91cf $\\lambda \\vec{a}+\\vec{b}$ \u4e0e\u5411\u91cf $\\vec{c}=(-4,-7)$ \u5171 \u7ebf, \u5219 $\\lambda=(\\quad)$. ",
+      "options": null,
+      "label": null,
+      "answer": "2",
+      "other": {
+        "source": "2008\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5168\u56fd\u5377\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6839\u636e\u9898\u610f\uff0c\u5411\u91cf $\\lambda \\vec{a} + \\vec{b}$ \u4e0e\u5411\u91cf $\\vec{c}$ \u5171\u7ebf\uff0c\u53ef\u4ee5\u8868\u793a\u4e3a\u5b58\u5728\u4e00\u4e2a\u5b9e\u6570 $k$ \u4f7f\u5f97 $\\lambda \\vec{a} + \\vec{b} = k \\vec{c}$\u3002\u5c06\u5df2\u77e5\u5411\u91cf\u4ee3\u5165\uff0c\u5f97\u5230\u65b9\u7a0b\u7ec4\u6c42\u89e3 $\\lambda$\u3002</think>\n<answer>\\lambda = -1</answer>",
+    "label": 0,
+    "avg_logprob": 0.2557047429351435
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u8bbe\u66f2\u7ebf $y=e^{a x}$ \u5728\u70b9 $(0,1)$ \u5904\u7684\u5207\u7ebf\u4e0e\u76f4\u7ebf $x+2 y+1=0$ \u5782\u76f4, \u5219 $ a=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "2",
+      "other": {
+        "source": "2008\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5168\u56fd\u5377\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053\u7ed9\u5b9a\u66f2\u7ebf\u7684\u65b9\u7a0b\u4e3a \\(y = e^{ax}\\)\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u8be5\u66f2\u7ebf\u5728\u70b9 \\((0,1)\\) \u5904\u7684\u5207\u7ebf\u659c\u7387\u3002\u5bf9\u4e8e\u51fd\u6570 \\(y = e^{ax}\\)\uff0c\u5176\u5bfc\u6570\u4e3a \\(y' = ae^{ax}\\)\u3002\u5728\u70b9 \\((0,1)\\) \u5904\uff0c\\(x=0\\)\uff0c\u6240\u4ee5\u5207\u7ebf\u659c\u7387\u4e3a \\(y'(0) = ae^0 = a\\)\u3002\n\n\u5176\u6b21\uff0c\u5df2\u77e5\u5207\u7ebf\u4e0e\u76f4\u7ebf \\(x + 2y + 1 = 0\\) \u5782\u76f4\u3002\u76f4\u7ebf\u7684\u4e00\u822c\u5f62\u5f0f\u4e3a \\(Ax + By + C = 0\\)\uff0c\u5176\u659c\u7387\u4e3a \\(-\\frac{A}{B}\\)\u3002\u56e0\u6b64\uff0c\u76f4\u7ebf \\(x + 2y + 1 = 0\\) \u7684\u659c\u7387\u4e3a \\(-\\frac{1}{2}\\)\u3002\n\n\u7531\u4e8e\u4e24\u76f4\u7ebf\u5782\u76f4\uff0c\u5b83\u4eec\u7684\u659c\u7387\u4e4b\u79ef\u7b49\u4e8e \\(-1\\)\u3002\u5373 \\(a \\cdot (-\\frac{1}{2}) = -1\\)\u3002\u89e3\u8fd9\u4e2a\u65b9\u7a0b\u53ef\u4ee5\u5f97\u5230 \\(a\\) \u7684\u503c\u3002\n</think>\n<answer>2</answer>",
+    "label": 1,
+    "avg_logprob": 0.1929402365923029
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5 $F$ \u662f\u629b\u7269\u7ebf $C: y^{2}=4 x$ \u7684\u7126\u70b9, \u8fc7 $F$ \u4e14\u659c\u7387\u4e3a 1 \u7684\u76f4\u7ebf\u4ea4 $C$ \u4e8e $A$, B \u4e24\u70b9. \u8bbe $|F A|>|F B|$, \u5219 $|F A|$ \u4e0e $|F B|$ \u7684\u6bd4\u503c\u7b49\u4e8e ($\\quad$).",
+      "options": null,
+      "label": null,
+      "answer": "$3+2\\sqrt{2}$",
+      "other": {
+        "source": "2008\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5168\u56fd\u5377\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u786e\u5b9a\u629b\u7269\u7ebf\u7684\u7126\u70b9 $F$ \u7684\u5750\u6807\u3002\u5bf9\u4e8e\u629b\u7269\u7ebf $y^2 = 4x$\uff0c\u7126\u70b9\u4e3a $(1,0)$\u3002\u8bbe\u8fc7\u7126\u70b9 $F(1,0)$ \u659c\u7387\u4e3a 1 \u7684\u76f4\u7ebf\u65b9\u7a0b\u4e3a $y = x - 1$\u3002\u5c06\u6b64\u76f4\u7ebf\u65b9\u7a0b\u4ee3\u5165\u629b\u7269\u7ebf\u65b9\u7a0b\u6c42\u89e3\u4ea4\u70b9 $A$ \u548c $B$ \u7684\u5750\u6807\u3002\u7136\u540e\u5229\u7528\u7126\u534a\u5f84\u516c\u5f0f\u8ba1\u7b97 $|FA|$ \u548c $|FB|$ \u7684\u957f\u5ea6\uff0c\u5e76\u6c42\u51fa\u5b83\u4eec\u7684\u6bd4\u503c\u3002</think>\n<answer>\\frac{1+\\sqrt{5}}{2};\\frac{\\sqrt{5}+1}{2}</answer>",
+    "label": 0,
+    "avg_logprob": 0.19494396132988723
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5e73\u9762\u5185\u7684\u4e00\u4e2a\u56db\u8fb9\u5f62\u4e3a\u5e73\u884c\u56db\u8fb9\u5f62\u7684\u5145\u8981\u6761\u4ef6\u6709\u591a\u4e2a, \u5982\u4e24\u7ec4\u5bf9\u8fb9 \u5206\u522b\u5e73\u884c, \u7c7b\u4f3c\u5730, \u5199\u51fa\u7a7a\u95f4\u4e2d\u7684\u4e00\u4e2a\u56db\u68f1\u67f1\u4e3a\u5e73\u884c\u516d\u9762\u4f53\u7684\u4e24\u4e2a\u5145\u8981\u6761\u4ef6: \\\\\n\u5145\u8981\u6761\u4ef6$\\textcircled{1}(\\quad)$;\\\\\n\u5145\u8981\u6761\u4ef6$\\textcircled{2}(\\quad)$.\\\\\n(\u5199\u51fa\u4f60\u8ba4\u4e3a\u6b63\u786e\u7684\u4e24\u4e2a\u5145\u8981\u6761\u4ef6)",
+      "options": null,
+      "label": null,
+      "answer": "\u4e09\u7ec4\u5bf9\u9762\u5206\u522b\u5e73\u884c\u7684\u56db\u68f1\u67f1\u4e3a\u5e73\u884c\u516d\u9762\u4f53;\u5e73\u884c\u516d\u9762\u4f53\u7684\u5bf9\u89d2\u7ebf\u4ea4\u4e8e\u4e00\u70b9,\u5e76\u4e14\u5728\u4ea4\u70b9\u5904\u4e92\u76f8\u5e73\u5206",
+      "other": {
+        "source": "2008\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5168\u56fd\u5377\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u5bf9\u4e8e\u7a7a\u95f4\u4e2d\u7684\u5e73\u884c\u516d\u9762\u4f53\uff0c\u5176\u5b9a\u4e49\u7c7b\u4f3c\u4e8e\u5e73\u9762\u4e2d\u7684\u5e73\u884c\u56db\u8fb9\u5f62\uff0c\u5373\u516d\u4e2a\u9762\u90fd\u662f\u5e73\u884c\u56db\u8fb9\u5f62\u3002\u6b64\u5916\uff0c\u8fd8\u53ef\u4ee5\u8003\u8651\u68f1\u4e4b\u95f4\u7684\u5173\u7cfb\u3002\u5e73\u884c\u516d\u9762\u4f53\u7684\u4e00\u4e2a\u5145\u8981\u6761\u4ef6\u662f\u5e95\u9762\u662f\u5e73\u884c\u56db\u8fb9\u5f62\u4e14\u4fa7\u68f1\u5e73\u884c\u4e8e\u5e95\u9762\u7684\u5e73\u884c\u56db\u8fb9\u5f62\u3002\u53e6\u4e00\u4e2a\u5145\u8981\u6761\u4ef6\u53ef\u4ee5\u662f\u5e95\u9762\u548c\u5e73\u9876\u9762\u5e73\u884c\u4e14\u5bf9\u5e94\u8fb9\u5e73\u884c\u3002</think>\n<answer>\\textcircled{1} \u5e95\u9762\u662f\u5e73\u884c\u56db\u8fb9\u5f62\u4e14\u4fa7\u68f1\u5e73\u884c\u4e8e\u5e95\u9762\u7684\u5e73\u884c\u56db\u8fb9\u5f62; \\textcircled{2} \u5e95\u9762\u548c\u5e73\u9876\u9762\u5e73\u884c\u4e14\u5bf9\u5e94\u8fb9\u5e73\u884c;</answer>",
+    "label": 0,
+    "avg_logprob": 0.29890656033465746
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$(x-y)(x+y)^{8}$ \u7684\u5c55\u5f00\u5f0f\u4e2d $x^{2} y^{7}$ \u7684\u7cfb\u6570\u4e3a $(\\quad)$. (\u7528\u6570\u5b57\u586b\u5199\u7b54 \u6848)",
+      "options": null,
+      "label": null,
+      "answer": "-20",
+      "other": {
+        "source": "2014\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230$x^2y^7$\u7684\u7cfb\u6570\uff0c\u6211\u4eec\u9700\u8981\u4ece$(x-y)(x+y)^8$\u7684\u5c55\u5f00\u5f0f\u4e2d\u8bc6\u522b\u51fa$x^2y^7$\u9879\u3002\u9996\u5148\uff0c\u6211\u4eec\u8003\u8651$(x+y)^8$\u7684\u4e8c\u9879\u5f0f\u5c55\u5f00\uff0c\u5176\u4e2d\u6bcf\u4e00\u9879\u5f62\u5f0f\u4e3a$\\binom{8}{k}x^{8-k}y^k$\u3002\u4e3a\u4e86\u5f97\u5230$x^2y^7$\uff0c\u6211\u4eec\u9700\u8981\u4ece$(x+y)^8$\u4e2d\u9009\u62e9\u4e24\u9879\u76f8\u4e58\uff0c\u4f7f\u5f97\u5b83\u4eec\u7684\u6307\u6570\u76f8\u52a0\u7b49\u4e8e$x^2y^7$\u3002\u8fd9\u53ef\u4ee5\u901a\u8fc7\u4e24\u79cd\u65b9\u5f0f\u5b9e\u73b0\uff1a\u4e00\u662f\u4ece$(x+y)^8$\u4e2d\u9009\u62e9$x^3y^5$\u9879\u4e0e$-y$\u76f8\u4e58\uff1b\u4e8c\u662f\u9009\u62e9$x^2y^6$\u9879\u4e0e$-xy$\u76f8\u4e58\u3002\u56e0\u6b64\uff0c\u6211\u4eec\u9700\u8981\u8ba1\u7b97\u8fd9\u4e24\u79cd\u60c5\u51b5\u7684\u7cfb\u6570\u4e4b\u548c\u3002</think>\n<answer>28;-56</answer>",
+    "label": 0,
+    "avg_logprob": 0.2691679845667325
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u7532\u3001\u4e59\u3001\u4e19\u4e09\u4f4d\u540c\u5b66\u88ab\u95ee\u5230\u662f\u5426\u53bb\u8fc7 A, B, C\u4e09\u4e2a\u57ce\u5e02\u65f6,\\\\\n\u7532\u8bf4: \u6211\u53bb\u8fc7\u7684\u57ce\u5e02\u6bd4\u4e59\u591a, \u4f46\u6ca1\u53bb\u8fc7 $\\mathrm{B}$ \u57ce\u5e02;\\\\\n\u4e59\u8bf4: \u6211\u6ca1\u53bb\u8fc7 C \u57ce\u5e02;\\\\\n\u4e19\u8bf4: \u6211\u4eec\u4e09\u4eba\u53bb\u8fc7\u540c\u4e00\u57ce\u5e02;\\\\\n\u7531\u6b64\u53ef\u5224\u65ad\u4e59\u53bb\u8fc7\u7684\u57ce\u5e02\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$A$",
+      "other": {
+        "source": "2014\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u6211\u4eec\u53ef\u4ee5\u901a\u8fc7\u903b\u8f91\u63a8\u7406\u6765\u89e3\u51b3\u8fd9\u4e2a\u95ee\u9898\u3002\u9996\u5148\uff0c\u6839\u636e\u7532\u7684\u8bf4\u6cd5\uff0c\u7532\u53bb\u8fc7A\u57ce\u5e02\uff0c\u4e14\u6ca1\u6709\u53bb\u8fc7B\u57ce\u5e02\uff1b\u4e59\u6ca1\u6709\u53bb\u8fc7C\u57ce\u5e02\uff1b\u4e19\u8bf4\u4ed6\u4eec\u4e09\u4eba\u53bb\u8fc7\u540c\u4e00\u4e2a\u57ce\u5e02\u3002\u7ed3\u5408\u8fd9\u4e9b\u4fe1\u606f\uff0c\u6211\u4eec\u53ef\u4ee5\u63a8\u65ad\u51fa\u6bcf\u4e2a\u4eba\u53bb\u8fc7\u54ea\u4e9b\u57ce\u5e02\u3002</think>\n<answer>\\mathrm{A}</answer>",
+    "label": 0,
+    "avg_logprob": 0.4255065042204356
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5 $A, B, C$ \u4e3a\u5706 $O$ \u4e0a\u7684\u4e09\u70b9, \u82e5 $\\overrightarrow{\\mathrm{AO}}=\\frac{1}{2}(\\overrightarrow{\\mathrm{AB}}+\\overrightarrow{\\mathrm{AC}})$, \u5219 $\\overrightarrow{\\mathrm{AB}}$ \u4e0e $\\overrightarrow{\\mathrm{AC}}$ \u7684\u5939 \u89d2\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$90^{\\circ}$",
+      "other": {
+        "source": "2014\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u7531\u5411\u91cf\u5173\u7cfb\u5f0f \\(\\overrightarrow{\\mathrm{AO}} = \\frac{1}{2}(\\overrightarrow{\\mathrm{AB}} + \\overrightarrow{\\mathrm{AC}})\\)\uff0c\u53ef\u4ee5\u63a8\u65ad\u51fa\u70b9 \\(O\\) \u662f \\(\\triangle ABC\\) \u7684\u91cd\u5fc3\u3002\u56e0\u4e3a\u91cd\u5fc3\u5230\u9876\u70b9\u7684\u8ddd\u79bb\u662f\u4e2d\u7ebf\u7684\u4e00\u534a\uff0c\u6240\u4ee5 \\(O\\) \u5fc5\u987b\u4f4d\u4e8e \\(\\triangle ABC\\) \u7684\u4e2d\u7ebf\u4e0a\uff0c\u4e14\u8be5\u4e2d\u7ebf\u662f\u4ece \\(A\\) \u5230 \\(BC\\) \u4e2d\u70b9\u7684\u8fde\u7ebf\u3002\u8fd9\u6697\u793a \\(\\triangle ABC\\) \u662f\u7b49\u8fb9\u4e09\u89d2\u5f62\uff0c\u56e0\u6b64 \\(\\overrightarrow{\\mathrm{AB}}\\) \u4e0e \\(\\overrightarrow{\\mathrm{AC}}\\) \u7684\u5939\u89d2\u4e3a \\(60^\\circ\\) \u6216 \\(\\frac{\\pi}{3}\\) \u5f27\u5ea6\u3002</think>\n<answer>\\frac{\\pi}{3};60^\\circ</answer>",
+    "label": 0,
+    "avg_logprob": 0.2642245867999131
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5 $a, b, c$ \u5206\u522b\u4e3a $\\triangle A B C$ \u7684\u4e09\u4e2a\u5185\u89d2 $A, B, C$ \u7684\u5bf9\u8fb9, $a=2$ \u4e14 $(2+b)(\\sin A-\\sin B)=(c-b) \\sin C$, \u5219 $\\triangle A B C$ \u9762\u79ef\u7684\u6700\u5927\u503c\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$\\sqrt{3}$",
+      "other": {
+        "source": "2014\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u6709\u4e09\u89d2\u5f62\u4e24\u8fb9\u53ca\u5176\u5939\u89d2\u7684\u5173\u7cfb\u3002\u9996\u5148\u5229\u7528\u6b63\u5f26\u5b9a\u7406\u5c06\u9898\u76ee\u4e2d\u7684\u6761\u4ef6\u8f6c\u6362\u4e3a\u8fb9\u957f\u5173\u7cfb\u3002\u6b63\u5f26\u5b9a\u7406\u8868\u660e $\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C}$\u3002\u4ee3\u5165\u7ed9\u5b9a\u6761\u4ef6\u5e76\u5316\u7b80\uff0c\u53ef\u4ee5\u5f97\u5230\u5173\u4e8e\u8fb9\u957f\u7684\u65b9\u7a0b\u3002\u63a5\u7740\uff0c\u5229\u7528\u6d77\u4f26\u516c\u5f0f\u8ba1\u7b97\u9762\u79ef\uff0c\u5e76\u901a\u8fc7\u6c42\u5bfc\u627e\u5230\u6700\u5927\u503c\u3002</think>\n<answer>\\sqrt{3};\\frac{3\\sqrt{3}}{4}</answer>",
+    "label": 0,
+    "avg_logprob": 0.3844386206501544
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u66f2\u7ebf $y=2 \\ln (x+1)$ \u5728\u70b9 $(0,0)$ \u5904\u7684\u5207\u7ebf\u65b9\u7a0b\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$y=2x$",
+      "other": {
+        "source": "2018\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u7ed9\u5b9a\u51fd\u6570\u5728\u70b9(0,0)\u5904\u7684\u5bfc\u6570\u503c\uff0c\u8fd9\u5c06\u4f5c\u4e3a\u5207\u7ebf\u7684\u659c\u7387\u3002\u7136\u540e\uff0c\u4f7f\u7528\u70b9\u659c\u5f0f\u65b9\u7a0b\u6765\u786e\u5b9a\u5207\u7ebf\u65b9\u7a0b\u3002</think>\n<answer>y = 2x;</answer>",
+    "label": 0,
+    "avg_logprob": 0.267749265288915
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5 $\\sin \\alpha+\\cos \\beta=1, \\cos \\alpha+\\sin \\beta=0$, \u5219 $\\sin (\\alpha+\\beta)=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$-\\frac{1}{2}$",
+      "other": {
+        "source": "2018\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u6709\u4e24\u7ec4\u65b9\u7a0b\uff1a$\\sin \\alpha + \\cos \\beta = 1$ \u548c $\\cos \\alpha + \\sin \\beta = 0$\u3002\u6211\u4eec\u53ef\u4ee5\u5c1d\u8bd5\u901a\u8fc7\u5e73\u65b9\u8fd9\u4e24\u4e2a\u65b9\u7a0b\u6765\u6d88\u53bb $\\beta$ \u548c $\\alpha$ \u7684\u6df7\u5408\u9879\uff0c\u4ece\u800c\u627e\u5230 $\\sin(\\alpha + \\beta)$ \u7684\u503c\u3002\u5177\u4f53\u6b65\u9aa4\u5982\u4e0b\uff1a\n\n1. \u5e73\u65b9\u7b2c\u4e00\u4e2a\u65b9\u7a0b\u5f97\u5230 $(\\sin \\alpha + \\cos \\beta)^2 = 1^2$\u3002\n2. \u5e73\u65b9\u7b2c\u4e8c\u4e2a\u65b9\u7a0b\u5f97\u5230 $(\\cos \\alpha + \\sin \\beta)^2 = 0^2$\u3002\n3. \u5c55\u5f00\u5e76\u6574\u7406\u8fd9\u4e9b\u65b9\u7a0b\uff0c\u5229\u7528\u4e09\u89d2\u6052\u7b49\u5f0f $\\sin^2 x + \\cos^2 x = 1$ \u6765\u7b80\u5316\u8868\u8fbe\u5f0f\u3002\n4. \u6700\u540e\uff0c\u5229\u7528\u548c\u5dee\u5316\u79ef\u516c\u5f0f\u6c42\u89e3 $\\sin(\\alpha + \\beta)$\u3002\n\n\u8fdb\u884c\u8ba1\u7b97\uff1a$(\\sin \\alpha + \\cos \\beta)^2 = \\sin^2 \\alpha + 2\\sin \\alpha \\cos \\beta + \\cos^2 \\beta = 1$\uff1b\n$(\\cos \\alpha + \\sin \\beta)^2 = \\cos^2 \\alpha + 2\\cos \\alpha \\sin \\beta + \\sin^2 \\beta = 0$\u3002\n\n\u5c06\u4e24\u4e2a\u65b9\u7a0b\u76f8\u52a0\u5f97\u5230 $1 + 1 + 2(\\sin \\alpha \\cos \\beta + \\cos \\alpha \\sin \\beta) = 1$\uff0c\u5373 $2 + 2\\sin(\\alpha + \\beta) = 1$\uff0c\u4ece\u800c\u5f97\u5230 $\\sin(\\alpha + \\beta) = -\\frac{1}{2}$\u3002</think>\n<answer>-\\frac{1}{2}</answer>",
+    "label": 0,
+    "avg_logprob": 0.17997380966129212
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u5706\u96c9\u7684\u9876\u70b9\u4e3a $\\mathrm{S}$, \u6bcd\u7ebf $\\mathrm{SA}, \\mathrm{SB}$ \u6240\u6210\u89d2\u7684\u4f59\u5f26\u503c\u4e3a $\\frac{7}{8}, \\mathrm{SA}$ \u4e0e\u5706 \u9525\u5e95\u9762\u6240\u6210\u89d2\u4e3a $45^{\\circ}$, \u82e5 $\\triangle \\mathrm{SAB}$ \u7684\u9762\u79ef\u4e3a $5 \\sqrt{15}$, \u5219\u8be5\u5706\u96c9\u7684\u4fa7\u9762\u79ef\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$40\\sqrt{2}\\pi$",
+      "other": {
+        "source": "2018\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u8bbe\u5706\u9525\u7684\u9ad8\u4e3a$h$\uff0c\u5e95\u9762\u534a\u5f84\u4e3a$r$\uff0c\u6bcd\u7ebf\u957f\u4e3a$l$\u3002\u6839\u636e\u9898\u610f\uff0c$\\angle ASB = \\theta$\uff0c\u4e14$\\cos(\\theta) = \\frac{7}{8}$\u3002\u7531\u4e8e$\\angle SAB = 45^\\circ$\uff0c\u53ef\u4ee5\u5229\u7528\u76f4\u89d2\u4e09\u89d2\u5f62\u7684\u77e5\u8bc6\u6765\u6c42\u89e3\u3002$\\triangle SAB$\u7684\u9762\u79ef\u5df2\u77e5\u4e3a$5\\sqrt{15}$\uff0c\u53ef\u4ee5\u5229\u7528\u9762\u79ef\u516c\u5f0f\u6c42\u89e3$l$\u3002\u4fa7\u9762\u79ef\u516c\u5f0f\u4e3a$\\pi r l$\uff0c\u9700\u8981\u627e\u5230$r$\u548c$l$\u7684\u5173\u7cfb\u3002\n\n1. \u7531$\\angle SAB = 45^\\circ$\uff0c\u53ef\u77e5$\\triangle SAB$\u662f\u7b49\u8170\u76f4\u89d2\u4e09\u89d2\u5f62\uff0c\u56e0\u6b64$l = h\\sqrt{2}$\u3002\n2. \u7531$\\cos(\\theta) = \\frac{7}{8}$\uff0c\u53ef\u4ee5\u5229\u7528\u4f59\u5f26\u5b9a\u7406\u6c42\u89e3$l$\u3002\n3. \u5229\u7528$\\triangle SAB$\u7684\u9762\u79ef\u516c\u5f0f\u6c42\u89e3$l$\u3002\n4. \u6700\u540e\uff0c\u5229\u7528\u4fa7\u9762\u79ef\u516c\u5f0f\u8ba1\u7b97\u5706\u9525\u7684\u4fa7\u9762\u79ef\u3002</think>\n<answer>\\frac{20\\pi\\sqrt{15}}{3};\\frac{40\\pi\\sqrt{15}}{3}</answer>",
+    "label": 0,
+    "avg_logprob": 0.2765063357175351
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u66f2\u7ebf $y=\\frac{2 x-1}{x+2}$ \u5728\u70b9 $(-1,-3)$ \u5904\u7684\u5207\u7ebf\u65b9\u7a0b\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$5x-y+2=0$",
+      "other": {
+        "source": "2021\u5168\u56fd\u7532\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u7ed9\u5b9a\u66f2\u7ebf\u5728\u70b9$(-1,-3)$\u5904\u7684\u5bfc\u6570\u503c\uff0c\u5373\u8be5\u70b9\u7684\u659c\u7387\u3002\u4e3a\u6b64\uff0c\u6211\u4eec\u5148\u5bf9\u51fd\u6570\u8fdb\u884c\u6c42\u5bfc\uff0c\u7136\u540e\u5c06$x=-1$\u4ee3\u5165\u5bfc\u6570\u4e2d\u5f97\u5230\u659c\u7387\u3002\u63a5\u7740\uff0c\u5229\u7528\u70b9\u659c\u5f0f\u65b9\u7a0b\u5199\u51fa\u5207\u7ebf\u65b9\u7a0b\u3002</think>\n<answer>2x+y+1=0</answer>",
+    "label": 0,
+    "avg_logprob": 0.2878746662414895
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5 $F_{1}, F_{2}$ \u4e3a\u692d\u5706 $C: \\frac{x^{2}}{16}+\\frac{y^{2}}{4}=1$ \u7684 \u4e24\u4e2a\u7126\u70b9, $P, Q$ \u4e3a $C$ \u4e0a\u5173\u4e8e\u5750\u6807\u539f\u70b9\u5bf9\u79f0\u7684\u4e24\u70b9, \u4e14 $|P Q|=\\left|F_{1} F_{2}\\right|$, \u5219\u56db\u8fb9\u5f62 $P F_{1} Q F_{2}$ \u7684\u9762\u79ef\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "8",
+      "other": {
+        "source": "2021\u5168\u56fd\u7532\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u786e\u5b9a\u692d\u5706\u7684\u7126\u70b9\u4f4d\u7f6e\u3002\u5bf9\u4e8e\u692d\u5706 $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$\uff0c\u5176\u7126\u8ddd $2c$ \u6ee1\u8db3 $c^2 = a^2 - b^2$\u3002\u7ed9\u5b9a\u692d\u5706\u65b9\u7a0b\u4e3a $\\frac{x^2}{16} + \\frac{y^2}{4} = 1$\uff0c\u56e0\u6b64 $a^2 = 16$\uff0c$b^2 = 4$\uff0c\u4ece\u800c $c^2 = 16 - 4 = 12$\uff0c\u6240\u4ee5 $c = 2\\sqrt{3}$\u3002\u56e0\u6b64\uff0c\u7126\u70b9 $F_1, F_2$ \u7684\u5750\u6807\u5206\u522b\u4e3a $(-2\\sqrt{3}, 0)$ \u548c $(2\\sqrt{3}, 0)$\uff0c\u7126\u8ddd $|F_1F_2| = 4\\sqrt{3}$\u3002\n\n\u7531\u4e8e $P, Q$ \u5173\u4e8e\u539f\u70b9\u5bf9\u79f0\uff0c\u8bbe $P(x_0, y_0)$\uff0c\u5219 $Q(-x_0, -y_0)$\u3002\u7531\u9898\u610f $|PQ| = |F_1F_2|$\uff0c\u5373 $2\\sqrt{x_0^2 + y_0^2} = 4\\sqrt{3}$\uff0c\u89e3\u5f97 $x_0^2 + y_0^2 = 12$\u3002\u53c8\u56e0\u4e3a $P$ \u5728\u692d\u5706\u4e0a\uff0c\u6ee1\u8db3 $\\frac{x_0^2}{16} + \\frac{y_0^2}{4} = 1$\u3002\u8054\u7acb\u8fd9\u4e24\u4e2a\u65b9\u7a0b\u6c42\u89e3 $x_0, y_0$\u3002\n\n\u63a5\u4e0b\u6765\uff0c\u5229\u7528\u51e0\u4f55\u6027\u8d28\u8ba1\u7b97\u56db\u8fb9\u5f62 $PF_1QF_2$ \u7684\u9762\u79ef\u3002\u7531\u4e8e $P, Q$ \u5173\u4e8e\u539f\u70b9\u5bf9\u79f0\uff0c$F_1, F_2$ \u4e5f\u5173\u4e8e\u539f\u70b9\u5bf9\u79f0\uff0c\u56db\u8fb9\u5f62 $PF_1QF_2$ \u5b9e\u9645\u4e0a\u662f\u4e00\u4e2a\u5e73\u884c\u56db\u8fb9\u5f62\u3002\u5176\u5e95\u8fb9\u957f\u5ea6\u4e3a $|F_1F_2| = 4\\sqrt{3}$\uff0c\u9ad8\u4e3a $|y_0|$ \u6216 $|-y_0|$\uff0c\u5373 $|y_0|$\u3002\u56e0\u6b64\uff0c\u56db\u8fb9\u5f62\u9762\u79ef\u4e3a\u5e95\u4e58\u4ee5\u9ad8\u7684\u4e00\u534a\uff0c\u5373 $\\frac{1}{2} \\times 4\\sqrt{3} \\times |y_0|$\u3002\n\n\u901a\u8fc7\u89e3\u65b9\u7a0b\u7ec4\u627e\u5230 $y_0$ \u7684\u503c\u3002</think>\n<answer>\\frac{12\\sqrt{3}}{3};4\\sqrt{3}</answer>",
+    "label": 0,
+    "avg_logprob": 0.18517475258986066
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5 $\\mathrm{a}$ \u662f\u7b2c\u4e8c\u8c61\u9650\u7684\u89d2, $\\tan (\\pi+2 \\alpha)=-\\frac{4}{3}$, \u5219 $\\tan \\alpha=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$-\\frac{1}{2}$",
+      "other": {
+        "source": "2010\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5927\u7eb2\u7248\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u77e5\u9053 $\\tan(\\pi + 2\\alpha) = -\\frac{4}{3}$. \u5229\u7528\u6b63\u5207\u51fd\u6570\u7684\u5468\u671f\u6027\uff0c\u6211\u4eec\u6709 $\\tan(\\pi + x) = \\tan(x)$\uff0c\u56e0\u6b64 $\\tan(2\\alpha) = -\\frac{4}{3}$. \u6211\u4eec\u9700\u8981\u627e\u5230 $\\tan(\\alpha)$ \u7684\u503c\u3002\u5229\u7528\u4e8c\u500d\u89d2\u516c\u5f0f $\\tan(2\\alpha) = \\frac{2\\tan(\\alpha)}{1-\\tan^2(\\alpha)}$\uff0c\u6211\u4eec\u53ef\u4ee5\u89e3\u51fa $\\tan(\\alpha)$ \u7684\u503c\u3002</think>\n<answer>\\frac{4}{5};-\\frac{4}{5}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.15475857622474473
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u82e5 $\\left(x-\\frac{a}{x}\\right){ }^{9}$ \u7684\u5c55\u5f00\u5f0f\u4e2d $x^{3}$ \u7684\u7cfb\u6570\u662f -84 , \u5219 $a=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "1",
+      "other": {
+        "source": "2010\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5927\u7eb2\u7248\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230 $(x-\\frac{a}{x})^9$ \u5c55\u5f00\u5f0f\u4e2d $x^3$ \u9879\u7684\u7cfb\u6570\u3002\u5229\u7528\u4e8c\u9879\u5f0f\u5b9a\u7406\uff0c$(x-\\frac{a}{x})^9$ \u7684\u4e00\u822c\u9879\u4e3a $\\binom{9}{k}x^{9-k}\\left(-\\frac{a}{x}\\right)^k = \\binom{9}{k}(-a)^kx^{9-2k}$\u3002\u8981\u5f97\u5230 $x^3$ \u9879\uff0c\u9700\u8981 $9-2k=3$\uff0c\u89e3\u5f97 $k=3$\u3002\u5c06 $k=3$ \u4ee3\u5165\u5f97\u5230 $x^3$ \u9879\u7684\u7cfb\u6570\u4e3a $\\binom{9}{3}(-a)^3$\u3002\u6839\u636e\u9898\u76ee\u6761\u4ef6\uff0c\u8fd9\u4e2a\u7cfb\u6570\u7b49\u4e8e -84\uff0c\u6240\u4ee5\u6211\u4eec\u6709\u65b9\u7a0b $\\binom{9}{3}(-a)^3 = -84$\u3002\u63a5\u4e0b\u6765\u89e3\u8fd9\u4e2a\u65b9\u7a0b\u6c42 $a$\u3002\n</think>\n<answer>2</answer>",
+    "label": 0,
+    "avg_logprob": 0.17830578910010478
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u629b\u7269\u7ebf $C: y^{2}=2 p x(p>0)$ \u7684\u51c6\u7ebf $\\mid$, \u8fc7 $M(1,0)$ \u4e14\u659c\u7387\u4e3a $\\sqrt{3}$ \u7684\u76f4\u7ebf\u4e0e $\\mid$ \u76f8\u4ea4\u4e8e $A$, \u4e0e $C$ \u7684\u4e00\u4e2a\u4ea4\u70b9\u4e3a $B$, \u82e5 $\\overrightarrow{\\mathrm{AM}}=\\overrightarrow{\\mathrm{MB}}$, \u5219 $p=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "2",
+      "other": {
+        "source": "2010\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5927\u7eb2\u7248\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u786e\u5b9a\u629b\u7269\u7ebf\u7684\u51c6\u7ebf\u65b9\u7a0b\u3002\u5bf9\u4e8e\u629b\u7269\u7ebf $y^2 = 2px$\uff0c\u5176\u51c6\u7ebf\u65b9\u7a0b\u662f $x = -\\frac{p}{2}$\u3002\u7ed9\u5b9a\u76f4\u7ebf\u8fc7\u70b9 $M(1,0)$ \u4e14\u659c\u7387\u4e3a $\\sqrt{3}$\uff0c\u53ef\u4ee5\u5199\u51fa\u76f4\u7ebf\u65b9\u7a0b\u3002\u7531\u4e8e $\\overrightarrow{\\mathrm{AM}}=\\overrightarrow{\\mathrm{MB}}$\uff0c\u8bf4\u660e $M$ \u662f $A$ \u548c $B$ \u7684\u4e2d\u70b9\u3002\u5229\u7528\u8fd9\u4e9b\u4fe1\u606f\u89e3\u51fa $p$\u3002</think>\n<answer>\\frac{2}{3}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.1737566469215683
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u53cc\u66f2\u7ebf$C:\\frac{x^{2}}{a^{2}}-\\frac{y^{2}}{b^{2}}=1\\left(a\\textgreater0,b\\textgreater0\\right)$\u7684\u53f3\u9876\u70b9\u4e3a $A$, \u4ee5 $A$ \u4e3a \u5706\u5fc3, $b$ \u4e3a\u534a\u5f84\u4f5c\u5706 $A$, \u5706 $A$ \u4e0e\u53cc\u66f2\u7ebf $C$ \u7684\u4e00\u6761\u6e10\u8fd1\u7ebf\u4ea4\u4e8e $M$\u3001 $N$ \u4e24\u70b9. \u82e5 $\\angle \\mathrm{MAN}=60^{\\circ}$, \u5219 $\\mathrm{C}$ \u7684\u79bb\u5fc3\u7387\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{2\\sqrt{3}}{3}$",
+      "other": {
+        "source": "2017\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u786e\u5b9a\u53cc\u66f2\u7ebf\u7684\u6e10\u8fd1\u7ebf\u65b9\u7a0b\u4e3a$y=\\pm\\frac{b}{a}x$\u3002\u7531\u4e8e\u5706A\u662f\u4ee5\u53f3\u9876\u70b9A\u4e3a\u5706\u5fc3\uff0c\u534a\u5f84\u4e3a$b$\uff0c\u5219\u5706A\u7684\u65b9\u7a0b\u4e3a$(x-a)^2+y^2=b^2$\u3002\u5c06\u6e10\u8fd1\u7ebf\u65b9\u7a0b\u4ee3\u5165\u5706A\u7684\u65b9\u7a0b\u4e2d\u6c42\u89e3\u4ea4\u70b9M\u3001N\u3002\u5229\u7528$\\angle MAN = 60^\\circ$\uff0c\u53ef\u4ee5\u5229\u7528\u51e0\u4f55\u5173\u7cfb\u6c42\u89e3\u79bb\u5fc3\u7387$e=\\frac{c}{a}$\u3002</think>\n<answer>\\frac{2\\sqrt{3}}{3};\\sqrt{3}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.27639222192323126
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u82e5\u53d8\u91cf $x, y$ \u6ee1\u8db3\u7ea6\u675f\u6761\u4ef6 $\\left\\{\\begin{array}{l}3 \\leqslant 2 x+y \\leqslant 9 \\\\ 6 \\leqslant x-y \\leqslant 9\\end{array}\\right.$, \u5219 $z=x+2 y$ \u7684\u6700\u5c0f\u503c\u4e3a $(\\quad)$. ",
+      "options": null,
+      "label": null,
+      "answer": "-6",
+      "other": {
+        "source": "2011\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\uff09"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230\u76ee\u6807\u51fd\u6570 $z = x + 2y$ \u7684\u6700\u5c0f\u503c\uff0c\u6211\u4eec\u9700\u8981\u8003\u8651\u7ed9\u5b9a\u7684\u7ebf\u6027\u7ea6\u675f\u6761\u4ef6\u3002\u6211\u4eec\u53ef\u4ee5\u5c06\u7ea6\u675f\u6761\u4ef6\u8868\u793a\u4e3a\u7ebf\u6027\u65b9\u7a0b\u7ec4\uff0c\u5e76\u901a\u8fc7\u56fe\u5f62\u6cd5\u6216\u4ee3\u6570\u6cd5\u6765\u786e\u5b9a\u53ef\u884c\u57df\u5185\u7684\u6700\u4f18\u89e3\u3002\u8fd9\u91cc\u6211\u4eec\u91c7\u7528\u4ee3\u6570\u65b9\u6cd5\uff0c\u901a\u8fc7\u6c42\u89e3\u8fb9\u754c\u7ebf\u7684\u4ea4\u70b9\u6765\u786e\u5b9a\u53ef\u80fd\u7684\u6700\u5c0f\u503c\u70b9\u3002</think>\n<answer>\\(-3\\)</answer>",
+    "label": 0,
+    "avg_logprob": 0.4971039722222436
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u77e9\u5f62 $A B C D$ \u7684\u9876\u70b9\u90fd\u5728\u534a\u5f84\u4e3a 4 \u7684\u7403 $O$ \u7684\u7403\u9762\u4e0a, \u4e14 $A B=6$, $B C=2 \\sqrt{3}$, \u5219\u68f1\u96c9 $O-A B C D$ \u7684\u4f53\u79ef\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$8\\sqrt{3}$",
+      "other": {
+        "source": "2011\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u786e\u5b9a\u77e9\u5f62ABCD\u7684\u5bf9\u89d2\u7ebfAC\u7684\u957f\u5ea6\uff0c\u56e0\u4e3a\u5b83\u662f\u7403\u7684\u4e00\u4e2a\u76f4\u5f84\uff0c\u6240\u4ee5\u53ef\u4ee5\u5229\u7528\u52fe\u80a1\u5b9a\u7406\u8ba1\u7b97\u3002\u7136\u540e\uff0c\u8ba1\u7b97\u7403\u5fc3\u5230\u5e73\u9762ABCD\u7684\u8ddd\u79bb\uff0c\u8fdb\u800c\u6c42\u51fa\u68f1\u9525\u7684\u9ad8\u3002\u6700\u540e\uff0c\u4f7f\u7528\u68f1\u9525\u4f53\u79ef\u516c\u5f0f\u8ba1\u7b97\u4f53\u79ef\u3002</think>\n<answer>\\frac{1}{3} \\cdot 6 \\cdot 2 \\sqrt{3} \\cdot \\sqrt{4^2 - \\left(\\frac{\\sqrt{6^2 + (2\\sqrt{3})^2}}{2}\\right)^2}; \\frac{16\\sqrt{3}}{3}</answer>",
+    "label": 0,
+    "avg_logprob": 0.26477918239751863
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5728 $\\triangle A B C$ \u4e2d, $B=60^{\\circ}, A C=\\sqrt{3}$, \u5219 $A B+2 B C$ \u7684\u6700\u5927\u503c\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$2\\sqrt{7}$",
+      "other": {
+        "source": "2011\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\uff09"
+      }
+    },
+    "model_answer": "<think>\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u53ef\u4ee5\u901a\u8fc7\u4f59\u5f26\u5b9a\u7406\u6765\u8868\u793a\u8fb9\u957f\u5173\u7cfb\u3002\u8bbe \\(AB = c, BC = a, AC = b = \\sqrt{3}\\)\uff0c\u5219\u6709 \\(b^2 = a^2 + c^2 - 2ac\\cos(B)\\)\u3002\u7531\u4e8e \\(B = 60^\\circ\\)\uff0c\u6240\u4ee5 \\(\\cos(60^\\circ) = \\frac{1}{2}\\)\u3002\u4ee3\u5165\u5f97\u5230 \\(\\sqrt{3}^2 = a^2 + c^2 - ac\\)\uff0c\u5373 \\(3 = a^2 + c^2 - ac\\)\u3002\u6211\u4eec\u9700\u8981\u6700\u5927\u5316 \\(c + 2a\\)\u3002\u8fd9\u662f\u4e00\u4e2a\u4f18\u5316\u95ee\u9898\uff0c\u53ef\u4ee5\u8003\u8651\u4f7f\u7528\u62c9\u683c\u6717\u65e5\u4e58\u6570\u6cd5\u6216\u8005\u76f4\u63a5\u5229\u7528\u51e0\u4f55\u6027\u8d28\u6765\u89e3\u51b3\u3002</think>\n<answer>\\sqrt{7};3\\sqrt{3}</answer>",
+    "label": 0,
+    "avg_logprob": 0.25486189710651236
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u968f\u673a\u53d8\u91cf $X$ \u670d\u4ece\u6b63\u6001\u5206\u5e03 $N\\left(2, \\sigma^{2}\\right)$, \u4e14 $P(2<X \\leq 2.5)=0.36$, \u5219 $P(X>2.5)=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$0.14$",
+      "other": {
+        "source": "2022\u5e74\u5168\u56fd\u65b0\u9ad8\u8003II\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u7531\u9898\u610f\u77e5\uff0c\u968f\u673a\u53d8\u91cf$X$\u670d\u4ece\u5747\u503c\u4e3a2\uff0c\u65b9\u5dee\u4e3a$\\sigma^2$\u7684\u6b63\u6001\u5206\u5e03\u3002\u6839\u636e\u6b63\u6001\u5206\u5e03\u7684\u6027\u8d28\uff0c\u5176\u6982\u7387\u5bc6\u5ea6\u51fd\u6570\u5173\u4e8e\u5747\u503c\u5bf9\u79f0\u3002\u56e0\u6b64\uff0c$P(2<X \\leq 2.5)$\u4e0e$P(1.5 \\leq X < 2)$\u7684\u6982\u7387\u76f8\u7b49\u3002\u53c8\u56e0\u4e3a$P(X \\leq 2) = 0.5$\uff08\u56e0\u4e3a2\u662f\u5747\u503c\uff09\uff0c\u6240\u4ee5$P(1.5 \\leq X < 2) = P(X \\leq 2) - P(2<X \\leq 2.5) = 0.5 - 0.36 = 0.14$\u3002\u7531\u4e8e\u6b63\u6001\u5206\u5e03\u7684\u5bf9\u79f0\u6027\uff0c$P(X > 2.5) = P(1.5 \\leq X < 2)$\u3002</think>\n<answer>0.14</answer>",
+    "label": 0,
+    "avg_logprob": 0.17866668584483314
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5199\u51fa\u66f2\u7ebf $y=\\ln |x|$ \u8fc7\u5750\u6807\u539f\u70b9\u7684\u5207\u7ebf\u65b9\u7a0b: $(\\quad)$, $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$y=\\frac{1}{\\mathrm{e}}x$;$y=-\\frac{1}{\\mathrm{e}}x$",
+      "other": {
+        "source": "2022\u5e74\u5168\u56fd\u65b0\u9ad8\u8003II\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u51fd\u6570$y=\\ln|x|$\u5728\u539f\u70b9\u9644\u8fd1\u7684\u5bfc\u6570\uff0c\u5373\u659c\u7387\u3002\u4f46\u7531\u4e8e$\\ln|x|$\u5728$x=0$\u5904\u6ca1\u6709\u5b9a\u4e49\uff0c\u6211\u4eec\u8003\u8651$x>0$\u548c$x<0$\u4e24\u79cd\u60c5\u51b5\u3002\u5bf9\u4e8e$x>0$\uff0c\u51fd\u6570\u7b80\u5316\u4e3a$y=\\ln x$\u3002\u7136\u540e\u8ba1\u7b97\u5176\u5bfc\u6570\u5f97\u5230\u659c\u7387\uff0c\u518d\u5229\u7528\u70b9\u659c\u5f0f\u65b9\u7a0b\u6c42\u51fa\u5207\u7ebf\u65b9\u7a0b\u3002</think>\n<answer> y = \\frac{1}{x}x ; y = -\\frac{1}{x}x </answer>",
+    "label": 0,
+    "avg_logprob": 0.2803221999880773
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u70b9 $A(-2,3), B(0, a)$, \u82e5\u76f4\u7ebf $A B$ \u5173\u4e8e $y=a$ \u7684\u5bf9\u79f0\u76f4\u7ebf\u4e0e\u5706 $(x+3)^{2}+(y+2)^{2}=1$ \u5b58\u5728\u516c\u5171\u70b9, \u5219\u5b9e\u6570 $a$ \u7684\u53d6\u503c\u8303\u56f4\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\left[\\frac{1}{3},\\frac{3}{2}\\right]$",
+      "other": {
+        "source": "2022\u5e74\u5168\u56fd\u65b0\u9ad8\u8003II\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u76f4\u7ebfAB\u5173\u4e8e$y=a$\u7684\u5bf9\u79f0\u76f4\u7ebf\u65b9\u7a0b\u3002\u8bbe\u76f4\u7ebfAB\u7684\u659c\u7387\u4e3a$m$\uff0c\u5219\u5176\u5173\u4e8e$y=a$\u7684\u5bf9\u79f0\u76f4\u7ebf\u7684\u659c\u7387\u4e5f\u4e3a$m$\u3002\u6211\u4eec\u53ef\u4ee5\u901a\u8fc7\u6c42\u89e3\u76f4\u7ebfAB\u7684\u65b9\u7a0b\u6765\u627e\u5230$m$\u3002\u63a5\u7740\uff0c\u5229\u7528\u5bf9\u79f0\u6027\u8d28\uff0c\u6211\u4eec\u53ef\u4ee5\u5199\u51fa\u5bf9\u79f0\u76f4\u7ebf\u7684\u65b9\u7a0b\u3002\u7136\u540e\uff0c\u6211\u4eec\u9700\u8981\u786e\u5b9a\u8fd9\u4e2a\u5bf9\u79f0\u76f4\u7ebf\u4e0e\u7ed9\u5b9a\u5706\u5b58\u5728\u4ea4\u70b9\u7684\u6761\u4ef6\uff0c\u5373\u5706\u5fc3\u5230\u76f4\u7ebf\u7684\u8ddd\u79bb\u5c0f\u4e8e\u7b49\u4e8e\u534a\u5f84\u3002\u6700\u540e\uff0c\u901a\u8fc7\u89e3\u4e0d\u7b49\u5f0f\u627e\u5230$a$\u7684\u53d6\u503c\u8303\u56f4\u3002</think>\n<answer>\\left(\\frac{5}{4}, \\frac{13}{4}\\right)\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.3681906662396227
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u4ece\u73ed\u59d4\u4f1a 5 \u540d\u6210\u5458\u4e2d\u9009\u51fa 3 \u540d, \u5206\u522b\u62c5\u4efb\u73ed\u7ea7\u5b66\u4e60\u59d4\u5458\u3001\u6587\u5a31\u59d4\u5458\u4e0e\u4f53\u80b2\u59d4\u5458\uff0c\u5176\u4e2d\u7532\u3001\u4e59\u4e8c\u4eba\u4e0d\u80fd\u62c5\u4efb\u6587\u5a31\u59d4\u5458\uff0c\u5219\u4e0d\u540c\u7684\u9009\u6cd5\u5171\u6709 ($\\quad$) \u79cd. (\u7528\u6570\u5b57\u4f5c\u7b54)",
+      "options": null,
+      "label": null,
+      "answer": "$36$",
+      "other": {
+        "source": "2007\u5e74\u5168\u56fd\u9ad8\u8003\u6570\u5b66\uff08\u7406\u79d1\uff09\u8bd5\u5377\uff08\u5168\u56fd\u5377\u2160\uff09"
+      }
+    },
+    "model_answer": "<think>\u8fd9\u662f\u4e00\u4e2a\u6392\u5217\u7ec4\u5408\u95ee\u9898\u3002\u9996\u5148\uff0c\u9009\u62e9\u6587\u5a31\u59d4\u5458\u65f6\uff0c\u7531\u4e8e\u7532\u3001\u4e59\u4e8c\u4eba\u4e0d\u80fd\u62c5\u4efb\uff0c\u6240\u4ee5\u53ea\u67093\u79cd\u9009\u62e9\uff1b\u7136\u540e\uff0c\u4ece\u5269\u4e0b\u76844\u4eba\u4e2d\u9009\u62e9\u5b66\u4e60\u59d4\u5458\uff0c\u67094\u79cd\u9009\u62e9\uff1b\u6700\u540e\uff0c\u4ece\u5269\u4e0b\u76843\u4eba\u4e2d\u9009\u62e9\u4f53\u80b2\u59d4\u5458\uff0c\u67093\u79cd\u9009\u62e9\u3002\u56e0\u6b64\uff0c\u603b\u7684\u9009\u6cd5\u6570\u4e3a\u8fd9\u4e09\u6b65\u7684\u9009\u62e9\u6570\u76f8\u4e58\u3002</think>\n<answer>36</answer>",
+    "label": 0,
+    "avg_logprob": 0.3389320271519775
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u7b49\u6bd4\u6570\u5217 $\\left\\{a_{n}\\right\\}$ \u7684\u524d $n$ \u9879\u548c\u4e3a $S_{n}$, \u5df2\u77e5 $S_{1}, 2 S_{2}$, $3 S_{3}$ \u6210\u7b49\u5dee\u6570\u5217, \u5219 $\\left\\{a_{n}\\right\\}$ \u7684\u516c\u6bd4\u4e3a ($\\quad$).",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{1}{3}$",
+      "other": {
+        "source": "2007\u5e74\u5168\u56fd\u9ad8\u8003\u6570\u5b66\uff08\u7406\u79d1\uff09\u8bd5\u5377\uff08\u5168\u56fd\u5377\u2160\uff09"
+      }
+    },
+    "model_answer": "<think>\u8bbe\u7b49\u6bd4\u6570\u5217\u7684\u9996\u9879\u4e3a$a_1$\uff0c\u516c\u6bd4\u4e3a$q$\uff0c\u5219\u6709\uff1a\n- $S_1 = a_1$\n- $S_2 = a_1 + a_1q = a_1(1+q)$\n- $S_3 = a_1 + a_1q + a_1q^2 = a_1(1+q+q^2)$\n\n\u6839\u636e\u9898\u610f\uff0c$S_1, 2S_2, 3S_3$ \u6210\u7b49\u5dee\u6570\u5217\uff0c\u5373 $2 \\cdot 2S_2 = S_1 + 3S_3$\u3002\u5c06\u4e0a\u8ff0\u8868\u8fbe\u5f0f\u4ee3\u5165\u5f97\uff1a\n\\[4a_1(1+q) = a_1 + 3a_1(1+q+q^2)\\]\n\n\u5316\u7b80\u5f97\uff1a\n\\[4(1+q) = 1 + 3(1+q+q^2)\\]\n\\[4 + 4q = 1 + 3 + 3q + 3q^2\\]\n\\[0 = 3q^2 - q - 2\\]\n\n\u89e3\u8fd9\u4e2a\u4e8c\u6b21\u65b9\u7a0b\u5373\u53ef\u5f97\u5230\u516c\u6bd4$q$\u3002\n</think>\n<answer>\\frac{2}{3};-1\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.09985680272597015
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u4e00\u4e2a\u7b49\u8170\u76f4\u89d2\u4e09\u89d2\u5f62\u7684\u4e09\u4e2a\u9876\u70b9\u5206\u522b\u5728\u6b63\u4e09\u68f1\u67f1 \u7684\u4e09\u6761\u4fa7\u68f1\u4e0a, \u5df2\u77e5\u6b63\u4e09\u68f1\u67f1\u7684\u5e95\u9762\u8fb9\u957f\u4e3a 2 , \u5219\u8be5\u4e09\u89d2\u5f62\u7684\u659c\u8fb9\u957f\u4e3a ($\\quad$).",
+      "options": null,
+      "label": null,
+      "answer": "$2\\sqrt{3}$",
+      "other": {
+        "source": "2007\u5e74\u5168\u56fd\u9ad8\u8003\u6570\u5b66\uff08\u7406\u79d1\uff09\u8bd5\u5377\uff08\u5168\u56fd\u5377\u2160\uff09"
+      }
+    },
+    "model_answer": "<think>\u8bbe\u7b49\u8170\u76f4\u89d2\u4e09\u89d2\u5f62\u7684\u4e24\u4e2a\u76f4\u89d2\u9876\u70b9\u5206\u522b\u4e3aA\u3001B\uff0c\u659c\u8fb9\u9876\u70b9\u4e3aC\uff0c\u4e14A\u3001B\u3001C\u5206\u522b\u4f4d\u4e8e\u6b63\u4e09\u68f1\u67f1\u7684\u4e09\u6761\u4fa7\u68f1\u4e0a\u3002\u7531\u4e8e\u6b63\u4e09\u68f1\u67f1\u5e95\u9762\u8fb9\u957f\u4e3a2\uff0c\u53ef\u4ee5\u5047\u8bbe\u5e95\u9762\u8fb9\u957f\u4e3aAB\uff0c\u90a3\u4e48AB=2\u3002\u56e0\u4e3a\u662f\u7b49\u8170\u76f4\u89d2\u4e09\u89d2\u5f62\uff0c\u6240\u4ee5AC=BC\uff0c\u4e14AC\u5782\u76f4\u4e8eBC\u3002\u8003\u8651\u6b63\u4e09\u68f1\u67f1\u7684\u6027\u8d28\uff0c\u53ef\u4ee5\u5c06\u95ee\u9898\u8f6c\u5316\u4e3a\u6c42\u89e3\u4e00\u4e2a\u76f4\u89d2\u4e09\u89d2\u5f62\u7684\u659c\u8fb9\u957f\u5ea6\uff0c\u5176\u4e2d\u4e00\u6761\u76f4\u89d2\u8fb9\u4e3a\u6b63\u4e09\u68f1\u67f1\u7684\u9ad8h\uff0c\u53e6\u4e00\u6761\u76f4\u89d2\u8fb9\u4e3a\u5e95\u9762\u8fb9\u957f\u7684\u4e00\u534a\uff0c\u53731\u3002\u5229\u7528\u52fe\u80a1\u5b9a\u7406\u8ba1\u7b97\u659c\u8fb9\u957f\u3002</think>\n<answer>\\sqrt{5};\\sqrt{6}</answer>",
+    "label": 0,
+    "avg_logprob": 0.3842244922820668
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u8bbe\u5411\u91cf $\\vec{a}, \\vec{b}$ \u7684\u5939\u89d2\u7684\u4f59\u5f26\u503c\u4e3a $\\frac{1}{3}$, \u4e14 $|\\vec{a}|=1,|\\vec{b}|=3$, \u5219 $(2 \\vec{a}+\\vec{b}) \\cdot \\vec{b}=(\\quad)$\n<Answer>\\\\\n11\\\\\n\n\n<Next Instance>\\\\\n<Question>\\\\\n\u82e5\u53cc\u66f2\u7ebf $y^{2}-\\frac{x^{2}}{m^{2}}=1(m>0)$ \u7684\u6e10\u8fd1\u7ebf\u4e0e\u5706 $x^{2}+y^{2}-4 y+3=0$ \u76f8\u5207, \u5219 $m=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{\\sqrt{3}}{3}$",
+      "other": {
+        "source": "2022\u5e74\u5168\u56fd\u9ad8\u8003\u7532\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u5bf9\u4e8e\u7b2c\u4e00\u4e2a\u95ee\u9898\uff0c\u6211\u4eec\u4f7f\u7528\u5411\u91cf\u70b9\u79ef\u7684\u5b9a\u4e49\u6765\u89e3\u51b3\u3002\u5df2\u77e5$\\cos\\theta = \\frac{1}{3}$\uff0c\u5176\u4e2d$\\theta$\u662f\u5411\u91cf$\\vec{a}$\u548c$\\vec{b}$\u4e4b\u95f4\u7684\u5939\u89d2\u3002\u6839\u636e\u70b9\u79ef\u7684\u5b9a\u4e49\uff0c\u6211\u4eec\u6709$\\vec{a} \\cdot \\vec{b} = |\\vec{a}||\\vec{b}|\\cos\\theta$\u3002\u4ee3\u5165\u7ed9\u5b9a\u7684\u503c\u53ef\u4ee5\u8ba1\u7b97\u51fa$\\vec{a} \\cdot \\vec{b}$\u3002\u7136\u540e\u5229\u7528$(2\\vec{a} + \\vec{b}) \\cdot \\vec{b} = 2(\\vec{a} \\cdot \\vec{b}) + (\\vec{b} \\cdot \\vec{b})$\u6765\u6c42\u89e3\u3002\n\n\u5bf9\u4e8e\u7b2c\u4e8c\u4e2a\u95ee\u9898\uff0c\u9996\u5148\u5c06\u5706\u7684\u65b9\u7a0b\u91cd\u5199\u4e3a\u6807\u51c6\u5f62\u5f0f\uff0c\u627e\u5230\u5706\u5fc3\u548c\u534a\u5f84\u3002\u7136\u540e\uff0c\u53cc\u66f2\u7ebf\u7684\u6e10\u8fd1\u7ebf\u65b9\u7a0b\u4e3a$y = \\pm \\frac{x}{m}$\u3002\u7531\u4e8e\u6e10\u8fd1\u7ebf\u4e0e\u5706\u76f8\u5207\uff0c\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u5706\u5fc3\u5230\u76f4\u7ebf\u7684\u8ddd\u79bb\u7b49\u4e8e\u5706\u7684\u534a\u5f84\u6765\u5efa\u7acb\u7b49\u5f0f\uff0c\u4ece\u800c\u89e3\u51fa$m$\u3002\n</think>\n<answer>\n\\begin{align*}\n(2\\vec{a} + \\vec{b}) \\cdot \\vec{b} &= 2(\\vec{a} \\cdot \\vec{b}) + (\\vec{b} \\cdot \\vec{b}) \\\\\n&= 2 \\cdot 1 \\cdot 3 \\cdot \\frac{1}{3} + 3^2 \\\\\n&= 2 + 9 \\\\\n&= 11;\n\\end{align*}\n\\begin{align*}\nx^2 + (y-2)^2 &= 1 \\\\\n\\text{\u5706\u5fc3} &= (0, 2), \\text{\u534a\u5f84} = 1 \\\\\n\\text{\u6e10\u8fd1\u7ebf} &= y = \\pm \\frac{x}{m} \\\\\n\\text{\u5706\u5fc3\u5230\u6e10\u8fd1\u7ebf\u8ddd\u79bb} &= \\frac{|2|}{\\sqrt{1 + \\left(\\frac{1}{m}\\right)^2}} = 1 \\\\\n\\Rightarrow m &= 1;\n\\end{align*}\n</answer>",
+    "label": 0,
+    "avg_logprob": 0.16810439386504855
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u4ece\u6b63\u65b9\u4f53\u7684 8 \u4e2a\u9876\u70b9\u4e2d\u4efb\u9009 4 \u4e2a, \u5219\u8fd9 4 \u4e2a\u70b9\u5728\u540c\u4e00\u4e2a\u5e73\u9762\u7684\u6982\u7387\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{6}{35}$",
+      "other": {
+        "source": "2022\u5e74\u5168\u56fd\u9ad8\u8003\u7532\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u8981\u8ba1\u7b97\u8fd94\u4e2a\u70b9\u5728\u540c\u4e00\u5e73\u9762\u4e0a\u7684\u6982\u7387\uff0c\u6211\u4eec\u9996\u5148\u9700\u8981\u786e\u5b9a\u603b\u7684\u9009\u53d6\u65b9\u5f0f\u6709\u591a\u5c11\u79cd\uff0c\u7136\u540e\u786e\u5b9a\u8fd9\u4e9b\u70b9\u80fd\u6784\u6210\u5e73\u9762\u7684\u5177\u4f53\u60c5\u51b5\u3002\u6b63\u65b9\u4f53\u67098\u4e2a\u9876\u70b9\uff0c\u4ece\u4e2d\u4efb\u90094\u4e2a\u70b9\u7684\u7ec4\u5408\u6570\u4e3a$\\binom{8}{4}$\u3002\u63a5\u4e0b\u6765\uff0c\u6211\u4eec\u9700\u8981\u627e\u51fa\u8fd94\u4e2a\u70b9\u5728\u540c\u4e00\u5e73\u9762\u4e0a\u7684\u60c5\u51b5\u3002\u6b63\u65b9\u4f53\u7684\u6bcf\u4e2a\u9762\u90fd\u662f\u4e00\u4e2a\u5e73\u9762\uff0c\u5171\u67096\u4e2a\u9762\uff1b\u6b64\u5916\uff0c\u8fd8\u67094\u7ec4\u5bf9\u89d2\u9762\uff08\u6bcf\u7ec4\u7531\u4e00\u5bf9\u76f8\u5bf9\u7684\u9876\u70b9\u548c\u5b83\u4eec\u4e4b\u95f4\u7684\u8fde\u7ebf\u7ec4\u6210\uff09\u3002\u56e0\u6b64\uff0c\u603b\u5171\u6709$6+4=10$\u79cd\u60c5\u51b5\u4f7f\u5f974\u4e2a\u70b9\u5728\u540c\u4e00\u5e73\u9762\u4e0a\u3002</think>\n<answer>\\frac{5}{7}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.485502080438847
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5 $\\triangle A B C$ \u4e2d, \u70b9 $D$ \u5728\u8fb9 $B C$ \u4e0a, $\\angle A D B=120^{\\circ}, A D=2, C D=2 B D$. \u5f53 $\\frac{A C}{A B}$ \u53d6\u5f97 \u6700\u5c0f\u503c\u65f6, $B D=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\sqrt{3}-1$",
+      "other": {
+        "source": "2022\u5e74\u5168\u56fd\u9ad8\u8003\u7532\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u8bbe \\(BD = x\\)\uff0c\u5219 \\(CD = 2x\\)\uff0c\u56e0\u6b64 \\(BC = BD + CD = 3x\\)\u3002\u5229\u7528\u4f59\u5f26\u5b9a\u7406\u5206\u522b\u5728 \\(\\triangle ADB\\) \u548c \\(\\triangle ADC\\) \u4e2d\u6c42\u89e3 \\(AB\\) \u548c \\(AC\\) \u7684\u8868\u8fbe\u5f0f\uff0c\u518d\u6c42\u6bd4\u503c \\(\\frac{AC}{AB}\\) \u7684\u6700\u5c0f\u503c\u3002</think>\n<answer>\\(1\\)</answer>",
+    "label": 0,
+    "avg_logprob": 0.19029233123592826
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u5355\u4f4d\u5411\u91cf $a, b$ \u7684\u5939\u89d2\u4e3a $45^{\\circ}, k a-b$ \u4e0e $a$ \u5782\u76f4, \u5219 $k=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{\\sqrt{2}}{2}$",
+      "other": {
+        "source": "2020\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2161\uff09"
+      }
+    },
+    "model_answer": "<think>\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u77e5\u9053\u5411\u91cf $ka - b$ \u4e0e\u5411\u91cf $a$ \u5782\u76f4\uff0c\u8fd9\u610f\u5473\u7740\u5b83\u4eec\u7684\u70b9\u79ef\u4e3a0\u3002\u5373 $(ka - b) \\cdot a = 0$\u3002\u5c55\u5f00\u8fd9\u4e2a\u7b49\u5f0f\uff0c\u6211\u4eec\u5f97\u5230 $k(a \\cdot a) - (b \\cdot a) = 0$\u3002\u7531\u4e8e $a$ \u548c $b$ \u662f\u5355\u4f4d\u5411\u91cf\uff0c\u6240\u4ee5 $a \\cdot a = 1$\u3002\u56e0\u6b64\uff0c\u7b49\u5f0f\u7b80\u5316\u4e3a $k - (b \\cdot a) = 0$\u3002\u5df2\u77e5 $a$ \u548c $b$ \u7684\u5939\u89d2\u4e3a $45^{\\circ}$\uff0c\u53ef\u4ee5\u5229\u7528\u4f59\u5f26\u5b9a\u7406\u8ba1\u7b97 $b \\cdot a = \\cos(45^{\\circ}) = \\frac{\\sqrt{2}}{2}$\u3002\u5c06\u8fd9\u4e9b\u503c\u4ee3\u5165\u7b49\u5f0f\u4e2d\u6c42\u89e3 $k$\u3002</think>\n<answer>\\frac{\\sqrt{2}}{2}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.19805866640946107
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u8bbe\u590d\u6570 $z_{1}, z_{2}$ \u6ee1\u8db3 $\\left|z_{1}\\right|=\\left|z_{2}\\right|=2, \\quad z_{1}+z_{2}=\\sqrt{3}+i$, \u5219 $\\left|z_{1}-z_{2}\\right|=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$2\\sqrt{3}$",
+      "other": {
+        "source": "2020\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2161\uff09"
+      }
+    },
+    "model_answer": "<think>\u7531\u9898\u610f\u77e5$z_1$\u548c$z_2$\u662f\u5355\u4f4d\u5706\u4e0a\u7684\u70b9\uff0c\u4e14\u5b83\u4eec\u7684\u548c\u4e3a$\\sqrt{3} + i$\u3002\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u590d\u6570\u7684\u51e0\u4f55\u610f\u4e49\u6765\u89e3\u51b3\u8fd9\u4e2a\u95ee\u9898\u3002\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053$|z_1| = |z_2| = 2$\uff0c\u6240\u4ee5$z_1$\u548c$z_2$\u90fd\u5728\u4ee5\u539f\u70b9\u4e3a\u4e2d\u5fc3\uff0c\u534a\u5f84\u4e3a2\u7684\u5706\u4e0a\u3002\u8bbe$z_1 = a + bi$\uff0c$z_2 = c + di$\uff0c\u5219\u6709$a^2 + b^2 = 4$\uff0c$c^2 + d^2 = 4$\uff0c\u4ee5\u53ca$(a+c) + (b+d)i = \\sqrt{3} + i$\u3002\u7531\u6b64\u53ef\u4ee5\u5f97\u5230$a+c = \\sqrt{3}$\uff0c$b+d = 1$\u3002\u6211\u4eec\u9700\u8981\u6c42\u7684\u662f$|z_1 - z_2|$\uff0c\u5373$\\sqrt{(a-c)^2 + (b-d)^2}$\u3002\u6211\u4eec\u53ef\u4ee5\u901a\u8fc7\u5411\u91cf\u7684\u77e5\u8bc6\u6765\u7b80\u5316\u8ba1\u7b97\uff0c\u5229\u7528\u5411\u91cf\u7684\u6a21\u957f\u516c\u5f0f\u548c\u5411\u91cf\u7684\u52a0\u51cf\u6cd5\u3002</think>\n<answer>\\sqrt{8};4\\sqrt{2}</answer>",
+    "label": 0,
+    "avg_logprob": 0.24181061444853122
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5 $\\mathrm{i}$ \u662f\u865a\u6570\u5355\u4f4d, \u5316\u7b80 $\\frac{11-3 \\mathrm{i}}{1+2 \\mathrm{i}}$ \u7684\u7ed3\u679c\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$1-5\\mathrm{i}$",
+      "other": {
+        "source": "2022\u5e74\u65b0\u9ad8\u8003\u5929\u6d25\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u5316\u7b80\u8fd9\u4e2a\u590d\u6570\u8868\u8fbe\u5f0f\uff0c\u6211\u4eec\u9700\u8981\u5c06\u5206\u5b50\u548c\u5206\u6bcd\u540c\u65f6\u4e58\u4ee5\u5206\u6bcd\u7684\u5171\u8f6d\u590d\u6570\u3002\u5206\u6bcd $1 + 2i$ \u7684\u5171\u8f6d\u590d\u6570\u662f $1 - 2i$\u3002\u8fd9\u6837\u505a\u7684\u76ee\u7684\u662f\u5229\u7528\u5dee\u5e73\u65b9\u516c\u5f0f\u6d88\u53bb\u5206\u6bcd\u4e2d\u7684\u865a\u90e8\u3002</think>\n<answer>\\frac{11-3i}{1+2i} \\cdot \\frac{1-2i}{1-2i} = \\frac{(11-3i)(1-2i)}{(1+2i)(1-2i)} = \\frac{11-22i-3i+6i^2}{1-4i^2} = \\frac{11-25i-6}{1+4} = \\frac{5-25i}{5} = 1-5i</answer>",
+    "label": 0,
+    "avg_logprob": 0.10123282890302741
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$\\left(\\sqrt{x}+\\frac{3}{x^{2}}\\right)^{5}$ \u7684\u5c55\u5f00\u5f0f\u4e2d\u7684\u5e38\u6570\u9879\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "15",
+      "other": {
+        "source": "2022\u5e74\u65b0\u9ad8\u8003\u5929\u6d25\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230\u5c55\u5f00\u5f0f\u4e2d\u7684\u5e38\u6570\u9879\uff0c\u6211\u4eec\u9700\u8981\u4f7f\u7528\u4e8c\u9879\u5f0f\u5b9a\u7406\u3002\u4e8c\u9879\u5f0f\u5b9a\u7406\u8868\u793a\u4e3a$(a+b)^n = \\sum_{k=0}^{n} \\binom{n}{k} a^{n-k}b^k$\u3002\u5728\u8fd9\u4e2a\u95ee\u9898\u4e2d\uff0c$a=\\sqrt{x}$, $b=\\frac{3}{x^2}$, $n=5$\u3002\u6211\u4eec\u9700\u8981\u627e\u5230\u4f7f\u5f97$x$\u7684\u6307\u6570\u4e3a0\u7684\u9879\uff0c\u5373$\\sqrt{x}^{5-k}\\left(\\frac{3}{x^2}\\right)^k$\u4e2d\u7684$k$\u503c\u3002\u901a\u8fc7\u89e3\u65b9\u7a0b$\\frac{5-k}{2}-2k=0$\u53ef\u4ee5\u5f97\u5230$k$\u7684\u503c\u3002</think>\n<answer>\\binom{5}{2}3^2;</\\answer>",
+    "label": 0,
+    "avg_logprob": 0.19793217929560175
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u82e5\u76f4\u7ebf $x-y+m=0(m>0)$ \u4e0e\u5706 $(x-1)^{2}+(y-1)^{2}=3$ \u76f8\u4ea4\u6240\u5f97\u7684\u5f26\u957f\u4e3a $m$, \u5219 $m=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "2",
+      "other": {
+        "source": "2022\u5e74\u65b0\u9ad8\u8003\u5929\u6d25\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053\u76f4\u7ebf\u4e0e\u5706\u76f8\u4ea4\u6240\u5f97\u7684\u5f26\u957f\u53ef\u4ee5\u901a\u8fc7\u5706\u7684\u534a\u5f84\u3001\u5706\u5fc3\u5230\u76f4\u7ebf\u7684\u8ddd\u79bb\u4ee5\u53ca\u5f26\u7684\u4e00\u534a\u957f\u5ea6\u6784\u6210\u7684\u76f4\u89d2\u4e09\u89d2\u5f62\u6765\u8ba1\u7b97\u3002\u8bbe\u5706\u5fc3\u5230\u76f4\u7ebf\u7684\u8ddd\u79bb\u4e3ad\uff0c\u5219\u6709\u5f26\u957f\u516c\u5f0f\uff1a\\[2\\sqrt{r^2-d^2}\\]\uff0c\u5176\u4e2d$r$\u662f\u5706\u7684\u534a\u5f84\u3002\u7ed9\u5b9a\u7684\u5706\u7684\u534a\u5f84$r=\\sqrt{3}$\u3002\u6839\u636e\u9898\u610f\uff0c\u5f26\u957f\u7b49\u4e8e$m$\uff0c\u6240\u4ee5\u6211\u4eec\u6709\\[2\\sqrt{3-d^2}=m\\]\u3002\u63a5\u4e0b\u6765\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230$d$\u7684\u503c\u3002\u5706\u5fc3$(1,1)$\u5230\u76f4\u7ebf$x-y+m=0$\u7684\u8ddd\u79bb$d$\u53ef\u4ee5\u7528\u70b9\u5230\u76f4\u7ebf\u7684\u8ddd\u79bb\u516c\u5f0f\u8ba1\u7b97\uff1a\\[d=\\frac{|1-1+m|}{\\sqrt{1^2+(-1)^2}}=\\frac{|m|}{\\sqrt{2}}=\\frac{m}{\\sqrt{2}}\\]\uff08\u56e0\u4e3a$m>0$\uff09\u3002\u5c06$d$\u4ee3\u5165\u5f26\u957f\u516c\u5f0f\u4e2d\u89e3\u51fa$m$\u5373\u53ef\u3002</think>\n<answer>\\(\\sqrt{6}\\)</answer>",
+    "label": 0,
+    "avg_logprob": 0.23198196434574825
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "52 \u5f20\u6251\u514b\u724c, \u6ca1\u6709\u5927\u5c0f\u738b, \u65e0\u653e\u56de\u5730\u62bd\u53d6\u4e24\u6b21, \u5219\u4e24\u6b21\u90fd\u62bd\u5230 $A$ \u7684\u6982\u7387\u4e3a $(\\quad)$\uff1b\u5df2\u77e5\u7b2c\u4e00\u6b21 \u62bd\u5230\u7684\u662f $A$, \u5219\u7b2c\u4e8c\u6b21\u62bd\u53d6 $A$ \u7684\u6982\u7387\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{1}{221}$;$\\frac{1}{17}$",
+      "other": {
+        "source": "2022\u5e74\u65b0\u9ad8\u8003\u5929\u6d25\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\u8ba1\u7b97\u4e24\u6b21\u90fd\u62bd\u5230A\u7684\u6982\u7387\u3002\u4e00\u526f\u6251\u514b\u724c\u4e2d\u67094\u5f20A\uff0c\u603b\u5171\u670952\u5f20\u724c\u3002\u7b2c\u4e00\u6b21\u62bd\u5230A\u7684\u6982\u7387\u662f$\\frac{4}{52}$\u3002\u62bd\u5b8c\u7b2c\u4e00\u5f20A\u540e\uff0c\u5269\u4e0b3\u5f20A\u548c51\u5f20\u724c\uff0c\u6240\u4ee5\u7b2c\u4e8c\u6b21\u62bd\u5230A\u7684\u6982\u7387\u662f$\\frac{3}{51}$\u3002\u4e24\u6b21\u4e8b\u4ef6\u72ec\u7acb\uff0c\u6240\u4ee5\u4e24\u6b21\u90fd\u62bd\u5230A\u7684\u6982\u7387\u662f\u8fd9\u4e24\u4e2a\u6982\u7387\u7684\u4e58\u79ef\u3002\n\n\u63a5\u4e0b\u6765\u8ba1\u7b97\u5df2\u77e5\u7b2c\u4e00\u6b21\u62bd\u5230\u7684\u662fA\u7684\u60c5\u51b5\u4e0b\uff0c\u7b2c\u4e8c\u6b21\u62bd\u5230A\u7684\u6982\u7387\u3002\u7531\u4e8e\u7b2c\u4e00\u6b21\u5df2\u7ecf\u62bd\u5230\u4e86\u4e00\u5f20A\uff0c\u6240\u4ee5\u73b0\u5728\u53ea\u5269\u4e0b3\u5f20A\u548c51\u5f20\u724c\uff0c\u56e0\u6b64\u7b2c\u4e8c\u6b21\u62bd\u5230A\u7684\u6982\u7387\u662f$\\frac{3}{51}$\u3002</think>\n<answer>\\frac{1}{221}; \\frac{1}{17}</answer>",
+    "label": 0,
+    "avg_logprob": 0.22873834158277478
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u4e00\u6279\u4ea7\u54c1\u7684\u4e8c\u7b49\u54c1\u7387\u4e3a 0.02 , \u4ece\u8fd9\u6279\u4ea7\u54c1\u4e2d\u6bcf\u6b21\u968f\u673a\u53d6\u4e00\u4ef6, \u6709\u653e \u56de\u5730\u62bd\u53d6 100 \u6b21. $X$ \u8868\u793a\u62bd\u5230\u7684\u4e8c\u7b49\u54c1\u4ef6\u6570, \u5219 $D X=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "1.96",
+      "other": {
+        "source": "2017\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u8fd9\u662f\u4e00\u4e2a\u4f2f\u52aa\u5229\u8bd5\u9a8c\u7684\u95ee\u9898\uff0c\u5176\u4e2d\u6bcf\u6b21\u8bd5\u9a8c\u6210\u529f\u7684\u6982\u7387\u4e3a0.02\uff0c\u5931\u8d25\u7684\u6982\u7387\u4e3a0.98\u3002\u7531\u4e8e\u662f\u6709\u653e\u56de\u5730\u62bd\u53d6\uff0c\u6240\u4ee5\u6bcf\u6b21\u8bd5\u9a8c\u662f\u72ec\u7acb\u7684\u3002\u6839\u636e\u4e8c\u9879\u5206\u5e03\u7684\u65b9\u5dee\u516c\u5f0f\uff0c\u5bf9\u4e8e\u4e00\u4e2a\u4e8c\u9879\u5206\u5e03$B(n,p)$\uff0c\u5176\u65b9\u5dee$D(X) = np(1-p)$\u3002\u8fd9\u91cc$n=100$\uff0c$p=0.02$\u3002</think>\n<answer>0.196</answer>",
+    "label": 0,
+    "avg_logprob": 0.26073164531757215
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u51fd\u6570 $f(x)=\\sin ^{2} x+\\sqrt{3} \\cos x-\\frac{3}{4}\\left(x \\in\\left[0, \\frac{\\pi}{2}\\right]\\right)$ \u7684\u6700\u5927\u503c\u662f $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "1",
+      "other": {
+        "source": "2017\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u5bf9\u7ed9\u5b9a\u7684\u51fd\u6570\u8fdb\u884c\u53d8\u5f62\u5904\u7406\uff0c\u5229\u7528\u4e09\u89d2\u6052\u7b49\u53d8\u6362\u7b80\u5316\u8868\u8fbe\u5f0f\u3002\u5df2\u77e5 $\\sin^2x = 1 - \\cos^2x$\uff0c\u56e0\u6b64\u53ef\u4ee5\u5c06\u539f\u51fd\u6570\u8f6c\u6362\u4e3a\u5173\u4e8e $\\cos x$ \u7684\u4e8c\u6b21\u51fd\u6570\u5f62\u5f0f\u3002\u8bbe $t = \\cos x$\uff0c\u5219\u6709 $t \\in [0, 1]$\uff0c\u56e0\u4e3a $x \\in \\left[0, \\frac{\\pi}{2}\\right]$\u3002\u4ee3\u5165\u5f97\u5230\u65b0\u7684\u51fd\u6570\u5f62\u5f0f\uff0c\u7136\u540e\u6c42\u8be5\u4e8c\u6b21\u51fd\u6570\u5728\u533a\u95f4 $[0, 1]$ \u4e0a\u7684\u6700\u5927\u503c\u3002</think>\n<answer>\\frac{1}{4}+\\sqrt{3};\\frac{7}{4}-\\sqrt{3}</answer>",
+    "label": 0,
+    "avg_logprob": 0.2921312832143791
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u7b49\u5dee\u6570\u5217 $\\left\\{a_{n}\\right\\}$ \u7684\u524d $n$ \u9879\u548c\u4e3a $S_{n}, a_{3}=3, S_{4}=10$, \u5219 $\\sum_{k=1}^{n} \\frac{1}{S_{k}}= (\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{2n}{n+1}$",
+      "other": {
+        "source": "2017\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053\u7b49\u5dee\u6570\u5217\u7684\u901a\u9879\u516c\u5f0f\u4e3a $a_n = a_1 + (n-1)d$\uff0c\u5176\u4e2d $a_1$ \u662f\u9996\u9879\uff0c$d$ \u662f\u516c\u5dee\u3002\u7ed9\u5b9a\u6761\u4ef6\u662f $a_3 = 3$ \u548c $S_4 = 10$\u3002\u5229\u7528\u8fd9\u4e9b\u4fe1\u606f\u53ef\u4ee5\u89e3\u51fa $a_1$ \u548c $d$\u3002\u63a5\u7740\uff0c\u6211\u4eec\u5229\u7528\u7b49\u5dee\u6570\u5217\u7684\u6c42\u548c\u516c\u5f0f $S_n = \\frac{n}{2}(2a_1 + (n-1)d)$ \u6765\u627e\u51fa $S_k$ \u7684\u8868\u8fbe\u5f0f\u3002\u6700\u540e\uff0c\u6211\u4eec\u9700\u8981\u8ba1\u7b97 $\\sum_{k=1}^{n} \\frac{1}{S_{k}}$\u3002</think>\n<answer>\\frac{n}{n+1}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.18160374037818688
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\uff085 \u5206) \u5df2\u77e5 $F$ \u662f\u629b\u7269\u7ebf $C: y^{2}=8 x$ \u7684\u7126\u70b9, $M$ \u662f $C$ \u4e0a\u4e00\u70b9, $F M$ \u7684\u5ef6\u957f\u7ebf\u4ea4 $y$ \u8f74\u4e8e\u70b9 $N$. \u82e5 $M$ \u4e3a $F N$ \u7684\u4e2d\u70b9, \u5219 $|F N|=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "6",
+      "other": {
+        "source": "2017\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053\u629b\u7269\u7ebf\u7684\u6807\u51c6\u65b9\u7a0b\u662f \\(y^2 = 4ax\\)\uff0c\u5bf9\u4e8e\u7ed9\u5b9a\u7684\u629b\u7269\u7ebf \\(C: y^2 = 8x\\)\uff0c\u53ef\u4ee5\u786e\u5b9a \\(a = 2\\)\u3002\u56e0\u6b64\uff0c\u7126\u70b9 \\(F\\) \u7684\u5750\u6807\u662f \\((2,0)\\)\u3002\u8bbe \\(M(x_1, y_1)\\) \u662f\u629b\u7269\u7ebf\u4e0a\u7684\u4e00\u70b9\uff0c\u5219\u6709 \\(y_1^2 = 8x_1\\)\u3002\u56e0\u4e3a \\(M\\) \u662f \\(FN\\) \u7684\u4e2d\u70b9\uff0c\u6240\u4ee5 \\(N\\) \u7684\u5750\u6807\u53ef\u4ee5\u901a\u8fc7 \\(F\\) \u548c \\(M\\) \u7684\u5750\u6807\u6765\u8868\u793a\u3002\u7531\u4e8e \\(M\\) \u4e3a \\(FN\\) \u7684\u4e2d\u70b9\uff0c\u6211\u4eec\u8bbe \\(N(0, y_N)\\)\uff0c\u5219\u6839\u636e\u4e2d\u70b9\u516c\u5f0f\uff0c\\(x_1 = \\frac{2+0}{2} = 1\\)\uff0c\\(y_1 = \\frac{0+y_N}{2}\\)\u3002\u5c06 \\(x_1 = 1\\) \u4ee3\u5165\u629b\u7269\u7ebf\u65b9\u7a0b\u5f97\u5230 \\(y_1^2 = 8 \\cdot 1 = 8\\)\uff0c\u4ece\u800c \\(y_1 = \\pm 2\\sqrt{2}\\)\u3002\u56e0\u6b64\uff0c\\(y_N = 2y_1 = \\pm 4\\sqrt{2}\\)\u3002\u63a5\u4e0b\u6765\u8ba1\u7b97 \\(FN\\) \u7684\u957f\u5ea6\uff0c\u5373 \\(\\sqrt{(2-0)^2 + (0 - y_N)^2}\\)\u3002</think>\n<answer>\\sqrt{32};4\\sqrt{2}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.19970337059676524
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$\\left(x^{3}-\\frac{1}{x}\\right)^{4}$ \u5c55\u5f00\u5f0f\u4e2d\u5e38\u6570\u9879\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$-4$",
+      "other": {
+        "source": "2021\u5317\u4eac\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230\u5c55\u5f00\u5f0f\u4e2d\u7684\u5e38\u6570\u9879\uff0c\u6211\u4eec\u9700\u8981\u4f7f\u7528\u4e8c\u9879\u5f0f\u5b9a\u7406\u3002\u4e8c\u9879\u5f0f\u5b9a\u7406\u8868\u793a\u4e3a$(a+b)^n = \\sum_{k=0}^{n} \\binom{n}{k} a^{n-k}b^k$\u3002\u5728\u8fd9\u4e2a\u95ee\u9898\u4e2d\uff0c$a=x^3$\uff0c$b=-\\frac{1}{x}$\uff0c$n=4$\u3002\u6211\u4eec\u9700\u8981\u627e\u5230\u4f7f\u5f97$x$\u7684\u6307\u6570\u4e3a0\u7684\u9879\uff0c\u5373\u5bfb\u627e\u5408\u9002\u7684$k$\u503c\u6ee1\u8db3$(x^3)^{4-k}\\left(-\\frac{1}{x}\\right)^k = x^{12-4k}x^{-k} = x^{12-5k}$\u7684\u6761\u4ef6\u3002\u4ee4$12-5k=0$\u89e3\u5f97$k=\\frac{12}{5}$\uff0c\u4f46$k$\u5fc5\u987b\u662f\u6574\u6570\uff0c\u56e0\u6b64\u6211\u4eec\u68c0\u67e5\u53ef\u80fd\u7684$k$\u503c\uff0c\u76f4\u5230\u627e\u5230\u5408\u9002\u7684\u4e3a\u6b62\u3002</think>\n<answer>\\frac{6}{5};\\frac{36}{5}</answer>",
+    "label": 0,
+    "avg_logprob": 0.23900932363323635
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$\\vec{a}=(2,1), \\vec{b}=(2,-1), \\vec{c}=(0,1)$, \u5219 $(\\vec{a}+\\vec{b}) \\cdot \\vec{c}=(\\quad)$ ;$\\vec{a} \\cdot \\vec{b}=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "0;3",
+      "other": {
+        "source": "2021\u5317\u4eac\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\u8ba1\u7b97\u5411\u91cf\u52a0\u6cd5\u5f97\u5230$\\vec{a}+\\vec{b}$\uff0c\u7136\u540e\u8ba1\u7b97\u5176\u4e0e$\\vec{c}$\u7684\u70b9\u79ef\uff1b\u63a5\u7740\u76f4\u63a5\u8ba1\u7b97$\\vec{a}$\u4e0e$\\vec{b}$\u7684\u70b9\u79ef\u3002</think>\n<answer>4; -1</answer>",
+    "label": 0,
+    "avg_logprob": 0.161844254683566
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u4ece\u7532\u3001\u4e59\u7b49 5 \u540d\u540c\u5b66\u4e2d\u968f\u673a\u9009 3 \u540d\u53c2\u52a0\u793e\u533a\u670d\u52a1\u5de5\u4f5c, \u5219\u7532\u3001\u4e59\u90fd\u5165\u9009\u7684\u6982\u7387\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{3}{10}$",
+      "other": {
+        "source": "2022\u5e74\u5168\u56fd\u9ad8\u8003\u4e59\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\u8ba1\u7b97\u603b\u7684\u9009\u53d6\u65b9\u5f0f\u6570\uff0c\u5373\u4ece5\u540d\u540c\u5b66\u4e2d\u9009\u53d63\u540d\u7684\u65b9\u5f0f\u6570\uff0c\u8fd9\u53ef\u4ee5\u7528\u7ec4\u5408\u6570\u8868\u793a\u4e3aC(5,3)\u3002\u7136\u540e\u8ba1\u7b97\u7532\u4e59\u90fd\u5165\u9009\u7684\u60c5\u51b5\u6570\uff0c\u5373\u518d\u4ece\u5269\u4e0b\u76843\u540d\u540c\u5b66\u4e2d\u9009\u53d61\u540d\u7684\u65b9\u5f0f\u6570\uff0c\u8fd9\u53ef\u4ee5\u7528\u7ec4\u5408\u6570\u8868\u793a\u4e3aC(3,1)\u3002\u6700\u540e\uff0c\u7532\u4e59\u90fd\u5165\u9009\u7684\u6982\u7387\u4e3a\u4e24\u8005\u4e4b\u6bd4\u3002</think>\n<answer>\\frac{\\binom{3}{1}}{\\binom{5}{3}}</answer>",
+    "label": 0,
+    "avg_logprob": 0.24484021259791888
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u8bb0\u51fd\u6570 $f(x)=\\cos (\\omega x+\\varphi)(\\omega>0,0<\\varphi<\\pi)$ \u7684\u6700\u5c0f\u6b63\u5468\u671f\u4e3a $T$, \u82e5 $f(T)=\\frac{\\sqrt{3}}{2}$, $x=\\frac{\\pi}{9}$ \u4e3a $f(x)$ \u7684\u96f6\u70b9, \u5219 $\\omega$ \u7684\u6700\u5c0f\u503c\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "3",
+      "other": {
+        "source": "2022\u5e74\u5168\u56fd\u9ad8\u8003\u4e59\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053\u4f59\u5f26\u51fd\u6570\u7684\u5468\u671f\u6027\uff0c\u5373 $f(x+T) = f(x)$\u3002\u5bf9\u4e8e\u7ed9\u5b9a\u7684\u51fd\u6570 $f(x) = \\cos(\\omega x + \\varphi)$\uff0c\u5176\u6700\u5c0f\u6b63\u5468\u671f $T = \\frac{2\\pi}{\\omega}$\u3002\u6839\u636e\u9898\u610f\uff0c$f(T) = \\cos(\\omega T + \\varphi) = \\cos(2\\pi + \\varphi) = \\cos(\\varphi) = \\frac{\\sqrt{3}}{2}$\u3002\u7531\u4e8e $0 < \\varphi < \\pi$\uff0c$\\varphi = \\frac{\\pi}{6}$ \u6216 $\\varphi = \\frac{11\\pi}{6}$\uff08\u540e\u8005\u4e0d\u5728\u7ed9\u5b9a\u8303\u56f4\u5185\uff09\u3002\u56e0\u6b64\uff0c$\\varphi = \\frac{\\pi}{6}$\u3002\u53c8\u56e0\u4e3a $x = \\frac{\\pi}{9}$ \u662f $f(x)$ \u7684\u96f6\u70b9\uff0c\u5373 $f\\left(\\frac{\\pi}{9}\\right) = \\cos\\left(\\omega \\cdot \\frac{\\pi}{9} + \\frac{\\pi}{6}\\right) = 0$\u3002\u8fd9\u610f\u5473\u7740 $\\omega \\cdot \\frac{\\pi}{9} + \\frac{\\pi}{6} = \\frac{\\pi}{2} + k\\pi$\uff0c\u5176\u4e2d $k$ \u662f\u6574\u6570\u3002\u89e3\u8fd9\u4e2a\u65b9\u7a0b\u627e\u5230 $\\omega$ \u7684\u6700\u5c0f\u6b63\u503c\u3002</think>\n<answer>\\frac{5}{3};\\frac{11}{3}</answer>",
+    "label": 0,
+    "avg_logprob": 0.14739064393979803
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5 $x=x_{1}$ \u548c $x=x_{2}$ \u5206\u522b\u662f\u51fd\u6570 $f(x)=2 a^{x}-e x^{2}(a>0$ \u4e14 $a \\neq 1)$ \u7684\u6781\u5c0f\u503c\u70b9\u548c\u6781 \u5927\u503c\u70b9. \u82e5 $x_{1}<x_{2}$, \u5219 $a$ \u7684\u53d6\u503c\u8303\u56f4\u662f $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\left(\\frac{1}{\\mathrm{e}},1\\right)$",
+      "other": {
+        "source": "2022\u5e74\u5168\u56fd\u9ad8\u8003\u4e59\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230$a$\u7684\u53d6\u503c\u8303\u56f4\uff0c\u6211\u4eec\u9996\u5148\u9700\u8981\u786e\u5b9a$f(x)$\u7684\u5bfc\u6570\uff0c\u7136\u540e\u627e\u51fa\u5176\u6781\u503c\u70b9$x_1$\u548c$x_2$\u3002\u901a\u8fc7\u6c42\u5bfc\u5f97\u5230$f'(x) = 2a^x \\ln a - 2ex$\u3002\u4ee4$f'(x) = 0$\uff0c\u89e3\u51fa$x$\u6765\u786e\u5b9a\u6781\u503c\u70b9\u3002\u7531\u4e8e\u9898\u76ee\u4e2d\u63d0\u5230$x_1 < x_2$\uff0c\u6211\u4eec\u9700\u8981\u5206\u6790\u5bfc\u6570\u7684\u7b26\u53f7\u53d8\u5316\u6765\u786e\u5b9a$a$\u7684\u53d6\u503c\u8303\u56f4\u3002</think>\n<answer>\\left(\\frac{e}{2}, +\\infty\\right)\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.3652224052512949
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u6b63\u65b9\u5f62 $A B C D$ \u7684\u8fb9\u957f\u4e3a $2, E$ \u4e3a $C D$ \u7684\u4e2d\u70b9, \u5219 $\\overrightarrow{\\mathrm{AE}} \\cdot \\overrightarrow{\\mathrm{BD}}=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "2",
+      "other": {
+        "source": "2013\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u786e\u5b9a\u5411\u91cf$\\overrightarrow{\\mathrm{AE}}$\u548c$\\overrightarrow{\\mathrm{BD}}$\u7684\u5177\u4f53\u8868\u8fbe\u5f0f\u3002\u8bbe\u6b63\u65b9\u5f62$ABCD$\u7684\u9876\u70b9\u5750\u6807\u5206\u522b\u4e3a$A(0,0)$, $B(2,0)$, $C(2,2)$, $D(0,2)$\u3002\u5219$E$\u4e3a$CD$\u7684\u4e2d\u70b9\uff0c\u5750\u6807\u4e3a$(1,2)$\u3002\u56e0\u6b64\uff0c$\\overrightarrow{\\mathrm{AE}} = (1,2)$, $\\overrightarrow{\\mathrm{BD}} = (-2,2)$\u3002\u7136\u540e\u8ba1\u7b97\u8fd9\u4e24\u4e2a\u5411\u91cf\u7684\u70b9\u79ef\u3002</think>\n<answer>2</answer>",
+    "label": 1,
+    "avg_logprob": 0.17724191890083155
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u4ece $\\mathrm{n}$ \u4e2a\u6b63\u6574\u6570 $1,2, \\ldots, n$ \u4e2d\u4efb\u610f\u53d6\u51fa\u4e24\u4e2a\u4e0d\u540c\u7684\u6570, \u82e5\u53d6\u51fa\u7684\u4e24 \u6570\u4e4b\u548c\u7b49\u4e8e 5 \u7684\u6982\u7387\u4e3a $\\frac{1}{14}$, \u5219 $n=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "8",
+      "other": {
+        "source": "2013\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u627e\u51fa\u6240\u6709\u53ef\u80fd\u7684\u53d6\u6570\u7ec4\u5408\uff0c\u7136\u540e\u786e\u5b9a\u5176\u4e2d\u548c\u4e3a5\u7684\u7ec4\u5408\u6570\u91cf\u3002\u5bf9\u4e8e\u6bcf\u4e2a\u6b63\u6574\u6570 $i$ (\u5176\u4e2d $1 \\leq i \\leq n$)\uff0c\u4e0e\u4e4b\u914d\u5bf9\u7684\u6570\u4e3a $5 - i$\u3002\u53ea\u6709\u5f53 $5 - i$ \u4e5f\u5728\u8303\u56f4\u5185\u65f6\uff0c\u8fd9\u5bf9\u6570\u624d\u6709\u6548\u3002\u56e0\u6b64\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u6ee1\u8db3\u6761\u4ef6\u7684 $i$ \u7684\u8303\u56f4\u3002\u6b64\u5916\uff0c\u603b\u5171\u6709 $\\binom{n}{2} = \\frac{n(n-1)}{2}$ \u79cd\u53d6\u6cd5\u3002\u6839\u636e\u9898\u76ee\uff0c\u8fd9\u4e9b\u7ec4\u5408\u4e2d\u6709 $\\frac{1}{14}$ \u7684\u6982\u7387\u662f\u548c\u4e3a5\u7684\uff0c\u6240\u4ee5\u6211\u4eec\u6709\u65b9\u7a0b $\\frac{x}{\\frac{n(n-1)}{2}} = \\frac{1}{14}$\uff0c\u5176\u4e2d $x$ \u662f\u548c\u4e3a5\u7684\u7ec4\u5408\u6570\u3002</think>\n<answer>8</answer>",
+    "label": 1,
+    "avg_logprob": 0.34556707971608913
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u7b49\u5dee\u6570\u5217 $\\left\\{a_{n}\\right\\}$ \u7684\u524d $n$ \u9879\u548c\u4e3a $S_{n}$, \u5df2\u77e5 $S_{10}=0, S_{15}=25$, \u5219 $n S_{n}$ \u7684\u6700\u5c0f\u503c\u4e3a$(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "-49",
+      "other": {
+        "source": "2013\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u8bbe\u7b49\u5dee\u6570\u5217\u7684\u9996\u9879\u4e3a$a_1$\uff0c\u516c\u5dee\u4e3a$d$\uff0c\u5219\u524d$n$\u9879\u548c$S_n = \\frac{n}{2}[2a_1 + (n-1)d]$\u3002\n\u6839\u636e\u9898\u610f\u6709\uff1a\n\\[S_{10} = \\frac{10}{2}[2a_1 + 9d] = 0\\]\n\\[S_{15} = \\frac{15}{2}[2a_1 + 14d] = 25\\]\n\n\u89e3\u8fd9\u4e24\u4e2a\u65b9\u7a0b\u53ef\u4ee5\u5f97\u5230$a_1$\u548c$d$\u7684\u5173\u7cfb\uff0c\u8fdb\u800c\u6c42\u51fa$S_n$\u7684\u8868\u8fbe\u5f0f\uff0c\u518d\u6c42$nS_n$\u7684\u6700\u5c0f\u503c\u3002</think>\n<answer>\\frac{16}{3};\\frac{64}{9}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.18826376165307435
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$i$ \u662f\u865a\u6570\u5355\u4f4d, \u590d\u6570 $\\frac{9+2 i}{2+i}=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$4-\\mathrm{i}$",
+      "other": {
+        "source": "2021\u5e74\u5929\u6d25\u5e02\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u5c06\u7ed9\u5b9a\u7684\u590d\u6570\u9664\u6cd5\u8868\u8fbe\u5f0f\u7b80\u5316\u3002\u590d\u6570\u9664\u6cd5\u901a\u5e38\u901a\u8fc7\u4e58\u4ee5\u5176\u5171\u8f6d\u6765\u5b9e\u73b0\uff0c\u8fd9\u6837\u53ef\u4ee5\u6d88\u9664\u5206\u6bcd\u4e2d\u7684\u865a\u90e8\u3002\u5bf9\u4e8e\u5206\u6bcd $2+i$\uff0c\u5176\u5171\u8f6d\u662f $2-i$\u3002\u56e0\u6b64\uff0c\u6211\u4eec\u6709\uff1a\n\n\\[\n\\frac{9+2i}{2+i} \\cdot \\frac{2-i}{2-i} = \\frac{(9+2i)(2-i)}{(2+i)(2-i)}\n\\]\n\n\u63a5\u4e0b\u6765\uff0c\u5206\u522b\u8ba1\u7b97\u5206\u5b50\u548c\u5206\u6bcd\u3002\u5206\u5b50\u4f7f\u7528\u5206\u914d\u5f8b\u5c55\u5f00\uff0c\u5206\u6bcd\u5229\u7528\u5dee\u5e73\u65b9\u516c\u5f0f $(a+b)(a-b)=a^2-b^2$ \u8fdb\u884c\u5316\u7b80\u3002</think>\n<answer>\\frac{20}{5}-\\frac{13}{5}i;</4-\\frac{1}{5}i</answer>",
+    "label": 0,
+    "avg_logprob": 0.20481716402618347
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5728 $\\left(2 x^{3}+\\frac{1}{x}\\right)^{6}$ \u7684\u5c55\u5f00\u5f0f\u4e2d, $x^{6}$ \u7684\u7cfb\u6570\u662f $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "160",
+      "other": {
+        "source": "2021\u5e74\u5929\u6d25\u5e02\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230$x^6$\u7684\u7cfb\u6570\uff0c\u6211\u4eec\u9700\u8981\u4f7f\u7528\u4e8c\u9879\u5f0f\u5b9a\u7406\u3002\u4e8c\u9879\u5f0f\u5b9a\u7406\u8868\u793a$(a+b)^n = \\sum_{k=0}^{n} \\binom{n}{k} a^{n-k}b^k$\u3002\u5728\u8fd9\u4e2a\u95ee\u9898\u4e2d\uff0c$a=2x^3$\uff0c$b=\\frac{1}{x}$\uff0c$n=6$\u3002\u6211\u4eec\u9700\u8981\u627e\u5230$k$\u7684\u503c\uff0c\u4f7f\u5f97$(2x^3)^{6-k}(\\frac{1}{x})^k$\u7684\u7ed3\u679c\u662f$x^6$\u3002\u8fd9\u5c06\u7ed9\u51fa\u4e00\u4e2a\u5173\u4e8e$k$\u7684\u65b9\u7a0b\uff0c\u89e3\u8fd9\u4e2a\u65b9\u7a0b\u53ef\u4ee5\u5f97\u5230$k$\u7684\u503c\uff0c\u8fdb\u800c\u8ba1\u7b97\u5bf9\u5e94\u7684\u7cfb\u6570\u3002</think>\n<answer>\\binom{6}{2}2^4;</answer>",
+    "label": 0,
+    "avg_logprob": 0.22795161462534275
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u82e5\u659c\u7387\u4e3a $\\sqrt{3}$ \u7684\u76f4\u7ebf\u4e0e $y$ \u8f74\u4ea4\u4e8e\u70b9 $\\mathrm{A}$, \u4e0e\u5706 $x^{2}+(y-1)^{2}=1$ \u76f8\u5207\u4e8e\u70b9 $B$, \u5219 $|A B|=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$\\sqrt{3}$",
+      "other": {
+        "source": "2021\u5e74\u5929\u6d25\u5e02\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u8bbe\u76f4\u7ebf\u65b9\u7a0b\u4e3a $y = \\sqrt{3}x + b$\uff0c\u5176\u4e2d$b$\u662f\u76f4\u7ebf\u4e0e$y$\u8f74\u7684\u4ea4\u70b9\u5750\u6807\u3002\u7531\u4e8e\u8be5\u76f4\u7ebf\u4e0e\u5706\u76f8\u5207\uff0c\u53ef\u4ee5\u5229\u7528\u5706\u5fc3\u5230\u76f4\u7ebf\u7684\u8ddd\u79bb\u7b49\u4e8e\u5706\u7684\u534a\u5f84\u6765\u6c42\u89e3\u3002\u5706\u5fc3\u4e3a$(0,1)$\uff0c\u534a\u5f84\u4e3a$1$\u3002\u5706\u5fc3\u5230\u76f4\u7ebf\u7684\u8ddd\u79bb\u516c\u5f0f\u4e3a$\\frac{|Ax_0+By_0+C|}{\\sqrt{A^2+B^2}}$\uff0c\u4ee3\u5165\u5177\u4f53\u503c\u8ba1\u7b97$b$\u3002\u7136\u540e\uff0c\u901a\u8fc7\u8054\u7acb\u65b9\u7a0b\u7ec4\u6c42\u51fa\u5207\u70b9$B$\u7684\u5750\u6807\uff0c\u6700\u540e\u8ba1\u7b97$|AB|$\u3002</think>\n<answer>\\sqrt{3};2</answer>",
+    "label": 0,
+    "avg_logprob": 0.2807734773914004
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u82e5 $a>0, b>0$, \u5219 $\\frac{1}{a}+\\frac{a}{b^{2}}+b$ \u7684\u6700\u5c0f\u503c\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$2\\sqrt{2}$",
+      "other": {
+        "source": "2021\u5e74\u5929\u6d25\u5e02\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230\u7ed9\u5b9a\u8868\u8fbe\u5f0f\u7684\u6700\u5c0f\u503c\uff0c\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528AM-GM\u4e0d\u7b49\u5f0f\u3002\u7ed9\u5b9a\u8868\u8fbe\u5f0f\u662f $\\frac{1}{a} + \\frac{a}{b^2} + b$\u3002\u6211\u4eec\u5c06\u5c1d\u8bd5\u5c06\u8fd9\u4e2a\u8868\u8fbe\u5f0f\u5206\u89e3\u6210\u51e0\u4e2a\u90e8\u5206\uff0c\u4f7f\u5f97\u6bcf\u4e2a\u90e8\u5206\u90fd\u53ef\u4ee5\u5e94\u7528AM-GM\u4e0d\u7b49\u5f0f\u3002AM-GM\u4e0d\u7b49\u5f0f\u8868\u660e\u5bf9\u4e8e\u975e\u8d1f\u5b9e\u6570$x_1, x_2, ..., x_n$\uff0c\u6709$\\frac{x_1 + x_2 + ... + x_n}{n} \\geq \\sqrt[n]{x_1x_2...x_n}$\uff0c\u7b49\u53f7\u6210\u7acb\u5f53\u4e14\u4ec5\u5f53$x_1 = x_2 = ... = x_n$\u3002</think>\n<answer>\\frac{3\\sqrt[3]{4}}{2}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.16264621154898992
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u7532\u3001\u4e59\u4e24\u4eba\u5728\u6bcf\u6b21\u731c\u8c1c\u6d3b\u52a8\u4e2d\u5404\u731c\u4e00\u4e2a\u8c1c\u8bed, \u82e5\u4e00\u65b9\u731c\u5bf9\u4e14\u53e6\u4e00\u65b9\u731c\u9519, \u5219\u731c\u5bf9\u7684 \u4e00\u65b9\u83b7\u80dc, \u5426\u5219\u672c\u6b21\u5e73\u5c40, \u5df2\u77e5\u6bcf\u6b21\u6d3b\u52a8\u4e2d, \u7532\u3001\u4e59\u731c\u5bf9\u7684\u6982\u7387\u5206\u522b\u4e3a $\\frac{5}{6}$ \u548c $\\frac{1}{5}$, \u4e14\u6bcf \u6b21\u6d3b\u52a8\u4e2d\u7532\u3001\u4e59\u731c\u5bf9\u4e0e\u5426\u4e92\u4e0d\u5f71\u54cd, \u5404\u6b21\u6d3b\u52a8\u4e5f\u4e92\u4e0d\u5f71\u54cd, \u5219\u4e00\u6b21\u6d3b\u52a8\u4e2d, \u7532\u83b7\u80dc\u7684\u6982\u7387\u4e3a $(\\quad)$, 3 \u6b21\u6d3b\u52a8\u4e2d, \u7532\u81f3\u5c11\u83b7\u80dc 2 \u6b21\u7684\u6982\u7387\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{2}{3}$;$\\frac{20}{27}$",
+      "other": {
+        "source": "2021\u5e74\u5929\u6d25\u5e02\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\u8ba1\u7b97\u4e00\u6b21\u6d3b\u52a8\u4e2d\u7532\u83b7\u80dc\u7684\u6982\u7387\u3002\u7532\u83b7\u80dc\u6709\u4e24\u79cd\u60c5\u51b5\uff1a\u7532\u731c\u5bf9\u4e14\u4e59\u731c\u9519\uff1b\u6216\u8005\u7532\u731c\u9519\u4e14\u4e59\u731c\u5bf9\u3002\u6839\u636e\u6982\u7387\u4e58\u6cd5\u539f\u7406\uff0c\u8fd9\u4e24\u79cd\u60c5\u51b5\u7684\u6982\u7387\u5206\u522b\u662f $\\frac{5}{6} \\times (1-\\frac{1}{5})$ \u548c $(1-\\frac{5}{6}) \\times \\frac{1}{5}$\u3002\u63a5\u4e0b\u6765\u8ba1\u7b973\u6b21\u6d3b\u52a8\u4e2d\u7532\u81f3\u5c11\u83b7\u80dc2\u6b21\u7684\u6982\u7387\uff0c\u53ef\u4ee5\u5206\u4e3a\u7532\u83b7\u80dc2\u6b21\u548c\u7532\u83b7\u80dc3\u6b21\u4e24\u79cd\u60c5\u51b5\uff0c\u5206\u522b\u8ba1\u7b97\u540e\u76f8\u52a0\u5373\u53ef\u3002</think>\n<answer>\\frac{1}{2};\\left(\\binom{3}{2}\\left(\\frac{1}{2}\\right)^2\\left(1-\\frac{1}{2}\\right)+\\left(\\frac{1}{2}\\right)^3\\right)</answer>",
+    "label": 0,
+    "avg_logprob": 0.2088391271961401
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5728\u8fb9\u957f\u4e3a 1 \u7684\u7b49\u8fb9\u4e09\u89d2\u5f62 $A B C$ \u4e2d, $D$ \u4e3a\u7ebf\u6bb5 $B C$ \u4e0a\u7684\u52a8\u70b9, $D E \\perp A B$ \u4e14\u4ea4 $A B$ \u4e8e\u70b9E.$D F / / A B$ \u4e14\u4ea4 $A C$ \u4e8e\u70b9 $F$, \u5219 $|2 \\overrightarrow{B E}+\\overrightarrow{D F}|$ \u7684\u503c\u4e3a $(\\quad)$; $(\\overrightarrow{D E}+\\overrightarrow{D F}) \\cdot \\overrightarrow{D A}$ \u7684\u6700\u5c0f\u503c\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "1;$\\frac{11}{20}$",
+      "other": {
+        "source": "2021\u5e74\u5929\u6d25\u5e02\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\u8003\u8651\u5411\u91cf\u7684\u51e0\u4f55\u610f\u4e49\u548c\u6027\u8d28\u3002\u5bf9\u4e8e\u7b2c\u4e00\u90e8\u5206\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230$|2 \\overrightarrow{B E}+\\overrightarrow{D F}|$\u7684\u503c\u3002\u7531\u4e8e$D$\u662f$BC$\u4e0a\u7684\u52a8\u70b9\uff0c\u6211\u4eec\u53ef\u4ee5\u8bbe$BD = x$\uff0c\u5219$DC = 1 - x$\u3002\u56e0\u4e3a$DE \\perp AB$\uff0c\u6240\u4ee5$\\overrightarrow{DE}$\u5782\u76f4\u4e8e$\\overrightarrow{AB}$\u3002\u53c8\u56e0\u4e3a$DF \\parallel AB$\uff0c\u6240\u4ee5$\\overrightarrow{DF}$\u4e0e$\\overrightarrow{AB}$\u5e73\u884c\u3002\u63a5\u4e0b\u6765\uff0c\u6211\u4eec\u5229\u7528\u5411\u91cf\u52a0\u6cd5\u548c\u6a21\u957f\u516c\u5f0f\u6765\u6c42\u89e3\u3002\u5bf9\u4e8e\u7b2c\u4e8c\u90e8\u5206\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230$(\\overrightarrow{DE}+\\overrightarrow{DF}) \\cdot \\overrightarrow{DA}$\u7684\u6700\u5c0f\u503c\u3002\u8fd9\u53ef\u4ee5\u901a\u8fc7\u5411\u91cf\u7684\u70b9\u79ef\u548c\u4e09\u89d2\u5f62\u7684\u51e0\u4f55\u6027\u8d28\u6765\u89e3\u51b3\u3002</think>\n<answer>\\sqrt{3};0</answer>",
+    "label": 0,
+    "avg_logprob": 0.3418089257308778
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$(x \\sqrt{y}-y \\sqrt{x})^{4}$ \u7684\u5c55\u5f00\u5f0f\u4e2d $x^{3} y^{3}$ \u7684\u7cfb\u6570\u4e3a($\\quad$).",
+      "options": null,
+      "label": null,
+      "answer": "6",
+      "other": {
+        "source": "2009\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5168\u56fd\u5377\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u6211\u4eec\u4f7f\u7528\u4e8c\u9879\u5f0f\u5b9a\u7406\u6765\u5c55\u5f00\u7ed9\u5b9a\u7684\u8868\u8fbe\u5f0f $(x \\sqrt{y}-y \\sqrt{x})^{4}$\u3002\u6211\u4eec\u9700\u8981\u627e\u5230\u5c55\u5f00\u5f0f\u4e2d $x^3 y^3$ \u7684\u9879\u3002\u6839\u636e\u4e8c\u9879\u5f0f\u5b9a\u7406\uff0c\u6bcf\u4e00\u9879\u53ef\u4ee5\u8868\u793a\u4e3a $\\binom{4}{k}(x \\sqrt{y})^{4-k}(-y \\sqrt{x})^{k}$\uff0c\u5176\u4e2d $k$ \u662f\u4ece0\u52304\u7684\u6574\u6570\u3002\u6211\u4eec\u9700\u8981\u627e\u5230\u5408\u9002\u7684 $k$ \u4f7f\u5f97 $x^{3} y^{3}$ \u7684\u9879\u51fa\u73b0\u3002</think>\n<answer>\\binom{4}{2}</answer>",
+    "label": 0,
+    "avg_logprob": 0.21657848689204637
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u82e5\u51fd\u6570 $f(x)=x \\ln \\left(x+\\sqrt{a+x^{2}}\\right)$ \u4e3a\u5076\u51fd\u6570, \u5219 $a=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "1",
+      "other": {
+        "source": "2015\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u4f7f\u51fd\u6570$f(x)$\u4e3a\u5076\u51fd\u6570\uff0c\u5fc5\u987b\u6ee1\u8db3$f(-x) = f(x)$\u3002\u6211\u4eec\u5148\u8ba1\u7b97$f(-x)$\uff0c\u7136\u540e\u8bbe\u7f6e\u5b83\u7b49\u4e8e$f(x)$\u6765\u89e3\u51fa$a$\u3002</think>\n<answer>1</answer>",
+    "label": 1,
+    "avg_logprob": 0.29915395302238296
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u4e00\u4e2a\u5706\u7ecf\u8fc7\u692d\u5706 $\\frac{x^{2}}{16}+\\frac{y^{2}}{4}=1$ \u7684\u4e09\u4e2a\u9876\u70b9. \u4e14\u5706\u5fc3\u5728 $x$ \u8f74\u7684\u6b63\u534a\u8f74 \u4e0a. \u5219\u8be5\u5706\u6807\u51c6\u65b9\u7a0b\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$\\left(x-\\frac{3}{2}\\right)^{2}+y^{2}=\\frac{25}{4}$",
+      "other": {
+        "source": "2015\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u692d\u5706\u7684\u4e09\u4e2a\u9876\u70b9\u5206\u522b\u662f $(4,0)$, $(-4,0)$ \u548c $(0,2)$. \u5706\u5fc3\u5728 $x$ \u8f74\u4e0a\uff0c\u8bbe\u5706\u5fc3\u5750\u6807\u4e3a $(a,0)$, \u534a\u5f84\u4e3a $r$. \u6839\u636e\u5706\u7684\u6807\u51c6\u65b9\u7a0b $(x-a)^2 + y^2 = r^2$\uff0c\u6211\u4eec\u53ef\u4ee5\u5217\u51fa\u4e24\u4e2a\u65b9\u7a0b\u6765\u6c42\u89e3 $a$ \u548c $r$.\n\n\u5bf9\u4e8e\u9876\u70b9 $(4,0)$, \u65b9\u7a0b\u53d8\u4e3a $(4-a)^2 = r^2$;\n\u5bf9\u4e8e\u9876\u70b9 $(0,2)$, \u65b9\u7a0b\u53d8\u4e3a $a^2 + 2^2 = r^2$.\n\n\u63a5\u4e0b\u6765\u89e3\u8fd9\u4e2a\u65b9\u7a0b\u7ec4.</think>\n<answer>\\frac{(x-3)^2}{9}+y^2=9;</\\answer>",
+    "label": 0,
+    "avg_logprob": 0.2342438172192338
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u51fd\u6570 $f(x)=\\frac{1}{x}+\\sqrt{1-x}$ \u7684\u5b9a\u4e49\u57df\u662f $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$(-\\infty,0)\\cup(0,1]$",
+      "other": {
+        "source": "2022\u5e74\u5317\u4eac\u5e02\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u786e\u5b9a\u51fd\u6570$f(x)=\\frac{1}{x}+\\sqrt{1-x}$\u7684\u5b9a\u4e49\u57df\uff0c\u6211\u4eec\u9700\u8981\u8003\u8651\u4e24\u4e2a\u90e8\u5206\uff1a$\\frac{1}{x}$ \u548c $\\sqrt{1-x}$\u3002\u5bf9\u4e8e$\\frac{1}{x}$\uff0c$x$\u4e0d\u80fd\u4e3a0\uff1b\u5bf9\u4e8e$\\sqrt{1-x}$\uff0c$1-x \\geq 0$\uff0c\u5373$x \\leq 1$\u3002\u56e0\u6b64\uff0c\u5b9a\u4e49\u57df\u662f\u8fd9\u4e24\u4e2a\u6761\u4ef6\u7684\u4ea4\u96c6\u3002</think>\n<answer>(-\\infty,0) \\cup (0,1]</answer>",
+    "label": 0,
+    "avg_logprob": 0.13886930051954377
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u53cc\u66f2\u7ebf $y^{2}+\\frac{x^{2}}{m}=1$ \u7684\u6e10\u8fd1\u7ebf\u65b9\u7a0b\u4e3a $y=\\pm \\frac{\\sqrt{3}}{3} x$, \u5219 $m=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$-3$",
+      "other": {
+        "source": "2022\u5e74\u5317\u4eac\u5e02\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u5bf9\u4e8e\u6807\u51c6\u5f62\u5f0f\u7684\u53cc\u66f2\u7ebf $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ \u6216 $\\frac{y^2}{b^2} - \\frac{x^2}{a^2} = 1$\uff0c\u5176\u6e10\u8fd1\u7ebf\u65b9\u7a0b\u5206\u522b\u4e3a $y = \\pm \\frac{b}{a}x$ \u548c $y = \\pm \\frac{b}{a}x$\u3002\u7ed9\u5b9a\u7684\u53cc\u66f2\u7ebf\u65b9\u7a0b\u53ef\u4ee5\u6539\u5199\u4e3a $\\frac{x^2}{-m} - y^2 = -1$\uff0c\u5bf9\u6bd4\u6807\u51c6\u5f62\u5f0f\u53ef\u77e5 $a^2 = -m, b^2 = 1$\u3002\u56e0\u6b64\uff0c\u6e10\u8fd1\u7ebf\u65b9\u7a0b\u4e3a $y = \\pm \\frac{1}{\\sqrt{-m}}x$\u3002\u6839\u636e\u9898\u76ee\u6761\u4ef6\uff0c$\\frac{1}{\\sqrt{-m}} = \\frac{\\sqrt{3}}{3}$\uff0c\u89e3\u6b64\u65b9\u7a0b\u5373\u53ef\u5f97\u5230 $m$ \u7684\u503c\u3002</think>\n<answer>-3</answer>",
+    "label": 0,
+    "avg_logprob": 0.13139648121998165
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u82e5\u51fd\u6570 $f(x)=A \\sin x-\\sqrt{3} \\cos x$ \u7684\u4e00\u4e2a\u96f6\u70b9\u4e3a $\\frac{\\pi}{3}$, \u5219 $A=(\\quad)$; $f\\left(\\frac{\\pi}{12}\\right)=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "1;$-\\sqrt{2}$",
+      "other": {
+        "source": "2022\u5e74\u5317\u4eac\u5e02\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6839\u636e\u9898\u76ee\u6761\u4ef6\uff0c\u6211\u4eec\u77e5\u9053\u5f53$x=\\frac{\\pi}{3}$\u65f6\uff0c$f(x)=0$\u3002\u6211\u4eec\u53ef\u4ee5\u5c06\u8fd9\u4e2a\u6761\u4ef6\u4ee3\u5165\u51fd\u6570\u8868\u8fbe\u5f0f\u4e2d\u6c42\u89e3$A$\u3002\u7136\u540e\uff0c\u5229\u7528\u5f97\u5230\u7684$A$\u503c\u8ba1\u7b97$f\\left(\\frac{\\pi}{12}\\right)$\u3002</think>\n<answer>\\sqrt{3};\\frac{\\sqrt{6}-\\sqrt{2}}{4}</answer>",
+    "label": 0,
+    "avg_logprob": 0.2628206721566271
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u6570\u5217 $\\left\\{a_{n}\\right\\}$ \u5404\u9879\u5747\u4e3a\u6b63\u6570, \u5176\u524d $n$ \u9879\u548c $S_{n}$ \u6ee1\u8db3 $a_{n} \\cdot S_{n}=9(n=1,2, \\cdots)$. \u7ed9\u51fa\u4e0b\u5217\u56db\u4e2a\u7ed3\u8bba:\\\\\n$\\textcircled{1}$ $\\left\\{a_{n}\\right\\}$ \u7684\u7b2c 2 \u9879\u5c0f\u4e8e$3$;\\\\\n$\\textcircled{2}$ $\\left\\{a_{n}\\right\\}$ \u4e3a\u7b49\u6bd4\u6570\u5217;\\\\\n$\\textcircled{3}$ $\\left\\{a_{n}\\right\\}$ \u4e3a\u9012\u51cf\u6570\u5217;\\\\\n$\\textcircled{4}$ $\\left\\{a_{n}\\right\\}$ \u4e2d\u5b58\u5728\u5c0f\u4e8e $\\frac{1}{100}$ \u7684\u9879.\\\\\n\u5176\u4e2d\u6240\u6709\u6b63\u786e\u7ed3\u8bba\u7684\u5e8f\u53f7\u662f $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\textcircled{1}\\textcircled{3}\\textcircled{4}$",
+      "other": {
+        "source": "2022\u5e74\u5317\u4eac\u5e02\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6839\u636e\u9898\u76ee\u6761\u4ef6 $a_n \\cdot S_n = 9$\uff0c\u6211\u4eec\u53ef\u4ee5\u63a8\u5bfc\u51fa\u6570\u5217\u7684\u6027\u8d28\u3002\u5bf9\u4e8e $n=1$\uff0c\u6709 $a_1^2 = 9$\uff0c\u56e0\u4e3a $a_n > 0$\uff0c\u6240\u4ee5 $a_1 = 3$\u3002\u5bf9\u4e8e $n=2$\uff0c\u6709 $a_2(3 + a_2) = 9$\uff0c\u89e3\u5f97 $a_2 = 1$ \u6216 $a_2 = -3$\uff08\u820d\u53bb\u8d1f\u503c\uff09\uff0c\u56e0\u6b64 $a_2 = 1$\u3002\u8fd9\u8868\u660e\u7b2c2\u9879\u786e\u5b9e\u5c0f\u4e8e3\uff0c$\\textcircled{1}$ \u6b63\u786e\u3002\u63a5\u4e0b\u6765\uff0c\u6211\u4eec\u5c1d\u8bd5\u627e\u51fa\u6570\u5217\u7684\u901a\u9879\u516c\u5f0f\u3002\u7531 $a_n \\cdot S_n = 9$ \u548c $a_{n+1} \\cdot S_{n+1} = 9$\uff0c\u53ef\u4ee5\u5f97\u5230 $a_{n+1}(S_n + a_{n+1}) = 9$\u3002\u7ed3\u5408 $a_n \\cdot S_n = 9$\uff0c\u53ef\u4ee5\u63a8\u5bfc\u51fa $a_{n+1} = \\frac{9 - a_n \\cdot S_n}{S_n + a_{n+1}}$\u3002\u8fdb\u4e00\u6b65\u7b80\u5316\u5f97\u5230 $a_{n+1} = \\frac{9 - a_n \\cdot (S_n - a_{n+1})}{S_n + a_{n+1}}$\uff0c\u5373 $a_{n+1}^2 + a_n \\cdot a_{n+1} - 9 = 0$\u3002\u8fd9\u662f\u4e00\u4e2a\u5173\u4e8e $a_{n+1}$ \u7684\u4e8c\u6b21\u65b9\u7a0b\uff0c\u89e3\u5f97 $a_{n+1} = \\frac{-a_n \\pm \\sqrt{a_n^2 + 36}}{2}$\u3002\u7531\u4e8e $a_{n+1} > 0$\uff0c\u53d6\u6b63\u6839\u3002\u89c2\u5bdf\u5230 $a_1 = 3$ \u548c $a_2 = 1$\uff0c\u731c\u6d4b\u6570\u5217\u53ef\u80fd\u4e3a\u7b49\u6bd4\u6570\u5217\u3002\u9a8c\u8bc1 $a_{n+1} = \\frac{3}{a_n}$ \u662f\u5426\u6210\u7acb\u3002\u901a\u8fc7\u4ee3\u5165 $a_1 = 3$ \u548c $a_2 = 1$\uff0c\u53d1\u73b0\u6ee1\u8db3\u6761\u4ef6\u3002\u56e0\u6b64\uff0c$\\textcircled{2}$ \u6b63\u786e\u3002\u7531\u4e8e $a_{n+1} = \\frac{3}{a_n}$\uff0c\u968f\u7740 $n$ \u589e\u5927\uff0c$a_n$ \u9010\u6e10\u51cf\u5c0f\uff0c$\\textcircled{3}$ \u6b63\u786e\u3002\u6700\u540e\uff0c\u8003\u8651\u6781\u9650\u60c5\u51b5\uff0c\u5f53 $a_n$ \u8d8b\u8fd1\u4e8e0\u65f6\uff0c$a_{n+1} = \\frac{3}{a_n}$ \u4f1a\u53d8\u5f97\u975e\u5e38\u5927\uff0c\u4f46\u6700\u7ec8\u4f1a\u8d8b\u5411\u4e8e0\uff0c\u56e0\u6b64\u5b58\u5728\u5c0f\u4e8e $\\frac{1}{100}$ \u7684\u9879\uff0c$\\textcircled{4}$ \u6b63\u786e\u3002</think>\n<answer>\\textcircled{1};\\textcircled{2};\\textcircled{3};\\textcircled{4}</answer>",
+    "label": 0,
+    "avg_logprob": 0.22005521466660904
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$\\left(1-\\frac{y}{x}\\right)(x+y)^{8}$ \u7684\u5c55\u5f00\u5f0f\u4e2d $x^{2} y^{6}$ \u7684\u7cfb\u6570\u4e3a $(\\quad)$(\u7528\u6570\u5b57\u4f5c\u7b54).",
+      "options": null,
+      "label": null,
+      "answer": "$-28$",
+      "other": {
+        "source": "2022\u5e74\u5168\u56fd\u65b0\u9ad8\u8003I\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u6211\u4eec\u9700\u8981\u627e\u5230 $(1-\\frac{y}{x})(x+y)^8$ \u5c55\u5f00\u540e $x^2y^6$ \u9879\u7684\u7cfb\u6570\u3002\u9996\u5148\uff0c\u6211\u4eec\u8003\u8651 $(x+y)^8$ \u7684\u4e8c\u9879\u5c55\u5f00\u5f62\u5f0f\uff0c\u5373 $\\binom{8}{k}x^{8-k}y^k$\u3002\u4e3a\u4e86\u5f97\u5230 $x^2y^6$\uff0c\u6211\u4eec\u9700\u8981\u4ece $(x+y)^8$ \u4e2d\u9009\u62e9 $x^2y^6$ \u548c $-x^{-1}y^7$ \u4e24\u9879\u8fdb\u884c\u76f8\u4e58\u3002\u56e0\u6b64\uff0c\u6211\u4eec\u9700\u8981\u5206\u522b\u8ba1\u7b97\u8fd9\u4e24\u9879\u7684\u7cfb\u6570\u5e76\u76f8\u52a0\u3002</think>\n<answer>28;-56;</answer>",
+    "label": 0,
+    "avg_logprob": 0.30454878687217024
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u82e5\u66f2\u7ebf $y=(x+a) \\mathrm{e}^{x}$ \u6709\u4e24\u6761\u8fc7\u5750\u6807\u539f\u70b9\u7684\u5207\u7ebf, \u5219 $a$ \u7684\u53d6\u503c\u8303\u56f4\u662f $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$(-\\infty,-4)\\cup(0,+\\infty)$",
+      "other": {
+        "source": "2022\u5e74\u5168\u56fd\u65b0\u9ad8\u8003I\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u51fd\u6570 $y=(x+a)\\mathrm{e}^x$ \u5728\u4efb\u610f\u70b9 $(x_0, y_0)$ \u5904\u7684\u5bfc\u6570\uff0c\u5373\u8be5\u70b9\u5904\u7684\u5207\u7ebf\u659c\u7387\u3002\u7136\u540e\uff0c\u6211\u4eec\u8bbe\u8fc7\u539f\u70b9\u7684\u5207\u7ebf\u65b9\u7a0b\u4e3a $y=kx$\uff0c\u5176\u4e2d $k$ \u662f\u5207\u7ebf\u659c\u7387\u3002\u7531\u4e8e\u5207\u7ebf\u8fc7\u539f\u70b9\uff0c\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u5bfc\u6570\u6765\u786e\u5b9a $k$ \u7684\u503c\uff0c\u5e76\u4e14\u56e0\u4e3a\u9898\u76ee\u8bf4\u6709\u4e24\u6761\u8fd9\u6837\u7684\u5207\u7ebf\uff0c\u6240\u4ee5\u9700\u8981\u89e3\u51fa $a$ \u7684\u6761\u4ef6\u3002\n\n1. \u8ba1\u7b97\u5bfc\u6570\uff1a$y' = (x+a+1)\\mathrm{e}^x$\u3002\n2. \u8bbe\u5207\u70b9\u4e3a $(x_0, (x_0+a)\\mathrm{e}^{x_0})$\uff0c\u5219\u5207\u7ebf\u659c\u7387\u4e3a $k = (x_0+a+1)\\mathrm{e}^{x_0}$\u3002\n3. \u5207\u7ebf\u65b9\u7a0b\u4e3a $y - (x_0+a)\\mathrm{e}^{x_0} = (x_0+a+1)\\mathrm{e}^{x_0}(x-x_0)$\uff0c\u901a\u8fc7\u539f\u70b9 $(0,0)$ \u53ef\u5f97 $0 - (x_0+a)\\mathrm{e}^{x_0} = (x_0+a+1)\\mathrm{e}^{x_0}(0-x_0)$\uff0c\u5316\u7b80\u5f97 $x_0 + a + 1 = 0$\uff0c\u5373 $a = -x_0 - 1$\u3002\n4. \u8981\u4f7f\u6709\u4e24\u6761\u4e0d\u540c\u7684\u5207\u7ebf\uff0c\u5219\u65b9\u7a0b $a = -x_0 - 1$ \u5e94\u6709\u4e24\u4e2a\u4e0d\u540c\u7684\u89e3\uff0c\u5373 $-x_0 - 1 = k$ \u5e94\u6709\u4e24\u4e2a\u4e0d\u540c\u7684\u89e3\uff0c\u8fd9\u8981\u6c42\u5bfc\u6570 $y'$ \u5728\u67d0\u4e2a\u533a\u95f4\u5185\u6709\u4e24\u4e2a\u4e0d\u540c\u7684\u96f6\u70b9\uff0c\u5373 $(x+a+1)\\mathrm{e}^x = 0$ \u6709\u4e24\u4e2a\u4e0d\u540c\u7684\u89e3\uff0c\u663e\u7136 $\\mathrm{e}^x > 0$ \u6052\u6210\u7acb\uff0c\u56e0\u6b64 $x + a + 1 = 0$ \u5fc5\u987b\u6709\u4e24\u4e2a\u4e0d\u540c\u7684\u89e3\uff0c\u8fd9\u610f\u5473\u7740 $a+1$ \u5fc5\u987b\u5c0f\u4e8e0\uff0c\u5373 $a < -1$\u3002</think>\n<answer>-\\infty;<-1</answer>",
+    "label": 0,
+    "avg_logprob": 0.2569994828100273
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u6211\u56fd\u9ad8\u94c1\u53d1\u5c55\u8fc5\u901f, \u6280\u672f\u5148\u8fdb. \u7ecf\u7edf\u8ba1, \u5728\u7ecf\u505c\u67d0\u7ad9\u7684\u9ad8\u94c1\u5217\u8f66\u4e2d, \u6709 10 \u4e2a\u8f66\u6b21\u7684\u6b63\u70b9 \u7387\u4e3a $0.97$, \u6709 20 \u4e2a\u8f66\u6b21\u7684\u6b63\u70b9\u7387\u4e3a $0.98$, \u6709 10 \u4e2a\u8f66\u6b21\u7684\u6b63\u70b9\u7387\u4e3a $0.99$, \u5219\u7ecf\u505c\u8be5\u7ad9\u9ad8\u94c1\u5217 \u8f66\u6240\u6709\u8f66\u6b21\u7684\u5e73\u5747\u6b63\u70b9\u7387\u7684\u4f30\u8ba1\u503c\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "0.98",
+      "other": {
+        "source": "2019\u5e74\u65b0\u8bfe\u6807\u2171\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u6211\u4eec\u9700\u8981\u8ba1\u7b97\u6240\u6709\u8f66\u6b21\u7684\u5e73\u5747\u6b63\u70b9\u7387\u3002\u9996\u5148\uff0c\u6211\u4eec\u6839\u636e\u7ed9\u5b9a\u7684\u4fe1\u606f\u8ba1\u7b97\u6bcf\u4e2a\u6b63\u70b9\u7387\u5bf9\u5e94\u7684\u8f66\u6b21\u6570\uff0c\u7136\u540e\u8ba1\u7b97\u52a0\u6743\u5e73\u5747\u503c\u3002</think>\n<answer>\\frac{10 \\times 0.97 + 20 \\times 0.98 + 10 \\times 0.99}{40}</answer>",
+    "label": 0,
+    "avg_logprob": 0.2641179344809898
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$\\triangle A B C$ \u7684\u5185\u89d2 $A, B, C$ \u7684\u5bf9\u8fb9\u5206\u522b\u4e3a $a, b, c$. \u82e5 $b=6, a=2 c, B=\\frac{\\pi}{3}$, \u5219 $\\triangle A B C$ \u7684\u9762\u79ef\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$6\\sqrt{3}$",
+      "other": {
+        "source": "2019\u5e74\u65b0\u8bfe\u6807\u2171\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u6709\u4e09\u89d2\u5f62\u7684\u4e24\u8fb9\u548c\u5939\u89d2\uff0c\u53ef\u4ee5\u4f7f\u7528\u4f59\u5f26\u5b9a\u7406\u6c42\u51fa\u7b2c\u4e09\u8fb9c\uff0c\u518d\u5229\u7528\u9762\u79ef\u516c\u5f0f\u6c42\u89e3\u4e09\u89d2\u5f62\u7684\u9762\u79ef\u3002\n1. \u7531\u4f59\u5f26\u5b9a\u7406\uff1a\\[b^2 = a^2 + c^2 - 2ac \\cos B\\]\n2. \u4ee3\u5165\u5df2\u77e5\u6761\u4ef6\uff1a\\[6^2 = (2c)^2 + c^2 - 2(2c)c \\cos \\frac{\\pi}{3}\\]\n3. \u89e3\u65b9\u7a0b\u6c42\u5f97c\uff1b\n4. \u4f7f\u7528\u9762\u79ef\u516c\u5f0f\uff1a\\[S_{\\triangle ABC} = \\frac{1}{2}ac \\sin B\\]\u8ba1\u7b97\u9762\u79ef\u3002</think>\n<answer>\\frac{3\\sqrt{3}}{2};\\frac{9\\sqrt{3}}{2}</answer>",
+    "label": 0,
+    "avg_logprob": 0.20829562059063136
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u82e5 $x, y$ \u6ee1\u8db3\u7ea6\u675f\u6761\u4ef6 $\\left\\{\\begin{array}{l}x-y \\geqslant 0 \\\\ x+y-2 \\leqslant 0 \\\\ y \\geqslant 0\\end{array}\\right.$, \u5219 $z=3 x-4 y$ \u7684\u6700\u5c0f\u503c\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "-1",
+      "other": {
+        "source": "2017\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2172\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u786e\u5b9a\u53ef\u884c\u57df\u3002\u6839\u636e\u7ed9\u5b9a\u7684\u7ea6\u675f\u6761\u4ef6\uff0c\u6211\u4eec\u53ef\u4ee5\u753b\u51fa\u8fd9\u4e9b\u4e0d\u7b49\u5f0f\u7684\u56fe\u5f62\u6765\u627e\u5230\u53ef\u884c\u57df\u3002\u7136\u540e\uff0c\u6211\u4eec\u5bfb\u627e\u76ee\u6807\u51fd\u6570 $z=3x-4y$ \u5728\u53ef\u884c\u57df\u5185\u7684\u6700\u5c0f\u503c\u3002\u8fd9\u901a\u5e38\u53d1\u751f\u5728\u53ef\u884c\u57df\u7684\u9876\u70b9\u5904\u3002\u56e0\u6b64\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u53ef\u884c\u57df\u7684\u9876\u70b9\uff0c\u5e76\u8ba1\u7b97\u76ee\u6807\u51fd\u6570\u5728\u8fd9\u4e9b\u9876\u70b9\u5904\u7684\u503c\u3002</think>\n<answer>\\(-2\\)</answer>",
+    "label": 0,
+    "avg_logprob": 0.40245660710300063
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "(5 \u5206\uff09 \u8bbe\u7b49\u6bd4\u6570\u5217 $\\left\\{a_{n}\\right\\}$ \u6ee1\u8db3 $a_{1}+a_{2}=-1, a_{1}-a_{3}=-3$, \u5219 $a_{4}=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "-8",
+      "other": {
+        "source": "2017\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2172\uff09"
+      }
+    },
+    "model_answer": "<think>\u8bbe\u7b49\u6bd4\u6570\u5217\u7684\u9996\u9879\u4e3a$a_1$\uff0c\u516c\u6bd4\u4e3a$q$\uff0c\u5219\u6709$a_2=a_1q$\uff0c$a_3=a_1q^2$\uff0c$a_4=a_1q^3$\u3002\u6839\u636e\u9898\u76ee\u6761\u4ef6\uff0c\u53ef\u4ee5\u5217\u51fa\u4e24\u4e2a\u65b9\u7a0b\uff1a$a_1 + a_1q = -1$ \u548c $a_1 - a_1q^2 = -3$\u3002\u901a\u8fc7\u89e3\u8fd9\u4e24\u4e2a\u65b9\u7a0b\u53ef\u4ee5\u627e\u5230$a_1$\u548c$q$\uff0c\u8fdb\u800c\u6c42\u51fa$a_4$\u3002</think>\n<answer>8</answer>",
+    "label": 0,
+    "avg_logprob": 0.1540839495863218
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u8bbe\u51fd\u6570 $f(x)=\\left\\{\\begin{array}{ll}x+1, & x \\leqslant 0 \\\\ 2^{x}, & x>0\\end{array}\\right.$, \u5219\u6ee1\u8db3 $f(x)+f\\left(x-\\frac{1}{2}\\right)>1$ \u7684 $x$ \u7684 \u53d6\u503c\u8303\u56f4\u662f $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$\\left(-\\frac{1}{4},+\\infty\\right)$",
+      "other": {
+        "source": "2017\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2172\uff09"
+      }
+    },
+    "model_answer": "<think>\u6211\u4eec\u9700\u8981\u8003\u8651\u4e24\u79cd\u60c5\u51b5\uff1a\u5f53$x \\leq 0$\u65f6\uff0c$x - \\frac{1}{2} \\leq -\\frac{1}{2}$\uff1b\u5f53$x > 0$\u65f6\uff0c$x - \\frac{1}{2} > -\\frac{1}{2}$\u3002\u56e0\u6b64\u9700\u8981\u5206\u6bb5\u8ba8\u8bba\u3002\n1. \u5f53$x \\leq 0$\u65f6\uff0c$f(x) = x + 1$\uff0c$f\\left(x - \\frac{1}{2}\\right) = x - \\frac{1}{2} + 1 = x + \\frac{1}{2}$\u3002\n2. \u5f53$x > 0$\u65f6\uff0c$f(x) = 2^x$\uff0c$f\\left(x - \\frac{1}{2}\\right) = 2^{x - \\frac{1}{2}}$\u3002\n\u5206\u522b\u4ee3\u5165\u4e0d\u7b49\u5f0f$f(x) + f\\left(x - \\frac{1}{2}\\right) > 1$\u8fdb\u884c\u6c42\u89e3\u3002</think>\n<answer>\\left(-\\infty, -\\frac{1}{4}\\right) \\cup \\left(\\log_2 \\frac{3+\\sqrt{5}}{2}, +\\infty\\right)</answer>",
+    "label": 0,
+    "avg_logprob": 0.13643893928666803
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$\\left(x^{2}+\\frac{2}{x}\\right)^{6}$ \u7684\u5c55\u5f00\u5f0f\u4e2d\u5e38\u6570\u9879\u662f $(\\quad)$ (\u7528\u6570\u5b57\u4f5c\u7b54).",
+      "options": null,
+      "label": null,
+      "answer": "240",
+      "other": {
+        "source": "2020\u5e74\u9ad8\u8003\u5168\u56fd\u5377\u2162\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230\u5c55\u5f00\u5f0f\u4e2d\u7684\u5e38\u6570\u9879\uff0c\u6211\u4eec\u9700\u8981\u4f7f\u7528\u4e8c\u9879\u5f0f\u5b9a\u7406\u3002\u4e8c\u9879\u5f0f\u5b9a\u7406\u8868\u793a\u4e3a$(a+b)^n = \\sum_{k=0}^{n} \\binom{n}{k} a^{n-k}b^k$\u3002\u5728\u8fd9\u4e2a\u95ee\u9898\u4e2d\uff0c$a=x^2$\uff0c$b=\\frac{2}{x}$\uff0c$n=6$\u3002\u6211\u4eec\u9700\u8981\u627e\u5230\u4f7f\u5f97$x^2$\u548c$\\frac{2}{x}$\u7684\u6307\u6570\u76f8\u52a0\u4e3a0\u7684\u9879\uff0c\u5373\u5bfb\u627e\u5408\u9002\u7684$k$\u503c\u4f7f$(x^2)^{6-k}(\\frac{2}{x})^k$\u7684\u7ed3\u679c\u4e0d\u542b$x$\u3002\n\n\u5bf9\u4e8e\u6bcf\u4e00\u9879\uff0c\u6211\u4eec\u6709$x^{2(6-k)} \\cdot x^{-k} = x^{12-3k}$\u3002\u8981\u4f7f\u8be5\u9879\u4e3a\u5e38\u6570\u9879\uff0c\u5fc5\u987b\u6ee1\u8db3$12-3k=0$\uff0c\u89e3\u5f97$k=4$\u3002\u56e0\u6b64\uff0c\u6211\u4eec\u9700\u8981\u8ba1\u7b97\u5f53$k=4$\u65f6\u7684\u7cfb\u6570\u3002\n</think>\n<answer>\\binom{6}{4}2^4;</answer>",
+    "label": 0,
+    "avg_logprob": 0.22251730029049277
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5173\u4e8e\u51fd\u6570 $f(x)=\\sin x+\\frac{1}{\\sin x}$ \u6709\u5982\u4e0b\u56db\u4e2a\u547d\u9898:\\\\\n$\\textcircled{1}$ $f(x)$ \u7684\u56fe\u50cf\u5173\u4e8e $y$ \u8f74\u5bf9\u79f0.\\\\\n$\\textcircled{2}$ $f(x)$ \u7684\u56fe\u50cf\u5173\u4e8e\u539f\u70b9\u5bf9\u79f0.\\\\\n$\\textcircled{3}$ $f(x)$ \u7684\u56fe\u50cf\u5173\u4e8e\u76f4\u7ebf $x=\\frac{\\pi}{2}$ \u5bf9\u79f0.\\\\\n$\\textcircled{4}$ $f(x)$ \u7684\u6700\u5c0f\u503c\u4e3a2.\\\\\n\u5176\u4e2d\u6240\u6709\u771f\u547d\u9898\u7684\u5e8f\u53f7\u662f $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\textcircled{2}\\textcircled{3}$",
+      "other": {
+        "source": "2020\u5e74\u9ad8\u8003\u5168\u56fd\u5377\u2162\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u5206\u6790\u6bcf\u4e2a\u547d\u9898\u662f\u5426\u6210\u7acb\u3002\n\u5bf9\u4e8e$\\textcircled{1}$\uff0c\u82e5$f(x)$\u7684\u56fe\u50cf\u5173\u4e8e$y$\u8f74\u5bf9\u79f0\uff0c\u5219$f(-x) = f(x)$\u3002\u4ee3\u5165\u5f97\u5230$\\sin(-x) + \\frac{1}{\\sin(-x)} = -\\sin x - \\frac{1}{\\sin x} \\neq \\sin x + \\frac{1}{\\sin x}$\uff0c\u56e0\u6b64$\\textcircled{1}$\u4e0d\u6210\u7acb\u3002\n\u5bf9\u4e8e$\\textcircled{2}$\uff0c\u82e5$f(x)$\u7684\u56fe\u50cf\u5173\u4e8e\u539f\u70b9\u5bf9\u79f0\uff0c\u5219$f(-x) = -f(x)$\u3002\u4ee3\u5165\u5f97\u5230$\\sin(-x) + \\frac{1}{\\sin(-x)} = -\\sin x - \\frac{1}{\\sin x} = -(\\sin x + \\frac{1}{\\sin x})$\uff0c\u56e0\u6b64$\\textcircled{2}$\u6210\u7acb\u3002\n\u5bf9\u4e8e$\\textcircled{3}$\uff0c\u82e5$f(x)$\u7684\u56fe\u50cf\u5173\u4e8e\u76f4\u7ebf$x=\\frac{\\pi}{2}$\u5bf9\u79f0\uff0c\u5219$f(\\frac{\\pi}{2}-x) = f(\\frac{\\pi}{2}+x)$\u3002\u4ee3\u5165\u5f97\u5230$\\sin(\\frac{\\pi}{2}-x) + \\frac{1}{\\sin(\\frac{\\pi}{2}-x)} = \\cos x + \\frac{1}{\\cos x} \\neq \\sin x + \\frac{1}{\\sin x}$\uff0c\u56e0\u6b64$\\textcircled{3}$\u4e0d\u6210\u7acb\u3002\n\u5bf9\u4e8e$\\textcircled{4}$\uff0c\u8003\u8651$f(x)$\u7684\u5bfc\u6570$f'(x) = \\cos x - \\frac{\\cos x}{\\sin^2 x} = \\cos x(1 - \\frac{1}{\\sin^2 x})$\u3002\u5f53$\\sin x = 1$\u65f6\uff0c$f'(x) = 0$\uff0c\u6b64\u65f6$f(x) = 2$\u3002\u56e0\u6b64\uff0c$f(x)$\u7684\u6700\u5c0f\u503c\u4e3a2\uff0c$\\textcircled{4}$\u6210\u7acb\u3002</think>\n<answer>\\textcircled{2};\\textcircled{4}</answer>",
+    "label": 0,
+    "avg_logprob": 0.10789389137555642
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u66f2\u7ebf $y=3\\left(x^{2}+x\\right) \\mathrm{e}^{x}$ \u5728\u70b9 $(0,0)$ \u5904\u7684\u5207\u7ebf\u65b9\u7a0b\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$3x-y=0$",
+      "other": {
+        "source": "2019\u5e74\u65b0\u8bfe\u6807\u2170\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u7ed9\u5b9a\u51fd\u6570\u5728\u70b9$(0,0)$\u5904\u7684\u5bfc\u6570\u503c\uff0c\u8fd9\u5c06\u4f5c\u4e3a\u5207\u7ebf\u659c\u7387\u3002\u7136\u540e\u4f7f\u7528\u70b9\u659c\u5f0f\u65b9\u7a0b\u6765\u786e\u5b9a\u5207\u7ebf\u65b9\u7a0b\u3002</think>\n<answer>3x+0y=0;</answer>",
+    "label": 0,
+    "avg_logprob": 0.28697366795912177
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u8bb0 $S_{n}$ \u4e3a\u7b49\u6bd4\u6570\u5217 $\\left\\{a_{n}\\right\\}$ \u7684\u524d $n$ \u9879\u548c. \u82e5 $a_{1}=\\frac{1}{3}, a_{4}^{2}=a_{6}$, \u5219 $S_{5}=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{121}{3}$",
+      "other": {
+        "source": "2019\u5e74\u65b0\u8bfe\u6807\u2170\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053\u7b49\u6bd4\u6570\u5217\u7684\u901a\u9879\u516c\u5f0f\u4e3a \\(a_n = a_1 \\cdot r^{n-1}\\)\uff0c\u5176\u4e2d \\(r\\) \u662f\u516c\u6bd4\u3002\u7ed9\u5b9a \\(a_1 = \\frac{1}{3}\\) \u548c \\(a_4^2 = a_6\\)\uff0c\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u8fd9\u4e9b\u4fe1\u606f\u6765\u6c42\u89e3\u516c\u6bd4 \\(r\\)\u3002\u63a5\u7740\uff0c\u6211\u4eec\u4f7f\u7528\u7b49\u6bd4\u6570\u5217\u7684\u524d \\(n\\) \u9879\u548c\u516c\u5f0f \\(S_n = \\frac{a_1(1-r^n)}{1-r}\\) \u6765\u8ba1\u7b97 \\(S_5\\)\u3002</think>\n<answer>\\frac{\\frac{1}{3}(1-\\left(\\frac{1}{3}\\right)^5)}{1-\\frac{1}{3}};</answer>",
+    "label": 0,
+    "avg_logprob": 0.14890915863193321
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u7532\u3001\u4e59\u4e24\u961f\u8fdb\u884c\u7bee\u7403\u51b3\u8d5b, \u91c7\u53d6\u4e03\u573a\u56db\u80dc\u5236(\u5f53\u4e00\u961f\u8d62\u5f97\u56db\u573a\u80dc\u5229\u65f6, \u8be5\u961f\u83b7\u80dc, \u51b3\u8d5b \u7ed3\u675f). \u6839\u636e\u524d\u671f\u6bd4\u8d5b\u6210\u7ee9, \u7532\u961f\u7684\u4e3b\u5ba2\u573a\u5b89\u6392\u4f9d\u6b21\u4e3a\u201c\u4e3b\u4e3b\u5ba2\u5ba2\u4e3b\u5ba2\u4e3b\u201d. \u8bbe\u7532\u961f\u4e3b\u573a\u53d6\u80dc \u7684\u6982\u7387\u4e3a $0.6$, \u5ba2\u573a\u53d6\u80dc\u7684\u6982\u7387\u4e3a $0.5$, \u4e14\u5404\u573a\u6bd4\u8d5b\u7ed3\u679c\u76f8\u4e92\u72ec\u7acb, \u5219\u7532\u961f\u4ee5 $4: 1$ \u83b7\u80dc\u7684\u6982\u7387\u662f $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$0.216$",
+      "other": {
+        "source": "2019\u5e74\u65b0\u8bfe\u6807\u2170\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u8ba1\u7b97\u7532\u961f\u4ee54:1\u83b7\u80dc\u7684\u6982\u7387\uff0c\u6211\u4eec\u9700\u8981\u8003\u8651\u7532\u961f\u5728\u524d\u4e94\u573a\u6bd4\u8d5b\u4e2d\u8d62\u5f974\u573a\uff0c\u5176\u4e2d\u6700\u540e\u4e00\u573a\u5fc5\u987b\u662f\u4e3b\u573a\u80dc\u5229\u3002\u56e0\u6b64\uff0c\u524d\u56db\u573a\u6bd4\u8d5b\u4e2d\u7532\u961f\u9700\u8981\u8d623\u573a\uff0c\u8f931\u573a\uff0c\u5e76\u4e14\u8fd9\u4e09\u573a\u80dc\u5229\u4e2d\u81f3\u5c11\u6709\u4e00\u573a\u662f\u5728\u5ba2\u573a\u3002\u6211\u4eec\u53ef\u4ee5\u5c06\u8fd9\u79cd\u60c5\u51b5\u5206\u89e3\u4e3a\u51e0\u79cd\u53ef\u80fd\u7684\u5e8f\u5217\uff0c\u5e76\u8ba1\u7b97\u6bcf\u79cd\u5e8f\u5217\u7684\u6982\u7387\u4e4b\u548c\u3002</think>\n<answer>\\[0.6^4 + 4 \\cdot 0.6^3 \\cdot 0.4 \\cdot (0.5^2 + 2 \\cdot 0.5 \\cdot 0.6) = 0.20736\\]</answer>",
+    "label": 0,
+    "avg_logprob": 0.3470086672111254
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u51fd\u6570 $f(x)=x^{3}\\left(a \\cdot 2^{x}-2^{-x}\\right)$ \u662f\u5076\u51fd\u6570, \u5219 $a=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "1",
+      "other": {
+        "source": "2021\u65b0\u9ad8\u80031\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u4f7f\u51fd\u6570$f(x)$\u4e3a\u5076\u51fd\u6570\uff0c\u5fc5\u987b\u6ee1\u8db3$f(-x) = f(x)$\u3002\u6211\u4eec\u5148\u8ba1\u7b97$f(-x)$\uff0c\u7136\u540e\u8bbe\u7f6e\u5b83\u7b49\u4e8e$f(x)$\u6765\u89e3\u51fa$a$\u3002</think>\n<answer>1</answer>",
+    "label": 1,
+    "avg_logprob": 0.3095849241142363
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5 $O$ \u4e3a\u5750\u6807\u539f\u70b9, \u629b\u7269\u7ebf $C: y^{2}=2 p x(p>0)$ \u7684\u7126\u70b9\u4e3a $F, P$ \u4e3a $C$ \u4e0a\u4e00\u70b9, $P F$ \u4e0e $x$ \u8f74\u5782\u76f4, $Q$ \u4e3a $x$ \u8f74\u4e0a\u4e00\u70b9, \u4e14 $P Q \\perp O P$, \u82e5 $|F Q|=6$, \u5219 $C$ \u7684\u51c6\u7ebf\u65b9\u7a0b\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$x=-\\frac{3}{2}$",
+      "other": {
+        "source": "2021\u65b0\u9ad8\u80031\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053\u629b\u7269\u7ebf\u7684\u6807\u51c6\u5f62\u5f0f\u4e3a \\(y^2 = 2px\\)\uff0c\u5176\u7126\u70b9 \\(F\\) \u7684\u5750\u6807\u4e3a \\((\\frac{p}{2}, 0)\\)\uff0c\u51c6\u7ebf\u65b9\u7a0b\u4e3a \\(x = -\\frac{p}{2}\\)\u3002\u7531\u4e8e \\(PF\\) \u4e0e \\(x\\) \u8f74\u5782\u76f4\uff0c\u8bbe \\(P\\) \u70b9\u5750\u6807\u4e3a \\((\\frac{p}{2}, y_0)\\)\uff0c\u5219 \\(y_0^2 = 2p \\cdot \\frac{p}{2} = p^2\\)\uff0c\u6240\u4ee5 \\(y_0 = \\pm p\\)\u3002\u4e0d\u5931\u4e00\u822c\u6027\uff0c\u53d6 \\(y_0 = p\\)\uff0c\u5219 \\(P(\\frac{p}{2}, p)\\)\u3002\u56e0\u4e3a \\(PQ \\perp OP\\)\uff0c\u4e14 \\(Q\\) \u5728 \\(x\\) \u8f74\u4e0a\uff0c\u8bbe \\(Q(x_Q, 0)\\)\uff0c\u5219\u5411\u91cf \\(\\overrightarrow{OP} = (\\frac{p}{2}, p)\\)\uff0c\\(\\overrightarrow{PQ} = (x_Q - \\frac{p}{2}, -p)\\)\u3002\u7531\u5782\u76f4\u6761\u4ef6 \\(\\overrightarrow{OP} \\cdot \\overrightarrow{PQ} = 0\\)\uff0c\u5f97 \\(\\frac{p}{2}(x_Q - \\frac{p}{2}) - p^2 = 0\\)\uff0c\u89e3\u5f97 \\(x_Q = \\frac{3p}{2}\\)\u3002\u5df2\u77e5 \\(|FQ| = 6\\)\uff0c\u5373 \\(|\\frac{3p}{2} - \\frac{p}{2}| = 6\\)\uff0c\u89e3\u5f97 \\(p = 6\\)\u3002\u56e0\u6b64\uff0c\u51c6\u7ebf\u65b9\u7a0b\u4e3a \\(x = -\\frac{p}{2} = -3\\)\u3002</think>\n<answer>-3</answer>",
+    "label": 0,
+    "avg_logprob": 0.12267892895871907
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u51fd\u6570 $f(x)=|2 x-1|-2 \\ln x$ \u7684\u6700\u5c0f\u503c\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "1",
+      "other": {
+        "source": "2021\u65b0\u9ad8\u80031\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230\u51fd\u6570$f(x)=|2x-1|-2\\ln x$\u7684\u6700\u5c0f\u503c\uff0c\u6211\u4eec\u9996\u5148\u9700\u8981\u8003\u8651\u7edd\u5bf9\u503c\u51fd\u6570\u7684\u6027\u8d28\u3002\u5f53$x>\\frac{1}{2}$\u65f6\uff0c$|2x-1|=2x-1$\uff1b\u5f53$x<\\frac{1}{2}$\u65f6\uff0c$|2x-1|=1-2x$\u3002\u56e0\u6b64\uff0c\u6211\u4eec\u9700\u8981\u5206\u522b\u8003\u8651\u8fd9\u4e24\u4e2a\u533a\u95f4\u5185\u7684\u51fd\u6570\u884c\u4e3a\u3002\n\n\u5bf9\u4e8e$x>\\frac{1}{2}$\uff0c\u51fd\u6570\u53d8\u4e3a$f(x)=2x-1-2\\ln x$\u3002\u6c42\u5bfc\u5f97\u5230$f'(x)=2-\\frac{2}{x}=\\frac{2(x-1)}{x}$\u3002\u4ee4\u5bfc\u6570\u7b49\u4e8e0\u89e3\u5f97$x=1$\u3002\u6b64\u65f6\uff0c$f(1)=2*1-1-2\\ln 1=1$\u3002\n\n\u5bf9\u4e8e$x<\\frac{1}{2}$\uff0c\u51fd\u6570\u53d8\u4e3a$f(x)=1-2x-2\\ln x$\u3002\u6c42\u5bfc\u5f97\u5230$f'(x)=-2-\\frac{2}{x}=-\\frac{2(x+1)}{x}$\u3002\u7531\u4e8e$x<\\frac{1}{2}$\uff0c\u5bfc\u6570\u59cb\u7ec8\u5c0f\u4e8e0\uff0c\u51fd\u6570\u5728\u6b64\u533a\u95f4\u5355\u8c03\u9012\u51cf\uff0c\u6ca1\u6709\u6781\u503c\u70b9\u3002\n\n\u7efc\u4e0a\u6240\u8ff0\uff0c\u6700\u5c0f\u503c\u53ef\u80fd\u51fa\u73b0\u5728$x=1$\u5904\uff0c\u6216\u8005\u5728$x<\\frac{1}{2}$\u7684\u8fb9\u754c\u5904\u3002\u4f46\u7531\u4e8e$x<\\frac{1}{2}$\u65f6\u51fd\u6570\u503c\u968f$x$\u589e\u52a0\u800c\u51cf\u5c11\uff0c\u4e14$x=\\frac{1}{2}$\u65f6\u51fd\u6570\u503c\u4e3a\u8d1f\u65e0\u7a77\uff0c\u6545\u6700\u5c0f\u503c\u4e3a1\u3002</think>\n<answer>1</answer>",
+    "label": 1,
+    "avg_logprob": 0.23549154385272372
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u67d0\u6821\u5b66\u751f\u5728\u7814\u7a76\u6c11\u95f4\u526a\u7eb8\u827a\u672f\u65f6, \u53d1\u73b0\u526a\u7eb8\u65f6\u7ecf\u5e38\u4f1a\u6cbf\u7eb8\u7684\u67d0\u6761\u5bf9\u79f0\u8f74\u628a\u7eb8\u5bf9\u6298, \u89c4\u683c\u4e3a $20 \\mathrm{dm} \\times 12 \\mathrm{dm}$ \u7684\u957f\u65b9\u5f62\u7eb8, \u5bf9\u6298 1 \u6b21\u5171\u53ef\u4ee5\u5f97\u5230 $10 \\mathrm{dm} \\times 12 \\mathrm{dm}, 20 \\mathrm{dm} \\times 6 \\mathrm{dm}$ \u4e24\u79cd\u89c4\u683c\u7684\u56fe\u5f62, \u5b83\u4eec\u7684\u9762\u79ef\u4e4b\u548c $S_{1}=240 \\mathrm{dm}^{2}$, \u5bf9\u6298 2 \u6b21\u5171\u53ef\u4ee5\u5f97\u5230 $5 \\mathrm{dm} \\times 12 \\mathrm{dm}, 10 \\mathrm{dm} \\times 6 \\mathrm{dm}, 20 \\mathrm{dm} \\times 3 \\mathrm{dm}$ \u4e09\u79cd\u89c4\u683c\u7684\u56fe\u5f62, \u5b83\u4eec\u7684 \u9762\u79ef\u4e4b\u548c $S_{2}=180 \\mathrm{dm}^{2}$, \u4ee5\u6b64\u7c7b\u63a8, \u5219\u5bf9\u6298 4 \u6b21\u5171\u53ef\u4ee5\u5f97\u5230\u4e0d\u540c\u89c4\u683c\u56fe\u5f62\u7684\u79cd\u6570\u4e3a $(\\quad)$; \u5982\u679c\u5bf9\u6298 $n$ \u6b21, \u90a3\u4e48 $\\sum_{k=1}^{n} S_{k}=(\\quad)\\mathrm{dm}^{2}$.",
+      "options": null,
+      "label": null,
+      "answer": "5;$720-\\frac{15(3+n)}{2^{n-4}}$",
+      "other": {
+        "source": "2021\u65b0\u9ad8\u80031\u5377\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u89c2\u5bdf\u5bf9\u6298\u6b21\u6570\u4e0e\u5f97\u5230\u7684\u4e0d\u540c\u89c4\u683c\u56fe\u5f62\u79cd\u6570\u7684\u5173\u7cfb\u3002\u5bf9\u62981\u6b21\u5f97\u52302\u79cd\u89c4\u683c\uff0c\u5bf9\u62982\u6b21\u5f97\u52304\u79cd\u89c4\u683c\uff0c\u53ef\u4ee5\u770b\u51fa\u6bcf\u589e\u52a0\u4e00\u6b21\u5bf9\u6298\uff0c\u5f97\u5230\u7684\u56fe\u5f62\u79cd\u7c7b\u7ffb\u500d\u3002\u56e0\u6b64\uff0c\u5bf9\u62984\u6b21\u53ef\u4ee5\u5f97\u5230$2^4 = 16$\u79cd\u4e0d\u540c\u89c4\u683c\u7684\u56fe\u5f62\u3002\n\n\u5bf9\u4e8e\u9762\u79ef\u4e4b\u548c\u7684\u8ba1\u7b97\uff0c\u6bcf\u6b21\u5bf9\u6298\u540e\uff0c\u603b\u7684\u9762\u79ef\u4e0d\u53d8\uff0c\u59cb\u7ec8\u662f\u539f\u59cb\u9762\u79ef$20 \\times 12 = 240 \\mathrm{dm}^2$\u3002\u4f46\u662f\uff0c\u6bcf\u6b21\u5bf9\u6298\u90fd\u4f1a\u5c06\u9762\u79ef\u5206\u6210\u4e24\u90e8\u5206\uff0c\u56e0\u6b64\u6bcf\u6b21\u5bf9\u6298\u540e\u7684\u9762\u79ef\u4e4b\u548c\u4f1a\u51cf\u5c11\u3002\u5177\u4f53\u6765\u8bf4\uff0c\u5bf9\u62981\u6b21\u540e\u9762\u79ef\u4e4b\u548c\u4e3a240 dm\u00b2\uff0c\u5bf9\u62982\u6b21\u540e\u9762\u79ef\u4e4b\u548c\u4e3a180 dm\u00b2\uff0c\u53ef\u4ee5\u770b\u51fa\u6bcf\u6b21\u5bf9\u6298\u540e\u9762\u79ef\u4e4b\u548c\u51cf\u5c1160 dm\u00b2\u3002\u56e0\u6b64\uff0c\u5bf9\u6298n\u6b21\u540e\u7684\u9762\u79ef\u4e4b\u548c\u4e3a$240 - 60(n-1)$\u3002\n\n\u6211\u4eec\u9700\u8981\u9a8c\u8bc1\u8fd9\u4e2a\u89c4\u5f8b\u662f\u5426\u6b63\u786e\u3002\u5bf9\u62981\u6b21\u540e\u9762\u79ef\u4e4b\u548c\u4e3a$240 - 60(1-1) = 240$\uff1b\u5bf9\u62982\u6b21\u540e\u9762\u79ef\u4e4b\u548c\u4e3a$240 - 60(2-1) = 180$\uff0c\u7b26\u5408\u89c4\u5f8b\u3002\u6240\u4ee5\uff0c\u5bf9\u6298n\u6b21\u540e\u7684\u9762\u79ef\u4e4b\u548c\u4e3a$240 - 60(n-1)$\u3002</think>\n<answer>$16; 240 - 60(n-1)$</answer>",
+    "label": 0,
+    "avg_logprob": 0.3258612267673236
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$\\left(\\frac{x}{\\sqrt{y}}-\\frac{y}{\\sqrt{x}}\\right)^{8}$ \u7684\u5c55\u5f00\u5f0f\u4e2d $x^{2} y^{2}$ \u7684\u7cfb\u6570\u4e3a$(\\quad)$. (\u7528\u6570\u5b57\u4f5c\u7b54)",
+      "options": null,
+      "label": null,
+      "answer": "70",
+      "other": {
+        "source": "2014\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5927\u7eb2\u7248\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u4f7f\u7528\u4e8c\u9879\u5f0f\u5b9a\u7406\u6765\u5c55\u5f00\u7ed9\u5b9a\u7684\u8868\u8fbe\u5f0f\u3002\u4e8c\u9879\u5f0f\u5b9a\u7406\u7684\u5f62\u5f0f\u662f $(a+b)^n = \\sum_{k=0}^{n} \\binom{n}{k} a^{n-k}b^k$\u3002\u5728\u8fd9\u4e2a\u95ee\u9898\u4e2d\uff0c\u6211\u4eec\u6709 $a = \\frac{x}{\\sqrt{y}}$ \u548c $b = -\\frac{y}{\\sqrt{x}}$\uff0c\u4e14 $n=8$\u3002\u6211\u4eec\u9700\u8981\u627e\u5230\u5c55\u5f00\u5f0f\u4e2d $x^2y^2$ \u7684\u7cfb\u6570\u3002\u4e3a\u4e86\u5f97\u5230 $x^2y^2$ \u9879\uff0c\u6211\u4eec\u9700\u8981\u4ece $\\frac{x}{\\sqrt{y}}$ \u4e2d\u53d6 $m$ \u6b21\u65b9\uff0c\u4ece $-\\frac{y}{\\sqrt{x}}$ \u4e2d\u53d6 $8-m$ \u6b21\u65b9\uff0c\u4f7f\u5f97\u603b\u6b21\u6570\u6ee1\u8db3 $x^{2}y^{2}$ \u7684\u6761\u4ef6\u3002\u5373\uff0c$\\frac{x^m}{y^{m/2}} \\cdot \\frac{(-y)^{8-m}}{x^{(8-m)/2}} = x^{2}y^{2}$\u3002\u901a\u8fc7\u89e3\u8fd9\u4e2a\u65b9\u7a0b\uff0c\u6211\u4eec\u53ef\u4ee5\u627e\u5230\u5408\u9002\u7684 $m$ \u503c\u3002</think>\n<answer>70</answer>",
+    "label": 1,
+    "avg_logprob": 0.2248192373967774
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u76f4\u7ebf $l_{1}$ \u548c $l_{2}$ \u662f\u5706 $x^{2}+y^{2}=2$ \u7684\u4e24\u6761\u5207\u7ebf, \u82e5 $l_{1}$ \u4e0e $l_{2}$ \u7684\u4ea4\u70b9\u4e3a $(1,3)$, \u5219 $I_{1}$ \u4e0e $I_{2}$ \u7684\u5939\u89d2\u7684\u6b63\u5207\u503c\u7b49\u4e8e $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{4}{3}$",
+      "other": {
+        "source": "2014\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5927\u7eb2\u7248\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053\u5706\u7684\u65b9\u7a0b\u662f$x^2+y^2=2$\uff0c\u8fd9\u662f\u4e00\u4e2a\u534a\u5f84\u4e3a$\\sqrt{2}$\u7684\u5706\u5fc3\u5728\u539f\u70b9\u7684\u5706\u3002\u8bbe$l_1$\u548c$l_2$\u7684\u659c\u7387\u5206\u522b\u4e3a$m_1$\u548c$m_2$\uff0c\u5219\u5b83\u4eec\u7684\u65b9\u7a0b\u53ef\u4ee5\u8868\u793a\u4e3a$y=m_1(x-1)+3$\u548c$y=m_2(x-1)+3$\u3002\u7531\u4e8e\u8fd9\u4e24\u6761\u76f4\u7ebf\u662f\u5706\u7684\u5207\u7ebf\uff0c\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u5706\u7684\u5207\u7ebf\u6027\u8d28\u6765\u6c42\u89e3\u3002\n\n\u5bf9\u4e8e\u5706$x^2+y^2=r^2$\uff0c\u5176\u5207\u7ebf\u7684\u659c\u7387\u6ee1\u8db3\u6761\u4ef6$mx=-\\frac{x_0}{y_0}\\sqrt{r^2-x_0^2-y_0^2}$\uff0c\u5176\u4e2d$(x_0,y_0)$\u662f\u5207\u70b9\u5750\u6807\u3002\u5c06\u5706\u7684\u65b9\u7a0b\u4ee3\u5165\uff0c\u5f97\u5230\u5207\u7ebf\u659c\u7387\u4e3a$-\\frac{x_0}{y_0}\\sqrt{2-(x_0^2+y_0^2)}$\u3002\u4f46\u662f\uff0c\u8fd9\u91cc\u6211\u4eec\u76f4\u63a5\u4f7f\u7528\u51e0\u4f55\u5173\u7cfb\u6765\u7b80\u5316\u95ee\u9898\u3002\n\n\u8003\u8651\u5706\u5fc3\u5230\u5207\u7ebf\u7684\u8ddd\u79bb\u7b49\u4e8e\u5706\u7684\u534a\u5f84\uff0c\u5373$\\frac{|m_1(0-1)+3|}{\\sqrt{1+m_1^2}}=\\sqrt{2}$\uff0c\u540c\u6837\u5730\uff0c\u5bf9\u4e8e$l_2$\u6709$\\frac{|m_2(0-1)+3|}{\\sqrt{1+m_2^2}}=\\sqrt{2}$\u3002\u8fd9\u7ed9\u51fa\u4e86\u4e24\u4e2a\u5173\u4e8e$m_1$\u548c$m_2$\u7684\u65b9\u7a0b\u3002\u7136\u800c\uff0c\u66f4\u7b80\u5355\u7684\u65b9\u6cd5\u662f\u5229\u7528\u5207\u7ebf\u7684\u6027\u8d28\u548c\u4ea4\u70b9\u5750\u6807\u6765\u76f4\u63a5\u8ba1\u7b97\u4e24\u5207\u7ebf\u7684\u5939\u89d2\u3002\n\n\u4e24\u5207\u7ebf\u7684\u5939\u89d2$\\theta$\u7684\u6b63\u5207\u503c\u53ef\u4ee5\u901a\u8fc7\u516c\u5f0f$tan(\\theta)=|\\frac{m_1-m_2}{1+m_1m_2}|$\u6765\u8ba1\u7b97\u3002\u6211\u4eec\u9700\u8981\u627e\u5230$m_1$\u548c$m_2$\u7684\u5173\u7cfb\u3002\u6ce8\u610f\u5230\u4ea4\u70b9$(1,3)$\u5230\u5706\u5fc3\u7684\u8ddd\u79bb\u662f$\\sqrt{(1-0)^2+(3-0)^2}=\\sqrt{10}$\uff0c\u800c\u5706\u7684\u534a\u5f84\u662f$\\sqrt{2}$\uff0c\u56e0\u6b64\uff0c$m_1$\u548c$m_2$\u53ef\u4ee5\u901a\u8fc7\u8fd9\u4e2a\u8ddd\u79bb\u548c\u5706\u7684\u534a\u5f84\u6765\u95f4\u63a5\u6c42\u5f97\u3002\n\n\u901a\u8fc7\u51e0\u4f55\u5173\u7cfb\uff0c\u6211\u4eec\u53ef\u4ee5\u77e5\u9053$m_1$\u548c$m_2$\u5b9e\u9645\u4e0a\u662f\u4ea4\u70b9\u5230\u5706\u5fc3\u8fde\u7ebf\u7684\u659c\u7387\u7684\u8d1f\u5012\u6570\u3002\u56e0\u6b64\uff0c$m_1=-\\frac{1}{3}$\uff0c$m_2=-\\frac{3}{1}$\u3002\u4ee3\u5165\u5939\u89d2\u516c\u5f0f\u5f97\u5230$tan(\\theta)=|\\frac{-\\frac{1}{3}-(-3)}{1+(-\\frac{1}{3})(-3)}|=|\\frac{\\frac{8}{3}}{2}|=\\frac{4}{3}$\u3002\n\n\u6240\u4ee5\uff0c\u4e24\u5207\u7ebf\u7684\u5939\u89d2\u7684\u6b63\u5207\u503c\u662f$\\frac{4}{3}$\u3002</think>\n<answer>\\frac{4}{3}</answer>",
+    "label": 0,
+    "avg_logprob": 0.29129976394321133
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u82e5\u51fd\u6570 $f(x)=\\cos 2 x+a \\sin x$ \u5728\u533a\u95f4 $\\left(\\frac{\\pi}{6}, \\frac{\\pi}{2}\\right.$ ) \u662f\u51cf\u51fd\u6570, \u5219 $a$ \u7684\u53d6\u503c\u8303\u56f4\u662f $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$(-\\infty,2]$",
+      "other": {
+        "source": "2014\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5927\u7eb2\u7248\uff09"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u4f7f\u51fd\u6570$f(x)$\u5728\u7ed9\u5b9a\u533a\u95f4\u5185\u4e3a\u51cf\u51fd\u6570\uff0c\u5176\u5bfc\u6570$f'(x)$\u5fc5\u987b\u5c0f\u4e8e0\u3002\u9996\u5148\u8ba1\u7b97$f(x)$\u7684\u5bfc\u6570\uff0c\u7136\u540e\u786e\u5b9a$a$\u7684\u53d6\u503c\u8303\u56f4\u4f7f\u5f97$f'(x)<0$\u5728\u8be5\u533a\u95f4\u5185\u6052\u6210\u7acb\u3002</think>\n<answer>\\(-4\\leq a < -2\\sqrt{3}\\);-2\\sqrt{3} \\leq a < -2\\sqrt{3}\\)</answer>",
+    "label": 0,
+    "avg_logprob": 0.28360156610539683
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$(a+x)(1+x)^{4}$ \u7684\u5c55\u5f00\u5f0f\u4e2d $x$ \u7684\u5947\u6570\u6b21\u5e42\u9879\u7684\u7cfb\u6570\u4e4b\u548c\u4e3a 32 , \u5219 $a=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "3",
+      "other": {
+        "source": "2015\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2171\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230 $(a+x)(1+x)^4$ \u5c55\u5f00\u540e $x$ \u7684\u5947\u6570\u6b21\u5e42\u9879\u7684\u7cfb\u6570\u4e4b\u548c\u3002\u6211\u4eec\u53ef\u4ee5\u901a\u8fc7\u5c06 $(1+x)^4$ \u5c55\u5f00\u5e76\u4e58\u4ee5 $(a+x)$ \u6765\u5b9e\u73b0\u8fd9\u4e00\u70b9\u3002\u7136\u540e\uff0c\u6211\u4eec\u5173\u6ce8\u90a3\u4e9b $x$ \u7684\u6307\u6570\u4e3a\u5947\u6570\u7684\u9879\uff0c\u5e76\u6c42\u5b83\u4eec\u7684\u7cfb\u6570\u4e4b\u548c\u3002\u5df2\u77e5\u8fd9\u4e2a\u548c\u4e3a32\uff0c\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u8fd9\u4e2a\u4fe1\u606f\u6765\u89e3\u51fa $a$ \u7684\u503c\u3002</think>\n<answer>2</answer>",
+    "label": 0,
+    "avg_logprob": 0.32101388130333774
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u8bbe $a, b$ \u4e3a\u5355\u4f4d\u5411\u91cf, \u4e14 $|\\boldsymbol{a}+\\boldsymbol{b}|=1$, \u5219 $|a-b|=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\sqrt{3}$",
+      "other": {
+        "source": "2020\u5e74\u5168\u56fd\u5377\u2160\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u6839\u636e\u9898\u610f\uff0c\u6211\u4eec\u77e5\u9053 $\\boldsymbol{a}$ \u548c $\\boldsymbol{b}$ \u662f\u5355\u4f4d\u5411\u91cf\uff0c\u5373 $|\\boldsymbol{a}| = 1$ \u548c $|\\boldsymbol{b}| = 1$\u3002\u53c8\u56e0\u4e3a $|\\boldsymbol{a} + \\boldsymbol{b}| = 1$\uff0c\u6211\u4eec\u53ef\u4ee5\u5229\u7528\u5411\u91cf\u7684\u6a21\u957f\u516c\u5f0f\u6765\u6c42\u89e3\u3002\u9996\u5148\uff0c\u6211\u4eec\u6709\uff1a\n\n\\[|\\boldsymbol{a} + \\boldsymbol{b}|^2 = (\\boldsymbol{a} + \\boldsymbol{b}) \\cdot (\\boldsymbol{a} + \\boldsymbol{b}) = 1^2 = 1\\]\n\n\u5c55\u5f00\u5f97\u5230\uff1a\n\n\\[\\boldsymbol{a} \\cdot \\boldsymbol{a} + 2\\boldsymbol{a} \\cdot \\boldsymbol{b} + \\boldsymbol{b} \\cdot \\boldsymbol{b} = 1\\]\n\n\u7531\u4e8e $\\boldsymbol{a}$ \u548c $\\boldsymbol{b}$ \u662f\u5355\u4f4d\u5411\u91cf\uff0c\u6240\u4ee5 $\\boldsymbol{a} \\cdot \\boldsymbol{a} = 1$ \u548c $\\boldsymbol{b} \\cdot \\boldsymbol{b} = 1$\uff0c\u4ee3\u5165\u5f97\uff1a\n\n\\[1 + 2\\boldsymbol{a} \\cdot \\boldsymbol{b} + 1 = 1\\]\n\n\u4ece\u800c\u53ef\u4ee5\u89e3\u51fa $\\boldsymbol{a} \\cdot \\boldsymbol{b} = -\\frac{1}{2}$\u3002\n\n\u63a5\u4e0b\u6765\uff0c\u6211\u4eec\u9700\u8981\u6c42 $|\\boldsymbol{a} - \\boldsymbol{b}|$ \u7684\u503c\u3002\u540c\u6837\u5730\uff0c\u6211\u4eec\u4f7f\u7528\u5411\u91cf\u7684\u6a21\u957f\u516c\u5f0f\uff1a\n\n\\[|\\boldsymbol{a} - \\boldsymbol{b}|^2 = (\\boldsymbol{a} - \\boldsymbol{b}) \\cdot (\\boldsymbol{a} - \\boldsymbol{b})\\]\n\n\u5c55\u5f00\u5f97\u5230\uff1a\n\n\\[\\boldsymbol{a} \\cdot \\boldsymbol{a} - 2\\boldsymbol{a} \\cdot \\boldsymbol{b} + \\boldsymbol{b} \\cdot \\boldsymbol{b}\\]\n\n\u4ee3\u5165\u5df2\u77e5\u6761\u4ef6\uff1a\n\n\\[1 - 2(-\\frac{1}{2}) + 1 = 1 + 1 + 1 = 3\\]\n\n\u56e0\u6b64\uff0c$|\\boldsymbol{a} - \\boldsymbol{b}| = \\sqrt{3}$\u3002</think>\n<answer>\\sqrt{3}</answer>",
+    "label": 0,
+    "avg_logprob": 0.0958428056755475
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5 $F$ \u4e3a\u53cc\u66f2\u7ebf $C: \\frac{x^{2}}{a^{2}}-\\frac{y^{2}}{b^{2}}=1(a>0, b>0)$ \u7684\u53f3\u7126\u70b9, $A$ \u4e3a $C$ \u7684\u53f3\u9876\u70b9, $B$ \u4e3a $C$ \u4e0a\u7684\u70b9, \u4e14 $B F$ \u5782\u76f4\u4e8e $x$ \u8f74.\u82e5 $A B$ \u7684\u659c\u7387\u4e3a 3 , \u5219 $C$ \u7684\u79bb\u5fc3\u7387\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "2",
+      "other": {
+        "source": "2020\u5e74\u5168\u56fd\u5377\u2160\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u786e\u5b9a\u53cc\u66f2\u7ebf\u7684\u6807\u51c6\u65b9\u7a0b $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$ \u4e2d\u5404\u53c2\u6570\u7684\u610f\u4e49\u3002\u53f3\u7126\u70b9 $F(c,0)$\uff0c\u5176\u4e2d $c = \\sqrt{a^2 + b^2}$\uff1b\u53f3\u9876\u70b9 $A(a,0)$\u3002\u7ed9\u5b9a\u6761\u4ef6BF\u5782\u76f4\u4e8ex\u8f74\uff0c\u610f\u5473\u7740B\u70b9\u7684\u6a2a\u5750\u6807\u4e0eF\u76f8\u540c\uff0c\u5373$x=c$\u3002\u5c06$x=c$\u4ee3\u5165\u53cc\u66f2\u7ebf\u65b9\u7a0b\u6c42\u5f97$y$\u7684\u503c\uff0c\u8fdb\u800c\u5f97\u5230\u70b9B\u7684\u5750\u6807\u3002\u6839\u636e$AB$\u7684\u659c\u7387\u4e3a3\uff0c\u5229\u7528\u4e24\u70b9\u5f0f\u659c\u7387\u516c\u5f0f\u5efa\u7acb\u7b49\u5f0f\u6c42\u89e3$c$\u4e0e$a$\u7684\u5173\u7cfb\uff0c\u4ece\u800c\u6c42\u51fa\u79bb\u5fc3\u7387$e=\\frac{c}{a}$\u3002</think>\n<answer>\\frac{\\sqrt{10}}{2};\\sqrt{10}</answer>",
+    "label": 0,
+    "avg_logprob": 0.25785409051984515
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5f53\u51fd\u6570 $y=\\sin x-\\sqrt{3} \\cos x(0 \\leqslant x<2 \\pi)$ \u53d6\u5f97\u6700\u5927\u503c\u65f6, $x=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{5\\pi}{6}$",
+      "other": {
+        "source": "2012\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u5927\u7eb2\u7248\uff09"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230\u51fd\u6570\u7684\u6700\u5927\u503c\uff0c\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528\u4e09\u89d2\u6052\u7b49\u53d8\u6362\u5c06\u7ed9\u5b9a\u7684\u51fd\u6570\u8f6c\u6362\u4e3a\u4e00\u4e2a\u5355\u4e00\u7684\u6b63\u5f26\u6216\u4f59\u5f26\u5f62\u5f0f\u3002\u8fd9\u91cc\u53ef\u4ee5\u5229\u7528\u8f85\u52a9\u89d2\u516c\u5f0f\uff1a$a\\sin x + b\\cos x = R\\sin(x+\\phi)$\uff0c\u5176\u4e2d$R = \\sqrt{a^2 + b^2}$\uff0c$\\tan \\phi = \\frac{b}{a}$\u3002\u5bf9\u4e8e\u7ed9\u5b9a\u7684\u51fd\u6570\uff0c$a=1$\uff0c$b=-\\sqrt{3}$\uff0c\u56e0\u6b64$R = 2$\uff0c$\\tan \\phi = -\\sqrt{3}$\u3002\u7531\u6b64\u53ef\u4ee5\u786e\u5b9a$\\phi$\u7684\u503c\uff0c\u5e76\u8fdb\u4e00\u6b65\u6c42\u89e3$x$\u3002</think>\n<answer>\\frac{\\pi}{3};\\frac{4\\pi}{3}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.22762156150513557
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u6211\u56fd\u5357\u5b8b\u8457\u540d\u6570\u5b66\u5bb6\u79e6\u4e5d\u97f6, \u53d1\u73b0\u4e86\u4ece\u4e09\u89d2\u5f62\u4e09\u8fb9\u6c42\u9762\u79ef\u7684\u516c\u5f0f, \u4ed6\u628a\u8fd9\u79cd\u65b9\u6cd5\u79f0\u4e3a \u201c\u4e09\u659c\u6c42\u79ef\u201d, \u5b83\u586b\u8865\u4e86\u6211\u56fd\u4f20\u7edf\u6570\u5b66\u7684\u4e00\u4e2a\u7a7a\u767d. \u5982\u679c\u628a\u8fd9\u4e2a\u65b9\u6cd5\u5199\u6210\u516c\u5f0f, \u5c31\u662f $S=\\sqrt{\\frac{1}{4}\\left[c^{2} a^{2}-\\left(\\frac{c^{2}+a^{2}-b^{2}}{2}\\right)^{2}\\right]}$, \u5176\u4e2d $a, b, c$ \u662f\u4e09\u89d2\u5f62\u7684\u4e09\u8fb9, $S$ \u662f\u4e09\u89d2\u5f62\u7684\u9762\u79ef. \u8bbe \u67d0\u4e09\u89d2\u5f62\u7684\u4e09\u8fb9 $a=\\sqrt{2}, b=\\sqrt{3}, c=2$, \u5219\u8be5\u4e09\u89d2\u5f62\u7684\u9762\u79ef $S=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{\\sqrt{23}}{4}$",
+      "other": {
+        "source": "2022\u5e74\u6d59\u6c5f\u7701\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u6839\u636e\u7ed9\u5b9a\u7684\u516c\u5f0f \\(S = \\sqrt{\\frac{1}{4}\\left[c^{2} a^{2}-\\left(\\frac{c^{2}+a^{2}-b^{2}}{2}\\right)^{2}\\right]}\\)\uff0c\u4ee3\u5165 \\(a = \\sqrt{2}\\), \\(b = \\sqrt{3}\\), \\(c = 2\\) \u8fdb\u884c\u8ba1\u7b97\u3002</think>\n<answer>\\sqrt{2};\\frac{\\sqrt{2}}{2}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.1271571366176629
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u591a\u9879\u5f0f $(x+2)(x-1)^{4}=a_{0}+a_{1} x+a_{2} x^{2}+a_{3} x^{3}+a_{4} x^{4}+a_{5} x^{5}$, \u5219 $a_{2}=(\\quad)$, $a_{1}+a_{2}+a_{3}+a_{4}+a_{5}=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "8;$-2$",
+      "other": {
+        "source": "2022\u5e74\u6d59\u6c5f\u7701\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230\u7cfb\u6570 \\(a_2\\) \u548c \\(a_1 + a_2 + a_3 + a_4 + a_5\\) \u7684\u503c\uff0c\u6211\u4eec\u53ef\u4ee5\u901a\u8fc7\u5c55\u5f00\u591a\u9879\u5f0f \\((x+2)(x-1)^4\\) \u6765\u76f4\u63a5\u8ba1\u7b97\u8fd9\u4e9b\u7cfb\u6570\u3002\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u5c55\u5f00 \\((x-1)^4\\)\uff0c\u7136\u540e\u4e0e \\(x+2\\) \u76f8\u4e58\uff0c\u627e\u51fa\u6240\u9700\u7684\u7cfb\u6570\u3002\n\n1. \u5c55\u5f00 \\((x-1)^4\\)\u3002\n2. \u5c06\u7ed3\u679c\u4e0e \\(x+2\\) \u76f8\u4e58\u3002\n3. \u4ece\u4e58\u79ef\u4e2d\u63d0\u53d6 \\(a_2\\) \u548c \\(a_1 + a_2 + a_3 + a_4 + a_5\\) \u7684\u503c\u3002\n</think>\n<answer>\\(-6;1\\)</answer>",
+    "label": 0,
+    "avg_logprob": 0.2688393711864907
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u82e5 $3 \\sin \\alpha-\\sin \\beta=\\sqrt{10}, \\alpha+\\beta=\\frac{\\pi}{2}$, \u5219 $\\sin \\alpha=(\\quad)$, $\\cos 2 \\beta=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{3\\sqrt{10}}{10}$;$\\frac{4}{5}$",
+      "other": {
+        "source": "2022\u5e74\u6d59\u6c5f\u7701\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u5229\u7528\u5df2\u77e5\u6761\u4ef6 $\\alpha + \\beta = \\frac{\\pi}{2}$ \u53ef\u5f97 $\\beta = \\frac{\\pi}{2} - \\alpha$\u3002\u4ee3\u5165\u7b2c\u4e00\u4e2a\u65b9\u7a0b\u5f97\u5230\u5173\u4e8e $\\sin \\alpha$ \u7684\u65b9\u7a0b\u3002\u63a5\u7740\uff0c\u5229\u7528\u4e09\u89d2\u6052\u7b49\u53d8\u6362\u6c42\u89e3 $\\sin \\alpha$ \u548c $\\cos 2\\beta$\u3002</think>\n<answer>\\sin \\alpha = \\frac{3\\sqrt{10}}{10}; \\cos 2\\beta = -\\frac{4}{5}</answer>",
+    "label": 0,
+    "avg_logprob": 0.19602993635620106
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u51fd\u6570 $f(x)=\\left\\{\\begin{array}{l}-x^{2}+2, x \\leq 1, \\\\ x+\\frac{1}{x}-1, x>1,\\end{array}\\right.$ \u5219 $f\\left(f\\left(\\frac{1}{2}\\right)\\right)=(\\quad)$; \u82e5\u5f53 $x \\in[a, b]$ \u65f6, $1 \\leq f(x) \\leq 3$, \u5219 $b-a$ \u7684\u6700\u5927\u503c\u662f $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{37}{28}$;$3+\\sqrt{3}$",
+      "other": {
+        "source": "2022\u5e74\u6d59\u6c5f\u7701\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\u8ba1\u7b97$f\\left(\\frac{1}{2}\\right)$\uff0c\u7531\u4e8e$\\frac{1}{2} \\leq 1$\uff0c\u4f7f\u7528\u7b2c\u4e00\u90e8\u5206\u7684\u8868\u8fbe\u5f0f\u8ba1\u7b97\uff1b\u7136\u540e\u8ba1\u7b97$f\\left(f\\left(\\frac{1}{2}\\right)\\right)$\uff0c\u6839\u636e\u4e0a\u4e00\u6b65\u7684\u7ed3\u679c\u786e\u5b9a\u4f7f\u7528\u7684\u8868\u8fbe\u5f0f\u3002\u63a5\u7740\uff0c\u5206\u6790\u51fd\u6570$f(x)$\u5728$x \\in [a, b]$\u65f6\u6ee1\u8db3$1 \\leq f(x) \\leq 3$\u7684\u6761\u4ef6\uff0c\u627e\u51fa$b-a$\u7684\u6700\u5927\u503c\u3002</think>\n<answer>\\frac{5}{4};2\\sqrt{2}-1</answer>",
+    "label": 0,
+    "avg_logprob": 0.2623408817338499
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u73b0\u6709 7 \u5f20\u5361\u7247, \u5206\u522b\u5199\u4e0a\u6570\u5b57 $1,2,2,3,4,5,6$. \u4ece\u8fd9 7 \u5f20\u5361\u7247\u4e2d\u968f\u673a\u62bd\u53d6 3 \u5f20, \u8bb0\u6240\u62bd\u53d6\u5361\u7247\u4e0a\u6570\u5b57\u7684\u6700\u5c0f\u503c\u4e3a $\\xi$, \u5219 $P(\\xi=2)=(\\quad)$ , $E(\\xi)=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{16}{35}$;$\\frac{12}{7}$",
+      "other": {
+        "source": "2022\u5e74\u6d59\u6c5f\u7701\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\u8ba1\u7b97$P(\\xi=2)$\u3002\u5f53$\\xi=2$\u65f6\uff0c\u610f\u5473\u7740\u62bd\u53d6\u7684\u4e09\u5f20\u5361\u7247\u4e2d\u81f3\u5c11\u6709\u4e00\u5f20\u662f2\uff0c\u4e14\u53e6\u4e00\u5f20\u4e0d\u662f1\u3002\u6211\u4eec\u53ef\u4ee5\u76f4\u63a5\u8ba1\u7b97\u8fd9\u79cd\u60c5\u51b5\u7684\u6982\u7387\uff0c\u6216\u8005\u901a\u8fc7\u8865\u96c6\u7684\u65b9\u6cd5\u8ba1\u7b97\u5176\u6982\u7387\u3002\u63a5\u7740\u8ba1\u7b97\u671f\u671b$E(\\xi)$\uff0c\u5229\u7528\u5b9a\u4e49\u6c42\u89e3\u3002\n\n\u5bf9\u4e8e$P(\\xi=2)$\uff0c\u53ef\u4ee5\u8003\u8651\u603b\u60c5\u51b5\u6570\u548c\u6ee1\u8db3\u6761\u4ef6\u7684\u60c5\u51b5\u6570\u3002\u603b\u60c5\u51b5\u6570\u662f\u4ece7\u5f20\u5361\u7247\u4e2d\u90093\u5f20\u7684\u7ec4\u5408\u6570\u3002\u6ee1\u8db3\u6761\u4ef6\u7684\u60c5\u51b5\u6570\u5305\u62ec\uff1a\u9009\u5230\u4e24\u4e2a2\u548c\u4e00\u4e2a\u975e1\u7684\u5361\u7247\uff1b\u9009\u5230\u4e00\u4e2a2\u548c\u4e24\u4e2a\u975e1\u4e14\u975e2\u7684\u5361\u7247\u3002\u8ba1\u7b97\u8fd9\u4e9b\u60c5\u51b5\u7684\u6982\u7387\u5e76\u76f8\u52a0\u3002\n\n\u5bf9\u4e8e$E(\\xi)$\uff0c\u5229\u7528\u671f\u671b\u7684\u5b9a\u4e49\uff0c\u5373\u6240\u6709\u53ef\u80fd\u53d6\u503c\u4e58\u4ee5\u5176\u5bf9\u5e94\u7684\u6982\u7387\u4e4b\u548c\u3002\n</think>\n<answer>\\[\\frac{3}{7}; \\frac{10}{7}\\]",
+    "label": 0,
+    "avg_logprob": 0.4557132934558605
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u53cc\u66f2\u7ebf $\\frac{x^{2}}{a^{2}}-\\frac{y^{2}}{b^{2}}=1(a>0, b>0)$ \u7684\u5de6\u7126\u70b9\u4e3a $F$, \u8fc7 $F$ \u4e14\u659c\u7387\u4e3a $\\frac{b}{4 a}$ \u7684\u76f4\u7ebf\u4ea4\u53cc\u66f2\u7ebf\u4e8e \u70b9 $A\\left(x_{1}, y_{1}\\right)$, \u4ea4\u53cc\u66f2\u7ebf\u7684\u6e10\u8fd1\u7ebf\u4e8e\u70b9 $B\\left(x_{2}, y_{2}\\right)$ \u4e14 $x_{1}<0<x_{2}$. \u82e5 $|F B|=3|F A|$, \u5219\u53cc\u66f2 \u7ebf\u7684\u79bb\u5fc3\u7387\u662f $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{3\\sqrt{6}}{4}$",
+      "other": {
+        "source": "2022\u5e74\u6d59\u6c5f\u7701\u9ad8\u8003\u6570\u5b66"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u786e\u5b9a\u53cc\u66f2\u7ebf\u7684\u5de6\u7126\u70b9 $F(-c,0)$\uff0c\u5176\u4e2d $c = \\sqrt{a^2 + b^2}$\u3002\u7ed9\u5b9a\u76f4\u7ebf\u7684\u65b9\u7a0b\u4e3a $y = \\frac{b}{4a}(x + c)$\u3002\u5c06\u6b64\u76f4\u7ebf\u65b9\u7a0b\u4ee3\u5165\u53cc\u66f2\u7ebf\u65b9\u7a0b\u4e2d\u6c42\u89e3 $x_1$ \u548c $x_2$\u3002\u7136\u540e\u5229\u7528 $|FB| = 3|FA|$ \u6765\u5efa\u7acb\u5173\u4e8e $a$ \u548c $b$ \u7684\u5173\u7cfb\u5f0f\uff0c\u6700\u540e\u6c42\u51fa\u79bb\u5fc3\u7387 $e = \\frac{c}{a}$\u3002</think>\n<answer>\\frac{\\sqrt{17}}{2};\\frac{\\sqrt{13}}{2}</answer>",
+    "label": 0,
+    "avg_logprob": 0.236977865515034
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u51fd\u6570 $f(x)=\\frac{1}{x+1}+\\ln x$ \u7684\u5b9a\u4e49\u57df\u662f $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$(0,+\\infty)$",
+      "other": {
+        "source": "2020\u5e74\u5317\u4eac\u5e02\u9ad8\u8003\u7406\u79d1\u6570\u5b66\u8bd5\u5377"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u786e\u5b9a\u51fd\u6570$f(x)=\\frac{1}{x+1}+\\ln x$\u7684\u5b9a\u4e49\u57df\uff0c\u6211\u4eec\u9700\u8981\u8003\u8651\u4e24\u4e2a\u90e8\u5206\uff1a$\\frac{1}{x+1}$ \u548c $\\ln x$\u3002\u5bf9\u4e8e$\\frac{1}{x+1}$\uff0c\u5206\u6bcd\u4e0d\u80fd\u4e3a0\uff0c\u5373$x \\neq -1$\uff1b\u5bf9\u4e8e$\\ln x$\uff0c\u5176\u5b9a\u4e49\u57df\u4e3a$x > 0$\u3002\u56e0\u6b64\uff0c\u7efc\u5408\u8fd9\u4e24\u4e2a\u6761\u4ef6\uff0c\u6211\u4eec\u53ef\u4ee5\u5f97\u5230\u51fd\u6570\u7684\u5b9a\u4e49\u57df\u3002</think>\n<answer>(0,+\\infty)</answer>",
+    "label": 0,
+    "avg_logprob": 0.15957463097446486
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u53cc\u66f2\u7ebf $C: \\frac{x^{2}}{6}-\\frac{y^{2}}{3}=1$, \u5219 $C$ \u7684\u53f3\u7126\u70b9\u7684\u5750\u6807\u4e3a $(\\quad)$ ; $C$ \u7684\u7126\u70b9\u5230\u5176\u6e10\u8fd1\u7ebf\u7684\u8ddd\u79bb\u662f $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\left(3,0\\right)$;$\\sqrt{3}$",
+      "other": {
+        "source": "2020\u5e74\u5317\u4eac\u5e02\u9ad8\u8003\u7406\u79d1\u6570\u5b66\u8bd5\u5377"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u5bf9\u4e8e\u53cc\u66f2\u7ebf $\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$\uff0c\u5176\u53f3\u7126\u70b9\u5750\u6807\u4e3a $(c,0)$\uff0c\u5176\u4e2d $c = \\sqrt{a^2 + b^2}$\u3002\u6e10\u8fd1\u7ebf\u65b9\u7a0b\u4e3a $y = \\pm \\frac{b}{a}x$\u3002\u7126\u70b9\u5230\u6e10\u8fd1\u7ebf\u7684\u8ddd\u79bb\u53ef\u4ee5\u901a\u8fc7\u70b9\u5230\u76f4\u7ebf\u7684\u8ddd\u79bb\u516c\u5f0f\u8ba1\u7b97\uff0c\u5373 $d = \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}$\uff0c\u5176\u4e2d\u76f4\u7ebf\u65b9\u7a0b\u4e3a $Ax + By + C = 0$\u3002</think>\n<answer>$(3,0)$; $\\sqrt{3}$</answer>",
+    "label": 1,
+    "avg_logprob": 0.1467348066950048
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u82e5\u51fd\u6570 $f(x)=\\sin (x+\\varphi)+\\cos x$ \u7684\u6700\u5927\u503c\u4e3a 2 , \u5219\u5e38\u6570 $\\varphi$ \u7684\u4e00\u4e2a\u53d6\u503c\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{\\pi}{2}$",
+      "other": {
+        "source": "2020\u5e74\u5317\u4eac\u5e02\u9ad8\u8003\u7406\u79d1\u6570\u5b66\u8bd5\u5377"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u77e5\u9053 $\\sin (x+\\varphi) = \\sin x \\cos \\varphi + \\cos x \\sin \\varphi$\u3002\u56e0\u6b64\uff0c\u53ef\u4ee5\u5c06\u7ed9\u5b9a\u51fd\u6570\u91cd\u5199\u4e3a $f(x) = \\sin x \\cos \\varphi + \\cos x (\\sin \\varphi + 1)$\u3002\u4e3a\u4e86\u4f7f $f(x)$ \u8fbe\u5230\u6700\u5927\u503c 2\uff0c\u6211\u4eec\u9700\u8981\u8003\u8651 $\\sin x$ \u548c $\\cos x$ \u7684\u6027\u8d28\u4ee5\u53ca\u5b83\u4eec\u7684\u6700\u5927\u503c\u4e3a 1\u3002\u8fd9\u610f\u5473\u7740 $\\sin \\varphi + 1$ \u5fc5\u987b\u7b49\u4e8e 1\uff0c\u4e14 $\\cos \\varphi$ \u5fc5\u987b\u7b49\u4e8e 0\u3002\u7531\u6b64\u6211\u4eec\u53ef\u4ee5\u89e3\u51fa $\\varphi$ \u7684\u503c\u3002</think>\n<answer>\\frac{\\pi}{2};\\frac{5\\pi}{2}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.25862609769257694
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\uff085 \u5206\uff09\u5df2\u77e5\u5411\u91cf $\\vec{a}=(1,2), \\vec{b}=(2,-2), \\vec{c}=(1, \\lambda)$. \u82e5 $\\vec{c} / /(2 \\vec{a}+\\vec{b})$, \u5219 $\\lambda=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "$\\frac{1}{2}$",
+      "other": {
+        "source": "2018\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2172\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6839\u636e\u9898\u610f\uff0c$\\vec{c}$ \u4e0e $2\\vec{a} + \\vec{b}$ \u5e73\u884c\u3002\u6211\u4eec\u5148\u8ba1\u7b97 $2\\vec{a} + \\vec{b}$ \u7684\u5750\u6807\uff0c\u7136\u540e\u5229\u7528\u5411\u91cf\u5e73\u884c\u7684\u6761\u4ef6\u6765\u89e3\u51fa $\\lambda$ \u7684\u503c\u3002</think>\n<answer>\\lambda=1</answer>",
+    "label": 0,
+    "avg_logprob": 0.2678805458463208
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u66f2\u7ebf $y=(a x+1) e^{x}$ \u5728\u70b9 $(0,1)$ \u5904\u7684\u5207\u7ebf\u7684\u659c\u7387\u4e3a -2 , \u5219 $a=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "-3",
+      "other": {
+        "source": "2018\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2172\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u7ed9\u5b9a\u51fd\u6570\u7684\u5bfc\u6570\uff0c\u5373\u66f2\u7ebf\u7684\u659c\u7387\u8868\u8fbe\u5f0f\u3002\u7136\u540e\uff0c\u6211\u4eec\u5c06\u70b9(0,1)\u4ee3\u5165\u5bfc\u6570\u4e2d\uff0c\u5e76\u8bbe\u7f6e\u5176\u7b49\u4e8e-2\u6765\u89e3\u51faa\u7684\u503c\u3002</think>\n<answer>-3</answer>",
+    "label": 1,
+    "avg_logprob": 0.3208834113266836
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u51fd\u6570 $f(x)=\\cos \\left(3 x+\\frac{\\pi}{6}\\right)$ \u5728 $[0, \\pi]$ \u7684\u96f6\u70b9\u4e2a\u6570\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "3",
+      "other": {
+        "source": "2018\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2172\uff09"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230\u51fd\u6570$f(x)=\\cos \\left(3x + \\frac{\\pi}{6}\\right)$\u5728\u533a\u95f4$[0, \\pi]$\u4e0a\u7684\u96f6\u70b9\u4e2a\u6570\uff0c\u6211\u4eec\u9700\u8981\u89e3\u65b9\u7a0b$\\cos \\left(3x + \\frac{\\pi}{6}\\right) = 0$\u3002\u6211\u4eec\u77e5\u9053\u4f59\u5f26\u51fd\u6570\u7b49\u4e8e0\u7684\u70b9\u662f$\\frac{\\pi}{2} + k\\pi$\uff0c\u5176\u4e2d$k$\u662f\u6574\u6570\u3002\u56e0\u6b64\uff0c\u6211\u4eec\u6709$3x + \\frac{\\pi}{6} = \\frac{\\pi}{2} + k\\pi$\u3002\u89e3\u8fd9\u4e2a\u65b9\u7a0b\u5f97\u5230$x = \\frac{\\pi}{9} + \\frac{k\\pi}{3}$\u3002\u6211\u4eec\u9700\u8981\u627e\u51fa\u5728\u8fd9\u4e2a\u533a\u95f4\u5185\u7684\u6240\u6709\u53ef\u80fd\u7684$x$\u503c\u3002</think>\n<answer>4</answer>",
+    "label": 0,
+    "avg_logprob": 0.14949466200224715
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5df2\u77e5\u70b9 $M(-1,1)$ \u548c\u629b\u7269\u7ebf $C: y^{2}=4 x$, \u8fc7 $C$ \u7684\u7126\u70b9\u4e14\u659c\u7387\u4e3a $k$ \u7684 \u76f4\u7ebf\u4e0e $C$ \u4ea4\u4e8e $A, B$ \u4e24\u70b9. \u82e5 $\\angle A M B=90^{\\circ}$, \u5219 $k=(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "2",
+      "other": {
+        "source": "2018\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2172\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u786e\u5b9a\u629b\u7269\u7ebf\u7684\u7126\u70b9\u5750\u6807\u4e3a $(1,0)$\u3002\u8bbe\u76f4\u7ebf\u65b9\u7a0b\u4e3a $y=k(x-1)$\uff0c\u4ee3\u5165\u629b\u7269\u7ebf\u65b9\u7a0b\u6c42\u89e3\u4ea4\u70b9 $A, B$ \u7684\u5750\u6807\u3002\u5229\u7528\u5411\u91cf\u7684\u5185\u79ef\u4e3a\u96f6\u6765\u8868\u793a $\\angle AMB = 90^\\circ$\uff0c\u4ece\u800c\u89e3\u51fa $k$ \u7684\u503c\u3002</think>\n<answer>\\(\\frac{1}{2}; -\\frac{1}{2}\\)</answer>",
+    "label": 0,
+    "avg_logprob": 0.26908849190970385
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u5c06\u6570\u5217 $\\{2 n-1\\}$ \u4e0e $\\{3 n-2\\}$ \u7684\u516c\u5171\u9879\u4ece\u5c0f\u5230\u5927\u6392\u5217\u5f97\u5230\u6570\u5217 $\\left\\{a_{n}\\right\\}$, \u5219 $\\left\\{a_{n}\\right\\}$ \u7684\u524d $n$ \u9879\u548c\u4e3a $(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "$3n^{2}-2n$",
+      "other": {
+        "source": "2020\u5e74\u9ad8\u8003\u771f\u9898\u6570\u5b66\u3010\u65b0\u9ad8\u8003\u5168\u56fd\u2160\u5377\u3011(\u5c71\u4e1c\u5377)"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230\u4e24\u4e2a\u6570\u5217\u7684\u516c\u5171\u9879\uff0c\u6211\u4eec\u8bbe $2n-1 = 3m-2$\uff0c\u89e3\u8fd9\u4e2a\u65b9\u7a0b\u627e\u51fa\u6ee1\u8db3\u6761\u4ef6\u7684 $n$ \u548c $m$ \u7684\u5173\u7cfb\u3002\u8fdb\u4e00\u6b65\u7b80\u5316\u5f97\u5230 $2n - 3m = -1$\u3002\u8fd9\u662f\u4e00\u4e2a\u4e0d\u5b9a\u65b9\u7a0b\uff0c\u6211\u4eec\u9700\u8981\u627e\u5230\u6700\u5c0f\u6b63\u6574\u6570\u89e3\uff0c\u7136\u540e\u5229\u7528\u901a\u89e3\u5f62\u5f0f\u627e\u51fa\u6240\u6709\u53ef\u80fd\u7684\u89e3\u3002\u63a5\u7740\uff0c\u6211\u4eec\u53ef\u4ee5\u786e\u5b9a\u6570\u5217 $\\{a_n\\}$ \u7684\u901a\u9879\u516c\u5f0f\uff0c\u5e76\u6c42\u5176\u524d $n$ \u9879\u548c\u3002</think>\n<answer>\\frac{3n^2-n}{2}\\end{answer}",
+    "label": 0,
+    "avg_logprob": 0.3538451259857457
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u8bbe\u5411\u91cf $\\vec{a}=(m, 1), \\vec{b}=(1,2)$, \u4e14 $|\\vec{a}+\\vec{b}|^{2}=|\\vec{a}|^{2}+|\\vec{b}|^{2}$, \u5219 $m=(\\quad)$",
+      "options": null,
+      "label": null,
+      "answer": "-2",
+      "other": {
+        "source": "2016\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u6839\u636e\u9898\u76ee\u6761\u4ef6\uff0c\u6211\u4eec\u6709\u5411\u91cf $\\vec{a} + \\vec{b} = (m+1, 3)$. \u6839\u636e\u5411\u91cf\u6a21\u957f\u7684\u6027\u8d28\uff0c$|\\vec{a}+\\vec{b}|^2 = (m+1)^2 + 3^2$, $|\\vec{a}|^2 = m^2 + 1$, $|\\vec{b}|^2 = 5$. \u5c06\u8fd9\u4e9b\u4ee3\u5165\u7ed9\u5b9a\u7b49\u5f0f\u5e76\u89e3\u65b9\u7a0b\u5373\u53ef\u6c42\u5f97 $m$ \u7684\u503c\u3002</think>\n<answer>4</answer>",
+    "label": 0,
+    "avg_logprob": 0.20662836770189874
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "$(2 x+\\sqrt{x})^{5}$ \u7684\u5c55\u5f00\u5f0f\u4e2d, $x^{3}$ \u7684\u7cfb\u6570\u662f $(\\quad)$. (\u7528\u6570\u5b57\u586b\u5199\u7b54\u6848)",
+      "options": null,
+      "label": null,
+      "answer": "10",
+      "other": {
+        "source": "2016\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u4e3a\u4e86\u627e\u5230$x^3$\u7684\u7cfb\u6570\uff0c\u6211\u4eec\u53ef\u4ee5\u4f7f\u7528\u4e8c\u9879\u5f0f\u5b9a\u7406\u3002\u4e8c\u9879\u5f0f\u5b9a\u7406\u8868\u8fbe\u5f0f\u4e3a$(a+b)^n = \\sum_{k=0}^{n} \\binom{n}{k} a^{n-k}b^k$\u3002\u5728\u8fd9\u4e2a\u95ee\u9898\u4e2d\uff0c$a=2x$\uff0c$b=\\sqrt{x}$\uff0c$n=5$\u3002\u6211\u4eec\u9700\u8981\u627e\u5230$x^3$\u7684\u9879\uff0c\u5373\u627e\u5230\u5408\u9002\u7684$k$\u503c\u4f7f\u5f97$(2x)^{5-k}(\\sqrt{x})^k = x^3$\u3002\n\n\u89e3\u65b9\u7a0b$5-k + \\frac{k}{2} = 3$\u5f97\u5230$k=4$\u3002\u56e0\u6b64\uff0c\u6211\u4eec\u9700\u8981\u8ba1\u7b97$\\binom{5}{4}(2x)^{5-4}(\\sqrt{x})^4$\u7684\u7cfb\u6570\u3002\n</think>\n<answer>80</answer>",
+    "label": 0,
+    "avg_logprob": 0.19059775362683162
+  },
+  {
+    "original_data": {
+      "passage": null,
+      "question": "\u8bbe\u7b49\u6bd4\u6570\u5217 $\\left\\{a_{n}\\right\\}$ \u6ee1\u8db3 $a_{1}+a_{3}=10, a_{2}+a_{4}=5$, \u5219 $a_{1} a_{2} \\ldots a_{n}$ \u7684\u6700\u5927\u503c\u4e3a $(\\quad)$.",
+      "options": null,
+      "label": null,
+      "answer": "64",
+      "other": {
+        "source": "2016\u5e74\u6570\u5b66\u8bd5\u5377\uff08\u7406\u79d1\uff09\uff08\u65b0\u8bfe\u6807\u2170\uff09"
+      }
+    },
+    "model_answer": "<think>\u9996\u5148\uff0c\u6839\u636e\u7b49\u6bd4\u6570\u5217\u7684\u6027\u8d28\uff0c\u8bbe\u516c\u6bd4\u4e3a$q$\uff0c\u5219\u6709$a_2 = a_1q$\uff0c$a_3 = a_1q^2$\uff0c$a_4 = a_1q^3$\u3002\u6839\u636e\u9898\u76ee\u6761\u4ef6\u53ef\u4ee5\u5217\u51fa\u65b9\u7a0b\u7ec4\uff1a\n\n\\[a_1 + a_1q^2 = 10\\]\n\\[a_1q + a_1q^3 = 5\\]\n\n\u901a\u8fc7\u89e3\u8fd9\u4e2a\u65b9\u7a0b\u7ec4\u627e\u5230$a_1$\u548c$q$\u7684\u5177\u4f53\u503c\u3002\u7136\u540e\uff0c\u8003\u8651$a_1 a_2 \\ldots a_n$\u7684\u6700\u5927\u503c\uff0c\u5373\u6c42$a_1(1 \\cdot q \\cdot q^2 \\cdot \\ldots \\cdot q^{n-1}) = a_1 q^{1+2+\\ldots+(n-1)} = a_1 q^{\\frac{n(n-1)}{2}}$\u7684\u6700\u5927\u503c\u3002</think>\n<answer>\\frac{125}{4};625</answer>",
+    "label": 0,
+    "avg_logprob": 0.2048175513375504
+  }
+]
