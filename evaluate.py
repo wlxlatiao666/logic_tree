@@ -69,7 +69,7 @@ if __name__ == "__main__":
         greedy_data = json.load(f)
     with open(f'./results/{dataset}/generated_answers_topk_topp.json') as f:
         topk_topp_data = json.load(f)
-    with open(f'./results/{dataset}/generated_answers_20samples.json') as f:
+    with open(f'./results/{dataset}/generated_answers_20samples_100.json') as f:
         data_5samples = json.load(f)
 
     y_true = defaultdict(list)
