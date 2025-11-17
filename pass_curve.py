@@ -90,7 +90,7 @@ if __name__ == "__main__":
     plt.show()
 
     # 图2 pass@k随k的变化
-    max_k = 15
+    max_k = 20
     sc_pass_at_k = []
     lt_pass_at_k = []
 
