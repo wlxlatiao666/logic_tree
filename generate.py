@@ -21,7 +21,8 @@ if __name__ == "__main__":
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--test_size", type=int, default=-1)
     parser.add_argument("--sample", type=bool, default=False)
-    parser.add_argument("--buffer", type=int, default=20)
+    parser.add_argument("--num_leaves", type=int, default=20)
+    parser.add_argument("--tau", type=int, default=80)
     args = parser.parse_args()
 
     # load model
@@ -36,7 +37,8 @@ if __name__ == "__main__":
     dataset = args.dataset
     test_size = args.test_size
     sample = args.sample
-    buffer = args.buffer
+    num_leaves = args.num_leaves
+    tau = args.tau
     logger.info(f"Sample: {sample}")
     dataset_path = f"./data/{dataset}/test.json"
     with open(dataset_path, "r") as f:
@@ -47,7 +49,7 @@ if __name__ == "__main__":
     with open(f"./sys_prompt.json", "r") as f:
         sys_prompt = json.load(f)[dataset]
 
-    thr = get_threshold(tokenizer, model, dataset)
+    thr = get_threshold(tokenizer, model, dataset, tau=tau)
     logger.info(f"Threshold for {dataset}: {thr}")
 
     # generate
@@ -57,7 +59,7 @@ if __name__ == "__main__":
         usr_prompt = generate_usr_prompt(dataset, item)
         prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
 
-        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=sample, tau=thr, branches_m=3, max_times=buffer)
+        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=sample, tau=thr, branches_m=3, max_leaves=num_leaves)
 
         complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
         probs = [leaf.prob for leaf in leaves]
@@ -83,13 +85,13 @@ if __name__ == "__main__":
 
     if test_size == -1:
         if sample:
-            output_path = f"./results/{dataset}/logic_tree_results_all_topk_topp_nomerge_buffer{buffer}_threshold90.json"
+            output_path = f"./results/{dataset}/logic_tree_results_all_topk_topp_nomerge_leaves{num_leaves}_threshold{tau}.json"
         else:
-            output_path = f"./results/{dataset}/logic_tree_results_all_greedy_buffer{buffer}.json"
+            output_path = f"./results/{dataset}/logic_tree_results_all_greedy_leaves{num_leaves}_threshold{tau}.json"
     else:
         if sample:
-            output_path = f"./results/{dataset}/logic_tree_results_{test_size}_topk_topp_nomerge_buffer{buffer}_threshold90.json"
+            output_path = f"./results/{dataset}/logic_tree_results_{test_size}_topk_topp_nomerge_leaves{num_leaves}_threshold{tau}.json"
         else:
-            output_path = f"./results/{dataset}/logic_tree_results_{test_size}_greedy_buffer{buffer}.json"
-    with open(output_path, 'w') as f:
-        json.dump(results, f, indent=2)
+            output_path = f"./results/{dataset}/logic_tree_results_{test_size}_greedy_leaves{num_leaves}_threshold{tau}.json"
+    with open(output_path, 'w', encoding="utf8") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
