@@ -83,12 +83,12 @@ if __name__ == "__main__":
 
     if test_size == -1:
         if sample:
-            output_path = f"./results/{dataset}/logic_tree_results_all_topk_topp_nomerge_buffer{buffer}_threshold90.json"
+            output_path = f"./results/{dataset}/logic_tree_results_all_topk_topp_nomerge_buffer{buffer}.json"
         else:
             output_path = f"./results/{dataset}/logic_tree_results_all_greedy_buffer{buffer}.json"
     else:
         if sample:
-            output_path = f"./results/{dataset}/logic_tree_results_{test_size}_topk_topp_nomerge_buffer{buffer}_threshold90.json"
+            output_path = f"./results/{dataset}/logic_tree_results_{test_size}_topk_topp_nomerge_buffer{buffer}.json"
         else:
             output_path = f"./results/{dataset}/logic_tree_results_{test_size}_greedy_buffer{buffer}.json"
     with open(output_path, 'w') as f:
