@@ -81,13 +81,14 @@ if __name__ == "__main__":
     lt_pass_rate = np.mean(lt_passes)
     lt_avg_tokens = np.mean(lt_tokens)
 
+    plt.figure(1)
     plt.plot(avg_token_counts, pass_rates, marker='o', label='Sampling')
     plt.scatter([lt_avg_tokens], [lt_pass_rate], color='red', marker='*', s=150, label='Logic Tree')
-    plt.xlabel('Total tokens per response')
+    plt.xlabel('Total tokens per question')
     plt.ylabel('Pass@all')
-    plt.title('Pass@all vs. total tokens per response')
+    plt.title('Pass@all vs. total tokens per question')
     plt.grid(True)
-    plt.show()
+    plt.legend()
 
     # 图2 pass@k随k的变化
     max_k = 15
@@ -113,7 +114,7 @@ if __name__ == "__main__":
         lt_correct_flags_list.append(correct_flags)
 
     # 计算Sampling的pass@k
-    for k in range(1, max_k + 1):
+    for k in range(1, max_n + 1):
         # 对每个item计算pass@k，然后求平均
         item_pass_at_k = []
         for correct_flags in sc_correct_flags_list:
@@ -135,7 +136,7 @@ if __name__ == "__main__":
     # 绘制图2
     plt.figure(2)
     k_values = list(range(1, max_k + 1))
-    plt.plot(k_values, sc_pass_at_k, marker='o', label='Sampling')
+    plt.plot(k_values, sc_pass_at_k[:max_k], marker='o', label='Sampling')
     plt.plot(k_values, lt_pass_at_k, marker='s', label='Logic Tree')
     plt.xlabel('k')
     plt.ylabel('Pass@k')
@@ -143,6 +144,31 @@ if __name__ == "__main__":
     plt.grid(True)
     plt.legend()
     
+    # 图3 token总数随采样数n的变化
+    plt.figure(3)
+    # Sampling的token总数曲线（使用之前计算的avg_token_counts）
+    n_values = list(range(1, max_n + 1))
+    plt.plot(n_values, avg_token_counts, marker='o', label='Sampling')
+    # Logic Tree的token总数点
+    # 找到与Logic Tree平均token数最接近的n值，作为点的x坐标
+    # 这里我们可以使用max_n作为点的x坐标，或者使用其他合适的值
+    lt_n_value = max_k  # 或者选择其他合适的值作为x坐标
+    plt.scatter([lt_n_value], [lt_avg_tokens], color='red', marker='*', s=150, label='Logic Tree')
+    plt.xlabel('Sampling number n')
+    plt.ylabel('Total tokens')
+    plt.title('Total tokens vs. sampling number n')
+    plt.grid(True)
+    plt.legend()
+    
+    plt.figure(4)
+    plt.plot(avg_token_counts, sc_pass_at_k, marker='o', label='Sampling')
+    plt.scatter([lt_avg_tokens], [lt_pass_at_k[-1]], color='red', marker='*', s=150, label='Logic Tree')
+    plt.xlabel('Total tokens per question')
+    plt.ylabel('Pass@k')
+    plt.title('Pass@k vs. total tokens per question')
+    plt.grid(True)
+    plt.legend()
+
     # 显示所有图表
     plt.tight_layout()
     plt.show()

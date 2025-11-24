@@ -40,7 +40,7 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # 触发阈值
 TAU = 0.80     # 归一化熵阈值（触发分叉）
 BRANCHES_M = 3      # 每次分叉产生的分支数
-MAX_TIMES = 20
+MAX_LEAVES = 20
 MAX_NEW_TOKENS = 512
 
 TEMPERATURE = 0.7
@@ -200,7 +200,7 @@ def calculate_diversity(leaves: List[Node]):
 def logic_branch_decode(
     tokenizer, model, prompt: str, sample: bool = False,
     tau: float = TAU, branches_m: int = BRANCHES_M,
-    max_times: int = MAX_TIMES, max_new_tokens: int = MAX_NEW_TOKENS,
+    max_leaves: int = MAX_LEAVES, max_new_tokens: int = MAX_NEW_TOKENS,
     temperature: float = TEMPERATURE,
     topk: int = TOPK, nucleus_p: float = NUCLEUS_P, steps_branch: int = STEPS_BRANCH
 ):
@@ -216,7 +216,6 @@ def logic_branch_decode(
     frontier: List[PrioritizedItem] = []
     heapq.heappush(frontier, PrioritizedItem(depth=0, neg_logprob=0.0, node=root, past=(input_ids, past_kv)))
     leaves: List[Node] = []
-    times = 1
     new_tokens_cnt = 0
 
     while frontier:
@@ -243,7 +242,7 @@ def logic_branch_decode(
             # is_split_point = H_norm >= tau and random_factor < 0.5
             is_split_point = H_norm >= tau
 
-            if times >= max_times:
+            if len(leaves) + len(frontier) >= max_leaves:
                 is_split_point = False
 
             if is_split_point:
@@ -337,7 +336,6 @@ def logic_branch_decode(
                         leaves.append(it.node)
                         continue
                     heapq.heappush(frontier, it)
-                    times += 1
                 break
             else:
                 # regular decoding with low temperature

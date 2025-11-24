@@ -114,5 +114,5 @@ if __name__ == "__main__":
     logger.info(f"\n[运行统计] 总耗时: {duration:.2f}秒 ({duration/60:.2f}分钟)")
 
     # 保存结果
-    with open(output_file, 'w') as f:
-        json.dump(results, f, indent=2)
+    with open(output_file, 'w', encoding="utf8") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
