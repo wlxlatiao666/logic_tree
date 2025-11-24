@@ -328,9 +328,10 @@ def logic_branch_decode(
                         ))
                         # logger.info("tmp_past: ", tmp_past, tmp_past[0][0].shape)
 
-                for child in children:
+                for child, it in zip(children, items):
+                    if len(leaves) + len(frontier) >= max_leaves:
+                        break
                     node.children.append(child)
-                for it in items:
                     cur_ids = it.past[0]
                     if stop_condition(cur_ids[0, 0], tokenizer):
                         leaves.append(it.node)
