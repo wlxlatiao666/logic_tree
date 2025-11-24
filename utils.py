@@ -16,29 +16,13 @@ def remove_boxed(s):
         return None
     
 def generate_usr_prompt(dataset: str, item: dict) -> str:
-    if "gsm8k" in dataset or dataset == "math" or "aime" in dataset:
+    if "gsm8k" in dataset or "math" in dataset or "aime" in dataset:
         usr_prompt = item["question"]
-    elif "reclor" in dataset:
-        usr_prompt = "Context: " + item['context'] + "\nQuestion: " + item['question'] + \
-            "\nA. " + item['answers'][0] + \
-            "\nB. " + item['answers'][1] + \
-            "\nC. " + item['answers'][2] + \
-            "\nD. " + item['answers'][3]
-        # print("usr_prompt: ", usr_prompt)
-    elif "gpqa" in dataset:
-        usr_prompt = "Question: " + item['question'] + \
-            "\nA. " + item['candidates'][0] + \
-            "\nB. " + item['candidates'][1] + \
-            "\nC. " + item['candidates'][2] + \
-            "\nD. " + item['candidates'][3]
-    elif dataset == "gaokao-mathcloze":
-        usr_prompt = item['question']
-    elif dataset == "gaokao-mathqa":
-        usr_prompt = "Question: " + item['question'] + \
-            "\n" + item['options'][0] + \
-            "\n" + item['options'][1] + \
-            "\n" + item['options'][2] + \
-            "\n" + item['options'][3]
+    elif "gpqa" in dataset or "csqa" in dataset or "arc" in dataset:
+        usr_prompt = "Question: " + item['question']
+        for i, candidate in enumerate(item['candidates']):
+            option_label = chr(ord('A') + i)
+            usr_prompt += f"\n{option_label}. {candidate}"
     else:
         raise ValueError(f"dataset {dataset} not supported")
     return usr_prompt
@@ -68,43 +52,28 @@ def parse_model_answer(model_answer):
     return str(model_answer).strip()
 
 def get_gt_answer(dataset: str, item: dict) -> str:
-    if dataset == "gsm8k":
+    if "gsm8k" in dataset:
         gt_answer = parse_gsm8k_answer(item["answer"])
-    elif dataset == "gsm8k_m":
-        gt_answer = parse_model_answer(item["answer"])
-    elif "reclor" in dataset:
-        label_to_answer = {
-            0: "A",
-            1: "B",
-            2: "C",
-            3: "D",
-        }
-        gt_answer = label_to_answer[item["label"]]
-    elif dataset == "gpqa":
-        label_to_answer = {
-            0: "A",
-            1: "B",
-            2: "C",
-            3: "D",
-        }
-        gt_answer = label_to_answer[item["answer_index"]]
-    elif dataset == "math":
+    elif "math" in dataset:
         gt_answer = remove_boxed(item["answer"])
-    elif dataset == "aime":
+    elif "aime" in dataset:
         gt_answer = item["answer"]
-    elif dataset == "gaokao-mathcloze":
-        gt_answer = item["answer"]
-    elif dataset == "gaokao-mathqa":
-        gt_answer = item["label"]
+    elif "gpqa" in dataset or "csqa" in dataset or "arc" in dataset:
+        label_to_answer = {
+            0: "A",
+            1: "B",
+            2: "C",
+            3: "D",
+            4: "E",
+        }
+        gt_answer = label_to_answer[item["correct_index"]]
     else:
         gt_answer = 'No answer.'
     return gt_answer
 
 def match_answer(gt_answer: str, model_answer: str, dataset: str) -> bool:
-    if dataset == "math":
+    if "math" in dataset:
         return is_equiv(gt_answer, model_answer)
-    if dataset == "gaokao-mathcloze":
-        return is_equiv_gaokao(model_answer, gt_answer)
     return gt_answer == model_answer
 
 def test_f():

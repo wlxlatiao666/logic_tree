@@ -1,4 +1,5 @@
 import torch
+import os
 import json
 import argparse
 import time
@@ -10,6 +11,10 @@ from threshold import get_threshold
 
 logger = logging.getLogger(__name__)
 
+model_to_dir = {
+    "Qwen2.5-7B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct",
+}
+
 if __name__ == "__main__":
     fh = logging.FileHandler('./logs/app.log', encoding='utf-8')
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -18,15 +23,16 @@ if __name__ == "__main__":
     logger.setLevel(logging.INFO)
     
     parser = argparse.ArgumentParser()
+    parser.add_argument("--model", type=str, required=True, choices=model_to_dir.keys())
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--test_size", type=int, default=-1)
-    parser.add_argument("--sample", type=bool, default=False)
     parser.add_argument("--num_leaves", type=int, default=20)
     parser.add_argument("--tau", type=int, default=80)
     args = parser.parse_args()
 
     # load model
-    model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct"  
+    model = args.model
+    model_name = model_to_dir[model]
     device = "cuda" if torch.cuda.is_available() else "cpu"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
@@ -36,10 +42,8 @@ if __name__ == "__main__":
     # load system prompt
     dataset = args.dataset
     test_size = args.test_size
-    sample = args.sample
     num_leaves = args.num_leaves
     tau = args.tau
-    logger.info(f"Sample: {sample}")
     dataset_path = f"./data/{dataset}/test.json"
     with open(dataset_path, "r") as f:
         if test_size == -1:
@@ -59,7 +63,7 @@ if __name__ == "__main__":
         usr_prompt = generate_usr_prompt(dataset, item)
         prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
 
-        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=sample, tau=thr, branches_m=3, max_leaves=num_leaves)
+        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, tau=thr, branches_m=3, max_leaves=num_leaves)
 
         complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
         probs = [leaf.prob for leaf in leaves]
@@ -84,14 +88,9 @@ if __name__ == "__main__":
     logger.info(f"generate {len(results)} results in {duration:.2f} seconds({duration/60:.2f} minutes)")
 
     if test_size == -1:
-        if sample:
-            output_path = f"./results/{dataset}/logic_tree_results_all_topk_topp_nomerge_leaves{num_leaves}_threshold{tau}.json"
-        else:
-            output_path = f"./results/{dataset}/logic_tree_results_all_greedy_leaves{num_leaves}_threshold{tau}.json"
+        output_path = f"./results/{model}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}.json"
     else:
-        if sample:
-            output_path = f"./results/{dataset}/logic_tree_results_{test_size}_topk_topp_nomerge_leaves{num_leaves}_threshold{tau}.json"
-        else:
-            output_path = f"./results/{dataset}/logic_tree_results_{test_size}_greedy_leaves{num_leaves}_threshold{tau}.json"
+        output_path = f"./results/{model}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}.json"
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding="utf8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)

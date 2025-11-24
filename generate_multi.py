@@ -1,4 +1,5 @@
 import json
+import os
 import time
 import math
 import logging
@@ -13,6 +14,10 @@ from utils import generate_usr_prompt, parse_model_answer, get_gt_answer, match_
 
 logger = logging.getLogger(__name__)
 
+model_to_dir = {
+    "Qwen2.5-7B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct",
+}
+
 if __name__ == '__main__':
     fh = logging.FileHandler('./logs/app.log', encoding='utf-8')
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -22,21 +27,23 @@ if __name__ == '__main__':
 
     # 配置参数
     parser = argparse.ArgumentParser()
+    parser.add_argument("--model", type=str, required=True, choices=model_to_dir.keys())
     parser.add_argument("--dataset", type=str, required=True)
-    parser.add_argument("--samples", type=int, default=5)
     parser.add_argument("--test_size", type=int, default=-1)
+    parser.add_argument("--samples", type=int, default=5)
     args = parser.parse_args()
     dataset = args.dataset
     num_samples = args.samples
     test_size = args.test_size
 
-    model_name = '/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct'
+    model = args.model
+    model_name = model_to_dir[model]
     device = "cuda" if torch.cuda.is_available() else "cpu"
     dataset_path = f"./data/{dataset}/test.json"
     if test_size == -1:
-        output_file = f'./results/{dataset}/generated_answers_{num_samples}samples.json'
+        output_file = f'./results/{model}/{dataset}/generated_answers_{num_samples}samples.json'
     else:
-        output_file = f'./results/{dataset}/generated_answers_{num_samples}samples_{test_size}.json'
+        output_file = f'./results/{model}/{dataset}/generated_answers_{num_samples}samples_{test_size}.json'
         
     # 加载模型和tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -136,5 +143,6 @@ if __name__ == '__main__':
     logger.info(f"\n[运行统计] 总耗时: {duration:.2f}秒 ({duration/60:.2f}分钟)")
 
     # 保存结果
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
     with open(output_file, 'w', encoding="utf8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
