@@ -32,12 +32,19 @@ if __name__ == "__main__":
     parser.add_argument("--test_size", type=int, default=-1)
     parser.add_argument("--num_leaves", type=int, default=20)
     parser.add_argument("--tau", type=int, default=80)
+    parser.add_argument("--device", type=int, default=0)
     args = parser.parse_args()
 
     # load model
     model_name = args.model
     model_dir = model_to_dir[model_name]
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    if torch.cuda.is_available():
+        device = torch.device(f"cuda:{args.device}")
+        # 可选：添加日志记录选择的设备
+        logger.info(f"使用GPU设备: {args.device}")
+    else:
+        device = "cpu"
+        logger.info("CUDA不可用，使用CPU")
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
     model = AutoModelForCausalLM.from_pretrained(model_dir).to(device)
     if tokenizer.pad_token_id is None:
@@ -67,7 +74,7 @@ if __name__ == "__main__":
         usr_prompt = generate_usr_prompt(dataset, item)
         prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
 
-        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, tau=thr, branches_m=3, max_leaves=num_leaves)
+        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, device, prompt=prompt, sample=True, tau=thr, branches_m=3, max_leaves=num_leaves)
 
         complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
         probs = [leaf.prob for leaf in leaves]

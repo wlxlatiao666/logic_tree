@@ -27,9 +27,6 @@ from sentence_transformers import SentenceTransformer, util
 logger = logging.getLogger(__name__)
 embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
 
-# ====== Config ====== 
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-
 # CONNECTIVES = {
 #     "then", "but", "however", "therefore", "thus", "so", "because",
 #     "hence", "yet", "although", "though", "instead", "whereas",
@@ -198,14 +195,14 @@ def calculate_diversity(leaves: List[Node]):
 # ====== Core decoding ======
 @torch.no_grad()
 def logic_branch_decode(
-    tokenizer, model, prompt: str, sample: bool = False,
+    tokenizer, model, device, prompt: str, sample: bool = False,
     tau: float = TAU, branches_m: int = BRANCHES_M,
     max_leaves: int = MAX_LEAVES, max_new_tokens: int = MAX_NEW_TOKENS,
     temperature: float = TEMPERATURE,
     topk: int = TOPK, nucleus_p: float = NUCLEUS_P, steps_branch: int = STEPS_BRANCH
 ):
     model.eval()
-    inputs = tokenizer(prompt, return_tensors="pt").to(DEVICE)
+    inputs = tokenizer(prompt, return_tensors="pt").to(device)
     input_ids = inputs["input_ids"]
     attention_mask = inputs["attention_mask"]
     past_kv = None
@@ -265,7 +262,7 @@ def logic_branch_decode(
                 total_p = sum(p for _, p in conn_candidates)
                 for tid, p in conn_candidates:
                     # logger.info("token: ", tokenizer.decode([tid], clean_up_tokenization_spaces=False), " prob: ", p, " total_p: ", total_p)
-                    new_ids = torch.tensor([[tid]], device=DEVICE)
+                    new_ids = torch.tensor([[tid]], device=device)
                     child_text = node.text + tokenizer.decode([tid], clean_up_tokenization_spaces=False)
                     new_tokens_cnt += 1
                     child_logprob = node.cum_logprob + math.log(max(p, 1e-12))
@@ -300,7 +297,7 @@ def logic_branch_decode(
                             new_tokens_cnt += 1
                             child.cum_logprob += math.log(max(next_prob, 1e-12))
                             child.length += 1
-                            tmp_ids = torch.tensor([[next_id]], device=DEVICE)
+                            tmp_ids = torch.tensor([[next_id]], device=device)
                             if stop_condition(next_id, tokenizer):
                                 break
 
@@ -354,7 +351,7 @@ def logic_branch_decode(
                 # 更新token熵和长度
                 node.length += 1
 
-                cur_ids = torch.tensor([[next_id]], device=DEVICE)
+                cur_ids = torch.tensor([[next_id]], device=device)
 
                 # stopping rules
                 if stop_condition(next_id, tokenizer):
@@ -417,9 +414,10 @@ def pretty_print_tree(node: Node, prefix: str = "", depth: int = 1, step: int = 
 
 # ====== Demo ======
 def main():
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct" 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name,attn_implementation="eager").to(DEVICE)
+    model = AutoModelForCausalLM.from_pretrained(model_name,attn_implementation="eager").to(device)
 
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token

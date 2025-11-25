@@ -35,6 +35,7 @@ if __name__ == '__main__':
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--test_size", type=int, default=-1)
     parser.add_argument("--samples", type=int, default=5)
+    parser.add_argument("--device", type=int, default=0)
     args = parser.parse_args()
     dataset = args.dataset
     num_samples = args.samples
@@ -42,7 +43,13 @@ if __name__ == '__main__':
 
     model_name = args.model
     model_dir = model_to_dir[model_name]
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    if torch.cuda.is_available():
+        device = torch.device(f"cuda:{args.device}")
+        # 可选：添加日志记录选择的设备
+        logger.info(f"使用GPU设备: {args.device}")
+    else:
+        device = "cpu"
+        logger.info("CUDA不可用，使用CPU")
     dataset_path = f"./data/{dataset}/test.json"
     if test_size == -1:
         output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_samples}samples.json'
