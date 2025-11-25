@@ -13,6 +13,10 @@ logger = logging.getLogger(__name__)
 
 model_to_dir = {
     "Qwen2.5-7B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct",
+    "Qwen2.5-32B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-32B-Instruct",
+    "Qwen2.5-72B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-72B-Instruct",
+    "Qwen3-8B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-8B",
+    "Qwen3-14B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-14B"
 }
 
 if __name__ == "__main__":
@@ -31,11 +35,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # load model
-    model = args.model
-    model_name = model_to_dir[model]
+    model_name = args.model
+    model_dir = model_to_dir[model_name]
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+    tokenizer = AutoTokenizer.from_pretrained(model_dir)
+    model = AutoModelForCausalLM.from_pretrained(model_dir).to(device)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
 
@@ -88,9 +92,9 @@ if __name__ == "__main__":
     logger.info(f"generate {len(results)} results in {duration:.2f} seconds({duration/60:.2f} minutes)")
 
     if test_size == -1:
-        output_path = f"./results/{model}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}.json"
     else:
-        output_path = f"./results/{model}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}.json"
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding="utf8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)

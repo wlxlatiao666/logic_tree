@@ -16,6 +16,10 @@ logger = logging.getLogger(__name__)
 
 model_to_dir = {
     "Qwen2.5-7B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct",
+    "Qwen2.5-32B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-32B-Instruct",
+    "Qwen2.5-72B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-72B-Instruct",
+    "Qwen3-8B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-8B",
+    "Qwen3-14B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-14B"
 }
 
 if __name__ == '__main__':
@@ -36,18 +40,18 @@ if __name__ == '__main__':
     num_samples = args.samples
     test_size = args.test_size
 
-    model = args.model
-    model_name = model_to_dir[model]
+    model_name = args.model
+    model_dir = model_to_dir[model_name]
     device = "cuda" if torch.cuda.is_available() else "cpu"
     dataset_path = f"./data/{dataset}/test.json"
     if test_size == -1:
-        output_file = f'./results/{model}/{dataset}/generated_answers_{num_samples}samples.json'
+        output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_samples}samples.json'
     else:
-        output_file = f'./results/{model}/{dataset}/generated_answers_{num_samples}samples_{test_size}.json'
+        output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_samples}samples_{test_size}.json'
         
     # 加载模型和tokenizer
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+    tokenizer = AutoTokenizer.from_pretrained(model_dir)
+    model = AutoModelForCausalLM.from_pretrained(model_dir).to(device)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
 
