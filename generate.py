@@ -64,7 +64,7 @@ if __name__ == "__main__":
     with open(f"./sys_prompt.json", "r") as f:
         sys_prompt = json.load(f)[dataset]
 
-    thr = get_threshold(tokenizer, model, dataset, tau=tau)
+    thr = get_threshold(tokenizer, model, device, dataset, tau=tau)
     logger.info(f"Threshold for {dataset}: {thr}")
 
     # generate

@@ -13,9 +13,7 @@ from utils import generate_usr_prompt
 
 logger = logging.getLogger(__name__)
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
-
-def get_threshold(tokenizer, model, dataset: str, tau: int = 80, max_items: int = 100, max_gen_tokens: int = 1024) -> float:
+def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_items: int = 100, max_gen_tokens: int = 1024) -> float:
     model.eval()
 
     dataset_path = f"./data/{dataset}/test.json"
@@ -80,6 +78,7 @@ if __name__ == "__main__":
     logger.addHandler(fh)
     logger.setLevel(logging.INFO)
 
+    device = "cuda" if torch.cuda.is_available() else "cpu"
     model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct"
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
