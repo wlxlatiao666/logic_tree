@@ -22,17 +22,8 @@ from datetime import datetime
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from sentence_transformers import SentenceTransformer, util
 
 logger = logging.getLogger(__name__)
-embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
-
-# CONNECTIVES = {
-#     "then", "but", "however", "therefore", "thus", "so", "because",
-#     "hence", "yet", "although", "though", "instead", "whereas",
-#     "nonetheless", "nevertheless", "consequently", "furthermore", "moreover", "meanwhile",
-#     "first", "second", "next", "last", "after", "finally", "besides"
-# }
 
 # 触发阈值
 TAU = 0.80     # 归一化熵阈值（触发分叉）
@@ -43,7 +34,6 @@ MAX_NEW_TOKENS = 512
 TEMPERATURE = 0.7
 TOPK = 50
 NUCLEUS_P = 0.9
-STEPS_BRANCH = 10
 
 # ====== Utilities ======
 def log_softmax(logits: torch.Tensor) -> torch.Tensor:
@@ -95,39 +85,8 @@ def tid_to_clean_token(tokenizer, tid: int) -> str:
     s = tokenizer.decode([tid], clean_up_tokenization_spaces=False)
     return s.strip().lower()
 
-# def is_connective_token(tokenizer, tid: int) -> bool:
-#     txt = tid_to_clean_token(tokenizer, tid)
-#     return txt in CONNECTIVES
-
 def stop_condition(token_id: int, tokenizer) -> bool:
     return token_id == tokenizer.eos_token_id
-
-def group_by_semantic_similarity(tokenizer, conn_candidates, sim_threshold=0.5):
-    tokens = [tid_to_clean_token(tokenizer, tid) for tid, _ in conn_candidates]
-    embeddings = embedder.encode(tokens, convert_to_tensor=True)
-    groups = []
-    used = set()
-    for i, token in enumerate(tokens):
-        if token in used:
-            continue
-        group = [i]
-        for j in range(i+1, len(tokens)):
-            if j in used:
-                continue
-            # sim = np.dot(embeddings[i], embeddings[j]) / (np.linalg.norm(embeddings[i]) * np.linalg.norm(embeddings[j]))
-            sim = util.cos_sim(embeddings[i], embeddings[j])
-            if sim > sim_threshold:
-                group.append(j)
-                used.add(tokens[j])
-        used.add(token)
-        groups.append(group)
-    # 合并概率
-    merged = []
-    for group in groups:
-        rep_tid = conn_candidates[group[0]][0]
-        prob_sum = sum(conn_candidates[idx][1] for idx in group)
-        merged.append((rep_tid, prob_sum))
-    return merged
 
 # ====== Tree structures ======
 @dataclass(order=True)
@@ -151,45 +110,6 @@ class Node:
     depth: int = field(default=0)
     children: List["Node"] = field(default_factory=list)
     split_positions: List[int] = field(default_factory=list)
-
-# def calculate_entropy(node: Node):
-#     if not node.children:  # 叶子节点
-#         node.entropy = -node.cum_logprob / node.length if node.length > 0 else 0.0
-#         return
-#     # 非叶子节点，递归计算子节点entropy
-#     child_entropies = []
-#     for child in node.children:
-#         calculate_entropy(child)
-#         child_entropies.append(child.entropy)
-    
-#     node.entropy = sum(child_entropies) / len(child_entropies) if child_entropies else 0.0
-#     return
-
-# def collect_leaves(node: Node, leaves: List[Node]):
-#     if not node.children:
-#         leaves.append(node)
-#     for child in node.children:
-#         collect_leaves(child, leaves)
-
-def calculate_diversity(leaves: List[Node]):
-    if len(leaves) < 2:
-        return 0.0
-
-    distances = []
-    embeddings = []
-    for leaf in leaves:
-        embeddings.append(embedder.encode(leaf.text, convert_to_tensor=True))
-
-    for i in range(len(leaves)):
-        current_distances = []
-        for j in range(len(leaves)):
-            if i != j:
-                cos_sim = util.cos_sim(embeddings[i], embeddings[j])
-                current_distances.append(1 - cos_sim)
-        distances.append(sum(current_distances) / len(current_distances))
-    
-    diversity = sum(distances)
-    return diversity.item()
 
 
 # ====== Core decoding ======
@@ -261,7 +181,6 @@ def logic_branch_decode(
                 # materialize children, commit one token for each branch
                 total_p = sum(p for _, p in conn_candidates)
                 for tid, p in conn_candidates:
-                    # logger.info("token: ", tokenizer.decode([tid], clean_up_tokenization_spaces=False), " prob: ", p, " total_p: ", total_p)
                     new_ids = torch.tensor([[tid]], device=device)
                     child_text = node.text + tokenizer.decode([tid], clean_up_tokenization_spaces=False)
                     new_tokens_cnt += 1
@@ -272,58 +191,15 @@ def logic_branch_decode(
                     child = Node(text=child_text, cum_logprob=child_logprob, prob=child_prob, length=child_length, depth=depth+1, split_positions=node.split_positions.copy())
 
                     tmp_ids, tmp_past = new_ids, copy.deepcopy(cur_past)
-                    # logger.info("cur_past: ", cur_past, cur_past[0][0].shape)
-                    skip_child = False
-                    # all_head_attentions = None
-                    if not stop_condition(tid, tokenizer):
-                        for i in range(steps_branch):  # short span
-                            out2 = model(input_ids=tmp_ids, past_key_values=tmp_past, use_cache=True)
-                            # logger.info("cur_token: ", tokenizer.decode(tmp_ids[0, -1].item()), "cur_ids: ", tmp_ids, "key_value: ", tmp_past[0][0].shape)
-                            # attentions = out2.attentions[-1][0]
-                            # head_attentions = attentions[:, -1, child_length-1].unsqueeze(-1)
-                            # seq_length = attentions.shape[-1]
-                            # head_attentions = head_attentions * seq_length
-                            # all_head_attentions = torch.cat([all_head_attentions, head_attentions], dim=1) if all_head_attentions is not None else head_attentions
-                            logits2 = out2.logits[:, -1, :].squeeze(0)
-                            tmp_past = out2.past_key_values
-                            # diversify sampling
-                            if sample:
-                                logits2 = topk_or_nucleus_filter(logits2, topk=topk, p=nucleus_p)
-                                next_id = sample_one_from_logits(logits2, temperature=temperature)
-                            else:
-                                next_id = greedy_sample(logits2)
-                            next_prob = softmax(logits2)[next_id].item()
-                            child.text += tokenizer.decode([next_id], clean_up_tokenization_spaces=False)
-                            new_tokens_cnt += 1
-                            child.cum_logprob += math.log(max(next_prob, 1e-12))
-                            child.length += 1
-                            tmp_ids = torch.tensor([[next_id]], device=device)
-                            if stop_condition(next_id, tokenizer):
-                                break
 
-                        # max_per_head = torch.max(all_head_attentions, dim=-1).values
-                        # avg_max = torch.mean(max_per_head).item()
-                        # logger.info("token: ", tokenizer.decode([tid], clean_up_tokenization_spaces=False), " avg_max: ", avg_max)
-                        # if avg_max < 0.4:
-                        #     skip_child = True
-
-                    # current_embedding = embedder.encode(child.text[len(node.text):], convert_to_tensor=True)
-                    # for index, embedding in enumerate(child_embeddings): 
-                    #     sim = util.cos_sim(embedding, current_embedding)
-                    #     if sim > 0.5:
-                    #         children[index].prob += child.prob # children[index]和items[index].node引用了同一个node
-                    #         skip_child = True
-                    #         break
-                    if not skip_child:
-                        # child_embeddings.append(current_embedding)
-                        children.append(child)
-                        items.append(PrioritizedItem(
-                            depth=depth + 1,
-                            neg_logprob=-child.cum_logprob,
-                            node=child,
-                            past=(tmp_ids, tmp_past)
-                        ))
-                        # logger.info("tmp_past: ", tmp_past, tmp_past[0][0].shape)
+                    children.append(child)
+                    items.append(PrioritizedItem(
+                        depth=depth + 1,
+                        neg_logprob=-child.cum_logprob,
+                        node=child,
+                        past=(tmp_ids, tmp_past)
+                    ))
+                    # logger.info("tmp_past: ", tmp_past, tmp_past[0][0].shape)
 
                 for child, it in zip(children, items):
                     if len(leaves) + len(frontier) >= max_leaves:
@@ -363,28 +239,6 @@ def logic_branch_decode(
             leaves.append(node)
 
     return root, leaves, new_tokens_cnt
-
-
-def logsumexp_torch(xs: List[float]) -> float:
-    t = torch.tensor(xs, dtype=torch.float32)
-    return float(torch.logsumexp(t, dim=0).item())
-
-def bucketize_answers(texts: List[str]) -> Dict[str, int]:
-    def last_sentence(s: str) -> str:
-        s = s.strip()
-        for sep in [".", "!", "?", "\n"]:
-            if sep in s:
-                parts = s.split(sep)
-                if parts[-1] == "":
-                    parts = parts[:-1]
-                if parts:
-                    return parts[-1].strip().lower()
-        return s.lower()
-    buckets: Dict[str, int] = {}
-    for t in texts:
-        key = last_sentence(t)[:80]  # clip
-        buckets[key] = buckets.get(key, 0) + 1
-    return buckets
 
 
 def pretty_print_tree(node: Node, prefix: str = "", depth: int = 1, step: int = 1, parent_prefix: str = ""):
@@ -448,9 +302,6 @@ def main():
             logger.info(f"[{i:02d}] p={leaf.prob:.3f}  text_tail='{txt}'")
         logger.info(f"new_tokens_cnt: {new_tokens_cnt}")
 
-        # diversity = calculate_diversity(leaves)
-        # logger.info("diversity", diversity)
-        # logger.info(f"Diversity score: {diversity:.3f}")
 
 if __name__ == "__main__":
     fh = logging.FileHandler('./logs/app.log', encoding='utf-8')
