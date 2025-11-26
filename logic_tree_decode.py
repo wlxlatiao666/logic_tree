@@ -119,7 +119,7 @@ def logic_branch_decode(
     tau: float = TAU, branches_m: int = BRANCHES_M,
     max_leaves: int = MAX_LEAVES, max_new_tokens: int = MAX_NEW_TOKENS,
     temperature: float = TEMPERATURE,
-    topk: int = TOPK, nucleus_p: float = NUCLEUS_P, steps_branch: int = STEPS_BRANCH
+    topk: int = TOPK, nucleus_p: float = NUCLEUS_P
 ):
     model.eval()
     inputs = tokenizer(prompt, return_tensors="pt").to(device)

@@ -1,6 +1,5 @@
 import re
 import logging
-from sentence_transformers import SentenceTransformer
 from math_equivalence import is_equiv
 from math_equivalence_gaokao import is_equiv_gaokao
 
