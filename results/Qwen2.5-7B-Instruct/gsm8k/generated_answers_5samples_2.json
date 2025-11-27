@@ -1,0 +1,48 @@
+[
+  {
+    "original_data": {
+      "question": "Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?",
+      "answer": "Janet sells 16 - 3 - 4 = <<16-3-4=9>>9 duck eggs a day.\nShe makes 9 * 2 = $<<9*2=18>>18 every day at the farmer’s market.\n#### 18"
+    },
+    "sampled_answers": [
+      "<think>\n1. Calculate the total number of eggs used by Janet daily: 3 for breakfast + 4 for muffins = 7 eggs.\n2. Subtract the number of eggs used from the total number of eggs laid: 16 - 7 = 9 eggs remaining.\n3. Calculate the revenue from selling the remaining eggs at $2 each: 9 * $2 = $18.\n</think>\n<answer>18</answer>",
+      "<think>\n1. Calculate the total number of eggs used daily by Janet.\n2. Subtract the number of eggs used from the total eggs laid to find the remainder.\n3. Calculate the daily earnings from selling the remainder at $2 per egg.\n</think>\n<answer>18</answer>",
+      "<think>First, we calculate the total number of eggs used by Janet daily: 3 eggs for breakfast + 4 eggs for muffins = 7 eggs. Then, we subtract this number from the total eggs laid by the ducks to find out how many eggs she sells: 16 - 7 = 9 eggs. Finally, we calculate the money she makes from selling the remaining eggs at $2 each: 9 * $2 = $18.</think>\n<answer>18</answer>",
+      "<think>\n1. Calculate the total number of eggs used by Janet daily.\n2. Subtract the eggs used from the total eggs laid to find the remainder.\n3. Multiply the remainder by the price per egg to find the daily earnings.\n\nStep 1: Total eggs used daily = 3 (for breakfast) + 4 (for muffins) = 7 eggs.\nStep 2: Total eggs laid daily = 16. Therefore, remainder = 16 - 7 = 9 eggs.\nStep 3: Earnings = 9 eggs * $2/egg = $18.\n</think>\n<answer>18</answer>",
+      "<think>\nFirst, let's determine how many eggs Janet has left after using some for herself and baking.\n- She starts with 16 eggs.\n- She eats 3 for breakfast.\n- She uses 4 for baking.\nSo, the remaining eggs for sale are 16 - 3 - 4 = 9.\n\nNext, we calculate how much money she makes from selling these eggs.\n- She sells the remaining 9 eggs at $2 each.\nSo, her earnings are 9 * $2 = $18.\n</think>\n<answer>18</answer>"
+    ],
+    "num_tokens": [
+      96,
+      62,
+      107,
+      136,
+      122
+    ],
+    "predictive_entropy": 0.0,
+    "label": 1,
+    "passk": 1
+  },
+  {
+    "original_data": {
+      "question": "A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?",
+      "answer": "It takes 2/2=<<2/2=1>>1 bolt of white fiber\nSo the total amount of fabric is 2+1=<<2+1=3>>3 bolts of fabric\n#### 3"
+    },
+    "sampled_answers": [
+      "<think>The problem states that a robe requires 2 bolts of blue fiber and half that amount of white fiber. First, I calculate the amount of white fiber needed, which is half of the blue fiber. Then, I add the amounts of blue and white fiber together to get the total.</think>\n<answer>3</answer>",
+      "<think>First, we need to determine the amount of white fiber used. Since the white fiber is half the amount of blue fiber, and the blue fiber is 2 bolts, the white fiber is 2/2 = 1 bolt. To find the total amount of fiber, we add the bolts of blue and white fiber together: 2 + 1 = 3 bolts.</think>\n<answer>3</answer>",
+      "<think>First, we need to determine how many bolts of white fiber the robe takes. The problem states that the robe takes half as much white fiber as blue fiber. Since it takes 2 bolts of blue fiber, the white fiber required would be 2 / 2 = 1 bolt. To find the total bolts of fiber needed for the robe, we add the blue and white fiber together: 2 + 1 = 3 bolts.</think>\n<answer>3</answer>",
+      "<think>The problem states that a robe takes 2 bolts of blue fiber and half that much white fiber. To find the total bolts of fiber, we need to calculate the amount of white fiber and then add it to the blue fiber. Half of 2 is 1, so the white fiber required is 1 bolt. Adding the blue and white fiber together gives us the total.</think>\n<answer>3</answer>",
+      "<think>The problem states that a robe takes 2 bolts of blue fiber and half that much white fiber. First, we calculate the amount of white fiber, which is half of the blue fiber. Then we add the amounts together to get the total.</think>\n<answer>3</answer>"
+    ],
+    "num_tokens": [
+      69,
+      89,
+      102,
+      88,
+      61
+    ],
+    "predictive_entropy": 0.0,
+    "label": 1,
+    "passk": 1
+  }
+]

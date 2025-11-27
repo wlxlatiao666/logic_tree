@@ -1,6 +1,10 @@
-python generate.py --model Qwen3-8B --dataset aime24 --num_leaves 20
-python generate.py --model Qwen3-8B --dataset aime25 --num_leaves 20
-python generate.py --model Qwen3-8B --dataset math500 --num_leaves 20
-python generate_multi.py --model Qwen3-8B --dataset aime25 --samples 20
-python generate_multi.py --model Qwen3-8B --dataset math500 --samples 20
+python generate_ddp.py --model Qwen3-8B --dataset aime24
+python generate_ddp.py --model Qwen3-8B --dataset aime25
+python generate_ddp.py --model Qwen3-8B --dataset math500
+python generate_ddp.py --model Qwen3-8B --dataset gpqa-diamond
+python generate_ddp.py --model Qwen3-8B --dataset gpqa-main
+python generate_ddp.py --model Qwen3-8B --dataset csqa
+python generate_ddp.py --model Qwen3-8B --dataset arc-e
+python generate_ddp.py --model Qwen3-8B --dataset arc-c
+
 

@@ -31,15 +31,10 @@ except Exception:
 def run_vllm_generate(model_dir, dataset, data, num_samples, output_file, device: int = 0):
     if not _HAS_VLLM:
         raise RuntimeError("vllm is not installed or failed to import. Install vllm to use this script.")
+    os.environ["CUDA_VISIBLE_DEVICES"] = str(device)
 
     # device may be an int GPU id (>=0) or negative for CPU
-    if device >= 0:
-        # pass gpu id list to vllm
-        gpu_ids = [device]
-        llm = LLM(model=model_dir, gpu_ids=gpu_ids)
-    else:
-        # CPU fallback
-        llm = LLM(model=model_dir, gpu_ids=[])
+    llm = LLM(model=model_dir)
 
     results = []
     start_time = time.time()
@@ -57,7 +52,7 @@ def run_vllm_generate(model_dir, dataset, data, num_samples, output_file, device
         prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
 
         sampled_answers = []
-        sampled_entropies = []
+        # sampled_entropies = []
         num_tokens = []
 
         # vllm can generate multiple samples by running generation separately for each sample
@@ -66,28 +61,27 @@ def run_vllm_generate(model_dir, dataset, data, num_samples, output_file, device
                 temperature=0.7,
                 top_k=50,
                 top_p=0.9,
-                max_tokens=1024,
-                logits_processor=None,
+                max_tokens=1024
             )
 
-            out = llm.generate(prompt, sampling_params=sampling_params, verbose=False)
+            out = llm.generate(prompt, sampling_params=sampling_params)
             # out is an iterator of Generation results; get first (and only) result
-            generation = next(out)
+            generation = out[0]
             text = generation.outputs[0].text
             # vllm returns tokens and token logits per token in .outputs[0].token_ids and .raw_logits
             token_ids = generation.outputs[0].token_ids
-            raw_logits = generation.outputs[0].raw_logits
+            # raw_logits = generation.outputs[0].logits
 
-            # compute negative logprobs per token
-            neg_logprobs = []
-            for logits, tid in zip(raw_logits, token_ids):
-                probs = np.exp(np.asarray(logits))
-                probs = probs / probs.sum()
-                prob = probs[tid]
-                neg_logprobs.append(-math.log(max(prob, 1e-12)))
+            # # compute negative logprobs per token
+            # neg_logprobs = []
+            # for logits, tid in zip(raw_logits, token_ids):
+            #     probs = np.exp(np.asarray(logits))
+            #     probs = probs / probs.sum()
+            #     prob = probs[tid]
+            #     neg_logprobs.append(-math.log(max(prob, 1e-12)))
 
-            avg_logprob = sum(neg_logprobs) / len(neg_logprobs) if neg_logprobs else 0.0
-            sampled_entropies.append(avg_logprob)
+            # avg_logprob = sum(neg_logprobs) / len(neg_logprobs) if neg_logprobs else 0.0
+            # sampled_entropies.append(avg_logprob)
             num_tokens.append(len(token_ids))
 
             sampled_answers.append(text)
@@ -114,7 +108,7 @@ def run_vllm_generate(model_dir, dataset, data, num_samples, output_file, device
             "original_data": item,
             "sampled_answers": sampled_answers,
             "num_tokens": num_tokens,
-            "sampled_entropies": sampled_entropies,
+            # "sampled_entropies": sampled_entropies,
             "predictive_entropy": predictive_entropy,
             "label": label,
             "passk": passk

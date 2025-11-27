@@ -1,0 +1,59 @@
+[
+  {
+    "original_data": {
+      "question": "Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?",
+      "answer": "Janet sells 16 - 3 - 4 = <<16-3-4=9>>9 duck eggs a day.\nShe makes 9 * 2 = $<<9*2=18>>18 every day at the farmer’s market.\n#### 18"
+    },
+    "num_new_tokens": 583,
+    "num_leaves": 5,
+    "complexity": 1.6334410071313672,
+    "probs": [
+      0.36653621885280724,
+      2.277401582567552e-05,
+      0.30797217384118536,
+      0.28041106426665996,
+      0.045057769023521835
+    ],
+    "entropies": [
+      0.21257260512224066,
+      0.3615649223923632,
+      0.17927644284895464,
+      0.22301178748740014,
+      0.2790778266495171
+    ],
+    "split_positions": [
+      [
+        0
+      ],
+      [
+        0
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "lengths": [
+      104,
+      119,
+      90,
+      89,
+      185
+    ],
+    "texts": [
+      "<think>First, calculate the total number of eggs Janet has daily: 16 eggs.\nNext, subtract the number of eggs she uses: 3 for breakfast + 4 for muffins = 7 eggs.\nThen, find out how many eggs are left for selling: 16 - 7 = 9 eggs.\nFinally, calculate the money she makes from selling these eggs: 9 eggs * $2/egg = $18.</think>\n<answer>18</answer><|im_end|>",
+      "First, I analyze the problem step by step. Janet's ducks lay 16 eggs per day. She eats 3 eggs for breakfast and uses 4 eggs to bake muffins for her friends. That totals 3 + 4 = 7 eggs used per day. The remainder of eggs that she can sell is 16 - 7 = 9 eggs per day. She sells these eggs for $2 each. Therefore, the money she makes from selling the eggs is 9 * $2 = $18 per day.\n\n<answer>18</answer><|im_end|>",
+      "<think>\n1. Calculate the total eggs used by Janet: 3 for breakfast + 4 for muffins = 7 eggs per day.\n2. Calculate the remaining eggs for sale: 16 - 7 = 9 eggs per day.\n3. Calculate the revenue from selling the remaining eggs: 9 eggs * $2 per egg = $18 per day.\n</think>\n<answer>18</answer><|im_end|>",
+      "<think>Janet's ducks lay 16 eggs per day. She uses 3 for her breakfast and 4 for baking muffins, so she has 16 - 3 - 4 = 9 eggs left to sell. She sells these at $2 per egg, so her daily earnings from selling the eggs is 9 * $2 = $18.</think>\n<answer>18</answer><|im_end|>",
+      "<think>The problem involves calculating the number of eggs Janet has left to sell after consuming and using some for baking. We start by calculating the total consumption per day, then subtract from the daily egg production to find out how many eggs are left for selling. Finally, we calculate the revenue from selling these eggs.</think>\n1. Calculate total consumption per day: \\(3 \\text{ (for breakfast)} + 4 \\text{ (for muffins)} = 7 \\text{ eggs}\\)\n2. Calculate remaining eggs for selling: \\(16 \\text{ (total eggs)} - 7 \\text{ (consumed)} = 9 \\text{ eggs}\\)\n3. Calculate revenue from selling the remaining eggs: \\(9 \\text{ eggs} \\times 2 \\text{ dollars/egg} = 18 \\text{ dollars}\\)\n\n<answer>18</answer><|im_end|>"
+    ]
+  }
+]
