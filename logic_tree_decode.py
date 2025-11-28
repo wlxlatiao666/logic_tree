@@ -159,7 +159,7 @@ def logic_branch_decode(
             # is_split_point = H_norm >= tau and random_factor < 0.5
             is_split_point = H_norm >= tau
 
-            if len(leaves) + len(frontier) >= max_leaves:
+            if len(leaves) + len(frontier) + 1 >= max_leaves:
                 is_split_point = False
 
             if is_split_point:
@@ -174,8 +174,8 @@ def logic_branch_decode(
                 for tid, p in zip(top_idx, top_vals):
                     conn_candidates.append((tid, p))
                 conn_candidates.sort(key=lambda x: x[1], reverse=True)
+                conn_candidates = conn_candidates[:max_leaves-len(leaves)-len(frontier)]
 
-                child_embeddings = []
                 children = []
                 items = []
                 # materialize children, commit one token for each branch
@@ -199,11 +199,8 @@ def logic_branch_decode(
                         node=child,
                         past=(tmp_ids, tmp_past)
                     ))
-                    # logger.info("tmp_past: ", tmp_past, tmp_past[0][0].shape)
 
                 for child, it in zip(children, items):
-                    if len(leaves) + len(frontier) >= max_leaves:
-                        break
                     node.children.append(child)
                     cur_ids = it.past[0]
                     if stop_condition(cur_ids[0, 0], tokenizer):

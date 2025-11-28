@@ -13,6 +13,17 @@ from utils import generate_usr_prompt
 
 logger = logging.getLogger(__name__)
 
+def log_softmax(logits: torch.Tensor) -> torch.Tensor:
+    return torch.nn.functional.log_softmax(logits, dim=-1)
+
+
+def normalized_entropy_from_logprobs(logprobs: torch.Tensor) -> float:
+    """ logprobs: [V] """
+    probs = logprobs.exp()
+    ent = -(probs * logprobs).sum().item()
+    # ent_max = math.log(probs.numel())
+    return ent
+
 def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_items: int = 100, max_gen_tokens: int = 1024) -> float:
     model.eval()
 
@@ -27,8 +38,6 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
     sys_prompt = sys_prompts[dataset]
 
     entropies: List[float] = []
-
-    softmax = torch.nn.functional.softmax
 
     for item in data:
         usr_prompt = generate_usr_prompt(dataset, item)
@@ -48,11 +57,10 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
             logits = out.logits[:, -1, :].squeeze(0)  # [V]
             past = out.past_key_values
 
-            probs = softmax(logits, dim=-1)
             next_id = int(torch.argmax(logits).item())
-            next_prob = float(probs[next_id].item())
 
-            token_entropy = -math.log(max(next_prob, 1e-12))
+            logprobs = log_softmax(logits)
+            token_entropy = normalized_entropy_from_logprobs(logprobs)
             entropies.append(token_entropy)
 
             # prepare next input

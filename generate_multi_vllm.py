@@ -32,14 +32,7 @@ def run_vllm_generate(model_dir, dataset, data, num_samples, output_file, device
     if not _HAS_VLLM:
         raise RuntimeError("vllm is not installed or failed to import. Install vllm to use this script.")
 
-    # device may be an int GPU id (>=0) or negative for CPU
-    if device >= 0:
-        # pass gpu id list to vllm
-        gpu_ids = [device]
-        llm = LLM(model=model_dir, gpu_ids=gpu_ids)
-    else:
-        # CPU fallback
-        llm = LLM(model=model_dir, gpu_ids=[])
+    llm = LLM(model=model_dir, device=f"cuda:{device}")
 
     results = []
     start_time = time.time()
