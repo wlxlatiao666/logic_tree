@@ -56,7 +56,7 @@ def run_inference(rank, world_size, args):
     model = AutoModelForCausalLM.from_pretrained(model_dir, dtype=torch.float16).to(device)
     
     # 包装为DDP模型
-    ddp_model = DDP(model, device_ids=[rank])
+    # ddp_model = DDP(model, device_ids=[rank])
     
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
@@ -164,8 +164,6 @@ def run_inference(rank, world_size, args):
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         with open(output_path, 'w', encoding="utf8") as f:
             json.dump(final_results, f, indent=2, ensure_ascii=False)
-        
-        logger.info(f"generate {len(final_results)} results in {time.time() - start_time:.2f} seconds")
     
     cleanup()
 
@@ -183,3 +181,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     mp.spawn(run_inference, args=(args.world_size, args), nprocs=args.world_size, join=True)
+    logger.info(f"generate results in {time.time() - start_time:.2f} seconds")
