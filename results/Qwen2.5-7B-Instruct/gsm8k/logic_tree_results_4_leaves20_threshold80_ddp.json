@@ -1,0 +1,786 @@
+[
+  {
+    "original_data": {
+      "question": "Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg. How much in dollars does she make every day at the farmers' market?",
+      "answer": "Janet sells 16 - 3 - 4 = <<16-3-4=9>>9 duck eggs a day.\nShe makes 9 * 2 = $<<9*2=18>>18 every day at the farmer’s market.\n#### 18"
+    },
+    "num_new_tokens": 2040,
+    "num_leaves": 20,
+    "complexity": 2.9415771333271596,
+    "probs": [
+      0.047673227831814234,
+      0.00926150779095414,
+      0.0014881310500721096,
+      0.20069384744522828,
+      0.14378094072732092,
+      0.09160101839295667,
+      0.0582381766123052,
+      0.05993639676970306,
+      0.08046748412733523,
+      0.04396395740304977,
+      0.03878096728582926,
+      0.04165941708255581,
+      0.03913313173177691,
+      0.03951826071649483,
+      0.03919954139702275,
+      0.016418156383643363,
+      0.014679713059246294,
+      0.013105105257165515,
+      0.00968369751102054,
+      0.010717321424505159
+    ],
+    "entropies": [
+      0.2474336646980926,
+      0.19983775192528644,
+      0.2684372101810276,
+      0.18678310797747305,
+      0.2655075415309832,
+      0.26702215110737304,
+      0.22433579969943604,
+      0.28625332223085975,
+      0.41307290134209246,
+      0.3501199438922896,
+      0.29790421142661666,
+      0.32588456885220984,
+      0.262997794565146,
+      0.20977312356221625,
+      0.4272719015537579,
+      0.3684408633714663,
+      0.2710756303903594,
+      0.2912532051455199,
+      0.24516594570398195,
+      0.20472290087911305
+    ],
+    "split_positions": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        3,
+        8
+      ],
+      [
+        2,
+        5,
+        6
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        5,
+        6
+      ],
+      [
+        2,
+        5,
+        11
+      ],
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        5,
+        7
+      ],
+      [
+        2,
+        5,
+        7
+      ],
+      [
+        2,
+        3,
+        8
+      ],
+      [
+        2,
+        5,
+        11
+      ],
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        2,
+        5,
+        6
+      ],
+      [
+        2,
+        5,
+        7
+      ],
+      [
+        2,
+        3,
+        8
+      ],
+      [
+        2,
+        5,
+        11
+      ]
+    ],
+    "lengths": [
+      111,
+      83,
+      79,
+      97,
+      128,
+      144,
+      167,
+      114,
+      83,
+      99,
+      119,
+      97,
+      114,
+      97,
+      60,
+      120,
+      109,
+      102,
+      128,
+      93
+    ],
+    "texts": [
+      "<think>\nJanet's ducks lay 16 eggs per day. She consumes 3 eggs for breakfast and uses 4 eggs to bake muffins. This means she uses a total of 3 + 4 = 7 eggs daily. Therefore, the number of eggs left for selling is 16 - 7 = 9 eggs. She sells these 9 eggs at $2 each. So, the total money she makes from selling eggs is 9 * $2.\n</think>\n<answer>18</answer><|im_end|>",
+      "<think>The total number of eggs laid per day is 16. Janet eats 3 for breakfast and uses 4 for muffins, so she has 16 - 3 - 4 = 9 eggs left to sell. She sells these for $2 each, so her daily earnings are 9 * $2 = $18.</think>\n<answer>18</answer><|im_end|>",
+      "<think>The daily egg production is 16. Janet uses 3 for breakfast and 4 for muffins, leaving her with 16 - 3 - 4 = 9 eggs to sell. She sells these eggs at $2 each, so her daily earnings from the farmers' market are 9 * $2.</think>\n<answer>18</answer><|im_end|>",
+      "<think>\n1. Calculate the total number of eggs used by Janet every day: 3 for breakfast + 4 for muffins = 7 eggs.\n2. Subtract the number of eggs used from the total eggs laid: 16 - 7 = 9 eggs left for selling.\n3. Calculate the money made from selling the remaining eggs: 9 eggs * $2 per egg = $18.\n</think>\n<answer>18</answer><|im_end|>",
+      "<think>First, we need to calculate the total number of eggs Janet has left after using them for breakfast and baking. Then, we can calculate how much she makes from selling the remaining eggs at the market.\n1. Total eggs per day = 16\n2. Eggs used for breakfast = 3\n3. Eggs used for muffins = 4\n4. Remaining eggs for sale = Total eggs - Eggs used for breakfast - Eggs used for muffins\n5. Price per egg = $2\n6. Daily earnings = Remaining eggs * Price per egg</think>\n<answer>26</answer><|im_end|>",
+      "<think>\nFirst, we calculate the total number of eggs used by Janet daily:\n- Eggs eaten for breakfast: 3\n- Eggs used for muffins: 4\n\nTotal eggs used daily = 3 + 4 = 7\n\nNext, we calculate the number of eggs remaining after her daily usage:\n- Total eggs laid daily: 16\n- Eggs remaining daily: 16 - 7 = 9\n\nFinally, we calculate the money she makes from selling the remaining eggs at the farmers' market:\n- Price per egg: $2\n- Total earnings per day: 9 * $2 = $18\n\n</think>\n<answer>18</answer><|im_end|>",
+      "<think>\nFirst, calculate the total number of eggs used by Janet daily:\n- Eggs for breakfast: 3\n- Eggs for baking muffins: 4\nTotal eggs used daily: 3 + 4 = 7\n\nNext, subtract the total number of eggs used daily from the number of eggs laid daily to find the number of eggs left for selling:\n- Eggs laid daily: 16\n- Eggs used daily: 7\nEggs left for selling daily: 16 - 7 = 9\n\nFinally, calculate the daily earnings from selling the leftover eggs at $2 each:\n- Price per egg: $2\n- Eggs sold daily: 9\nDaily earnings: 9 * $2 = $18\n</think>\n<answer>18</answer><|im_end|>",
+      "<think>First, we calculate the total number of eggs used by Janet daily. She eats 3 eggs for breakfast and uses 4 eggs for muffins, which is a total of 3 + 4 = 7 eggs. She has 16 eggs from her ducks, so the remainder she sells is 16 - 7 = 9 eggs. She sells each egg for $2, so the total money she makes from selling eggs is 9 * $2 = $18.</think>\n<answer>18</answer><|im_end|>",
+      "<think>First, calculate the total number of eggs used by Janet daily: she eats 3 eggs for breakfast and uses 4 eggs for baking, which totals 7 eggs. Subtract this from the total eggs laid to find the number sold at the market. Then, multiply the number of eggs sold by the price per egg to find the daily revenue.</think>\n<answer>24</answer><|im_end|>",
+      "<think>The problem involves multiple steps. First, calculate the total number of eggs sold. Janet starts with 16 eggs, eats 3 for breakfast, and uses 4 for baking, so she has 16 - 3 - 4 = 9 eggs to sell. Then, since she sells each egg for $2, she makes 9 * $2 = $18 per day at the farmers' market.</think>\n<answer>18</answer><|im_end|>",
+      "<think>\nFirst, let's determine the total number of eggs Janet sells each day. She starts with 16 eggs per day. She uses 3 for breakfast and 4 for muffins for her friends. So, the total used each day is 3 + 4 = 7 eggs. Therefore, the number of eggs she sells is 16 - 7 = 9 eggs per day. Since she sells each egg for $2, the amount she makes from selling eggs is 9 * $2.\n</think>\n<answer>18</answer><|im_end|>",
+      "<think>First, let's calculate the total number of eggs used or sold daily. Janet gets 16 eggs/day, eats 3 for breakfast, and uses 4 for muffins. So, the number of eggs sold is 16 - 3 - 4 = 9. Then, since each egg is sold for $2, the total money made from selling eggs is 9 * $2.</think>\n<answer>18</answer><|im_end|>",
+      "<think>First, let's determine how many eggs Janet has left after she eats and bakes with them. She starts with 16 eggs daily. She uses 3 for breakfast and 4 for baking, so she uses 3 + 4 = 7 eggs. Therefore, she has 16 - 7 = 9 eggs left. She sells these remaining eggs at the farmers' market for $2 each. Thus, her earnings are 9 * $2 = $18.</think>\n<answer>18</answer><|im_end|>",
+      "<think>\n1. Calculate the total eggs used by Janet each day: 3 for breakfast + 4 for muffins = 7 eggs.\n2. Calculate the remaining eggs after usage: 16 (total) - 7 (used) = 9 eggs.\n3. Calculate the income from selling the remaining eggs: 9 (remaining) * $2 (price per egg) = $18.\n</think>\n<answer>18</answer><|im_end|>",
+      "<think>First, calculate the total number of eggs Janet has per day. Then subtract the number of eggs she consumes and uses for baking. Finally, multiply the remaining number of eggs by the price per egg to find out her daily earnings.</think>\n<answer>44</answer><|im_end|>",
+      "<think>The problem can be broken down into steps: calculate the total eggs, subtract the eggs used for breakfast and baking, then calculate the revenue from selling the remainder. The total eggs per day are 16. Janet uses 3 for breakfast and 4 for baking, so she uses 3 + 4 = 7 eggs daily. Thus, the remainder is 16 - 7 = 9 eggs. She sells each egg for $2, so the daily revenue is 9 * $2 = $18.</think>\n<answer>18</answer><|im_end|>",
+      "<think>First, we determine how many eggs are left after Janet consumes and uses some for baking. She starts with 16 eggs per day. She eats 3 for breakfast and uses 4 for muffins, so she uses 3 + 4 = 7 eggs. Therefore, 16 - 7 = 9 eggs are left. She sells these remaining eggs at $2 each, so her daily earnings are 9 * $2 = $18.</think>\n<answer>18</answer><|im_end|>",
+      "<think>First, let's find out how many eggs Janet has left after using them for breakfast and muffins. She starts with 16 eggs and uses 3 for breakfast and 4 for muffins, which totals 7 eggs. So, 16 - 7 = 9 eggs are left. Since she sells the remainder at the farmers' market for $2 each, her daily earnings would be 9 * $2.</think>\n<answer>18</answer><|im_end|>",
+      "<think>\n1. Calculate the total consumption of eggs per day: Janet eats 3 eggs for breakfast and uses 4 eggs for baking, so she uses 3 + 4 = 7 eggs per day.\n2. Calculate the number of eggs remaining for sale: Subtract the total consumption from the daily production: 16 - 7 = 9 eggs per day.\n3. Calculate the daily revenue from selling the remaining eggs: Since she sells the remaining 9 eggs at $2 each, her daily revenue is 9 * $2 = $18.\n</think>\n<answer>18</answer><|im_end|>",
+      "<think>First, calculate the total number of eggs sold per day. Janet's ducks lay 16 eggs per day. She eats 3 for breakfast and uses 4 for muffins, so she sells 16 - 3 - 4 = 9 eggs per day. She sells each egg for $2, so her daily earnings are 9 * $2 = $18.</think>\n<answer>18</answer><|im_end|>"
+    ]
+  },
+  {
+    "original_data": {
+      "question": "A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it take?",
+      "answer": "It takes 2/2=<<2/2=1>>1 bolt of white fiber\nSo the total amount of fabric is 2+1=<<2+1=3>>3 bolts of fabric\n#### 3"
+    },
+    "num_new_tokens": 1476,
+    "num_leaves": 20,
+    "complexity": 2.9917798241838516,
+    "probs": [
+      0.003955581808961343,
+      0.0022156730095577583,
+      0.002048920997629472,
+      0.13503732416556974,
+      0.06919066745606842,
+      0.06601828902725264,
+      0.14253788107822934,
+      0.047530980252429605,
+      0.040433253439708175,
+      0.11104261128539789,
+      0.07058426076100964,
+      0.11265544462963635,
+      0.019451584357754938,
+      0.01716929602036499,
+      0.09191268145649219,
+      0.011761958849441973,
+      0.04016924596987436,
+      0.006201170585680985,
+      0.005434569255691282,
+      0.004648605593248908
+    ],
+    "entropies": [
+      0.3381081913448773,
+      0.44890241706457334,
+      0.29210709186816514,
+      0.26620114337041306,
+      0.20510476691400267,
+      0.42359698984458316,
+      0.18020074786225676,
+      0.2698167605933753,
+      0.3377459467818368,
+      0.2484263590939254,
+      0.23721778133555177,
+      0.2458897860432746,
+      0.23070731297181393,
+      0.1959906566734189,
+      0.3316961806632619,
+      0.2872276358986405,
+      0.29932507840593586,
+      0.2946040518785579,
+      0.5997199998490851,
+      0.38647825980877276
+    ],
+    "split_positions": [
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        5,
+        6
+      ],
+      [
+        2,
+        5,
+        7
+      ],
+      [
+        2,
+        5,
+        7
+      ],
+      [
+        2,
+        8,
+        22
+      ],
+      [
+        2,
+        5,
+        7
+      ],
+      [
+        2,
+        5,
+        6
+      ],
+      [
+        2,
+        8,
+        22
+      ],
+      [
+        2,
+        8,
+        22
+      ],
+      [
+        2,
+        8,
+        22
+      ],
+      [
+        2,
+        5,
+        6
+      ],
+      [
+        2,
+        5,
+        6
+      ],
+      [
+        2,
+        8,
+        22
+      ],
+      [
+        2,
+        5,
+        6
+      ],
+      [
+        2,
+        8,
+        22
+      ],
+      [
+        2,
+        5,
+        6
+      ],
+      [
+        2,
+        3,
+        6
+      ],
+      [
+        2,
+        3,
+        6
+      ]
+    ],
+    "lengths": [
+      72,
+      84,
+      105,
+      86,
+      93,
+      79,
+      73,
+      76,
+      93,
+      89,
+      94,
+      75,
+      92,
+      95,
+      94,
+      91,
+      43,
+      82,
+      52,
+      76
+    ],
+    "texts": [
+      "<think>The problem states that a robe uses 2 bolts of blue fiber and half that much white fiber. To find the total, we need to calculate the amount of white fiber first, which is half of the 2 bolts of blue fiber. Then, we add the blue and white fiber amounts together.</think>\n<answer>3</answer><|im_end|>",
+      "<think>To find the total number of bolts required, we first need to understand the quantities of each type of fiber used. The problem states that a robe requires 2 bolts of blue fiber and half that amount of white fiber. Therefore, we need to calculate the amount of white fiber first, which is half of 2, and then add the two amounts together.</think>\n<answer>3</answer><|im_end|>",
+      "<think>To determine the total number of bolts needed for the robe, we start by identifying the quantities of each type of fiber required. The problem states that the robe takes 2 bolts of blue fiber and half that much white fiber. First, we need to calculate the amount of white fiber required. Since half of 2 bolts is 1 bolt, the white fiber needed is 1 bolt. Adding the blue and white fiber together gives the total number of bolts required.</think>\n<answer>3</answer><|im_end|>",
+      "<think>First, we need to understand the relationship between the amounts of blue and white fiber. The problem states that the robe takes 2 bolts of blue fiber and half that much white fiber. So, we need to calculate half of 2 bolts to find the amount of white fiber needed. Then, we add the blue and white fiber amounts together to get the total.</think>\n<answer>3</answer><|im_end|>",
+      "<think>First, let's determine the amount of white fiber needed. Since the robe takes half the amount of white fiber as blue fiber, and it takes 2 bolts of blue fiber, it will take 2/2 = 1 bolt of white fiber. Now, to find the total amount of fiber needed, we add the blue and white fiber: 2 + 1 = 3 bolts.</think>\n<answer>3</answer><|im_end|>",
+      "<think>First, let's identify the quantities of fiber required:\n- Blue fiber needed: 2 bolts\n- White fiber needed: half of the blue fiber needed, which is 2/2 = 1 bolt\n\nNow, we add the quantities of both types of fiber to get the total amount of fiber needed for the robe.</think>\n<answer>3</answer><|im_end|>",
+      "<think>The problem states that a robe takes 2 bolts of blue fiber and half that much white fiber. First, I need to determine how much white fiber is needed. Half of 2 bolts is 1 bolt. So, the total amount of fiber needed is the sum of the blue and white fiber.</think>\n<answer>3</answer><|im_end|>",
+      "<think>First, let's break down the information. The robe requires 2 bolts of blue fiber. It also requires half that amount in white fiber. So, the white fiber needed is 2 divided by 2, which is 1 bolt. To find the total, we add the blue and white fiber together.</think>\n<answer>3</answer><|im_end|>",
+      "<think>First, I need to determine how much white fiber is used. Since the problem states that the robe takes half the amount of white fiber as blue, it means the white fiber needed is 2/2 = 1 bolt. Then, to find the total fiber required, I add the blue and white fiber together: 2 (blue) + 1 (white) = 3 bolts.</think>\n<answer>3</answer><|im_end|>",
+      "<think>The problem states that a robe takes 2 bolts of blue fiber and half that much white fiber. To find the total bolts of fiber, we need to calculate the white fiber required and then sum it with the blue fiber required. Half of 2 bolts is 1 bolt. Therefore, the total is 2 (blue) + 1 (white) = 3 bolts.</think>\n<answer>3</answer><|im_end|>",
+      "<think>The problem states that a robe takes 2 bolts of blue fiber and half that much white fiber. We need to calculate the total bolts required.\n\n1. Blue fiber: 2 bolts.\n2. White fiber: half of the blue fiber, which is 2/2 = 1 bolt.\n3. Total bolts: blue fiber + white fiber = 2 + 1 = 3 bolts.\n\n</think>\n<answer>3</answer><|im_end|>",
+      "<think>The problem states that a robe requires 2 bolts of blue fiber and half that much white fiber. First, we need to find out how much white fiber is required, which is half of 2 bolts. Then we add the amount of blue fiber and white fiber together to get the total amount of fiber needed.</think>\n<answer>3</answer><|im_end|>",
+      "<think>First, we identify the amounts of each type of fiber needed:\n- Blue fiber: 2 bolts\n- White fiber: half of the blue fiber, which is 2/2 = 1 bolt\n\nNext, we sum these amounts to find the total number of bolts needed for the robe:\n- Total bolts = blue bolts + white bolts = 2 + 1 = 3</think>\n<answer>3</answer><|im_end|>",
+      "<think>First, we determine the amount of white fiber needed. Since the robe takes half the amount of white fiber as blue fiber, and it takes 2 bolts of blue fiber, then it takes 2 / 2 = 1 bolt of white fiber. To find the total amount of fiber needed, we add the bolts of blue fiber and white fiber together: 2 + 1 = 3 bolts.</think>\n<answer>3</answer><|im_end|>",
+      "<think>The problem states that a robe requires 2 bolts of blue fiber and half that much white fiber. To find the total bolts of fiber used for one robe, we need to add the bolts of blue fiber and white fiber together. Since half of 2 is 1, we need to add 2 (blue) and 1 (white) to get the total bolts of fiber needed for one robe.</think>\n<answer>3</answer><|im_end|>",
+      "<think>First, I identify the amounts of each type of fiber needed. The problem states that the robe takes 2 bolts of blue fiber. For the white fiber, it says \"half that much\", which means half of 2 bolts. So, the white fiber needed is 2 / 2 = 1 bolt. To get the total, I add the blue and white fiber together.</think>\n<answer>3</answer><|im_end|>",
+      "<think>The problem states that a robe requires 2 bolts of blue fiber and half that much white fiber. We need to find the total bolts of fiber required.</think>\n<answer>3</answer><|im_end|>",
+      "<think>First, I determine the amount of each type of fiber required. For the blue fiber, it's given as 2 bolts. For the white fiber, it's half the amount of blue fiber, so that would be 2/2 = 1 bolt. To get the total, I add the bolts of blue and white fiber together.</think>\n<answer>3</answer><|im_end|>",
+      "<think>To solve this, I'll break it down into steps: First, I'll determine how much white fiber is used, then I'll sum the amounts of both types of fiber to find the total.</think>\n<answer>3</answer><|im_end|>",
+      "<think>To solve this, we need to determine the total number of bolts required for the robe. We know that the robe requires 2 bolts of blue fiber and half that amount of white fiber. Let's calculate the amount of white fiber required first, which is half of 2 bolts, and then add both amounts together.</think>\n<answer>3</answer><|im_end|>"
+    ]
+  },
+  {
+    "original_data": {
+      "question": "Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repairs.  This increased the value of the house by 150%.  How much profit did he make?",
+      "answer": "The cost of the house and repairs came out to 80,000+50,000=$<<80000+50000=130000>>130,000\nHe increased the value of the house by 80,000*1.5=<<80000*1.5=120000>>120,000\nSo the new value of the house is 120,000+80,000=$<<120000+80000=200000>>200,000\nSo he made a profit of 200,000-130,000=$<<200000-130000=70000>>70,000\n#### 70000"
+    },
+    "num_new_tokens": 3613,
+    "num_leaves": 20,
+    "complexity": 2.869369369369369,
+    "probs": [
+      0.06914707838513602,
+      0.04983870566184028,
+      0.011644846583654321,
+      0.14741349525229114,
+      0.08278582930341033,
+      0.05428296467646597,
+      0.05005517210737376,
+      0.1132747203717218,
+      0.04417824906642704,
+      0.046633785429869304,
+      0.04181917886000854,
+      0.052548116216068225,
+      0.05287065654131049,
+      0.05435065576642006,
+      0.03577732584481231,
+      0.022036083915901183,
+      0.02642738152404917,
+      0.01625562703197823,
+      0.026081686639129627,
+      0.0025784408221321336
+    ],
+    "entropies": [
+      0.13351355095618928,
+      0.2917342989057908,
+      0.1546838113388647,
+      0.21379819964589514,
+      0.18478326115597088,
+      0.13853189456492696,
+      0.11342970021970049,
+      0.09949673530666096,
+      0.177571774289749,
+      0.1215961254537419,
+      0.21505018519029243,
+      0.24003175734581947,
+      0.23518269602336625,
+      0.2382980588139619,
+      0.20383306759226485,
+      0.2501483921540408,
+      0.4058070216617555,
+      0.22177585609030237,
+      0.2617500774429957,
+      0.10620818479392512
+    ],
+    "split_positions": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        5,
+        8
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        5,
+        9
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        2,
+        5,
+        8
+      ],
+      [
+        2,
+        5,
+        9
+      ],
+      [
+        2,
+        5,
+        9
+      ],
+      [
+        2,
+        5,
+        9
+      ],
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        2,
+        5,
+        8
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        5,
+        9
+      ],
+      [
+        2,
+        3,
+        5
+      ]
+    ],
+    "lengths": [
+      228,
+      95,
+      207,
+      89,
+      218,
+      193,
+      175,
+      196,
+      283,
+      308,
+      294,
+      100,
+      170,
+      78,
+      295,
+      187,
+      127,
+      169,
+      69,
+      229
+    ],
+    "texts": [
+      "<think>The problem involves calculating the profit from the house flip. First, determine the total cost (purchase price + repairs), then find the new value after the 150% increase, and finally, subtract the total cost from the new value to find the profit.</think>\n<answer>\n1. Total cost: $80,000 (purchase) + $50,000 (repairs) = $130,000\n2. Increase in value: 150% of $130,000 = 1.5 * $130,000 = $195,000\n3. New value of the house: $130,000 + $195,000 = $325,000\n4. Profit: $325,000 (new value) - $130,000 (total cost) = $195,000\n\n<answer>195000</answer><|im_end|>",
+      "<think>The total cost for Josh is the sum of the house price and the repair cost. The value of the house increased by 150%, meaning the new value of the house is 250% (100% + 150%) of the original price. We need to calculate the new value of the house and then subtract the total cost to find the profit.</think>\n<answer>45000</answer><|im_end|>",
+      "<think>The steps are as follows:\n1. Calculate the total cost of the house (purchase price + repairs).\n2. Calculate the new value of the house after the 150% increase.\n3. Subtract the total cost from the new value to find the profit.\n\nLet's calculate each step:\n1. Total cost = $80,000 + $50,000 = $130,000.\n2. New value = original value + 150% of original value = $80,000 + 1.5 * $80,000 = $80,000 + $120,000 = $200,000.\n3. Profit = new value - total cost = $200,000 - $130,000 = $70,000.\n\n</think>\n<answer>70000</answer><|im_end|>",
+      "<think>First, we need to calculate the new value of the house after the increase. The increase is 150% of the total cost, which is $80,000 + $50,000 = $130,000. Then we calculate the profit by subtracting the total cost from the new value.</think>\n<answer>45000</answer><|im_end|>",
+      "<think>\n1. First, calculate the new value of the house after the 150% increase.\n2. The initial value of the house after repairs is $80,000 + $50,000 = $130,000.\n3. A 150% increase means the value becomes 250% of the original repair value (100% original + 150% increase).\n4. So, the new value is 2.5 * $130,000 = $325,000.\n5. Then, calculate profit by subtracting the total cost (purchase price + repairs) from the new value.\n6. Total cost = $80,000 + $50,000 = $130,000.\n7. Profit = $325,000 - $130,000.\n</think>\n<answer>195000</answer><|im_end|>",
+      "<think>\n1. Calculate the total cost: $80,000 (purchase) + $50,000 (repairs) = $130,000\n2. Calculate the new value of the house after repairs: The value increased by 150%, which means the new value is 250% of the original purchase price (100% + 150% = 250%)\n3. Find the new value: 250% of $80,000 = 2.5 * $80,000 = $200,000\n4. Calculate the profit: New value - total cost = $200,000 - $130,000 = $70,000\n</think>\n<answer>70000</answer><|im_end|>",
+      "<think>\nFirst, calculate the total cost of the house including repairs: $80,000 (purchase price) + $50,000 (repairs) = $130,000.\nNext, determine the new value of the house after the 150% increase in value: $130,000 * (1 + 150/100) = $130,000 * 2.5 = $325,000.\nFinally, calculate the profit by subtracting the total cost from the new value of the house: $325,000 - $130,000 = $195,000.\n</think>\n<answer>195000</answer><|im_end|>",
+      "<think>First, calculate the total cost of the house including repairs. Then, calculate the new value of the house after the increase. Finally, subtract the total cost from the new value to find the profit.</think>\n<answer>\n1. Total cost of the house including repairs: $80,000 + $50,000 = $130,000\n2. Value increase: 150% of $130,000 = 1.5 * $130,000 = $195,000\n3. New value of the house: $130,000 + $195,000 = $325,000\n4. Profit: $325,000 - $130,000 = $195,000\n\n</answer><|im_end|>",
+      "<think>\nFirst, we need to calculate the increased value of the house after repairs. The house value increased by 150% of its value after repairs. The total cost for Josh is the initial purchase price plus the repair costs. The final value of the house is the cost after repairs plus the 150% increase.\n\nLet's break it down step by step:\n1. Initial purchase price: $80,000\n2. Repair costs: $50,000\n3. Total cost for Josh: $80,000 + $50,000 = $130,000\n4. Value increase: 150% of $130,000 = 1.5 * $130,000 = $195,000\n5. Final value of the house: $130,000 + $195,000 = $325,000\n\nNow, to find the profit, we subtract the total cost from the final value:\nProfit = Final value - Total cost = $325,000 - $130,000 = $195,000\n</think>\n<answer>195000</answer><|im_end|>",
+      "<think>\nTo solve this problem, we need to follow these steps:\n\n1. Calculate the new value of the house after the 150% increase.\n2. Calculate the total cost Josh incurred.\n3. Determine the profit by subtracting the total cost from the new value of the house.\n\nStep 1: Calculate the new value of the house.\nThe original value of the house is $80,000. A 150% increase means the house value increased by 1.5 times the original value.\n\nIncrease in value = 150% of $80,000 = 1.5 * $80,000 = $120,000\n\nNew value of the house = Original value + Increase in value\nNew value of the house = $80,000 + $120,000 = $200,000\n\nStep 2: Calculate the total cost Josh incurred.\nTotal cost = Cost of the house + Cost of repairs\nTotal cost = $80,000 + $50,000 = $130,000\n\nStep 3: Determine the profit.\nProfit = New value of the house - Total cost\nProfit = $200,000 - $130,000 = $70,000\n</think>\n<answer>70000</answer><|im_end|>",
+      "<think>\nTo find out how much profit Josh made, we need to follow these steps:\n1. Calculate the total cost of the house including repairs.\n2. Calculate the new value of the house after the increase.\n3. Subtract the total cost from the new value to find the profit.\n\nStep 1: Total cost = cost of house + cost of repairs = $80,000 + $50,000 = $130,000\n\nStep 2: The value of the house increased by 150%, so the new value = original value + 150% of original value.\nWe don't know the original value of the house, but the increase in value can be calculated as 150% of the total cost (since repairs increase the value by 150%).\n\nNew value = total cost + 150% of total cost = $130,000 + (1.5 * $130,000) = $130,000 + $195,000 = $325,000\n\nStep 3: Profit = new value - total cost = $325,000 - $130,000 = $195,000\n</think>\n<answer>195000</answer><|im_end|>",
+      "<think>First, we need to find the new value of the house after the repairs. The value increased by 150%, so we calculate the increase and add it to the original purchase price plus repairs. The formula for the new value is: original value + (150% of original value). Then, we subtract the total cost (purchase price + repairs) from the new value to find the profit.</think>\n<answer>90000</answer><|im_end|>",
+      "<think>First, let's calculate the new value of the house after the repairs. The increase in value is 150% of the total cost before the increase, which is the original house price plus the repairs. The total cost before the increase is $80,000 + $50,000 = $130,000. So, the increase in value is 150% of $130,000, which is 1.5 * $130,000. Adding this to the original total cost gives us the new value of the house. Then, we subtract the total investment (original price + repair costs) from the new value to find the profit.</think>\n<answer>105000</answer><|im_end|>",
+      "<think>First, calculate the total cost Josh incurred, which is the sum of the purchase price and the repair cost. Then, determine the new value of the house after the repairs, which increased its value by 150%. Finally, subtract the total cost from the new value to find the profit.</think>\n<answer>120000</answer><|im_end|>",
+      "<think>First, let's calculate the total investment:\n- Purchase price: $80,000\n- Repairs: $50,000\nTotal investment = $80,000 + $50,000 = $130,000\n\nNext, we need to find the new value of the house after the repairs:\n- The value increased by 150% of the new value after repairs.\n- Let's denote the new value as V.\n- Increase in value = 1.5V\n- New value = Initial value (after repairs) + Increase in value\n- Initial value (after repairs) = $130,000\n- So, V = $130,000 + 1.5V\n- Solving for V: V - 1.5V = -130,000\n- -0.5V = -130,000\n- V = 130,000 / 0.5 = $260,000\n\nFinally, calculate the profit:\n- Profit = New value - Total investment\n- Profit = $260,000 - $130,000 = $130,000</think>\n<answer>130000</answer><|im_end|>",
+      "<think>\nTo determine Josh's profit, we need to follow these steps:\n1. Calculate the new value of the house after the increase.\n2. Determine the total cost (purchase price + repairs).\n3. Subtract the total cost from the new value to find the profit.\n\nThe value increase is 150%, so the new value is the original value plus 150% of the original value. The original value of the house after repairs is $80,000 + $50,000 = $130,000.\n\nNew value of the house = $130,000 + 150% of $130,000.\n\nThen we subtract the total cost ($130,000) from this new value to find the profit.\n</think>\n<answer>50000</answer><|im_end|>",
+      "<think>First, we need to determine the new value of the house after the repairs. The repairs increased the value of the house by 150%, which means the value increased by 1.5 times the original value. So, the new value is the original value plus 150% of the original value. The formula to calculate the new value is: original value + (150% of original value). Then, we will calculate the profit which is the new value minus the total cost (purchase price + repair cost).</think>\n<answer>105000</answer><|im_end|>",
+      "<think>\nFirst, let's calculate the new value of the house after the repairs. The value increased by 150% of the total cost (purchase price + repairs). The total cost is $80,000 + $50,000 = $130,000. A 150% increase means the value increased by 1.5 times the total cost.\n\nNext, we calculate the new value of the house: $130,000 * 2.5 (100% + 150% = 250% or 2.5 times the original cost).\nFinally, we subtract the total cost from the new value to find the profit.\n</think>\n<answer>47500</answer><|im_end|>",
+      "<think>First, calculate the total cost for Josh, which is the purchase price plus the repair costs. Then, determine the increased value of the house after the repairs. Finally, calculate the profit by subtracting the total cost from the new value of the house.</think>\n<answer>120000</answer><|im_end|>",
+      "<think>\n1. Josh's initial cost for the house and repairs is $80,000 + $50,000 = $130,000.\n2. The house's value increased by 150% after repairs. To find the new value, we calculate 150% of $130,000 and add it to the original $130,000.\n3. 150% of $130,000 is 1.5 * $130,000 = $195,000.\n4. So, the new value of the house is $130,000 + $195,000 = $325,000.\n5. The profit is the new value minus the initial cost, which is $325,000 - $130,000 = $195,000.\n</think>\n<answer>195000</answer><|im_end|>"
+    ]
+  },
+  {
+    "original_data": {
+      "question": "James decides to run 3 sprints 3 times a week.  He runs 60 meters each sprint.  How many total meters does he run a week?",
+      "answer": "He sprints 3*3=<<3*3=9>>9 times\nSo he runs 9*60=<<9*60=540>>540 meters\n#### 540"
+    },
+    "num_new_tokens": 2306,
+    "num_leaves": 20,
+    "complexity": 2.972652068998716,
+    "probs": [
+      0.00985533324088503,
+      0.009223446163498109,
+      0.008269151596900995,
+      0.24574936953798177,
+      0.12553623028745278,
+      0.05181995797959819,
+      0.047658299439958335,
+      0.045712605789145544,
+      0.21767367382642006,
+      0.042015581304927746,
+      0.05104590808588053,
+      0.04705934407457302,
+      0.009523989211765319,
+      0.008070429680240992,
+      0.008945764076480019,
+      0.0372214235849092,
+      0.010299867888548931,
+      0.017642151578002235,
+      0.004569511061210746,
+      0.002107961591620495
+    ],
+    "entropies": [
+      0.2640373578304419,
+      0.18967607993753746,
+      0.21522596352854,
+      0.18134895720879446,
+      0.16437589898433383,
+      0.2591585943115522,
+      0.2129509309875978,
+      0.21431552517056607,
+      0.19358090227071562,
+      0.26159358318059955,
+      0.302079547748997,
+      0.18122799611513757,
+      0.2164125700181271,
+      0.17203786249936628,
+      0.21065651713461717,
+      0.27911071190834186,
+      0.18628357011827842,
+      0.2918856058244967,
+      0.2667947733310923,
+      0.3414122459606751
+    ],
+    "split_positions": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        2,
+        3,
+        12
+      ],
+      [
+        2,
+        3,
+        7
+      ],
+      [
+        2,
+        3,
+        11
+      ],
+      [
+        2,
+        3,
+        12
+      ],
+      [
+        2,
+        3,
+        6
+      ],
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        2,
+        3,
+        6
+      ],
+      [
+        2,
+        3,
+        12
+      ],
+      [
+        2,
+        3,
+        7
+      ],
+      [
+        2,
+        3,
+        11
+      ],
+      [
+        2,
+        3,
+        7
+      ],
+      [
+        2,
+        3,
+        11
+      ]
+    ],
+    "lengths": [
+      94,
+      138,
+      102,
+      86,
+      88,
+      193,
+      83,
+      114,
+      74,
+      170,
+      126,
+      70,
+      139,
+      168,
+      177,
+      80,
+      154,
+      83,
+      136,
+      137
+    ],
+    "texts": [
+      "<think>Let's break this down:\n1. James runs 3 sprints each time.\n2. Each sprint is 60 meters.\n3. He does this 3 times a week.\nSo, to find the total distance he runs in a week, we multiply the number of sprints per run by the distance of each sprint, then multiply that by how many times he runs per week.</think>\n<answer>540</answer><|im_end|>",
+      "<think>\nFirst, we determine the total distance James runs in one session:\n- He runs 3 sprints per session.\n- Each sprint is 60 meters.\n\nSo, the distance for one session is:\n\\[ 3 \\times 60 = 180 \\text{ meters} \\]\n\nNext, we calculate the total distance for the week:\n- He runs 3 times a week.\n- Each session is 180 meters.\n\nSo, the total distance for the week is:\n\\[ 3 \\times 180 = 540 \\text{ meters} \\]\n\n</think>\n<answer>540</answer><|im_end|>",
+      "<think>\n1. James runs 3 sprints each time.\n2. He runs 60 meters in each sprint.\n3. So, each day he runs 3 sprints * 60 meters/sprint = 180 meters.\n4. He does this 3 times a week, so in a week, he runs 180 meters/day * 3 days/week = 540 meters.\n</think>\n<answer>540</answer><|im_end|>",
+      "<think>First, we need to determine the total distance James runs in one session. He runs 3 sprints, each 60 meters. So in one session, he runs 3 * 60 meters. Then, since he does this 3 times a week, we multiply the distance of one session by 3 to get the weekly distance.</think>\n<answer>540</answer><|im_end|>",
+      "<think>First, I need to calculate the total distance James runs in one session. Since he does 3 sprints and each sprint is 60 meters, the distance for one session is 3 * 60 meters. Then, since he does this 3 times a week, I multiply the distance of one session by 3 to get the weekly total.</think>\n<answer>540</answer><|im_end|>",
+      "<think>\nTo find out how many total meters James runs in a week, we can break down the problem step by step:\n\n1. **Determine the distance run in one sprint:** James runs 60 meters each sprint.\n2. **Calculate the distance run in one session:** Since he does 3 sprints in one session, the distance in one session is \\( 60 \\, \\text{meters/sprint} \\times 3 \\, \\text{sprints/session} \\).\n3. **Calculate the total distance run in a week:** He runs 3 times a week, so the total distance is \\( (60 \\, \\text{meters/sprint} \\times 3 \\, \\text{sprints/session}) \\times 3 \\, \\text{sessions/week} \\).\n\nNow, let's compute the total using these steps.\n</think>\n<answer>540</answer><|im_end|>",
+      "<think>First, let's break down the problem:\n- James runs 3 sprints each time.\n- He does this 3 times a week.\n- Each sprint is 60 meters.\n\nTo find the total distance, we multiply the number of sprints per session by the distance per sprint, then by the number of sessions per week.</think>\n<answer>540</answer><|im_end|>",
+      "<think>\nTo solve this problem, we need to break it down into smaller steps:\n\n1. Calculate the distance James runs in one session.\n2. Multiply that by the number of sessions per week.\n</think>\n<answer>\n1. Distance per session = 3 sprints * 60 meters/sprint = 180 meters\n2. Weekly distance = 180 meters/session * 3 sessions/week = 540 meters\n\nTherefore, James runs a total of 540 meters a week.\n</answer><|im_end|>",
+      "<think>James runs 3 sprints each time and each sprint is 60 meters. So, each session he runs 3 * 60 meters. He does this 3 times a week, so we multiply the distance he runs in one session by 3 to get the weekly total.</think>\n<answer>540</answer><|im_end|>",
+      "<think>To solve this problem, I will break it down into steps:\n\n1. Determine the total distance James runs in one session.\n2. Calculate the total distance for the entire week.\n\nFirst, I will calculate the distance for one session:\n- James runs 3 sprints per session.\n- Each sprint is 60 meters long.\n- Therefore, the distance for one session is 3 sprints * 60 meters/sprint = 180 meters.\n\nNext, I will calculate the distance for the entire week:\n- James runs 3 times a week.\n- Each running session is 180 meters.\n- Therefore, the total distance for the week is 3 times/week * 180 meters/session = 540 meters.\n\n</think>\n<answer>540</answer><|im_end|>",
+      "<think>To find out how many total meters James runs in a week, we should break down the problem into smaller steps:\n1. Calculate the distance James runs in one session: He runs 3 sprints, and each sprint is 60 meters.\n2. Calculate the distance he runs in a week: He performs this session 3 times a week.\nSo, the total distance in one session = 3 sprints * 60 meters/sprint.\nThe total distance in a week = total distance in one session * 3 sessions/week.\n</think>\n<answer>540</answer><|im_end|>",
+      "<think>James runs 3 sprints each time and does this 3 times a week. Each sprint is 60 meters. So, I need to multiply the number of sprints per session by the distance of each sprint, and then by the number of sessions per week.</think>\n<answer>540</answer><|im_end|>",
+      "<think>To determine the total distance James runs in a week, I need to calculate the distance he runs in one sprint session and then multiply by the number of sessions per week. \n\n1. Distance per sprint: 60 meters\n2. Number of sprints per session: 3\n3. Number of sessions per week: 3\n\nFirst, I'll calculate the distance for one session: 60 meters/sprint * 3 sprints = 180 meters/session. Then, I'll multiply by the number of sessions per week: 180 meters/session * 3 sessions/week.</think>\n<answer>540</answer><|im_end|>",
+      "<think>\nTo determine the total distance James runs in a week, we can break down the problem into smaller steps.\n\n1. Calculate the distance James runs in one session: He runs 3 sprints, each 60 meters long.\n2. Calculate the distance he runs in one week: He runs 3 times a week.\n\nStep 1: Distance in one session\n\\[ 3 \\text{ sprints} \\times 60 \\text{ meters/sprint} = 180 \\text{ meters} \\]\n\nStep 2: Distance in one week\n\\[ 180 \\text{ meters/session} \\times 3 \\text{ sessions/week} = 540 \\text{ meters/week} \\]\n\n</think>\n<answer>540</answer><|im_end|>",
+      "<think>To determine the total meters James runs in a week, I will follow these steps:\n1. Calculate the distance James runs in one session.\n2. Multiply the distance of one session by the number of sessions per week.\n3. The result will be the total distance run in a week.\n\nStep 1: Distance in one session\nJames runs 3 sprints per session, and each sprint is 60 meters. So, in one session, he runs 3 sprints * 60 meters/sprint = 180 meters.\n\nStep 2: Multiply by the number of sessions per week\nJames runs 3 times a week. So, the total distance he runs in a week is 180 meters/session * 3 sessions/week = 540 meters.\n\n</think>\n<answer>540</answer><|im_end|>",
+      "<think>James runs 3 sprints each time and he does this 3 times a week. So, in total, he runs 3 sprints * 3 times = 9 sprints a week. Each sprint is 60 meters. Therefore, he runs 9 sprints * 60 meters/sprint.</think>\n<answer>540</answer><|im_end|>",
+      "<think>To solve this problem, we need to calculate the total distance James runs in a week based on the given information. We can break it down into steps:\n\n1. Calculate the distance James runs in one sprint.\n2. Calculate the distance he runs in one session (3 sprints).\n3. Calculate the total distance he runs in a week (3 sessions per week).\n\nStep 1: Distance in one sprint = 60 meters\nStep 2: Distance in one session = 60 meters * 3 sprints = 180 meters\nStep 3: Total distance in a week = 180 meters * 3 sessions = 540 meters\n\n</think>\n<answer>540</answer><|im_end|>",
+      "<think>To find out how many total meters James runs a week, I need to break down the problem into smaller steps. First, I calculate how many meters he runs in one session by multiplying the number of sprints by the distance of each sprint. Then, I multiply the distance of one session by the number of sessions he does in a week.</think>\n<answer>540</answer><|im_end|>",
+      "<think>To solve this problem, let's break it down into smaller steps:\n1. Calculate the total distance James runs in one session.\n2. Multiply the distance of one session by the number of sessions per week to find the weekly total.\n\nStep 1: In one session, James runs 3 sprints of 60 meters each. So, the total distance for one session is 3 sprints * 60 meters/sprint.\nStep 2: James runs 3 times a week, so we need to multiply the result from step 1 by 3 to get the weekly total.\n</think>\n<answer>540</answer><|im_end|>",
+      "<think>To find out how many total meters James runs each week, we'll break down the problem step by step. First, we calculate the distance he runs in one session. Then we'll multiply that by the number of sessions he does in a week.\n\n1. Distance per sprint: 60 meters\n2. Number of sprints per session: 3\n3. Number of sessions per week: 3\n\nSo, the distance per session is 60 * 3 meters.\nThen, the weekly distance is (60 * 3) * 3 meters.\n\nLet's calculate this.\n</think>\n<answer>540</answer><|im_end|>"
+    ]
+  }
+]

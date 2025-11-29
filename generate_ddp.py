@@ -14,7 +14,7 @@ from utils import generate_usr_prompt
 from threshold import get_threshold
 
 logger = logging.getLogger(__name__)
-
+os.environ['TORCH_NCCL_BLOCKING_WAIT'] = '0'
 model_to_dir = {
     "Qwen2.5-7B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct",
     "Qwen2.5-32B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-32B-Instruct",
@@ -26,7 +26,7 @@ model_to_dir = {
 def setup(rank, world_size):
     os.environ['MASTER_ADDR'] = 'localhost'
     os.environ['MASTER_PORT'] = '12355'
-    dist.init_process_group("nccl", rank=rank, world_size=world_size, timeout=datetime.timedelta(seconds=5400))
+    dist.init_process_group("nccl", rank=rank, world_size=world_size, timeout=datetime.timedelta(seconds=10800))
     torch.cuda.set_device(rank)
 
 def cleanup():
@@ -165,8 +165,6 @@ def run_inference(rank, world_size, args):
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         with open(output_path, 'w', encoding="utf8") as f:
             json.dump(final_results, f, indent=2, ensure_ascii=False)
-        
-        logger.info(f"generate {len(final_results)} results in {time.time() - start_time:.2f} seconds")
     
     cleanup()
 
@@ -184,3 +182,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     mp.spawn(run_inference, args=(args.world_size, args), nprocs=args.world_size, join=True)
+    logger.info(f"generate results in {time.time() - start_time:.2f} seconds")
+    
