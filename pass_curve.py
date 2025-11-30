@@ -34,14 +34,15 @@ def calculate_pass_at_k(correct_flags, k):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument("--model", type=str, required=True)
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--sc_file", type=str, required=True)
     parser.add_argument("--lt_file", type=str, required=True)
     args = parser.parse_args()
 
     dataset = args.dataset
-    sc_file_path = f"./results/{dataset}/{args.sc_file}"
-    lt_file_path = f"./results/{dataset}/{args.lt_file}"
+    sc_file_path = f"./results/{args.model}/{dataset}/{args.sc_file}"
+    lt_file_path = f"./results/{args.model}/{dataset}/{args.lt_file}"
 
     with open(lt_file_path, 'r') as f:
         data_lt = json.load(f)
@@ -91,7 +92,7 @@ if __name__ == "__main__":
     plt.legend()
 
     # 图2 pass@k随k的变化
-    max_k = 15
+    max_k = 20
     sc_pass_at_k = []
     lt_pass_at_k = []
 

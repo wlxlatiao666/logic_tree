@@ -61,7 +61,7 @@ def run_vllm_generate(model_dir, dataset, data, num_samples, output_file, device
                 temperature=0.7,
                 top_k=50,
                 top_p=0.9,
-                max_tokens=1024
+                max_tokens=8192
             )
 
             out = llm.generate(prompt, sampling_params=sampling_params)

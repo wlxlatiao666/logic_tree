@@ -140,33 +140,56 @@ def run_inference(rank, world_size, args):
         if rank == 0:
             logger.info(f"Processed {global_idx+1} items")
     
-    # 收集所有结果到主进程
-    all_results = [None] * world_size
-    dist.gather_object(local_results, all_results if rank == 0 else None, dst=0)
+    # Save local results to a temporary file
+    temp_dir = f"./results/temp/{model_name}/{dataset}"
+    os.makedirs(temp_dir, exist_ok=True)
+    temp_file = os.path.join(temp_dir, f"rank_{rank}.json")
     
-    # 主进程合并结果
-    if rank == 0:
-        # 展开并按全局索引排序
-        final_results = []
-        for proc_results in all_results:
-            final_results.extend(proc_results)
-        
-        final_results.sort(key=lambda x: x["global_index"])
-        # 删除临时索引字段
-        for result in final_results:
-            del result["global_index"]
-        
-        # 保存结果
-        if test_size == -1:
-            output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_ddp.json"
-        else:
-            output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_ddp.json"
-        
-        os.makedirs(os.path.dirname(output_path), exist_ok=True)
-        with open(output_path, 'w', encoding="utf8") as f:
-            json.dump(final_results, f, indent=2, ensure_ascii=False)
+    with open(temp_file, 'w', encoding="utf8") as f:
+        json.dump(local_results, f, ensure_ascii=False)
+    
+    logger.info(f"Rank {rank} saved {len(local_results)} items to {temp_file}")
     
     cleanup()
+
+def merge_results(args):
+    model_name = args.model
+    dataset = args.dataset
+    test_size = args.test_size
+    num_leaves = args.num_leaves
+    tau = args.tau
+    world_size = args.world_size
+    
+    temp_dir = f"./results/temp/{model_name}/{dataset}"
+    final_results = []
+    
+    for rank in range(world_size):
+        temp_file = os.path.join(temp_dir, f"rank_{rank}.json")
+        if os.path.exists(temp_file):
+            with open(temp_file, 'r', encoding="utf8") as f:
+                final_results.extend(json.load(f))
+            # os.remove(temp_file)  # Optional: keep for debugging
+        else:
+            print(f"Warning: Missing result file for rank {rank}")
+            
+    final_results.sort(key=lambda x: x["global_index"])
+    # Remove temporary index field
+    for result in final_results:
+        if "global_index" in result:
+            del result["global_index"]
+    
+    # Save final results
+    if test_size == -1:
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_ddp.json"
+    else:
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_ddp.json"
+    
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    with open(output_path, 'w', encoding="utf8") as f:
+        json.dump(final_results, f, indent=2, ensure_ascii=False)
+    
+    print(f"Merged results saved to {output_path}")
+    # shutil.rmtree(temp_dir) # Optional: clean up temp dir
 
 if __name__ == "__main__":
     start_time = time.time()
@@ -182,5 +205,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     mp.spawn(run_inference, args=(args.world_size, args), nprocs=args.world_size, join=True)
+    
+    # Merge results from all ranks
+    merge_results(args)
+    
     logger.info(f"generate results in {time.time() - start_time:.2f} seconds")
     
