@@ -46,7 +46,7 @@ if __name__ == "__main__":
         device = "cpu"
         logger.info("CUDA不可用，使用CPU")
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
-    model = AutoModelForCausalLM.from_pretrained(model_dir, torch_dtype=torch.float16).to(device)
+    model = AutoModelForCausalLM.from_pretrained(model_dir, dtype=torch.float16).to(device)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
 
