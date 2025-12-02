@@ -45,7 +45,7 @@ class VLLMWorker:
             model=model_dir,
             tensor_parallel_size=1,  # 每个worker使用单GPU
             gpu_memory_utilization=0.9,
-            max_model_len=8192,
+            max_model_len=32768,
             trust_remote_code=True
         )
         print(f"Worker initialized on GPU {gpu_id}")
@@ -153,7 +153,7 @@ def run_vllm_generate_ray(model_dir, dataset, data, num_samples, output_file, nu
         "temperature": 0.7,
         "top_k": 50,
         "top_p": 0.9,
-        "max_tokens": 8192,
+        "max_tokens": 32768,
         "n": 1
     }
     

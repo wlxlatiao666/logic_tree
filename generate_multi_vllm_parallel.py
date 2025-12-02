@@ -55,7 +55,7 @@ def run_vllm_generate_parallel(model_dir, dataset, data, num_samples, output_fil
         model=model_dir,
         tensor_parallel_size=tensor_parallel_size,  # 多GPU张量并行
         gpu_memory_utilization=gpu_memory_utilization,  # 显存利用率
-        max_model_len=8192,  # 最大序列长度
+        max_model_len=32768,  # 最大序列长度
         trust_remote_code=True
     )
     
@@ -85,7 +85,7 @@ def run_vllm_generate_parallel(model_dir, dataset, data, num_samples, output_fil
         temperature=0.7,
         top_k=50,
         top_p=0.9,
-        max_tokens=8192,
+        max_tokens=32768,
         n=1  # 每个prompt生成1个输出（我们通过重复prompt来生成多个样本）
     )
     

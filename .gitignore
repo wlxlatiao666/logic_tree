@@ -1,3 +1,5 @@
 logs/
+results/
+run*
 output*
 core*
