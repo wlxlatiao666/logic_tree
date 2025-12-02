@@ -1,3 +1,4 @@
+import math
 
 def _fix_fracs(string):
     substrs = string.split("\\frac")
@@ -136,7 +137,7 @@ def _strip_string(string):
 
     return string
 
-def is_equiv(str1, str2, verbose=False):
+def is_equiv_math(str1, str2, verbose=False):
     if str1 is None and str2 is None:
         print("WARNING: Both None")
         return True
@@ -151,3 +152,20 @@ def is_equiv(str1, str2, verbose=False):
         return ss1 == ss2
     except:
         return str1 == str2
+    
+
+def is_equiv_scibench(model_output, answer):
+    model_output=model_output.replace(',', '')
+    try:
+        ans=float(answer.strip())
+        first=math.isclose(float(model_output.strip()), ans, rel_tol=0.05)
+    except:
+        first=False
+    try: 
+        model=model_output.strip().split()[0]
+        second=math.isclose(float(model.strip()), ans, rel_tol=0.05)
+    except:
+        second=False
+    if first or second:
+        return True
+    return False
