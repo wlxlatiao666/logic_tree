@@ -3,12 +3,12 @@ import json
 from datasets import load_dataset
 
 # 数据集名称
-DATASET_NAME = "allenai/ai2_arc"
+DATASET_NAME = "xw27/scibench"
 # 下载路径
-DOWNLOAD_DIR = "/Users/weilongxuan/codes/logic_tree/data/arc-c"
+DOWNLOAD_DIR = "/Users/weilongxuan/codes/logic_tree/data/scibench"
 # 要下载的分割
-SUBSET = "ARC-Challenge"
-SPLIT = "test"
+SUBSET = None
+SPLIT = "train"
 
 # 确保下载目录存在
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
