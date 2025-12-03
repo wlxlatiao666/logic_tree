@@ -34,7 +34,7 @@ def generate_usr_prompt(dataset: str, item: dict) -> str:
             raise ValueError(f"dataset {dataset} not supported")
         return usr_prompt
     
-    if "gsm8k" in dataset or "math" in dataset or "aime" in dataset:
+    if "gsm8k" in dataset or "math" in dataset or "aime" in dataset or "svamp" in dataset:
         usr_prompt = item["question"]
     elif "scibench" in dataset:
         unit_prob = item["unit"]
@@ -88,7 +88,7 @@ def get_gt_answer(dataset: str, item: dict) -> str:
         gt_answer = parse_gsm8k_answer(item["answer"])
     elif "math" in dataset:
         gt_answer = remove_boxed(item["answer"])
-    elif "aime" in dataset or "scibench" in dataset:
+    elif "aime" in dataset or "scibench" in dataset or "svamp" in dataset:
         gt_answer = item["answer"]
     elif "gpqa" in dataset or "csqa" in dataset or "arc" in dataset:
         label_to_answer = {
