@@ -25,7 +25,7 @@ def generate_usr_prompt(dataset: str, item: dict) -> str:
         if "mathcloze" in dataset:
             usr_prompt = item["question"]
         elif "mathqa" in dataset:
-            "Question: " + item['question'] + \
+            usr_prompt = "Question: " + item['question'] + \
             "\n" + item['options'][0] + \
             "\n" + item['options'][1] + \
             "\n" + item['options'][2] + \
@@ -39,7 +39,7 @@ def generate_usr_prompt(dataset: str, item: dict) -> str:
     elif "scibench" in dataset:
         unit_prob = item["unit"]
         if remove_not(item["unit"]):
-            unit_prob=remove_not(item["unit"])
+            unit_prob = remove_not(item["unit"])
         usr_prompt = item["question"] + " The unit of the answer is " + unit_prob + "."
     elif "gpqa" in dataset or "csqa" in dataset or "arc" in dataset:
         usr_prompt = "Question: " + item['question']

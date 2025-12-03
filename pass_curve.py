@@ -38,6 +38,7 @@ if __name__ == "__main__":
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--sc_file", type=str, required=True)
     parser.add_argument("--lt_file", type=str, required=True)
+    parser.add_argument("--n", type=int, default=20)
     args = parser.parse_args()
 
     dataset = args.dataset
@@ -50,7 +51,7 @@ if __name__ == "__main__":
         data_sc = json.load(f)[:len(data_lt)]
 
     # 图1 pass@all随总token数变化
-    max_n = 20
+    max_n = args.n
     pass_rates = []
     avg_token_counts = []
 
@@ -90,11 +91,10 @@ if __name__ == "__main__":
     plt.title('Pass@all vs. total tokens per question')
     plt.grid(True)
     plt.legend()
-    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_all.png")
+    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_all_{max_n}.png")
     plt.close(1)
 
     # 图2 pass@k随k的变化
-    max_k = 20
     sc_pass_at_k = []
     lt_pass_at_k = []
 
@@ -104,7 +104,7 @@ if __name__ == "__main__":
         original_data = item['original_data']
         gt_answer = get_gt_answer(dataset, original_data)
         # 计算每个sampled_answer是否正确
-        correct_flags = [match_answer(gt_answer, parse_model_answer(ans), dataset) for ans in item['sampled_answers'][:max_k]]
+        correct_flags = [match_answer(gt_answer, parse_model_answer(ans), dataset) for ans in item['sampled_answers'][:max_n]]
         sc_correct_flags_list.append(correct_flags)
 
     # 预处理Logic Tree数据
@@ -127,7 +127,7 @@ if __name__ == "__main__":
         sc_pass_at_k.append(avg_pass_at_k)
 
     # 计算Logic Tree的pass@k
-    for k in range(1, max_k + 1):
+    for k in range(1, max_n + 1):
         # 对每个item计算pass@k，然后求平均
         item_pass_at_k = []
         for correct_flags in lt_correct_flags_list:
@@ -138,15 +138,15 @@ if __name__ == "__main__":
 
     # 绘制图2
     plt.figure(2)
-    k_values = list(range(1, max_k + 1))
-    plt.plot(k_values, sc_pass_at_k[:max_k], marker='o', label='Sampling')
+    k_values = list(range(1, max_n + 1))
+    plt.plot(k_values, sc_pass_at_k[:max_n], marker='o', label='Sampling')
     plt.plot(k_values, lt_pass_at_k, marker='s', label='Logic Tree')
     plt.xlabel('k')
     plt.ylabel('Pass@k')
     plt.title('Pass@k vs. k')
     plt.grid(True)
     plt.legend()
-    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k.png")
+    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}.png")
     plt.close(2)
     
     # 图3 token总数随采样数n的变化

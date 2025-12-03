@@ -285,9 +285,9 @@ def main():
     # D. presumes, without providing justification, that only businesses with low general operating expenses can succeed'''
     prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{query}<|im_end|>\n<|im_start|>assistant\n"
 
-    for i in range(1):
+    for i in range(10):
         # torch.cuda.manual_seed_all(41)
-        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, prompt=prompt, sample=True, branches_m=3)
+        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, device, prompt=prompt, sample=True, branches_m=3)
 
         logger.info("\n--- Logic Tree ---")
         pretty_print_tree(root)

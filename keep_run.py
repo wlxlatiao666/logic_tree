@@ -17,8 +17,8 @@ if __name__ == "__main__":
     logger.setLevel(logging.INFO)
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", type=str, required=True)
-    parser.add_argument("--times", type=int, required=True)
+    parser.add_argument("--dataset", type=str, default="gsm8k")
+    parser.add_argument("--times", type=int, default=1)
     args = parser.parse_args()
 
     # load model
