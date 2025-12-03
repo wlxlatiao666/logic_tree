@@ -3,12 +3,12 @@ import json
 from datasets import load_dataset
 
 # 数据集名称
-DATASET_NAME = "xw27/scibench"
+DATASET_NAME = "ChilleD/SVAMP"
 # 下载路径
-DOWNLOAD_DIR = "/Users/weilongxuan/codes/logic_tree/data/scibench"
+DOWNLOAD_DIR = "/Users/weilongxuan/codes/logic_tree/data/svamp"
 # 要下载的分割
 SUBSET = None
-SPLIT = "train"
+SPLIT = "test"
 
 # 确保下载目录存在
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)

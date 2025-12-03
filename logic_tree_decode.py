@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 TAU = 0.80     # 归一化熵阈值（触发分叉）
 BRANCHES_M = 3      # 每次分叉产生的分支数
 MAX_LEAVES = 20
-MAX_NEW_TOKENS = 8192
+MAX_NEW_TOKENS = 32768
 
 TEMPERATURE = 0.7
 TOPK = 50
