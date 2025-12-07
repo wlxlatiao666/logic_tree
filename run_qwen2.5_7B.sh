@@ -1,17 +1,3 @@
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset aime24 --num_leaves 50
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset aime25 --num_leaves 50
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset math500 --num_leaves 50
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset scibench --num_leaves 20
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset gaokao-mathcloze --num_leaves 20
-# python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset gaokao-mathqa --num_leaves 20
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset gpqa-diamond --num_leaves 50
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset gpqa-main --num_leaves 50
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset csqa --num_leaves 50
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset arc-e --num_leaves 50
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset arc-c --num_leaves 50
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset scibench --num_leaves 50
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset gaokao-mathqa --num_leaves 20
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset svamp --num_leaves 20
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset gaokao-mathcloze --num_leaves 50
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset gaokao-mathqa --num_leaves 50
-python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset svamp --num_leaves 50
+python generate_ddp.py --model Qwen2.5-7B-Instruct --dataset math500 --tau 95
+python generate_ddp_2.py --model Qwen2.5-7B-Instruct --dataset math500 
+
