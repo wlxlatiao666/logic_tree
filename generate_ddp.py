@@ -54,30 +54,10 @@ def run_inference(rank, world_size, args):
         logger.info(f"使用GPU设备: {rank}")
     
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
-    # 尝试使用Flash Attention 2
-    try:
-        model = AutoModelForCausalLM.from_pretrained(model_dir, dtype=torch.float16, attn_implementation="flash_attention_2").to(device)
-        if rank == 0:
-            logger.info("已启用 Flash Attention 2")
-    except Exception as e:
-        if rank == 0:
-            logger.info(f"Flash Attention 2 不可用，回退到默认模式: {e}")
-        model = AutoModelForCausalLM.from_pretrained(model_dir, dtype=torch.float16).to(device)
+    model = AutoModelForCausalLM.from_pretrained(model_dir, dtype=torch.float16).to(device)
     
-    # 编译模型以加速推理 (PyTorch 2.0+)
-    if hasattr(torch, "compile"):
-        try:
-            model = torch.compile(model)
-            if rank == 0:
-                logger.info("已启用 torch.compile 加速")
-        except Exception as e:
-            if rank == 0:
-                logger.warning(f"torch.compile 失败: {e}")
-
-    # DDP wrapper is not strictly needed for inference if we don't use DDP.forward
-    # But we keep it if needed for some synchronization, though here we pass 'model' to logic_branch_decode
-    # logic_branch_decode uses the raw model.
-    # ddp_model = DDP(model, device_ids=[rank]) # Not used for inference logic
+    # 包装为DDP模型
+    ddp_model = DDP(model, device_ids=[rank])
     
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
