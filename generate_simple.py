@@ -11,6 +11,14 @@ import sys
 
 logger = logging.getLogger(__name__)
 
+model_to_dir = {
+    "Qwen2.5-7B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct",
+    "Qwen2.5-32B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-32B-Instruct",
+    "Qwen2.5-72B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-72B-Instruct",
+    "Qwen3-8B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-8B",
+    "Qwen3-14B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-14B"
+}
+
 if __name__ == "__main__":
     fh = logging.FileHandler('./logs/app.log', encoding='utf-8')
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -20,6 +28,7 @@ if __name__ == "__main__":
 
     # 配置参数
     parser = argparse.ArgumentParser()
+    parser.add_argument("--model", type=str, required=True, choices=model_to_dir.keys())
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--sample", type=bool, default=False)
     args = parser.parse_args()
@@ -27,17 +36,18 @@ if __name__ == "__main__":
     sample = args.sample
     logger.info(f"Sample: {sample}")
 
-    model_name = '/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct'
+    model_name = args.model
+    model_dir = model_to_dir[model_name]
     device = "cuda" if torch.cuda.is_available() else "cpu"
     dataset_path = f"./data/{dataset}/test.json"
     if sample:
-        output_file = f'./results/{dataset}/generated_answers_topk_topp.json'
+        output_file = f'./results/{model_name}/{dataset}/generated_answers_topk_topp.json'
     else:
-        output_file = f'./results/{dataset}/generated_answers_greedy.json'
+        output_file = f'./results/{model_name}/{dataset}/generated_answers_greedy.json'
 
     # 加载模型和tokenizer
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+    tokenizer = AutoTokenizer.from_pretrained(model_dir)
+    model = AutoModelForCausalLM.from_pretrained(model_dir).to(device)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
 

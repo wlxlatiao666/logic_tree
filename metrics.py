@@ -38,6 +38,7 @@ if __name__ == "__main__":
     logger.setLevel(logging.INFO)
 
     parser = argparse.ArgumentParser()
+    parser.add_argument("--model", type=str, required=True)
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--file_name", type=str, required=True, help="Include .json suffix")
     args = parser.parse_args()
@@ -45,9 +46,9 @@ if __name__ == "__main__":
     dataset = args.dataset
     file_name = args.file_name
     # dataset_path = f"./data/{dataset}/test.json"
-    input_path = f'./results/{dataset}/{file_name}'
+    input_path = f'./results/{args.model}/{dataset}/{file_name}'
     file_name = file_name.replace(".json", "")
-    output_path = f'./results/{dataset}/{file_name}_metrics.json'
+    output_path = f'./results/{args.model}/{dataset}/{file_name}_metrics.json'
 
     with open(input_path, 'r') as f:
         data = json.load(f)

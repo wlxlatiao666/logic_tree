@@ -265,7 +265,7 @@ if __name__ == '__main__':
     data_path = f"./data/{dataset}/test.json"
     
     if test_size == -1:
-        output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_samples}samples_ray_{num_gpus}gpus.json'
+        output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_samples}samples_ray_{num_gpus}gpus_2.json'
     else:
         output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_samples}samples_{test_size}_ray_{num_gpus}gpus.json'
 

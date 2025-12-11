@@ -64,14 +64,24 @@ def parse_gsm8k_answer(gt_answer):
 
 def parse_model_answer(model_answer):
     """
-    提取model_answer中<answer>和</answer>之间的内容，去除首尾空格。
-    例：'...<answer>18</answer>...' -> '18'
+    提取model_answer中<answer>和</answer>之间的内容，
+    如果没有<answer>标签，则尝试提取\boxed{}中的内容。
+    如果都没有，返回整个答案字符串（去除首尾空格）。
     """
     if model_answer is None:
         return None
+    
+    # 尝试匹配<answer>标签
     match = re.search(r"<answer>(.*?)</answer>", str(model_answer), re.DOTALL)
     if match:
         return match.group(1).strip()
+    
+    # 如果没有<answer>标签，尝试匹配\boxed{}
+    boxed_match = re.search(r"\\boxed{(.*?)}", str(model_answer), re.DOTALL)
+    if boxed_match:
+        return boxed_match.group(1).strip()
+    
+    # 如果都没有匹配到，返回整个字符串
     return str(model_answer).strip()
 
 def get_gt_answer(dataset: str, item: dict) -> str:
