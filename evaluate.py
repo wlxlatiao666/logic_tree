@@ -68,8 +68,8 @@ if __name__ == "__main__":
     sys.stdout = open(f'./results/{args.model}/{dataset}/output_all.txt', 'w', encoding='utf-8')
     with open(lt_file_path) as f:
         data_lt = json.load(f)
-    # with open(f'./results/{dataset}/generated_answers_greedy.json') as f:
-    #     greedy_data = json.load(f)
+    with open(f'./results/{args.model}/{dataset}/generated_answers_greedy.json') as f:
+        data_greedy = json.load(f)
     # with open(f'./results/{dataset}/generated_answers_topk_topp.json') as f:
     #     topk_topp_data = json.load(f)
     with open(sc_file_path) as f:
@@ -79,13 +79,13 @@ if __name__ == "__main__":
     y_score = defaultdict(list)
     pe_true = []
     pe_passk = []
-    # greedy_score = []
+    greedy_score = []
     # topp_score = []
     pe_score = []
 
-    for item, pe_item in zip(data_lt, data_sc):
-        # y_true['greedy'].append(greedy_item['label'])
-        # greedy_score.append(-greedy_item['avg_logprob'])
+    for item, pe_item, greedy_item in zip(data_lt, data_sc, data_greedy):
+        y_true['greedy'].append(greedy_item['label'])
+        greedy_score.append(-greedy_item['avg_logprob'])
         # y_true['topk_topp'].append(topp_item['label'])
         # topp_score.append(-topp_item['avg_logprob'])
         pe_true.append(pe_item['label'])
@@ -98,13 +98,13 @@ if __name__ == "__main__":
         for index in uncertainties:
             y_score[index].append(-uncertainties[index])
 
-    # print("Greedy Results:")
-    # auroc = roc_auc_score(y_true['greedy'], greedy_score)
-    # print(f"Greedy AUROC: {auroc:.4f}")
-    # auarc = compute_auarc(greedy_score, y_true['greedy'])
-    # print(f"Greedy AUARC: {auarc:.4f}")
-    # ece = compute_ece(greedy_score, y_true['greedy'])
-    # print(f"Greedy ECE: {ece:.4f}")
+    print("Greedy Results:")
+    auroc = roc_auc_score(y_true['greedy'], greedy_score)
+    print(f"Greedy AUROC: {auroc:.4f}")
+    auarc = compute_auarc(greedy_score, y_true['greedy'])
+    print(f"Greedy AUARC: {auarc:.4f}")
+    ece = compute_ece(greedy_score, y_true['greedy'])
+    print(f"Greedy ECE: {ece:.4f}")
 
     # print("\n\nTop-K/Top-P Results:")
     # auroc = roc_auc_score(y_true['topk_topp'], topp_score)  
@@ -117,16 +117,16 @@ if __name__ == "__main__":
     print("\n\nPredictive Entropy Results:")
     print("accuracy:", sum(pe_true) / len(pe_true))
     print("pass@k:", sum(pe_passk) / len(pe_passk))
-    # auroc = roc_auc_score(y_true['greedy'], pe_score)
-    # print(f"Predictive Entropy AUROC(greedy label): {auroc:.4f}")
+    auroc = roc_auc_score(y_true['greedy'], pe_score)
+    print(f"Predictive Entropy AUROC(greedy label): {auroc:.4f}")
     auroc = roc_auc_score(pe_true, pe_score)
     print(f"Predictive Entropy AUROC(pe label): {auroc:.4f}")
-    # auarc = compute_auarc(pe_score, y_true['greedy'])
-    # print(f"Predictive Entropy AUARC(greedy label): {auarc:.4f}")
+    auarc = compute_auarc(pe_score, y_true['greedy'])
+    print(f"Predictive Entropy AUARC(greedy label): {auarc:.4f}")
     auarc = compute_auarc(pe_score, pe_true)
     print(f"Predictive Entropy AUARC(pe label): {auarc:.4f}")
-    # ece = compute_ece(pe_score, y_true['greedy'])
-    # print(f"Predictive Entropy ECE(greedy label): {ece:.4f}")
+    ece = compute_ece(pe_score, y_true['greedy'])
+    print(f"Predictive Entropy ECE(greedy label): {ece:.4f}")
     ece = compute_ece(pe_score, pe_true)
     print(f"Predictive Entropy ECE(pe label): {ece:.4f}")
 

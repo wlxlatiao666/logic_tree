@@ -41,6 +41,8 @@ if __name__ == "__main__":
     parser.add_argument("--n", type=int, default=20)
     args = parser.parse_args()
 
+    print("model:", args.model)
+    print("dataset:", args.dataset)
     dataset = args.dataset
     sc_file_path = f"./results/{args.model}/{dataset}/{args.sc_file}"
     lt_file_path = f"./results/{args.model}/{dataset}/{args.lt_file}"
@@ -91,7 +93,7 @@ if __name__ == "__main__":
     plt.title('Pass@all vs. total tokens per question')
     plt.grid(True)
     plt.legend()
-    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_all_{max_n}.png")
+    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_all_{max_n}_random.png")
     plt.close(1)
 
     # 图2 pass@k随k的变化
@@ -126,6 +128,7 @@ if __name__ == "__main__":
             # print("sc:",pass_at_k)
         avg_pass_at_k = np.mean(item_pass_at_k)
         sc_pass_at_k.append(avg_pass_at_k)
+        print(f"SC pass@{k}:{avg_pass_at_k}")
 
     # 计算Logic Tree的pass@k
     for k in range(1, max_n + 1):
@@ -137,6 +140,8 @@ if __name__ == "__main__":
             # print("lt:",pass_at_k)
         avg_pass_at_k = np.mean(item_pass_at_k)
         lt_pass_at_k.append(avg_pass_at_k)
+        print(f"EDT pass@{k}:{avg_pass_at_k}")
+    print('\n\n')
 
     # 绘制图2
     plt.figure(2)
@@ -150,7 +155,7 @@ if __name__ == "__main__":
     plt.title('Pass@k vs. k')
     plt.grid(True)
     plt.legend()
-    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}.png")
+    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}_random.png")
     plt.close(2)
     
     # 图3 token总数随采样数n的变化
