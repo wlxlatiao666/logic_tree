@@ -24,6 +24,7 @@ def normalized_entropy_from_logprobs(logprobs: torch.Tensor) -> float:
     # ent_max = math.log(probs.numel())
     return ent
 
+<<<<<<< HEAD
 def compute_importance_scores(attentions: torch.Tensor) -> torch.Tensor:
     """
     计算基于注意力的重要性分数。
@@ -58,6 +59,8 @@ def compute_importance_scores(attentions: torch.Tensor) -> torch.Tensor:
         # 如果 i 是最后一个位置，没有 j>i，保持为0
     
     return importance_scores
+=======
+>>>>>>> 0678bac528f7c33ec1ddf8944ebe2a214c6d94c4
 
 def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_items: int = 1, max_gen_tokens: int = 1024) -> float:
     model.eval()
@@ -101,6 +104,7 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
             token_entropy = normalized_entropy_from_logprobs(logprobs)
             entropies.append(token_entropy)
             
+<<<<<<< HEAD
             # 计算当前位置的重要性分数
             # 获取该位置在所有之前位置的注意力的最大值（衡量该位置对之前位置的关注度）
             seq_len = attentions.shape[-1]  # seq_len 在最后一维
@@ -114,6 +118,13 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
                 # importance = 0.0
             else:
                 importance = 0.0
+=======
+            # 对所有头取平均
+            attn_avg = attentions.mean(dim=0)  # shape: [seq_len, seq_len]
+            # print(attn_avg.shape)
+            # 当前位置对前面所有位置的最大注意力
+            importance = float(torch.max(attn_avg[-1, :]).item())
+>>>>>>> 0678bac528f7c33ec1ddf8944ebe2a214c6d94c4
             importance_scores.append(importance)
 
             # prepare next input

@@ -27,6 +27,7 @@ logger = logging.getLogger(__name__)
 
 # 触发阈值
 TAU = 0.80     # 归一化熵阈值（触发分叉）
+TAU_IMPORTANCE = 0.50
 BRANCHES_M = 3      # 每次分叉产生的分支数
 MAX_LEAVES = 20
 MAX_NEW_TOKENS = 32768
@@ -116,7 +117,7 @@ class Node:
 @torch.no_grad()
 def logic_branch_decode(
     tokenizer, model, device, prompt: str, sample: bool = False,
-    tau: float = TAU, branches_m: int = BRANCHES_M,
+    tau: float = TAU, tau_importance: float = TAU_IMPORTANCE, branches_m: int = BRANCHES_M,
     max_leaves: int = MAX_LEAVES, max_new_tokens: int = MAX_NEW_TOKENS,
     temperature: float = TEMPERATURE,
     topk: int = TOPK, nucleus_p: float = NUCLEUS_P
@@ -156,8 +157,14 @@ def logic_branch_decode(
             H_norm = normalized_entropy_from_logprobs(logprobs)
             # is_split_point = node.text.endswith((".","?","!","\n")) and H_norm >= tau
             # random_factor = random.random()
-            # is_split_point = H_norm >= tau and random_factor < 0.5
-            is_split_point = H_norm >= tau
+            # is_split_point = H_norm >= tau and random_factor < 0.2
+            top1_id = int(torch.argmax(logits).item())
+            out1 = model(input_ids=torch.tensor([[top1_id]], past_key_values=cur_past, use_cache=True, output_attentions=True)
+            attentions = out1.attentions[-1][0] 
+            attn_avg = attentions.mean(dim=0)
+            importance = float(torch.max(attn_avg[-1, :]).item())
+
+            is_split_point = H_norm >= tau and importance >= tau_importance
 
             if len(leaves) + len(frontier) + 1 >= max_leaves:
                 is_split_point = False
@@ -235,7 +242,7 @@ def logic_branch_decode(
         if node not in leaves and len(node.children) == 0:
             leaves.append(node)
 
-    return root, leaves, new_tokens_cnt
+    return leaves, new_tokens_cnt
 
 
 def pretty_print_tree(node: Node, prefix: str = "", depth: int = 1, step: int = 1, parent_prefix: str = ""):
