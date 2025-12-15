@@ -24,43 +24,6 @@ def normalized_entropy_from_logprobs(logprobs: torch.Tensor) -> float:
     # ent_max = math.log(probs.numel())
     return ent
 
-<<<<<<< HEAD
-def compute_importance_scores(attentions: torch.Tensor) -> torch.Tensor:
-    """
-    计算基于注意力的重要性分数。
-    
-    根据公式: a_max(i) = max_{j>i} A_{j,i}
-    其中 A 是注意力矩阵，A[j,i] 表示位置j对位置i的注意力权重。
-    
-    Args:
-        attentions: shape [num_heads, seq_len, seq_len]，多头注意力矩阵
-                   attentions[h, j, i] 表示第h个头中位置j对位置i的权重
-    
-    Returns:
-        importance_scores: shape [seq_len]，每个位置的重要性分数（对所有头取平均）
-    """
-    # 处理多头注意力：先对所有头取平均得到单个注意力矩阵
-    # attentions shape: [num_heads, seq_len, seq_len]
-    if attentions.dim() == 3:
-        # 多头情况，对头维度求平均
-        attn_avg = attentions.mean(dim=0)  # shape: [seq_len, seq_len]
-    else:
-        # 已经是单个注意力矩阵
-        attn_avg = attentions
-    
-    seq_len = attn_avg.shape[0]
-    importance_scores = torch.zeros(seq_len, device=attn_avg.device, dtype=attn_avg.dtype)
-    
-    # 对每个位置 i，计算所有 j>i 对位置 i 的最大注意力权重
-    for i in range(seq_len):
-        if i < seq_len - 1:
-            # 获取所有 j>i 的行，取第i列的最大值
-            importance_scores[i] = torch.max(attn_avg[i+1:, i])
-        # 如果 i 是最后一个位置，没有 j>i，保持为0
-    
-    return importance_scores
-=======
->>>>>>> 0678bac528f7c33ec1ddf8944ebe2a214c6d94c4
 
 def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_items: int = 1, max_gen_tokens: int = 1024) -> float:
     model.eval()
@@ -104,27 +67,11 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
             token_entropy = normalized_entropy_from_logprobs(logprobs)
             entropies.append(token_entropy)
             
-<<<<<<< HEAD
-            # 计算当前位置的重要性分数
-            # 获取该位置在所有之前位置的注意力的最大值（衡量该位置对之前位置的关注度）
-            seq_len = attentions.shape[-1]  # seq_len 在最后一维
-            current_pos = seq_len - 1
-            if current_pos > 0:
-                # 对所有头取平均
-                attn_avg = attentions.mean(dim=0)  # shape: [seq_len, seq_len]
-                # print(attn_avg.shape)
-                # 当前位置对前面所有位置的最大注意力
-                importance = float(torch.max(attn_avg[-1, :current_pos]).item())
-                # importance = 0.0
-            else:
-                importance = 0.0
-=======
             # 对所有头取平均
             attn_avg = attentions.mean(dim=0)  # shape: [seq_len, seq_len]
             # print(attn_avg.shape)
             # 当前位置对前面所有位置的最大注意力
             importance = float(torch.max(attn_avg[-1, :]).item())
->>>>>>> 0678bac528f7c33ec1ddf8944ebe2a214c6d94c4
             importance_scores.append(importance)
 
             # prepare next input

@@ -159,7 +159,8 @@ def logic_branch_decode(
             # random_factor = random.random()
             # is_split_point = H_norm >= tau and random_factor < 0.2
             top1_id = int(torch.argmax(logits).item())
-            out1 = model(input_ids=torch.tensor([[top1_id]], past_key_values=cur_past, use_cache=True, output_attentions=True)
+            top1_ids = torch.tensor([[top1_id]], device=device)
+            out1 = model(input_ids=top1_ids, past_key_values=cur_past, use_cache=True, output_attentions=True)
             attentions = out1.attentions[-1][0] 
             attn_avg = attentions.mean(dim=0)
             importance = float(torch.max(attn_avg[-1, :]).item())

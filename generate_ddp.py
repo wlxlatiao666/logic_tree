@@ -54,10 +54,10 @@ def run_inference(rank, world_size, args):
         logger.info(f"使用GPU设备: {rank}")
     
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
-    model = AutoModelForCausalLM.from_pretrained(model_dir, dtype=torch.float16).to(device)
+    model = AutoModelForCausalLM.from_pretrained(model_dir, attn_implementation="eager").to(device)
     
     # 包装为DDP模型
-    ddp_model = DDP(model, device_ids=[rank])
+    # model = DDP(model, device_ids=[rank])
     
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
@@ -186,9 +186,9 @@ def merge_results(args):
     
     # Save final results
     if test_size == -1:
-        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_ddp_0.2_2json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_ddp_relevance.json"
     else:
-        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_ddp_0.2_2.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_ddp_relevance.json"
     
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding="utf8") as f:
