@@ -11,7 +11,7 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from logic_tree_decode import logic_branch_decode
 from utils import generate_usr_prompt
-from threshold import get_threshold
+from threshold_relevance import get_threshold
 
 logger = logging.getLogger(__name__)
 os.environ['TORCH_NCCL_BLOCKING_WAIT'] = '0'
@@ -80,10 +80,11 @@ def run_inference(rank, world_size, args):
     
     # 仅在主进程计算阈值，然后广播给其他进程
     if rank == 0:
-        thr = get_threshold(tokenizer, model, device, dataset, tau=tau)
-        logger.info(f"Threshold for {dataset}: {thr}")
+        thr, thr_importance = get_threshold(tokenizer, model, device, dataset, tau=tau)
+        logger.info(f"Threshold for {dataset}: {thr}, {thr_importance}")
     else:
         thr = torch.tensor(0.0, device=device)
+        thr_importance = torch.tensor(0.0, device=device)
     
     # 广播阈值
     if rank == 0:
@@ -113,23 +114,28 @@ def run_inference(rank, world_size, args):
         usr_prompt = generate_usr_prompt(dataset, item)
         prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
         
+        all_leaves = []
+        all_tokens = 0
         # 使用原始模型进行推理（因为logic_branch_decode不支持DDP直接调用）
-        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, device, prompt=prompt, 
-                                                          sample=True, tau=thr, branches_m=3, max_leaves=num_leaves)
-        
-        complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
-        probs = [leaf.prob for leaf in leaves]
-        texts = [leaf.text for leaf in leaves]
-        entropies = [-leaf.cum_logprob / leaf.length if leaf.length > 0 else 0.0 for leaf in leaves]
-        split_positions = [leaf.split_positions for leaf in leaves]
-        lengths = [leaf.length for leaf in leaves]
+        while len(all_leaves) < num_leaves:
+            leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, device, prompt=prompt, 
+                                                          sample=True, tau=thr, tau_importance=thr_importance, branches_m=3, max_leaves=num_leaves-len(all_leaves))
+            all_leaves.extend(leaves)
+            all_tokens += new_tokens_cnt
+
+        # complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
+        # probs = [leaf.prob for leaf in leaves]
+        texts = [leaf.text for leaf in all_leaves]
+        entropies = [-leaf.cum_logprob / leaf.length if leaf.length > 0 else 0.0 for leaf in all_leaves]
+        split_positions = [leaf.split_positions for leaf in all_leaves]
+        lengths = [leaf.length for leaf in all_leaves]
         
         local_results.append({
             "original_data": item,
-            "num_new_tokens": new_tokens_cnt,
-            "num_leaves": len(leaves),
-            "complexity": complexity,
-            "probs": probs,
+            "num_new_tokens": all_tokens,
+            "num_leaves": len(all_leaves),
+            # "complexity": complexity,
+            # "probs": probs,
             "entropies": entropies,
             "split_positions": split_positions,
             "lengths": lengths,
@@ -180,9 +186,9 @@ def merge_results(args):
     
     # Save final results
     if test_size == -1:
-        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_ddp.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_ddp_0.2_2json"
     else:
-        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_ddp.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_ddp_0.2_2.json"
     
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding="utf8") as f:
