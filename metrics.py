@@ -74,11 +74,13 @@ if __name__ == "__main__":
         uncertainties["complexity"] = item["complexity"]
 
         answer_buckets = {}
+        answer_buckets_nonweighted = {}
         for j, text in enumerate(texts):
             parsed_answer = parse_model_answer(text)
             if parsed_answer:
                 try: 
                     answer_buckets[parsed_answer] = answer_buckets.get(parsed_answer, 0.0) + probs[j]
+                    answer_buckets_nonweighted[parsed_answer] = answer_buckets_nonweighted.get(parsed_answer, 0) + 1
                 except:
                     continue
         total = sum(answer_buckets.values())
@@ -88,6 +90,13 @@ if __name__ == "__main__":
             pe = -sum(p * math.log(p) for p in probabilities if p > 0)
         uncertainties["predictive_entropy_weighted"] = float(pe)
 
+        total_nonweighted = sum(answer_buckets_nonweighted.values())
+        pe_nonweighted = 0.0
+        if total_nonweighted > 0:
+            probabilities_nonweighted = [p / total_nonweighted for p in answer_buckets_nonweighted.values()]
+            pe_nonweighted = -sum(p * math.log(p) for p in probabilities_nonweighted if p > 0)
+        uncertainties["predictive_entropy_nonweighted"] = float(pe_nonweighted)
+        
         probs_entropy = -sum(prob * math.log(prob) for prob in probs if prob > 0)
         uncertainties["probs_entropy"] = float(probs_entropy)
         
