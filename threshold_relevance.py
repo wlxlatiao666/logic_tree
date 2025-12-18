@@ -25,7 +25,7 @@ def normalized_entropy_from_logprobs(logprobs: torch.Tensor) -> float:
     return ent
 
 
-def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_items: int = 1, max_gen_tokens: int = 1024) -> float:
+def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_items: int = 10, max_gen_tokens: int = 1024) -> float:
     model.eval()
 
     dataset_path = f"./data/{dataset}/test.json"
@@ -71,7 +71,7 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
             attn_avg = attentions.mean(dim=0)  # shape: [seq_len, seq_len]
             # print(attn_avg.shape)
             # 当前位置对前面所有位置的最大注意力
-            importance = float(torch.max(attn_avg[-1, :]).item())
+            importance = float(torch.max(attn_avg[-1, :-1]).item())
             importance_scores.append(importance)
 
             # prepare next input

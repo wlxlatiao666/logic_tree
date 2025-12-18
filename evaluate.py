@@ -65,7 +65,7 @@ if __name__ == "__main__":
     dataset = args.dataset
     sc_file_path = f"./results/{args.model}/{dataset}/{args.sc_file}"
     lt_file_path = f"./results/{args.model}/{dataset}/{args.lt_file}"
-    sys.stdout = open(f'./results/{args.model}/{dataset}/output_all.txt', 'w', encoding='utf-8')
+    sys.stdout = open(f'./results/{args.model}/{dataset}/output_all_relevance.txt', 'w', encoding='utf-8')
     with open(lt_file_path) as f:
         data_lt = json.load(f)
     with open(f'./results/{args.model}/{dataset}/generated_answers_greedy.json') as f:

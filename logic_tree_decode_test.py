@@ -28,7 +28,9 @@ logger = logging.getLogger(__name__)
 # 触发阈值
 TAU = 0.80     # 归一化熵阈值（触发分叉）
 TAU_IMPORTANCE = 0.3
-BRANCHES_M = 3      # 每次分叉产生的分支数
+TAU_PRUNING = 0.01  # 低于该概率的分支将被剪枝
+MAX_BRANCHES = 5    
+MIN_BRANCHES = 2
 MAX_LEAVES = 20
 MAX_NEW_TOKENS = 32768
 
@@ -117,7 +119,8 @@ class Node:
 @torch.no_grad()
 def logic_branch_decode(
     tokenizer, model, device, prompt: str, sample: bool = False,
-    tau: float = TAU, tau_importance: float = TAU_IMPORTANCE, branches_m: int = BRANCHES_M,
+    tau: float = TAU, tau_importance: float = TAU_IMPORTANCE, tau_pruning: float = TAU_PRUNING,
+    max_branches: int = MAX_BRANCHES, min_branches: int = MIN_BRANCHES,
     max_leaves: int = MAX_LEAVES, max_new_tokens: int = MAX_NEW_TOKENS,
     temperature: float = TEMPERATURE,
     topk: int = TOPK, nucleus_p: float = NUCLEUS_P
@@ -175,7 +178,8 @@ def logic_branch_decode(
                 # print("split")
                 node.split_positions.append(node.length)
                 filt_probs = softmax(logits)
-                top_vals, top_idx = torch.topk(filt_probs, k=branches_m)
+                branches = min_branches + int((max_branches - min_branches) * node.prob)
+                top_vals, top_idx = torch.topk(filt_probs, k=branches)
                 top_idx = top_idx.tolist()
                 top_vals = top_vals.tolist()
 
@@ -245,8 +249,14 @@ def logic_branch_decode(
         # if we exited loop without adding to leaves and cannot go deeper, finalize
         if node not in leaves and len(node.children) == 0:
             leaves.append(node)
+    
+    # 剪枝：移除概率过低的分支
+    final_leaves = []
+    for leaf in leaves:
+        if leaf.prob >= tau_pruning:
+            final_leaves.append(leaf)
 
-    return leaves, new_tokens_cnt
+    return root, final_leaves, new_tokens_cnt
 
 
 def pretty_print_tree(node: Node, prefix: str = "", depth: int = 1, step: int = 1, parent_prefix: str = ""):
