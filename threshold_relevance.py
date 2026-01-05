@@ -16,6 +16,20 @@ logger = logging.getLogger(__name__)
 def log_softmax(logits: torch.Tensor) -> torch.Tensor:
     return torch.nn.functional.log_softmax(logits, dim=-1)
 
+def get_waad(attn_avg: torch.Tensor, W: int) -> float:
+    """ attn_weights: [seq_len, seq_len] """
+    seq_len = attn_avg.shape[-1]
+    # waad_value = 0.0
+    cur_idx = seq_len - 1
+    if cur_idx > 0:
+        past_indices = torch.arange(0, cur_idx, device=attn_avg.device)
+        deltas = (cur_idx - past_indices).float()
+        weights = torch.clamp(deltas, max=W)
+        attns_to_prev = attn_avg[-1, :-1]
+        waad = float((attns_to_prev * weights).sum().item())
+    else:
+        waad = 0.0
+    return waad
 
 def normalized_entropy_from_logprobs(logprobs: torch.Tensor) -> float:
     """ logprobs: [V] """
@@ -25,7 +39,7 @@ def normalized_entropy_from_logprobs(logprobs: torch.Tensor) -> float:
     return ent
 
 
-def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_items: int = 100, max_gen_tokens: int = 1024) -> float:
+def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_items: int = 1, max_gen_tokens: int = 1024) -> float:
     model.eval()
 
     dataset_path = f"./data/{dataset}/test.json"
@@ -40,6 +54,7 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
 
     entropies: List[float] = []
     importance_scores: List[float] = []
+    waads: List[float] = []
 
     for item in data:
         usr_prompt = generate_usr_prompt(dataset, item)
@@ -60,6 +75,7 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
             past = out.past_key_values
             attentions = out.attentions[-1][0]  # [num_heads, seq_len, seq_len]
             # print(attentions.shape)
+            # print(attentions)
 
             next_id = int(torch.argmax(logits).item())
 
@@ -69,10 +85,30 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
             
             # 对所有头取平均
             attn_avg = attentions.mean(dim=0)  # shape: [seq_len, seq_len]
+            # print(attn_avg)
             # print(attn_avg.shape)
             # 当前位置对前面所有位置的最大注意力
+            # sum of attention to previous positions (for debug)
+            # sum_attn = attn_avg[-1, :-1].sum().item()
+            # print(f"sum_attn: {sum_attn}")
             importance = float(torch.max(attn_avg[-1, :-1]).item())
             importance_scores.append(importance)
+
+            # WAAD calculation: WAAD_t = sum_{s=1}^t A_bar_loc[t,s] * min(t-s, W)
+            # W = 10
+            # seq_len = attn_avg.shape[-1]
+            # cur_idx = seq_len - 1
+            # if cur_idx > 0:
+            #     past_indices = torch.arange(0, cur_idx, device=attn_avg.device)
+            #     deltas = (cur_idx - past_indices).float()
+            #     weights = torch.clamp(deltas, max=W)
+            #     attns_to_prev = attn_avg[-1, :-1]
+            #     waad = float((attns_to_prev * weights).sum().item())
+            # else:
+            #     waad = 0.0
+            waad = get_waad(attn_avg, W=10)
+            waads.append(waad)
+            print(f"WAAD_t (W={10}): {waad}")
 
             # prepare next input
             if next_id == tokenizer.eos_token_id:
@@ -88,6 +124,9 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
     # 计算重要性分数的阈值
     importance_arr = np.array(importance_scores)
     importance_threshold = float(np.percentile(importance_arr, tau))
+
+    waad_arr = np.array(waads) if len(waads) > 0 else np.array([0.0])
+    waad_threshold = float(np.percentile(waad_arr, tau))
     
     logger.info(f"Entropy threshold ({tau}th percentile): {threshold:.4f}")
     logger.info(f"Importance score threshold ({tau}th percentile): {importance_threshold:.4f}")

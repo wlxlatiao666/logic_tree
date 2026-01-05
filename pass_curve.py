@@ -86,13 +86,14 @@ if __name__ == "__main__":
     lt_avg_tokens = np.mean(lt_tokens)
 
     plt.figure(1)
-    plt.plot(avg_token_counts, pass_rates, marker='o', label='Self-Consistency')
-    plt.scatter([lt_avg_tokens], [lt_pass_rate], color='red', marker='*', s=150, label='EDT-BFS')
+    plt.plot(avg_token_counts, pass_rates, marker='o', label='Multi-chain')
+    plt.scatter([lt_avg_tokens], [lt_pass_rate], color='red', marker='*', s=150, label='Entropy-Tree')
     plt.xlabel('Total tokens per question')
     plt.ylabel('Pass@all')
     plt.title('Pass@all vs. total tokens per question')
     plt.grid(True)
     plt.legend()
+    plt.tight_layout(pad=0.2)
     plt.savefig(f"./results/{args.model}/{dataset}/pass_at_all_{max_n}_relevance.png")
     plt.close(1)
 
@@ -140,14 +141,14 @@ if __name__ == "__main__":
             # print("lt:",pass_at_k)
         avg_pass_at_k = np.mean(item_pass_at_k)
         lt_pass_at_k.append(avg_pass_at_k)
-        print(f"EDT pass@{k}:{avg_pass_at_k}")
+        print(f"Entropy-Tree pass@{k}:{avg_pass_at_k}")
     print('\n\n')
 
     # 绘制图2
     plt.figure(2)
     k_values = list(range(1, max_n + 1))
-    plt.plot(k_values, sc_pass_at_k[:max_n], marker='o', label='Self-Consistency')
-    plt.plot(k_values, lt_pass_at_k, marker='s', label='EDT-BFS')
+    plt.plot(k_values, sc_pass_at_k[:max_n], marker='o', label='Multi-chain')
+    plt.plot(k_values, lt_pass_at_k, marker='s', label='Entropy-Tree')
     # print(sc_pass_at_k)
     # print(lt_pass_at_k)
     plt.xlabel('k')
@@ -155,6 +156,7 @@ if __name__ == "__main__":
     plt.title('Pass@k vs. k')
     plt.grid(True)
     plt.legend()
+    plt.tight_layout(pad=0.2)
     plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}_relevance.png")
     plt.close(2)
     

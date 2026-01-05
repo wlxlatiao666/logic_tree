@@ -18,7 +18,8 @@ model_to_dir = {
     "Qwen2.5-32B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-32B-Instruct",
     "Qwen2.5-72B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-72B-Instruct",
     "Qwen3-8B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-8B",
-    "Qwen3-14B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-14B"
+    "Qwen3-14B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-14B",
+    "gpt-oss-20b": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/gpt-oss-20b"
 }
 
 # vllm and ray imports
@@ -123,7 +124,17 @@ def run_vllm_generate_ray(model_dir, dataset, data, num_samples, output_file, nu
     all_prompts = []
     for item in data:
         usr_prompt = generate_usr_prompt(dataset, item)
-        prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
+        prompt = f'''<|start|>system<|message|>You are ChatGPT, a large language model trained by OpenAI.
+        Knowledge cutoff: 2024-06
+        Current date: 2025-12-20
+
+        Reasoning: medium
+
+        # Valid channels: analysis, commentary, final. Channel must be included for every message.<|end|><|start|>developer<|message|># Instructions
+
+        {sys_prompt}
+
+        <|end|><|start|>user<|message|>{usr_prompt}<|end|><|start|>assistant\n'''
         all_prompts.append(prompt)
     
     # 数据分片
@@ -266,7 +277,7 @@ if __name__ == '__main__':
     data_path = f"./data/{dataset}/test.json"
     
     if test_size == -1:
-        output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_samples}samples_ray_{num_gpus}gpus_2.json'
+        output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_samples}samples_ray_{num_gpus}gpus.json'
     else:
         output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_samples}samples_{test_size}_ray_{num_gpus}gpus.json'
 

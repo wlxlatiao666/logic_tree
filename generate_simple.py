@@ -13,10 +13,12 @@ logger = logging.getLogger(__name__)
 
 model_to_dir = {
     "Qwen2.5-7B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct",
+    "Qwen2.5-14B-Instruct": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/Qwen2.5-14B-Instruct",
     "Qwen2.5-32B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-32B-Instruct",
     "Qwen2.5-72B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-72B-Instruct",
     "Qwen3-8B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-8B",
-    "Qwen3-14B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-14B"
+    "Qwen3-14B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-14B",
+    "gpt-oss-20b": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/gpt-oss-20b"
 }
 
 if __name__ == "__main__":
@@ -65,6 +67,7 @@ if __name__ == "__main__":
         inputs = tokenizer.apply_chat_template(
             messages,
             add_generation_prompt=True,
+            tokenize=True,
             return_dict=True,
             return_tensors="pt",
         ).to(model.device)

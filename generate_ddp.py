@@ -21,7 +21,8 @@ model_to_dir = {
     "Qwen2.5-32B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-32B-Instruct",
     "Qwen2.5-72B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-72B-Instruct",
     "Qwen3-8B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-8B",
-    "Qwen3-14B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-14B"
+    "Qwen3-14B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-14B",
+    "gpt-oss-20b": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/gpt-oss-20b"
 }
 
 def setup(rank, world_size):
@@ -113,7 +114,21 @@ def run_inference(rank, world_size, args):
     for i, item in enumerate(local_data):
         global_idx = start_idx + i
         usr_prompt = generate_usr_prompt(dataset, item)
-        prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
+        
+        messages = [
+            {"role": "system", "content": sys_prompt},
+            {"role": "user", "content": usr_prompt},
+        ]
+        inputs = tokenizer.apply_chat_template(
+            messages,
+            add_generation_prompt=True,
+            tokenize=True,
+            return_dict=True,
+            return_tensors="pt",
+        ).to(model.device)
+
+        prompt = tokenizer.decode(inputs["input_ids"][0])
+        # prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
         
         all_leaves = []
         all_tokens = 0
@@ -121,16 +136,17 @@ def run_inference(rank, world_size, args):
         while len(all_leaves) < num_leaves:
             leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, device, prompt=prompt, 
                                                           sample=True, tau=thr, tau_importance=thr_importance, branches_m=3, max_leaves=num_leaves-len(all_leaves))
+            for leaf in leaves:
+                leaf.prob = leaf.prob * len(leaves) / num_leaves
             all_leaves.extend(leaves)
             all_tokens += new_tokens_cnt
         
-        # leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, device, prompt=prompt, 
-        #                                                   sample=True, tau=thr, tau_importance=thr_importance, branches_m=3, max_leaves=num_leaves-len(all_leaves))
-        # all_leaves.extend(leaves)
-        # all_tokens += new_tokens_cnt
+        total_prob = sum(leaf.prob for leaf in all_leaves)
+        for leaf in all_leaves:
+            leaf.prob /= total_prob
 
-        # complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
-        # probs = [leaf.prob for leaf in leaves]
+        complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
+        probs = [leaf.prob for leaf in leaves]
         texts = [leaf.text for leaf in all_leaves]
         entropies = [-leaf.cum_logprob / leaf.length if leaf.length > 0 else 0.0 for leaf in all_leaves]
         split_positions = [leaf.split_positions for leaf in all_leaves]
@@ -140,8 +156,8 @@ def run_inference(rank, world_size, args):
             "original_data": item,
             "num_new_tokens": all_tokens,
             "num_leaves": len(all_leaves),
-            # "complexity": complexity,
-            # "probs": probs,
+            "complexity": complexity,
+            "probs": probs,
             "entropies": entropies,
             "split_positions": split_positions,
             "lengths": lengths,

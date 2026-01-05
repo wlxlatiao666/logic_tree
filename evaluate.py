@@ -77,8 +77,8 @@ if __name__ == "__main__":
 
     y_true = defaultdict(list)
     y_score = defaultdict(list)
-    pe_true_nothreshold = []
-    pe_true_threshold = []
+    # pe_true_nothreshold = []
+    # pe_true_threshold = []
     pe_passk = []
     greedy_score = []
     # topp_score = []
@@ -89,8 +89,8 @@ if __name__ == "__main__":
         greedy_score.append(-greedy_item['avg_logprob'])
         # y_true['topk_topp'].append(topp_item['label'])
         # topp_score.append(-topp_item['avg_logprob'])
-        pe_true_nothreshold.append(pe_item['label_nothreshold'])
-        pe_true_threshold.append(pe_item['label_threshold'])
+        # pe_true_nothreshold.append(pe_item['label_nothreshold'])
+        # pe_true_threshold.append(pe_item['label_threshold'])
         pe_passk.append(pe_item['passk'])
         pe_score.append(-pe_item['predictive_entropy'])
         labels = item["label"]
@@ -117,27 +117,27 @@ if __name__ == "__main__":
     # print(f"Top-K/Top-P ECE: {ece:.4f}")   
 
     print("\n\nPredictive Entropy Results:")
-    print("accuracy(no threshold)):", sum(pe_true_nothreshold) / len(pe_true_nothreshold))
-    print("accuracy(threshold)):", sum(pe_true_threshold) / len(pe_true_threshold))
+    # print("accuracy(no threshold)):", sum(pe_true_nothreshold) / len(pe_true_nothreshold))
+    # print("accuracy(threshold)):", sum(pe_true_threshold) / len(pe_true_threshold))
     print("pass@k:", sum(pe_passk) / len(pe_passk))
     auroc = roc_auc_score(y_true['greedy'], pe_score)
     print(f"Predictive Entropy AUROC(greedy label): {auroc:.4f}")
-    auroc = roc_auc_score(pe_true_nothreshold, pe_score)
-    print(f"Predictive Entropy AUROC(pe label no threshold): {auroc:.4f}")
-    auroc = roc_auc_score(pe_true_threshold, pe_score)
-    print(f"Predictive Entropy AUROC(pe label threshold): {auroc:.4f}")
+    # auroc = roc_auc_score(pe_true_nothreshold, pe_score)
+    # print(f"Predictive Entropy AUROC(pe label no threshold): {auroc:.4f}")
+    # auroc = roc_auc_score(pe_true_threshold, pe_score)
+    # print(f"Predictive Entropy AUROC(pe label threshold): {auroc:.4f}")
     auarc = compute_auarc(pe_score, y_true['greedy'])
     print(f"Predictive Entropy AUARC(greedy label): {auarc:.4f}")
-    auarc = compute_auarc(pe_score, pe_true_nothreshold)
-    print(f"Predictive Entropy AUARC(pe label no threshold): {auarc:.4f}")
-    auarc = compute_auarc(pe_score, pe_true_threshold)
-    print(f"Predictive Entropy AUARC(pe label threshold): {auarc:.4f}")
+    # auarc = compute_auarc(pe_score, pe_true_nothreshold)
+    # print(f"Predictive Entropy AUARC(pe label no threshold): {auarc:.4f}")
+    # auarc = compute_auarc(pe_score, pe_true_threshold)
+    # print(f"Predictive Entropy AUARC(pe label threshold): {auarc:.4f}")
     ece = compute_ece(pe_score, y_true['greedy'])
     print(f"Predictive Entropy ECE(greedy label): {ece:.4f}")
-    ece = compute_ece(pe_score, pe_true_nothreshold)
-    print(f"Predictive Entropy ECE(pe label no threshold): {ece:.4f}")
-    ece = compute_ece(pe_score, pe_true_threshold)
-    print(f"Predictive Entropy ECE(pe label threshold): {ece:.4f}")
+    # ece = compute_ece(pe_score, pe_true_nothreshold)
+    # print(f"Predictive Entropy ECE(pe label no threshold): {ece:.4f}")
+    # ece = compute_ece(pe_score, pe_true_threshold)
+    # print(f"Predictive Entropy ECE(pe label threshold): {ece:.4f}")
 
 
     print("\n\nLogic Tree Results:")

@@ -49,7 +49,18 @@ def run_vllm_generate(model_dir, dataset, data, num_samples, output_file, device
             sys_prompts = json.load(f)
         sys_prompt = sys_prompts[dataset]
 
-        prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
+        # prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
+        prompt = f'''<|start|>system<|message|>You are ChatGPT, a large language model trained by OpenAI.
+        Knowledge cutoff: 2024-06
+        Current date: 2025-12-20
+
+        Reasoning: medium
+
+        # Valid channels: analysis, commentary, final. Channel must be included for every message.<|end|><|start|>developer<|message|># Instructions
+
+        {sys_prompt}
+
+        <|end|><|start|>user<|message|>{usr_prompt}<|end|><|start|>assistant\n'''
 
         sampled_answers = []
         # sampled_entropies = []
