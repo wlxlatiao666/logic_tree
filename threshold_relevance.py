@@ -39,7 +39,7 @@ def normalized_entropy_from_logprobs(logprobs: torch.Tensor) -> float:
     return ent
 
 
-def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_items: int = 1, max_gen_tokens: int = 1024) -> float:
+def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_items: int = 100, max_gen_tokens: int = 1024) -> float:
     model.eval()
 
     dataset_path = f"./data/{dataset}/test.json"
@@ -133,7 +133,7 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
     logger.info(f"Entropy - min: {arr.min():.4f}, max: {arr.max():.4f}, mean: {arr.mean():.4f}")
     logger.info(f"Importance scores - min: {importance_arr.min():.4f}, max: {importance_arr.max():.4f}, mean: {importance_arr.mean():.4f}")
     
-    return threshold, importance_threshold
+    return threshold, waad_threshold
 
 
 if __name__ == "__main__":

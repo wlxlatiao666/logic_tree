@@ -25,7 +25,7 @@ if __name__ == "__main__":
     model_name = "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-7B-Instruct"  
     device = "cuda" if torch.cuda.is_available() else "cpu"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+    model = AutoModelForCausalLM.from_pretrained(model_name, attn_implementation="eager").to(device)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
 
@@ -47,7 +47,7 @@ if __name__ == "__main__":
         usr_prompt = generate_usr_prompt(dataset, item)
         prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
 
-        root, leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, device, prompt=prompt, sample=True, tau=0.8, branches_m=3)
+        leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, device, prompt=prompt, sample=True, tau=0.8, branches_m=3)
 
         complexity = sum(leaf.prob * leaf.depth for leaf in leaves)
         probs = [leaf.prob for leaf in leaves]
