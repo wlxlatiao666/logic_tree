@@ -22,7 +22,7 @@ from datetime import datetime
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from threshold_relevance import get_waad
+from threshold_relevance import get_waad_per_head
 
 logger = logging.getLogger(__name__)
 
@@ -164,8 +164,9 @@ def logic_branch_decode(
                 top1_ids = torch.tensor([[top1_id]], device=device)
                 out1 = model(input_ids=top1_ids, past_key_values=copy.deepcopy(cur_past), use_cache=True, output_attentions=True)
                 attentions = out1.attentions[-1][0] 
-                attn_avg = attentions.mean(dim=0)
-                waad = get_waad(attn_avg, W=10)
+                # attn_avg = attentions.mean(dim=0)
+                # waad = get_waad(attn_avg, W=10)
+                waad = get_waad_per_head(attentions, W=10)
                 # importance = float(torch.max(attn_avg[-1, :-1]).item())
                 is_split_point = waad >= tau_importance
 
