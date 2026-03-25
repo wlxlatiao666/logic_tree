@@ -37,10 +37,8 @@ if __name__ == "__main__":
     parser.add_argument("--model", type=str, required=True)
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--sc_file", type=str, required=True)
-    parser.add_argument("--lt_file_1", type=str, required=True)
-    parser.add_argument("--lt_file_2", type=str, required=True)
-    parser.add_argument("--lt_file_3", type=str, required=True)
-
+    parser.add_argument("--beam_file", type=str, required=True)
+    parser.add_argument("--lt_file", type=str, required=True)
     parser.add_argument("--n", type=int, default=20)
     args = parser.parse_args()
 
@@ -48,58 +46,65 @@ if __name__ == "__main__":
     print("dataset:", args.dataset)
     dataset = args.dataset
     sc_file_path = f"./results/{args.model}/{dataset}/{args.sc_file}"
-    lt_file_path_1 = f"./results/{args.model}/{dataset}/{args.lt_file_1}"
-    lt_file_path_2 = f"./results/{args.model}/{dataset}/{args.lt_file_2}"
-    lt_file_path_3 = f"./results/{args.model}/{dataset}/{args.lt_file_3}"
+    beam_file_path = f"./results/{args.model}/{dataset}/{args.beam_file}"
+    lt_file_path = f"./results/{args.model}/{dataset}/{args.lt_file}"
 
-    with open(lt_file_path_1, 'r') as f:
-        data_lt_1 = json.load(f)
-    with open(lt_file_path_2, 'r') as f:
-        data_lt_2 = json.load(f)
-    with open(lt_file_path_3, 'r') as f:
-        data_lt_3 = json.load(f)
-        
+    with open(lt_file_path, 'r') as f:
+        data_lt = json.load(f)
     with open(sc_file_path, 'r') as f:
-        data_sc = json.load(f)[:len(data_lt_1)]
+        data_sc = json.load(f)[:len(data_lt)]
+    with open(beam_file_path, 'r') as f:
+        data_beam = json.load(f)[:len(data_lt)]
 
     # 图1 pass@all随总token数变化
     max_n = args.n
-    pass_rates = []
-    avg_token_counts = []
+    # pass_rates = []
+    # avg_token_counts = []
 
-    for n in range(1, max_n + 1):
-        passes = []
-        token_usages = []
-        for item in data_sc:
-            answers = item['sampled_answers'][:n]   
-            original_data = item['original_data']
-            gt_answer = get_gt_answer(dataset, original_data)
-            # 假设有token_counts字段，统计前n个response的token数
-            token_counts = item['num_tokens'][:n]
-            # 判断是否有一个response等于gt_answer（可自定义等价判断）
-            is_pass = any(match_answer(gt_answer, parse_model_answer(ans), dataset) for ans in answers)
-            passes.append(is_pass)
-            token_usages.append(sum(token_counts))
-        pass_rate = np.mean(passes)
-        avg_token = np.mean(token_usages)
-        pass_rates.append(pass_rate)
-        avg_token_counts.append(avg_token)
+    # for n in range(1, max_n + 1):
+    #     passes = []
+    #     token_usages = []
+    #     for item in data_sc:
+    #         answers = item['sampled_answers'][:n]   
+    #         original_data = item['original_data']
+    #         gt_answer = get_gt_answer(dataset, original_data)
+    #         # 假设有token_counts字段，统计前n个response的token数
+    #         token_counts = item['num_tokens'][:n]
+    #         # 判断是否有一个response等于gt_answer（可自定义等价判断）
+    #         is_pass = any(match_answer(gt_answer, parse_model_answer(ans), dataset) for ans in answers)
+    #         passes.append(is_pass)
+    #         token_usages.append(sum(token_counts))
+    #     pass_rate = np.mean(passes)
+    #     avg_token = np.mean(token_usages)
+    #     pass_rates.append(pass_rate)
+    #     avg_token_counts.append(avg_token)
 
-    lt1_passes = []
-    for item in data_lt_1:
-        original_data = item['original_data']
-        gt_answer = get_gt_answer(dataset, original_data)
-        is_pass = any(match_answer(gt_answer, parse_model_answer(ans), dataset) for ans in item['texts'])
-        lt1_passes.append(is_pass)
-    lt1_tokens = [item['num_new_tokens'] for item in data_lt_1]
-    lt1_pass_rate = np.mean(lt1_passes)
-    lt1_avg_tokens = np.mean(lt1_tokens)
+    # lt_passes = []
+    # for item in data_lt:
+    #     original_data = item['original_data']
+    #     gt_answer = get_gt_answer(dataset, original_data)
+    #     is_pass = any(match_answer(gt_answer, parse_model_answer(ans), dataset) for ans in item['texts'])
+    #     lt_passes.append(is_pass)
+    # lt_tokens = [item['num_new_tokens'] for item in data_lt]
+    # lt_pass_rate = np.mean(lt_passes)
+    # lt_avg_tokens = np.mean(lt_tokens)
+
+    # plt.figure(1)
+    # plt.plot(avg_token_counts, pass_rates, marker='o', label='Multi-chain')
+    # plt.scatter([lt_avg_tokens], [lt_pass_rate], color='red', marker='*', s=150, label='Entropy-Tree')
+    # plt.xlabel('Total tokens per question')
+    # plt.ylabel('Pass@all')
+    # plt.title('Pass@all vs. total tokens per question')
+    # plt.grid(True)
+    # plt.legend()
+    # plt.tight_layout(pad=0.2)
+    # plt.savefig(f"./results/{args.model}/{dataset}/pass_at_all_{max_n}_avgdis2.png")
+    # plt.close(1)
 
     # 图2 pass@k随k的变化
     sc_pass_at_k = []
-    lt1_pass_at_k = []
-    lt2_pass_at_k = []
-    lt3_pass_at_k = []
+    beam_pass_at_k = []
+    lt_pass_at_k = []
 
     # 首先预处理数据，计算每个item的正确标志列表
     sc_correct_flags_list = []
@@ -110,9 +115,17 @@ if __name__ == "__main__":
         correct_flags = [match_answer(gt_answer, parse_model_answer(ans), dataset) for ans in item['sampled_answers'][:max_n]]
         sc_correct_flags_list.append(correct_flags)
 
+    beam_correct_flags_list = []
+    for item in data_beam:
+        original_data = item['original_data']
+        gt_answer = get_gt_answer(dataset, original_data)
+        # 计算每个sampled_answer是否正确
+        correct_flags = [match_answer(gt_answer, parse_model_answer(ans), dataset) for ans in item['sampled_answers'][:max_n]]
+        beam_correct_flags_list.append(correct_flags)
+
     # 预处理Logic Tree数据
     lt_correct_flags_list = []
-    for item in data_lt_1:
+    for item in data_lt:
         original_data = item['original_data']
         gt_answer = get_gt_answer(dataset, original_data)
         # 计算每个text是否正确
@@ -131,6 +144,17 @@ if __name__ == "__main__":
         sc_pass_at_k.append(avg_pass_at_k)
         print(f"SC pass@{k}:{avg_pass_at_k}")
 
+    for k in range(1, max_n + 1):
+        # 对每个item计算pass@k，然后求平均
+        item_pass_at_k = []
+        for correct_flags in beam_correct_flags_list:
+            pass_at_k = calculate_pass_at_k(correct_flags, k)
+            item_pass_at_k.append(pass_at_k)
+            # print("beam:",pass_at_k)
+        avg_pass_at_k = np.mean(item_pass_at_k)
+        beam_pass_at_k.append(avg_pass_at_k)
+        print(f"Beam pass@{k}:{avg_pass_at_k}")
+
     # 计算Logic Tree的pass@k
     for k in range(1, max_n + 1):
         # 对每个item计算pass@k，然后求平均
@@ -140,60 +164,16 @@ if __name__ == "__main__":
             item_pass_at_k.append(pass_at_k)
             # print("lt:",pass_at_k)
         avg_pass_at_k = np.mean(item_pass_at_k)
-        lt1_pass_at_k.append(avg_pass_at_k)
-        # print(f"Entropy-Tree pass@{k}:{avg_pass_at_k}")
-    # print('\n\n')
-
-    # 预处理Logic Tree 2数据
-    lt2_correct_flags_list = []
-    for item in data_lt_2:
-        original_data = item['original_data']
-        gt_answer = get_gt_answer(dataset, original_data)
-        # 计算每个text是否正确
-        correct_flags = [match_answer(gt_answer, parse_model_answer(text), dataset) for text in item['texts']]
-        lt2_correct_flags_list.append(correct_flags)
-
-    # 计算Logic Tree 2的pass@k
-    for k in range(1, max_n + 1):
-        # 对每个item计算pass@k，然后求平均
-        item_pass_at_k = []
-        for correct_flags in lt2_correct_flags_list:
-            pass_at_k = calculate_pass_at_k(correct_flags, k)
-            item_pass_at_k.append(pass_at_k)
-            # print("lt:",pass_at_k)
-        avg_pass_at_k = np.mean(item_pass_at_k)
-        lt2_pass_at_k.append(avg_pass_at_k)
-        # print(f"Logic-Tree-2 pass@{k}:{avg_pass_at_k}")
-
-    # 预处理Logic Tree 3数据
-    lt3_correct_flags_list = []
-    for item in data_lt_3:
-        original_data = item['original_data']
-        gt_answer = get_gt_answer(dataset, original_data)
-        # 计算每个text是否正确
-        correct_flags = [match_answer(gt_answer, parse_model_answer(text), dataset) for text in item['texts']]
-        lt3_correct_flags_list.append(correct_flags)
-
-        # 计算Logic Tree 3的pass@k
-    for k in range(1, max_n + 1):
-        # 对每个item计算pass@k，然后求平均
-        item_pass_at_k = []
-        for correct_flags in lt3_correct_flags_list:
-            pass_at_k = calculate_pass_at_k(correct_flags, k)
-            item_pass_at_k.append(pass_at_k)
-            # print("lt:",pass_at_k)
-        avg_pass_at_k = np.mean(item_pass_at_k)
-        lt3_pass_at_k.append(avg_pass_at_k)
-        # print(f"Logic-Tree-3 pass@{k}:{avg_pass_at_k}")
+        lt_pass_at_k.append(avg_pass_at_k)
+        print(f"Entropy-Tree pass@{k}:{avg_pass_at_k}")
+    print('\n\n')
 
     # 绘制图2
     plt.figure(1)
     k_values = list(range(1, max_n + 1))
     plt.plot(k_values, sc_pass_at_k[:max_n], marker='o', label='Multi-chain')
-    plt.plot(k_values, lt1_pass_at_k, marker='s', label='Delayed branch')
-    plt.plot(k_values, lt2_pass_at_k, marker='^', label='Random branch')
-    plt.plot(k_values, lt3_pass_at_k, marker='*', label='Entropy-Tree')
-
+    plt.plot(k_values, beam_pass_at_k[:max_n], marker='^', label='Beam Search')
+    plt.plot(k_values, lt_pass_at_k, marker='s', label='Entropy-Tree')
     # print(sc_pass_at_k)
     # print(lt_pass_at_k)
     plt.xlabel('k')
@@ -202,7 +182,7 @@ if __name__ == "__main__":
     plt.grid(True)
     plt.legend()
     plt.tight_layout(pad=0.2)
-    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}_ablation.png")
+    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}_relevance+beam.png")
     plt.close(1)
     
     # 图3 token总数随采样数n的变化

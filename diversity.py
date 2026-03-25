@@ -75,18 +75,22 @@ if __name__ == "__main__":
     logger.addHandler(fh)
     logger.setLevel(logging.INFO)
     
-    logger.info("Calculating diversity...")
+    print("Calculating diversity...")
     embedder = SentenceTransformer('/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/all-mpnet-base-v2')
 
     parser = argparse.ArgumentParser()
+    parser.add_argument("--model", type=str, required=True)
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--sc_file", type=str, required=True)
     parser.add_argument("--lt_file", type=str, required=True)
     args = parser.parse_args()
 
+    model = args.model
     dataset = args.dataset
-    sc_file_path = f"./results/{dataset}/{args.sc_file}"
-    lt_file_path = f"./results/{dataset}/{args.lt_file}"
+    print("model: ", model)
+    print("dataset: ", dataset)
+    sc_file_path = f"./results/{model}/{dataset}/{args.sc_file}"
+    lt_file_path = f"./results/{model}/{dataset}/{args.lt_file}"
 
     with open(sc_file_path, 'r') as f:
         data_sc = json.load(f)
@@ -106,7 +110,7 @@ if __name__ == "__main__":
         
 
         if len(texts_sc) <= 1 or len(texts_lt) <= 1:
-            logger.warning("No texts found for one of the methods; skipping this item.")
+            print("No texts found for one of the methods; skipping this item.")
             continue
 
         embeddings_sc = embedder.encode(texts_sc, convert_to_numpy=True)
@@ -126,9 +130,9 @@ if __name__ == "__main__":
         bleu_sc_list.append(bleu_sc)
         bleu_lt_list.append(bleu_lt)
 
-        logger.info(f"Diversity (Sampling): {diversity_sc:.6f}, Diversity (Logic Tree): {diversity_lt:.6f}")
-        logger.info(f"Semantic Distance (Sampling): {distance_sc:.6f}, Semantic Distance (Logic Tree): {distance_lt:.6f}\n")
-        logger.info(f"Self-BLEU (Sampling): {bleu_sc:.6f}, Self-BLEU (Logic Tree): {bleu_lt:.6f}\n")
+        # print(f"Diversity (Sampling): {diversity_sc:.6f}, Diversity (Logic Tree): {diversity_lt:.6f}")
+        # print(f"Semantic Distance (Sampling): {distance_sc:.6f}, Semantic Distance (Logic Tree): {distance_lt:.6f}\n")
+        # print(f"Self-BLEU (Sampling): {bleu_sc:.6f}, Self-BLEU (Logic Tree): {bleu_lt:.6f}\n")
 
     avg_diversity_sc = np.mean(diversity_sc_list)
     avg_diversity_lt = np.mean(diversity_lt_list)
@@ -136,6 +140,6 @@ if __name__ == "__main__":
     avg_distance_lt = np.mean(distance_lt_list)
     avg_bleu_sc = np.mean(bleu_sc_list)
     avg_bleu_lt = np.mean(bleu_lt_list)
-    logger.info(f"Average Diversity (Sampling): {avg_diversity_sc:.6f}, Average Diversity (Logic Tree): {avg_diversity_lt:.6f}")
-    logger.info(f"Average Semantic Distance (Sampling): {avg_distance_sc:.6f}, Average Semantic Distance (Logic Tree): {avg_distance_lt:.6f}")
-    logger.info(f"Average Self-BLEU (Sampling): {avg_bleu_sc:.6f}, Average Self-BLEU (Logic Tree): {avg_bleu_lt:.6f}")
+    print(f"Average Diversity (Sampling): {avg_diversity_sc:.6f}, Average Diversity (Logic Tree): {avg_diversity_lt:.6f}")
+    print(f"Average Semantic Distance (Sampling): {avg_distance_sc:.6f}, Average Semantic Distance (Logic Tree): {avg_distance_lt:.6f}")
+    print(f"Average Self-BLEU (Sampling): {avg_bleu_sc:.6f}, Average Self-BLEU (Logic Tree): {avg_bleu_lt:.6f}")

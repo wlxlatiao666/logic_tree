@@ -22,12 +22,13 @@ model_to_dir = {
     "Qwen2.5-72B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-72B-Instruct",
     "Qwen3-8B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-8B",
     "Qwen3-14B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-14B",
-    "gpt-oss-20b": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/gpt-oss-20b"
+    "gpt-oss-20b": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/gpt-oss-20b",
+    "Llama-3.1-8B-Instruct": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/Llama-3.1-8B-Instruct"
 }
 
 def setup(rank, world_size):
     os.environ['MASTER_ADDR'] = 'localhost'
-    os.environ['MASTER_PORT'] = '12355'
+    os.environ['MASTER_PORT'] = '12356'
     dist.init_process_group("nccl", rank=rank, world_size=world_size, timeout=datetime.timedelta(seconds=10800))
     torch.cuda.set_device(rank)
 
@@ -208,9 +209,9 @@ def merge_results(args):
     
     # Save final results
     if test_size == -1:
-        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_ddp_avgdis2.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_ddp_relevance.json"
     else:
-        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_ddp_avgdis2.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_ddp_relevance.json"
     
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding="utf8") as f:

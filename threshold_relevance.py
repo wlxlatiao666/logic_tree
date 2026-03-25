@@ -67,7 +67,8 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
 
     for item in data:
         usr_prompt = generate_usr_prompt(dataset, item)
-        prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
+        # prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
+        prompt = f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n{sys_prompt}<|eot_id|><|start_header_id|>user<|end_header_id|>\n{usr_prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n"
 
         # prepare inputs
         inputs = tokenizer(prompt, return_tensors="pt").to(device)
@@ -106,7 +107,7 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
             # WAAD: for each head, compute WAAD, then take mean of lowest 30% heads
             waad = get_waad_per_head(attentions, W=10)
             waads.append(waad)
-            print(f"WAAD_t (W=10, lowest 30% mean): {waad}")
+            # print(f"WAAD_t (W=10, lowest 30% mean): {waad}")
 
             # prepare next input
             if next_id == tokenizer.eos_token_id:
@@ -123,15 +124,15 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
     importance_arr = np.array(importance_scores)
     importance_threshold = float(np.percentile(importance_arr, tau))
 
-    waad_arr = np.array(waads) if len(waads) > 0 else np.array([0.0])
-    waad_threshold = float(np.percentile(waad_arr, tau))
+    # waad_arr = np.array(waads) if len(waads) > 0 else np.array([0.0])
+    # waad_threshold = float(np.percentile(waad_arr, tau))
     
     logger.info(f"Entropy threshold ({tau}th percentile): {threshold:.4f}")
     logger.info(f"Importance score threshold ({tau}th percentile): {importance_threshold:.4f}")
     logger.info(f"Entropy - min: {arr.min():.4f}, max: {arr.max():.4f}, mean: {arr.mean():.4f}")
     logger.info(f"Importance scores - min: {importance_arr.min():.4f}, max: {importance_arr.max():.4f}, mean: {importance_arr.mean():.4f}")
     
-    return threshold, waad_threshold
+    return threshold, importance_threshold
 
 
 if __name__ == "__main__":

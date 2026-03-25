@@ -24,7 +24,8 @@ model_to_dir = {
     "Qwen2.5-72B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-72B-Instruct",
     "Qwen3-8B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-8B",
     "Qwen3-14B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-14B",
-    "gpt-oss-20b": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/gpt-oss-20b"
+    "gpt-oss-20b": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/gpt-oss-20b",
+    "Llama-3.1-8B-Instruct": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/Llama-3.1-8B-Instruct"
 }
 
 def setup(rank, world_size):
@@ -214,7 +215,7 @@ if __name__ == '__main__':
     parser.add_argument("--model", type=str, required=True, choices=model_to_dir.keys())
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--test_size", type=int, default=-1)
-    parser.add_argument("--samples", type=int, default=5)
+    parser.add_argument("--samples", type=int, default=20)
     parser.add_argument("--world_size", type=int, default=torch.cuda.device_count(), help="使用的GPU数量")
     args = parser.parse_args()
 

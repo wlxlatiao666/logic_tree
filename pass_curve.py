@@ -94,7 +94,7 @@ if __name__ == "__main__":
     plt.grid(True)
     plt.legend()
     plt.tight_layout(pad=0.2)
-    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_all_{max_n}_avgdis2.png")
+    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_all_{max_n}_relevance.png")
     plt.close(1)
 
     # 图2 pass@k随k的变化
@@ -157,9 +157,18 @@ if __name__ == "__main__":
     plt.grid(True)
     plt.legend()
     plt.tight_layout(pad=0.2)
-    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}_avgdis2.png")
+    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}_relevance.png")
     plt.close(2)
     
+    # save_data = {
+    #     'k_values': k_values,
+    #     'sc_pass_at_k': sc_pass_at_k,
+    #     'lt_pass_at_k': lt_pass_at_k
+    # }
+    # save_path = f"./results/{args.model}/{dataset}/pass_random.json"
+    # with open(save_path, 'w') as f:
+    #     json.dump(save_data, f, ensure_ascii=False, indent=2)
+    # print(f"pass@k 数据已保存到: {save_path}")
     # 图3 token总数随采样数n的变化
     # plt.figure(3)
     # # Sampling的token总数曲线（使用之前计算的avg_token_counts）

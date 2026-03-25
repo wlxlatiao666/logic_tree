@@ -1,0 +1,9 @@
+nohup: ignoring input
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:11<00:33, 11.25s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:26<00:27, 13.71s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:41<00:14, 14.12s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:42<00:00,  9.00s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:42<00:00, 10.61s/it]
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.

@@ -19,8 +19,7 @@ model_to_dir = {
     "Qwen2.5-72B-Instruct": "/inspire/hdd/global_public/public_models/Qwen/Qwen2.5-72B-Instruct",
     "Qwen3-8B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-8B",
     "Qwen3-14B": "/inspire/hdd/global_public/public_models/Qwen/Qwen3-14B",
-    "gpt-oss-20b": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/gpt-oss-20b",
-    "Llama-3.1-8B-Instruct": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/Llama-3.1-8B-Instruct"
+    "gpt-oss-20b": "/inspire/hdd/project/wuliqifa/weilongxuan-253108120168/models/gpt-oss-20b"
 }
 
 # vllm and ray imports
@@ -53,7 +52,7 @@ class VLLMWorker:
         )
         print(f"Worker initialized on GPU {gpu_id}")
     
-    def generate(self, prompts, num_samples, sampling_params_dict):
+    def generate(self, prompts, sampling_params_dict):
         """
         在当前GPU上生成样本
         
@@ -67,12 +66,9 @@ class VLLMWorker:
         """
         # 为每个prompt重复num_samples次以生成多个样本
         all_prompts = []
-        prompt_to_idx = []
         
-        for idx, prompt in enumerate(prompts):
-            for _ in range(num_samples):
-                all_prompts.append(prompt)
-                prompt_to_idx.append(idx)
+        for prompt in prompts:
+            all_prompts.append(prompt)
         
         # 创建采样参数
         sampling_params = SamplingParams(**sampling_params_dict)
@@ -84,17 +80,16 @@ class VLLMWorker:
         results = [{"texts": [], "token_counts": []} for _ in range(len(prompts))]
         
         for output_idx, output in enumerate(outputs):
-            prompt_idx = prompt_to_idx[output_idx]
-            text = output.outputs[0].text
-            token_ids = output.outputs[0].token_ids
+            texts = [o.text for o in output.outputs]
+            token_ids = [o.token_ids for o in output.outputs]
             
-            results[prompt_idx]["texts"].append(text)
-            results[prompt_idx]["token_counts"].append(len(token_ids))
+            results[output_idx]["texts"].extend(texts)
+            results[output_idx]["token_counts"].extend([len(ids) for ids in token_ids])
         
         return results
 
 
-def run_vllm_generate_ray(model_dir, dataset, data, num_samples, output_file, num_gpus: int = 1):
+def run_vllm_generate_ray(model_dir, dataset, data, num_beams, output_file, num_gpus: int = 1):
     """
     使用Ray进行数据并行推理，每个GPU运行独立的vLLM实例
     
@@ -125,6 +120,7 @@ def run_vllm_generate_ray(model_dir, dataset, data, num_samples, output_file, nu
     all_prompts = []
     for item in data:
         usr_prompt = generate_usr_prompt(dataset, item)
+        prompt = f"<|im_start|>system\n{sys_prompt}<|im_end|>\n<|im_start|>user\n{usr_prompt}<|im_end|>\n<|im_start|>assistant\n"
         # prompt = f'''<|start|>system<|message|>You are ChatGPT, a large language model trained by OpenAI.
         # Knowledge cutoff: 2024-06
         # Current date: 2025-12-20
@@ -136,7 +132,6 @@ def run_vllm_generate_ray(model_dir, dataset, data, num_samples, output_file, nu
         # {sys_prompt}
 
         # <|end|><|start|>user<|message|>{usr_prompt}<|end|><|start|>assistant\n'''
-        prompt = f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n{sys_prompt}<|eot_id|><|start_header_id|>user<|end_header_id|>\n{usr_prompt}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n"
         all_prompts.append(prompt)
     
     # 数据分片
@@ -168,7 +163,7 @@ def run_vllm_generate_ray(model_dir, dataset, data, num_samples, output_file, nu
         "top_k": 50,
         "top_p": 0.9,
         "max_tokens": 32768,
-        "n": 1
+        "n": num_beams
     }
     
     start_time = time.time()
@@ -176,7 +171,7 @@ def run_vllm_generate_ray(model_dir, dataset, data, num_samples, output_file, nu
     
     # 并行生成
     futures = [
-        workers[i].generate.remote(prompt_chunks[i], num_samples, sampling_params_dict)
+        workers[i].generate.remote(prompt_chunks[i], sampling_params_dict)
         for i in range(num_gpus)
     ]
     
@@ -235,7 +230,7 @@ def run_vllm_generate_ray(model_dir, dataset, data, num_samples, output_file, nu
     total_duration = end_time - start_time
     logger.info(f"\n[运行统计] 总耗时: {total_duration:.2f}秒 ({total_duration/60:.2f}分钟)")
     logger.info(f"平均每个数据项: {total_duration/len(data):.2f}秒")
-    logger.info(f"平均每个样本: {total_duration/(len(data)*num_samples):.2f}秒")
+    logger.info(f"平均每个样本: {total_duration/(len(data)*num_beams):.2f}秒")
     
     # 保存结果
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
@@ -264,14 +259,14 @@ if __name__ == '__main__':
     parser.add_argument("--model", type=str, required=True, choices=list(model_to_dir.keys()))
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--test_size", type=int, default=-1)
-    parser.add_argument("--samples", type=int, default=5)
+    parser.add_argument("--num_beams", type=int, default=20)
     parser.add_argument("--num_gpus", type=int, default=1, 
                        help='使用的GPU数量进行数据并行（默认1）')
     args = parser.parse_args()
 
     model_name = args.model
     dataset = args.dataset
-    num_samples = args.samples
+    num_beams = args.num_beams
     test_size = args.test_size
     num_gpus = args.num_gpus
 
@@ -279,9 +274,9 @@ if __name__ == '__main__':
     data_path = f"./data/{dataset}/test.json"
     
     if test_size == -1:
-        output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_samples}samples_ray_{num_gpus}gpus.json'
+        output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_beams}beams_ray_{num_gpus}gpus.json'
     else:
-        output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_samples}samples_{test_size}_ray_{num_gpus}gpus.json'
+        output_file = f'./results/{model_name}/{dataset}/generated_answers_{num_beams}beams_{test_size}_ray_{num_gpus}gpus.json'
 
     with open(data_path, 'r') as f:
         if test_size == -1:
@@ -293,7 +288,7 @@ if __name__ == '__main__':
         model_dir, 
         dataset, 
         data, 
-        num_samples, 
+        num_beams, 
         output_file, 
         num_gpus=num_gpus
     )
