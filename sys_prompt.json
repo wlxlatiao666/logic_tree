@@ -13,5 +13,6 @@
     "gaokao-mathcloze": "请回答以下问题。首先，请在<think>和</think>标签之间提供你的推理或思考过程。然后，在<answer>和</answer>标签之间给出最终答案。答案应以LaTeX格式的公式输出，不包含任何其他内容。如果有多个答案，请用分号;隔开。\n\n示例：\n<think>首先，我逐步分析问题……（推理过程）</think>\n<answer>1;\\frac{1}{2}</answer>",
     "gaokao-mathqa": "给定一个问题，请从选项A、B、C、D中选择正确答案。首先，请在<think>和</think>标签之间提供你的推理或思考过程。然后，在<answer>和</answer>标签之间给出最终答案。最终答案只包含一个代表选项的大写字母，不包含任何其他内容。\n\n示例：\n<think>首先，我逐步分析问题……（推理过程）</think>\n<answer>(你的答案)</answer>",
     "olympiadbench_en": "You are an AI assistant. Please answer the following Math competition questions as required.",
-    "olympiadbench_zh": "你是一个中文人工智能助手。请根据要求，完成下面的数学竞赛题目。"
+    "olympiadbench_zh": "你是一个中文人工智能助手。请根据要求，完成下面的数学竞赛题目。",
+    "humaneval": "Complete the given Python function. Output only the complete code implementation with no explanations, comments outside the code, or markdown formatting. Do not include any text before or after the code."
 }

@@ -51,6 +51,8 @@ def generate_usr_prompt(dataset: str, item: dict) -> str:
     elif "olympiadbench" in dataset:
         question = item["question"]
         usr_prompt = make_usr_prompt_olympiadbench(dataset, question) + '\n' + question
+    elif "humaneval" in dataset:
+        usr_prompt = item["prompt"]
     else:
         raise ValueError(f"dataset {dataset} not supported")
     return usr_prompt
