@@ -194,7 +194,7 @@ def run_vllm_generate_ray(model_dir, dataset, data, num_beams, output_file, num_
             num_tokens = item_result["token_counts"]
             
             # 计算统计信息
-            parsed_answers = [parse_model_answer(ans) for ans in sampled_answers]
+            parsed_answers = [parse_model_answer(dataset, ans) for ans in sampled_answers]
             answer_counts = Counter(parsed_answers)
             total_answers = len(parsed_answers)
             

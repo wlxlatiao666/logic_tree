@@ -132,7 +132,7 @@ def run_inference(rank, world_size, args):
             # sampled_entropies.append(avg_logprob)
             num_tokens.append(len(generated_ids[0][inputs["input_ids"].shape[-1]:]))
 
-        parsed_answers = [parse_model_answer(ans) for ans in sampled_answers]
+        parsed_answers = [parse_model_answer(dataset, ans) for ans in sampled_answers]
         answer_counts = Counter(parsed_answers)
         total_answers = len(parsed_answers)
         predictive_entropy = 0.0

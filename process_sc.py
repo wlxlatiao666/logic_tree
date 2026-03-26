@@ -19,7 +19,7 @@ if __name__ == '__main__':
         gt_answer = get_gt_answer(dataset, item["original_data"])
         answer_buckets = {}
         for text in item["sampled_answers"]:
-            parsed_answer = parse_model_answer(text)
+            parsed_answer = parse_model_answer(dataset, text)
             if parsed_answer:
                 answer_buckets[parsed_answer] = answer_buckets.get(parsed_answer, 0) + 1
         passk = any([match_answer(gt_answer, ans, dataset) for ans in answer_buckets.keys()])

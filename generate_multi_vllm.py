@@ -97,7 +97,7 @@ def run_vllm_generate(model_dir, dataset, data, num_samples, output_file, device
 
             sampled_answers.append(text)
 
-        parsed_answers = [parse_model_answer(ans) for ans in sampled_answers]
+        parsed_answers = [parse_model_answer(dataset, ans) for ans in sampled_answers]
         answer_counts = Counter(parsed_answers)
         total_answers = len(parsed_answers)
         predictive_entropy = 0.0

@@ -1,7 +1,7 @@
 import json
 
-input_file = "/Users/weilongxuan/codes/logic_tree/data/svamp/test_all.json"
-output_file = "/Users/weilongxuan/codes/logic_tree/data/svamp/test.json"
+input_file = "/Users/weilongxuan/codes/logic_tree/data/olympiadbench_zh/train_all.json"
+output_file = "/Users/weilongxuan/codes/logic_tree/data/olympiadbench_zh/test.json"
 
 with open(input_file, 'r', encoding='utf-8') as f:
     data = json.load(f)
@@ -9,8 +9,8 @@ with open(input_file, 'r', encoding='utf-8') as f:
 qa_pairs = []
 for item in data:
     qa_pairs.append({
-        "question": item["question_concat"],
-        "answer": item["Answer"]
+        "question": item["question"],
+        "answer": item["final_answer"]
     })
 
 with open(output_file, 'w', encoding='utf-8') as f:

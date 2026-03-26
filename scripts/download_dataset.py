@@ -3,19 +3,19 @@ import json
 from datasets import load_dataset
 
 # 数据集名称
-DATASET_NAME = "ChilleD/SVAMP"
+DATASET_NAME = "Hothan/OlympiadBench"
 # 下载路径
-DOWNLOAD_DIR = "/Users/weilongxuan/codes/logic_tree/data/svamp"
+DOWNLOAD_DIR = "/Users/weilongxuan/codes/logic_tree/data/olympiadbench_zh"
 # 要下载的分割
-SUBSET = None
-SPLIT = "test"
+SUBSET = "OE_TO_maths_zh_COMP"
+SPLIT = "train"
 
 # 确保下载目录存在
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
 def download_dataset():
     """
-    从Hugging Face下载HuggingFaceH4/MATH-500数据集的test集
+    从Hugging Face下载数据集
     并保存为JSON格式
     """
     try:

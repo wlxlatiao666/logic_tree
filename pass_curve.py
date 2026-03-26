@@ -67,7 +67,7 @@ if __name__ == "__main__":
             # 假设有token_counts字段，统计前n个response的token数
             token_counts = item['num_tokens'][:n]
             # 判断是否有一个response等于gt_answer（可自定义等价判断）
-            is_pass = any(match_answer(gt_answer, parse_model_answer(ans), dataset) for ans in answers)
+            is_pass = any(match_answer(gt_answer, parse_model_answer(dataset, ans), dataset) for ans in answers)
             passes.append(is_pass)
             token_usages.append(sum(token_counts))
         pass_rate = np.mean(passes)
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     for item in data_lt:
         original_data = item['original_data']
         gt_answer = get_gt_answer(dataset, original_data)
-        is_pass = any(match_answer(gt_answer, parse_model_answer(ans), dataset) for ans in item['texts'])
+        is_pass = any(match_answer(gt_answer, parse_model_answer(dataset, ans), dataset) for ans in item['texts'])
         lt_passes.append(is_pass)
     lt_tokens = [item['num_new_tokens'] for item in data_lt]
     lt_pass_rate = np.mean(lt_passes)
@@ -107,7 +107,7 @@ if __name__ == "__main__":
         original_data = item['original_data']
         gt_answer = get_gt_answer(dataset, original_data)
         # 计算每个sampled_answer是否正确
-        correct_flags = [match_answer(gt_answer, parse_model_answer(ans), dataset) for ans in item['sampled_answers'][:max_n]]
+        correct_flags = [match_answer(gt_answer, parse_model_answer(dataset, ans), dataset) for ans in item['sampled_answers'][:max_n]]
         sc_correct_flags_list.append(correct_flags)
 
     # 预处理Logic Tree数据
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         original_data = item['original_data']
         gt_answer = get_gt_answer(dataset, original_data)
         # 计算每个text是否正确
-        correct_flags = [match_answer(gt_answer, parse_model_answer(text), dataset) for text in item['texts']]
+        correct_flags = [match_answer(gt_answer, parse_model_answer(dataset, text), dataset) for text in item['texts']]
         lt_correct_flags_list.append(correct_flags)
 
     # 计算Sampling的pass@k

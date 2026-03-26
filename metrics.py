@@ -76,7 +76,7 @@ if __name__ == "__main__":
         # answer_buckets = {}
         answer_buckets_nonweighted = {}
         for j, text in enumerate(texts):
-            parsed_answer = parse_model_answer(text)
+            parsed_answer = parse_model_answer(dataset, text)
             if parsed_answer:
                 try: 
                     # answer_buckets[parsed_answer] = answer_buckets.get(parsed_answer, 0.0) + probs[j]
@@ -109,7 +109,7 @@ if __name__ == "__main__":
         # labels["answer_vote_weighted_threshold"] = int(match_answer(gt_answer, final_answer_vote_weighted_threshold, dataset)) if gt_answer else 0
 
         min_entropy_index = entropies.index(min(entropies))
-        final_answer_min_entropy = parse_model_answer(texts[min_entropy_index])
+        final_answer_min_entropy = parse_model_answer(dataset, texts[min_entropy_index])
         labels["answer_min_entropy"] = int(match_answer(gt_answer, final_answer_min_entropy, dataset)) if gt_answer else 0
             
         passk = False

@@ -131,7 +131,7 @@ def run_vllm_generate_parallel(model_dir, dataset, data, num_samples, output_fil
             continue
             
         sampled_answers = result["sampled_answers"]
-        parsed_answers = [parse_model_answer(ans) for ans in sampled_answers]
+        parsed_answers = [parse_model_answer(dataset, ans) for ans in sampled_answers]
         
         # 计算预测熵
         answer_counts = Counter(parsed_answers)

@@ -113,7 +113,7 @@ if __name__ == "__main__":
         avg_logprob = sum(neg_logprobs) / len(neg_logprobs) if neg_logprobs else 0.0
 
         gt_answer = get_gt_answer(dataset, item)
-        model_answer = parse_model_answer(generated_text)
+        model_answer = parse_model_answer(dataset, generated_text)
         label = int(match_answer(gt_answer, model_answer, dataset))
 
         results.append({
