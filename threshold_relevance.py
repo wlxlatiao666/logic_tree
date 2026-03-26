@@ -48,7 +48,7 @@ def normalized_entropy_from_logprobs(logprobs: torch.Tensor) -> float:
     return ent
 
 
-def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_items: int = 100, max_gen_tokens: int = 1024) -> float:
+def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, tau_importance: int = 80, max_items: int = 100, max_gen_tokens: int = 1024) -> float:
     model.eval()
 
     dataset_path = f"./data/{dataset}/test.json"
@@ -122,13 +122,13 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, max_ite
     
     # 计算重要性分数的阈值
     importance_arr = np.array(importance_scores)
-    importance_threshold = float(np.percentile(importance_arr, tau))
+    importance_threshold = float(np.percentile(importance_arr, tau_importance))
 
     # waad_arr = np.array(waads) if len(waads) > 0 else np.array([0.0])
     # waad_threshold = float(np.percentile(waad_arr, tau))
     
     logger.info(f"Entropy threshold ({tau}th percentile): {threshold:.4f}")
-    logger.info(f"Importance score threshold ({tau}th percentile): {importance_threshold:.4f}")
+    logger.info(f"Importance score threshold ({tau_importance}th percentile): {importance_threshold:.4f}")
     logger.info(f"Entropy - min: {arr.min():.4f}, max: {arr.max():.4f}, mean: {arr.mean():.4f}")
     logger.info(f"Importance scores - min: {importance_arr.min():.4f}, max: {importance_arr.max():.4f}, mean: {importance_arr.mean():.4f}")
     

@@ -70,6 +70,8 @@ def run_inference(rank, world_size, args):
     test_size = args.test_size
     num_leaves = args.num_leaves
     tau = args.tau
+    tau_importance = args.tau_importance
+    num_branches = args.num_branches
     dataset_path = f"./data/{dataset}/test.json"
     
     with open(dataset_path, "r") as f:
@@ -83,7 +85,7 @@ def run_inference(rank, world_size, args):
     
     # 仅在主进程计算阈值，然后广播给其他进程
     if rank == 0:
-        thr, thr_importance = get_threshold(tokenizer, model, device, dataset, tau=tau)
+        thr, thr_importance = get_threshold(tokenizer, model, device, dataset, tau=tau, tau_importance=tau_importance)
         logger.info(f"Threshold for {dataset}: {thr}, {thr_importance}")
     else:
         thr = torch.tensor(0.0, device=device)
@@ -136,7 +138,7 @@ def run_inference(rank, world_size, args):
         # 使用原始模型进行推理（因为logic_branch_decode不支持DDP直接调用）
         while len(all_leaves) < num_leaves:
             leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, device, prompt=prompt, 
-                                                          sample=True, tau=thr, tau_importance=thr_importance, branches_m=3, max_leaves=num_leaves-len(all_leaves))
+                                                          sample=True, tau=thr, tau_importance=thr_importance, branches_m=num_branches, max_leaves=num_leaves-len(all_leaves))
             for leaf in leaves:
                 leaf.prob = leaf.prob * len(leaves) / num_leaves
             all_leaves.extend(leaves)
@@ -187,6 +189,8 @@ def merge_results(args):
     test_size = args.test_size
     num_leaves = args.num_leaves
     tau = args.tau
+    tau_importance = args.tau_importance
+    num_branches = args.num_branches
     world_size = args.world_size
     
     temp_dir = f"./results/temp/{model_name}/{dataset}"
@@ -209,9 +213,9 @@ def merge_results(args):
     
     # Save final results
     if test_size == -1:
-        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_ddp_relevance.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_importance{tau_importance}_branches{num_branches}_ddp_relevance.json"
     else:
-        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_ddp_relevance.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_importance{tau_importance}_branches{num_branches}_ddp_relevance.json"
     
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding="utf8") as f:
@@ -229,6 +233,8 @@ if __name__ == "__main__":
     parser.add_argument("--test_size", type=int, default=-1)
     parser.add_argument("--num_leaves", type=int, default=20)
     parser.add_argument("--tau", type=int, default=80)
+    parser.add_argument("--tau_importance", type=int, default=80)
+    parser.add_argument("--num_branches", type=int, default=3)
     parser.add_argument("--world_size", type=int, default=torch.cuda.device_count(), 
                        help="使用的GPU数量")
     args = parser.parse_args()
