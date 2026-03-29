@@ -212,22 +212,22 @@ def run_vllm_generate_ray(model_dir, dataset, data, num_samples, output_file, nu
             # 准确率
             most_common_answer, _ = answer_counts.most_common(1)[0]
             gt_answer = get_gt_answer(dataset, item)
-            label = int(match_answer(gt_answer, most_common_answer, dataset))
+            # label = int(match_answer(gt_answer, most_common_answer, dataset))
             
-            # pass@k
-            passk = 0
-            for answer in parsed_answers:
-                if match_answer(gt_answer, answer, dataset):
-                    passk = 1
-                    break
+            # # pass@k
+            # passk = 0
+            # for answer in parsed_answers:
+            #     if match_answer(gt_answer, answer, dataset):
+            #         passk = 1
+            #         break
             
             results.append({
                 "original_data": item,
                 "sampled_answers": sampled_answers,
                 "num_tokens": num_tokens,
                 "predictive_entropy": predictive_entropy,
-                "label": label,
-                "passk": passk
+                # "label": label,
+                # "passk": passk
             })
             logger.info(f"Processed {item_idx+1} items")
     

@@ -4,7 +4,7 @@ from equivalence import is_equiv_math, is_equiv_scibench
 from math_judger import MathJudger
 
 logger = logging.getLogger(__name__)
-olym_judger = MathJudger()
+# olym_judger = MathJudger()
 
 def remove_boxed(s):
     left = "\\boxed{"
@@ -164,6 +164,7 @@ def match_answer(gt_answer: str, model_answer: str, dataset: str) -> bool:
     if "scibench" in dataset:
         return is_equiv_scibench(model_answer, gt_answer)
     if "olympiadbench" in dataset:
+        olym_judger = MathJudger()
         return olym_judger.judge(model_answer, gt_answer)
     return gt_answer == model_answer
 
