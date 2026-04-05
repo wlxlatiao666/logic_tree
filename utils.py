@@ -51,7 +51,7 @@ def generate_usr_prompt(dataset: str, item: dict) -> str:
             usr_prompt += f"\n{option_label}. {candidate}"
     elif "olympiadbench" in dataset:
         question = item["question"]
-        usr_prompt = make_usr_prompt_olympiadbench(dataset, question) + '\n' + question
+        usr_prompt = make_usr_prompt_olympiadbench(dataset, item) + '\n' + question
     elif "humaneval" in dataset:
         usr_prompt = item["prompt"]
     elif "livecodebench" in dataset:
