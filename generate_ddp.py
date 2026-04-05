@@ -11,7 +11,7 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from logic_tree_decode import logic_branch_decode
 from utils import generate_usr_prompt
-from threshold_relevance import get_threshold
+from importance import get_threshold
 
 logger = logging.getLogger(__name__)
 os.environ['TORCH_NCCL_BLOCKING_WAIT'] = '0'

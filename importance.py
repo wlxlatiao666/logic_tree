@@ -48,7 +48,7 @@ def normalized_entropy_from_logprobs(logprobs: torch.Tensor) -> float:
     return ent
 
 
-def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, tau_importance: int = 80, max_items: int = 1, max_gen_tokens: int = 1024) -> float:
+def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, tau_importance: int = 80, max_items: int = 100, max_gen_tokens: int = 1024) -> float:
     model.eval()
 
     dataset_path = f"./data/{dataset}/test.json"
@@ -64,6 +64,7 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, tau_imp
     entropies: List[float] = []
     importance_scores: List[float] = []
     waads: List[float] = []
+    token_importance_records: List[tuple] = []  # (token_str, importance)
 
     for item in data:
         usr_prompt = generate_usr_prompt(dataset, item)
@@ -103,6 +104,8 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, tau_imp
             # print(f"sum_attn: {sum_attn}")
             importance = float(torch.max(attn_avg[-1, :-1]).item())
             importance_scores.append(importance)
+            token_str = tokenizer.decode([cur_ids[0, -1].item()])
+            token_importance_records.append((token_str, importance))
 
             # WAAD: for each head, compute WAAD, then take mean of lowest 30% heads
             waad = get_waad_per_head(attentions, W=10)
@@ -131,7 +134,17 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, tau_imp
     logger.info(f"Importance score threshold ({tau_importance}th percentile): {importance_threshold:.4f}")
     logger.info(f"Entropy - min: {arr.min():.4f}, max: {arr.max():.4f}, mean: {arr.mean():.4f}")
     logger.info(f"Importance scores - min: {importance_arr.min():.4f}, max: {importance_arr.max():.4f}, mean: {importance_arr.mean():.4f}")
-    
+
+    # Build token count JSONs
+    from collections import Counter
+    all_counts = Counter(tok for tok, _ in token_importance_records)
+    cutoff = float(np.percentile(importance_arr, 80))
+    top_counts = Counter(tok for tok, imp in token_importance_records if imp >= cutoff)
+    with open(f"./logs/token_importance_top20pct_{dataset}.json", 'w', encoding='utf-8') as f:
+        json.dump(dict(top_counts.most_common()), f, ensure_ascii=False, indent=2)
+    with open(f"./logs/token_importance_all_{dataset}.json", 'w', encoding='utf-8') as f:
+        json.dump(dict(all_counts.most_common()), f, ensure_ascii=False, indent=2)
+
     return threshold, importance_threshold
 
 

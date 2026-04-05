@@ -5,6 +5,7 @@ from math_judger import MathJudger
 
 logger = logging.getLogger(__name__)
 olym_judger = MathJudger()
+FORMATTING_WITHOUT_STARTER_CODE = "Read the inputs from stdin solve the problem and write the answer to stdout (do not directly test on the sample inputs). Enclose your code within delimiters as follows. Ensure that when the python program runs, it reads the inputs, runs the algorithm and writes output to STDOUT."
 
 def remove_boxed(s):
     left = "\\boxed{"
@@ -53,6 +54,11 @@ def generate_usr_prompt(dataset: str, item: dict) -> str:
         usr_prompt = make_usr_prompt_olympiadbench(dataset, question) + '\n' + question
     elif "humaneval" in dataset:
         usr_prompt = item["prompt"]
+    elif "livecodebench" in dataset:
+        usr_prompt = "You will be given a question (problem specification) and will generate a correct Python program that matches the specification and passes all tests. You will NOT return anything except for the program.\n\n"
+        usr_prompt += f"Question: {item['question_content']}\n\n"
+        usr_prompt += f"{FORMATTING_WITHOUT_STARTER_CODE}\n"
+        usr_prompt += f"```python\n# YOUR CODE HERE\n```\n\n"
     else:
         raise ValueError(f"dataset {dataset} not supported")
     return usr_prompt

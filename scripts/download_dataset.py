@@ -3,12 +3,12 @@ import json
 from datasets import load_dataset
 
 # 数据集名称
-DATASET_NAME = "Hothan/OlympiadBench"
+DATASET_NAME = "livecodebench/code_generation"
 # 下载路径
-DOWNLOAD_DIR = "/Users/weilongxuan/codes/logic_tree/data/olympiadbench_zh"
+DOWNLOAD_DIR = "/Users/weilongxuan/codes/logic_tree/data/livecodebench"
 # 要下载的分割
-SUBSET = "OE_TO_maths_zh_COMP"
-SPLIT = "train"
+SUBSET = None
+SPLIT = "test"
 
 # 确保下载目录存在
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
@@ -33,6 +33,7 @@ def download_dataset():
         dataset_list = []
         for item in dataset:
             # 保留原始数据结构
+            del item['contest_date']
             dataset_list.append(item)
         
         # 这是根据项目中其他数据集的命名模式添加的

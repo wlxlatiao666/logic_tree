@@ -3,3 +3,4 @@ results/
 run*
 output*
 core*
+data/livecodebench/test_all.json

@@ -22,7 +22,7 @@ from datetime import datetime
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
-from threshold_relevance import get_waad_per_head
+from importance import get_waad_per_head
 
 logger = logging.getLogger(__name__)
 
