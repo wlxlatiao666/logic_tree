@@ -8,7 +8,7 @@ import logging
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from logic_tree_decode import logic_branch_decode
 from utils import generate_usr_prompt
-from threshold_relevance import get_threshold
+from importance import get_threshold
 from multiprocessing import Process, set_start_method
 
 logger = logging.getLogger(__name__)
