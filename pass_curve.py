@@ -94,7 +94,7 @@ if __name__ == "__main__":
     plt.grid(True)
     plt.legend()
     plt.tight_layout(pad=0.2)
-    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_all_{max_n}_relevance.png")
+    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_all_{max_n}.png")
     plt.close(1)
 
     # 图2 pass@k随k的变化
@@ -157,7 +157,7 @@ if __name__ == "__main__":
     plt.grid(True)
     plt.legend()
     plt.tight_layout(pad=0.2)
-    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}_relevance.png")
+    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}.png")
     plt.close(2)
     
     # save_data = {
