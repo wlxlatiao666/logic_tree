@@ -16,29 +16,22 @@ logger = logging.getLogger(__name__)
 def log_softmax(logits: torch.Tensor) -> torch.Tensor:
     return torch.nn.functional.log_softmax(logits, dim=-1)
 
-def get_waad_per_head(attn: torch.Tensor, W: int) -> float:
+def get_waad(attn: torch.Tensor, W: int) -> float:
     """
     attn: [num_heads, seq_len, seq_len]
     For each head, compute WAAD, then average the lowest 30% heads as final WAAD.
     """
-    num_heads, _, seq_len = attn.shape
+    attn_avg = attn.mean(dim=0)
+    _, seq_len = attn_avg.shape
     cur_idx = seq_len - 1
-    waad_per_head = []
     if cur_idx > 0:
         past_indices = torch.arange(0, cur_idx, device=attn.device)
         deltas = (cur_idx - past_indices).float()
         weights = torch.clamp(deltas, max=W)
-        for h in range(num_heads):
-            attns_to_prev = attn[h, -1, :-1]
-            waad = float((attns_to_prev * weights).sum().item())
-            waad_per_head.append(waad)
-    else:
-        waad_per_head = [0.0 for _ in range(num_heads)]
-    # 取最小的30% head
-    k = max(1, int(num_heads * 0.3))
-    waad_per_head_sorted = sorted(waad_per_head)
-    waad_final = float(np.mean(waad_per_head_sorted[:k]))
-    return waad_final
+        attns_to_prev = attn_avg[-1, :-1]
+        waad = float((attns_to_prev * weights).sum().item())
+        
+    return waad
 
 def normalized_entropy_from_logprobs(logprobs: torch.Tensor) -> float:
     """ logprobs: [V] """
@@ -48,7 +41,7 @@ def normalized_entropy_from_logprobs(logprobs: torch.Tensor) -> float:
     return ent
 
 
-def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, tau_importance: int = 80, max_items: int = 100, max_gen_tokens: int = 1024) -> float:
+def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, tau_importance: int = 80, max_items: int = 1, max_gen_tokens: int = 1024) -> float:
     model.eval()
 
     dataset_path = f"./data/{dataset}/test.json"
@@ -108,7 +101,7 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, tau_imp
             token_importance_records.append((token_str, importance))
 
             # WAAD: for each head, compute WAAD, then take mean of lowest 30% heads
-            waad = get_waad_per_head(attentions, W=10)
+            waad = get_waad(attentions, W=10)
             waads.append(waad)
             # print(f"WAAD_t (W=10, lowest 30% mean): {waad}")
 

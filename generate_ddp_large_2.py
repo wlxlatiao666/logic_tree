@@ -153,26 +153,26 @@ def run_inference_tpdp(args):
         sys_prompt = json.load(f)[dataset]
 
     print("Preloading model weights to cache...")
-    _ = AutoModelForCausalLM.from_pretrained(
-        model_dir, attn_implementation="eager", device_map="cpu", torch_dtype=torch.float16
-    )
-    del _
+    # _ = AutoModelForCausalLM.from_pretrained(
+    #     model_dir, attn_implementation="eager", device_map="cpu", torch_dtype=torch.float16
+    # )
+    # del _
     torch.cuda.empty_cache()
     print("Model weights cached. Computing threshold...")
 
     device = torch.device("cuda:0")
-    tokenizer = AutoTokenizer.from_pretrained(model_dir)
-    model = AutoModelForCausalLM.from_pretrained(
-        model_dir,
-        attn_implementation="eager",
-        device_map="auto",
-        torch_dtype=torch.float16
-    )
-    thr, thr_importance = get_threshold(tokenizer, model, device, dataset, tau=tau)
-    print(f"Threshold for {dataset}: {thr}, {thr_importance}")
-    del model
+    # tokenizer = AutoTokenizer.from_pretrained(model_dir)
+    # model = AutoModelForCausalLM.from_pretrained(
+    #     model_dir,
+    #     attn_implementation="eager",
+    #     device_map="auto",
+    #     torch_dtype=torch.float16
+    # )
+    # thr, thr_importance = get_threshold(tokenizer, model, device, dataset, tau=tau)
+    # print(f"Threshold for {dataset}: {thr}, {thr_importance}")
+    # del model
     torch.cuda.empty_cache()
-    del tokenizer
+    # del tokenizer
 
     # 数据分片
     items_with_idx = [(item, idx) for idx, item in enumerate(data)]
@@ -183,13 +183,13 @@ def run_inference_tpdp(args):
     gpu_lists = [[i*gpus_per_proc + j for j in range(gpus_per_proc)] for i in range(num_proc)]
 
     # 启动多进程
-    procs = []
-    for proc_idx in range(num_proc):
-        p = Process(target=worker_proc, args=(proc_idx, gpu_lists[proc_idx], data_chunks[proc_idx], args, thr, thr_importance, sys_prompt))
-        p.start()
-        procs.append(p)
-    for p in procs:
-        p.join()
+    # procs = []
+    # for proc_idx in range(num_proc):
+    #     p = Process(target=worker_proc, args=(proc_idx, gpu_lists[proc_idx], data_chunks[proc_idx], args, thr, thr_importance, sys_prompt))
+    #     p.start()
+    #     procs.append(p)
+    # for p in procs:
+    #     p.join()
 
     # 合并结果
     results = []

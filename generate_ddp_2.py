@@ -213,9 +213,9 @@ def merge_results(args):
     
     # Save final results
     if test_size == -1:
-        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_importance{tau_importance}_branches{num_branches}_ddp_relevance.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_importance{tau_importance}_branches{num_branches}_ddp_waad.json"
     else:
-        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_importance{tau_importance}_branches{num_branches}_ddp_relevance.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_importance{tau_importance}_branches{num_branches}_ddp_waad.json"
     
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding="utf8") as f:

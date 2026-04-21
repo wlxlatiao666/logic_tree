@@ -11,7 +11,7 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from logic_tree_decode import logic_branch_decode
 from utils import generate_usr_prompt
-from importance import get_threshold
+from threshold_relevance import get_threshold
 
 logger = logging.getLogger(__name__)
 os.environ['TORCH_NCCL_BLOCKING_WAIT'] = '0'
@@ -213,9 +213,9 @@ def merge_results(args):
     
     # Save final results
     if test_size == -1:
-        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_importance{tau_importance}_branches{num_branches}_ddp_relevance.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_all_leaves{num_leaves}_threshold{tau}_importance{tau_importance}_branches{num_branches}_ddp_waad.json"
     else:
-        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_importance{tau_importance}_branches{num_branches}_ddp_relevance.json"
+        output_path = f"./results/{model_name}/{dataset}/logic_tree_results_{test_size}_leaves{num_leaves}_threshold{tau}_importance{tau_importance}_branches{num_branches}_ddp_waad.json"
     
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding="utf8") as f:
