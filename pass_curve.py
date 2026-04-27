@@ -57,45 +57,45 @@ if __name__ == "__main__":
     pass_rates = []
     avg_token_counts = []
 
-    for n in range(1, max_n + 1):
-        passes = []
-        token_usages = []
-        for item in data_sc:
-            answers = item['sampled_answers'][:n]   
-            original_data = item['original_data']
-            gt_answer = get_gt_answer(dataset, original_data)
-            # 假设有token_counts字段，统计前n个response的token数
-            token_counts = item['num_tokens'][:n]
-            # 判断是否有一个response等于gt_answer（可自定义等价判断）
-            is_pass = any(match_answer(gt_answer, parse_model_answer(dataset, ans), dataset) for ans in answers)
-            passes.append(is_pass)
-            token_usages.append(sum(token_counts))
-        pass_rate = np.mean(passes)
-        avg_token = np.mean(token_usages)
-        pass_rates.append(pass_rate)
-        avg_token_counts.append(avg_token)
+    # for n in range(1, max_n + 1):
+    #     passes = []
+    #     token_usages = []
+    #     for item in data_sc:
+    #         answers = item['sampled_answers'][:n]   
+    #         original_data = item['original_data']
+    #         gt_answer = get_gt_answer(dataset, original_data)
+    #         # 假设有token_counts字段，统计前n个response的token数
+    #         token_counts = item['num_tokens'][:n]
+    #         # 判断是否有一个response等于gt_answer（可自定义等价判断）
+    #         is_pass = any(match_answer(gt_answer, parse_model_answer(dataset, ans), dataset) for ans in answers)
+    #         passes.append(is_pass)
+    #         token_usages.append(sum(token_counts))
+    #     pass_rate = np.mean(passes)
+    #     avg_token = np.mean(token_usages)
+    #     pass_rates.append(pass_rate)
+    #     avg_token_counts.append(avg_token)
 
-    lt_passes = []
-    for item in data_lt:
-        original_data = item['original_data']
-        gt_answer = get_gt_answer(dataset, original_data)
-        is_pass = any(match_answer(gt_answer, parse_model_answer(dataset, ans), dataset) for ans in item['texts'])
-        lt_passes.append(is_pass)
-    lt_tokens = [item['num_new_tokens'] for item in data_lt]
-    lt_pass_rate = np.mean(lt_passes)
-    lt_avg_tokens = np.mean(lt_tokens)
+    # lt_passes = []
+    # for item in data_lt:
+    #     original_data = item['original_data']
+    #     gt_answer = get_gt_answer(dataset, original_data)
+    #     is_pass = any(match_answer(gt_answer, parse_model_answer(dataset, ans), dataset) for ans in item['texts'])
+    #     lt_passes.append(is_pass)
+    # lt_tokens = [item['num_new_tokens'] for item in data_lt]
+    # lt_pass_rate = np.mean(lt_passes)
+    # lt_avg_tokens = np.mean(lt_tokens)
 
-    plt.figure(1)
-    plt.plot(avg_token_counts, pass_rates, marker='o', label='Multi-chain')
-    plt.scatter([lt_avg_tokens], [lt_pass_rate], color='red', marker='*', s=150, label='Entropy-Tree')
-    plt.xlabel('Total tokens per question')
-    plt.ylabel('Pass@all')
-    plt.title('Pass@all vs. total tokens per question')
-    plt.grid(True)
-    plt.legend()
-    plt.tight_layout(pad=0.2)
-    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_all_{max_n}_waad.png")
-    plt.close(1)
+    # plt.figure(1)
+    # plt.plot(avg_token_counts, pass_rates, marker='o', label='Multi-chain')
+    # plt.scatter([lt_avg_tokens], [lt_pass_rate], color='red', marker='*', s=150, label='Entropy-Tree')
+    # plt.xlabel('Total tokens per question')
+    # plt.ylabel('Pass@all')
+    # plt.title('Pass@all vs. total tokens per question')
+    # plt.grid(True)
+    # plt.legend()
+    # plt.tight_layout(pad=0.2)
+    # plt.savefig(f"./results/{args.model}/{dataset}/pass_at_all_{max_n}_hs_noattn.png")
+    # plt.close(1)
 
     # 图2 pass@k随k的变化
     sc_pass_at_k = []
@@ -157,7 +157,7 @@ if __name__ == "__main__":
     plt.grid(True)
     plt.legend()
     plt.tight_layout(pad=0.2)
-    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}_waad.png")
+    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}_hs_noattn.png")
     plt.close(2)
     
     # save_data = {

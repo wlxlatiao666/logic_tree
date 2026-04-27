@@ -25,10 +25,17 @@ if __name__ == "__main__":
     with open(lt_file_path, 'r') as f:
         data_lt = json.load(f)
 
+    def pass_at_k(n, c, k):
+        if n - c < k:
+            return 1.0
+        return 1.0 - math.comb(n - c, k) / math.comb(n, k)
+
     # 图1 pass@all随总token数变化
     # max_n = args.n
     accuracy_sc_list = []
     accuracy_lt_list = []
+    flags_sc_list = []  # per-problem correct flags for pass@k
+    flags_lt_list = []
     for item_sc, item_lt in zip(data_sc, data_lt):
         original_data_sc = item_sc['original_data']
         original_data_lt = item_lt['original_data']
@@ -41,6 +48,8 @@ if __name__ == "__main__":
         accuracy_lt = sum(correct_flags_lt) / len(correct_flags_lt) if correct_flags_lt else 0.0
         accuracy_sc_list.append(accuracy_sc)
         accuracy_lt_list.append(accuracy_lt)
+        flags_sc_list.append(correct_flags_sc)
+        flags_lt_list.append(correct_flags_lt)
 
     accuracy_sc = np.array(accuracy_sc_list)
     accuracy_lt = np.array(accuracy_lt_list)
@@ -103,3 +112,44 @@ if __name__ == "__main__":
     print(f"LT=0%:   {lt0_num}")
     print(f"LT=100%:   {lt100_num}")
     print('\n\n\n')
+
+    # 5. 难题子集分析（以SC正确率为难度基准）
+    hard_subsets = [
+        ("0-20%", accuracy_sc < 0.2),
+        ("0-40%", accuracy_sc < 0.4),
+        ("0-60%", accuracy_sc < 0.6),
+        ("60-100%", accuracy_sc >= 0.6),
+        ("80-100%", accuracy_sc >= 0.8),
+    ]
+    k_values = [1, 2, 4, 8, 16]
+
+    print("=== 难题子集分析（SC正确率 < 阈值）===")
+    for subset_label, mask in hard_subsets:
+        indices = np.where(mask)[0]
+        n_problems = len(indices)
+        if n_problems == 0:
+            print(f"\n[{subset_label}] 无样本")
+            continue
+
+        mean_acc_sc = accuracy_sc[mask].mean()
+        mean_acc_lt = accuracy_lt[mask].mean()
+
+        print(f"\n[SC难度 {subset_label}]  样本数: {n_problems}")
+        print(f"  平均正确率  SC: {mean_acc_sc:.4f}   LT: {mean_acc_lt:.4f}")
+
+        print(f"  {'k':<6} {'pass@k SC':>12} {'pass@k LT':>12}")
+        for k in k_values:
+            passk_sc_vals = []
+            passk_lt_vals = []
+            for idx in indices:
+                flags_sc = flags_sc_list[idx]
+                flags_lt = flags_lt_list[idx]
+                n_sc, c_sc = len(flags_sc), sum(flags_sc)
+                n_lt, c_lt = len(flags_lt), sum(flags_lt)
+                if n_sc >= k:
+                    passk_sc_vals.append(pass_at_k(n_sc, c_sc, k))
+                if n_lt >= k:
+                    passk_lt_vals.append(pass_at_k(n_lt, c_lt, k))
+            avg_sc = np.mean(passk_sc_vals) if passk_sc_vals else float('nan')
+            avg_lt = np.mean(passk_lt_vals) if passk_lt_vals else float('nan')
+            print(f"  {k:<6} {avg_sc:>12.4f} {avg_lt:>12.4f}")
