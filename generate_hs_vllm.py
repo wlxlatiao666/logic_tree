@@ -37,7 +37,7 @@ def run_hsampling(args):
     # 加载数据
     data_path = f"./data/{dataset}/test.json"
     with open(data_path, 'r') as f:
-        data = json.load(f)[:test_size]
+        data = json.load(f)[:test_size] if test_size != -1 else json.load(f)
 
     with open('./sys_prompt.json', 'r') as f:
         sys_prompts = json.load(f)
@@ -75,7 +75,7 @@ def run_hsampling(args):
         max_tree_depth=max_tree_depth
     )
     sampling_params = SamplingParams(
-        temperature=0.8,
+        temperature=0.7,
         max_tokens=32768,
         tree_search_params=tree_config
     )
@@ -84,7 +84,7 @@ def run_hsampling(args):
             model=model_dir,
             dtype="float16",
             tensor_parallel_size=1,  # 每个worker使用单GPU
-            gpu_memory_utilization=0.9,
+            gpu_memory_utilization=0.8,
             max_model_len=32768,
             trust_remote_code=True
         )
@@ -92,7 +92,7 @@ def run_hsampling(args):
 
     results = []
     for item, output in zip(data, outputs):
-        seq_map = {out.seq_id: out for out in outputs.outputs}
+        seq_map = {out.seq_id: out for out in output.outputs}
         leaf_outputs = [out for out in output.outputs if out.is_leaf]
         leaf_texts = []
         for leaf_out in leaf_outputs:

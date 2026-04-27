@@ -210,8 +210,8 @@ def run_vllm_generate_ray(model_dir, dataset, data, num_samples, output_file, nu
                 predictive_entropy -= p * math.log(p)
             
             # 准确率
-            most_common_answer, _ = answer_counts.most_common(1)[0]
-            gt_answer = get_gt_answer(dataset, item)
+            # most_common_answer, _ = answer_counts.most_common(1)[0]
+            # gt_answer = get_gt_answer(dataset, item)
             # label = int(match_answer(gt_answer, most_common_answer, dataset))
             
             # # pass@k
