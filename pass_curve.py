@@ -116,7 +116,7 @@ if __name__ == "__main__":
         original_data = item['original_data']
         gt_answer = get_gt_answer(dataset, original_data)
         # 计算每个text是否正确
-        correct_flags = [match_answer(gt_answer, parse_model_answer(dataset, text), dataset) for text in item['texts']]
+        correct_flags = [match_answer(gt_answer, parse_model_answer(dataset, text), dataset) for text in item['texts'][:max_n]]
         lt_correct_flags_list.append(correct_flags)
 
     # 计算Sampling的pass@k
@@ -157,7 +157,7 @@ if __name__ == "__main__":
     plt.grid(True)
     plt.legend()
     plt.tight_layout(pad=0.2)
-    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}_hs_noattn.png")
+    plt.savefig(f"./results/{args.model}/{dataset}/pass_at_k_{max_n}_waad.png")
     plt.close(2)
     
     # save_data = {

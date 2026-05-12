@@ -22,6 +22,8 @@ def get_waad(attn: torch.Tensor, W: int) -> float:
     For each head, compute WAAD, then average the lowest 30% heads as final WAAD.
     """
     attn_avg = attn.mean(dim=0)
+    # attn_sum = attn_avg.sum(dim=-1)
+    # print("attn_sum: ", attn_sum)
     _, seq_len = attn_avg.shape
     cur_idx = seq_len - 1
     if cur_idx > 0:
@@ -100,7 +102,7 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, tau_imp
             # WAAD: for each head, compute WAAD, then take mean of lowest 30% heads
             waad = get_waad(attentions, W=10)
             waads.append(waad)
-            # print(f"WAAD_t (W=10, lowest 30% mean): {waad}")
+            # print(f"WAAD (W=10): {waad}")
 
             # prepare next input
             if next_id == tokenizer.eos_token_id:
@@ -114,7 +116,7 @@ def get_threshold(tokenizer, model, device, dataset: str, tau: int = 80, tau_imp
     threshold = float(np.percentile(arr, tau))
     
     # 计算重要性分数的阈值
-    importance_arr = np.array(importance_scores)
+    # importance_arr = np.array(importance_scores)
     # importance_threshold = float(np.percentile(importance_arr, tau_importance))
 
     waad_arr = np.array(waads) if len(waads) > 0 else np.array([0.0])
@@ -147,5 +149,5 @@ if __name__ == "__main__":
     parser.add_argument("--dataset", type=str, required=True)
     args = parser.parse_args()
     dataset = args.dataset
-    thr = get_threshold(tokenizer, model, device, dataset)
-    logger.info(f"Threshold: {thr}")
+    thr, thr_waad = get_threshold(tokenizer, model, device, dataset)
+    logger.info(f"Threshold: {thr}, {thr_waad}")

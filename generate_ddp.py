@@ -38,15 +38,13 @@ def cleanup():
 def run_inference(rank, world_size, args):
     setup(rank, world_size)
     
-    # 配置日志（仅在主进程记录详细日志）
-    if rank == 0:
-        fh = logging.FileHandler('./logs/app.log', encoding='utf-8')
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        fh.setFormatter(formatter)
-        logger.addHandler(fh)
-        logger.setLevel(logging.INFO)
-    else:
-        logger.setLevel(logging.ERROR)  # 其他进程只记录错误
+    # 每个进程写独立日志文件
+    os.makedirs('./logs', exist_ok=True)
+    fh = logging.FileHandler(f'./logs/app_rank{rank}.log', encoding='utf-8')
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+    logger.setLevel(logging.INFO)
     
     # 加载模型
     model_name = args.model
@@ -94,9 +92,12 @@ def run_inference(rank, world_size, args):
     # 广播阈值
     if rank == 0:
         dist.broadcast(torch.tensor(thr, device=device), src=0)
+        dist.broadcast(torch.tensor(thr_importance, device=device), src=0)
     else:
         dist.broadcast(thr, src=0)
         thr = thr.item()
+        dist.broadcast(thr_importance, src=0)
+        thr_importance = thr_importance.item()
     
     # 数据分片
     chunk_size = len(data) // world_size
@@ -137,6 +138,7 @@ def run_inference(rank, world_size, args):
         all_tokens = 0
         # 使用原始模型进行推理（因为logic_branch_decode不支持DDP直接调用）
         while len(all_leaves) < num_leaves:
+            logger.info(f"Device: {rank}, thr, thr_importance: {thr},{thr_importance}")
             leaves, new_tokens_cnt = logic_branch_decode(tokenizer, model, device, prompt=prompt, 
                                                           sample=True, tau=thr, tau_importance=thr_importance, branches_m=num_branches, max_leaves=num_leaves-len(all_leaves))
             for leaf in leaves:

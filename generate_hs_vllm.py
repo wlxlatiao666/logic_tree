@@ -50,6 +50,8 @@ def run_hsampling(args):
         tokenizer.pad_token = tokenizer.eos_token
 
     thr, thr_importance = get_threshold(tokenizer, model, device, dataset, tau=tau, tau_importance=tau_importance)
+    del model
+    torch.cuda.empty_cache()
 
     for item in data:
         usr_prompt = generate_usr_prompt(dataset, item)
@@ -72,11 +74,12 @@ def run_hsampling(args):
         enable_tree_search=True,
         entropy_threshold=thr,
         branching_factor=num_branches,
-        max_tree_depth=max_tree_depth
+        max_tree_depth=max_tree_depth,
+        tau_importance=thr_importance
     )
     sampling_params = SamplingParams(
         temperature=0.7,
-        max_tokens=32768,
+        max_tokens=1024,
         tree_search_params=tree_config
     )
 
@@ -85,7 +88,7 @@ def run_hsampling(args):
             dtype="float16",
             tensor_parallel_size=1,  # 每个worker使用单GPU
             gpu_memory_utilization=0.8,
-            max_model_len=32768,
+            enforce_eager=True,
             trust_remote_code=True
         )
     outputs = llm.generate(all_prompts, sampling_params=sampling_params)

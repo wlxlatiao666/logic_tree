@@ -3,10 +3,9 @@ import json
 import time
 import logging
 import argparse
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+import numpy as np
+from transformers import AutoTokenizer
 from utils import generate_usr_prompt, parse_model_answer, get_gt_answer, match_answer
-from importance import get_threshold
 
 logger = logging.getLogger(__name__)
 
@@ -31,62 +30,119 @@ except Exception as e:
     print(f"Warning: vllm or ray not available: {e}")
 
 
+# Number of calibration samples used to estimate thresholds.
+_CALIB_SIZE = 50
+
+
 @ray.remote(num_gpus=1)
 class HSWorker:
-    """Ray worker，每个worker在一个GPU上运行独立的vLLM实例，执行hierarchical sampling"""
+    """Ray worker，每个worker在一个GPU上运行独立的vLLM实例，执行hierarchical sampling。
+    threshold由worker自身用collect_threshold_stats模式校准，无需外部LLM实例。
+    """
 
-    def __init__(self, model_dir: str, gpu_id: int, thr: float, thr_importance: float,
+    def __init__(self, model_dir: str, gpu_id: int, tau_pct: int, tau_importance_pct: int,
                  num_branches: int, max_tree_depth: int):
         self.gpu_id = gpu_id
         os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu_id)
 
-        self.thr = thr
-        self.thr_importance = thr_importance
+        self.tau_pct = tau_pct
+        self.tau_importance_pct = tau_importance_pct
         self.num_branches = num_branches
         self.max_tree_depth = max_tree_depth
 
+        # thr/thr_importance will be set by calibrate()
+        self.thr = None
+        self.thr_importance = None
+
         self.llm = LLM(
             model=model_dir,
-            # dtype="float16",
+            dtype="float16",
             tensor_parallel_size=1,
             gpu_memory_utilization=0.9,
-            max_model_len=32768,
-            trust_remote_code=True
+            enforce_eager=True,
+            # trust_remote_code=True
         )
         print(f"HSWorker initialized on GPU {gpu_id}")
 
+    def calibrate(self, calib_prompts: list) -> tuple:
+        """用collect_threshold_stats模式跑校准样本，计算并存储thr和thr_importance。
+        返回(thr, thr_importance)供主进程记录日志。
+        """
+        sampling_params = SamplingParams(
+            temperature=0.7,
+            max_tokens=1024,
+            collect_threshold_stats=True,
+        )
+        outputs = self.llm.generate(calib_prompts, sampling_params=sampling_params)
+
+        all_entropy, all_importance = [], []
+        for req_out in outputs:
+            for comp_out in req_out.outputs:
+                all_entropy.extend(comp_out.entropy_list)
+                imp = [v for v in comp_out.importance_list if v is not None]
+                all_importance.extend(imp)
+
+        self.thr = float(np.percentile(all_entropy, self.tau_pct)) if all_entropy else 1.0
+        self.thr_importance = float(np.percentile(all_importance, self.tau_importance_pct)) if all_importance else None
+        return self.thr, self.thr_importance
+
     def generate(self, prompts):
+        print(f"GPU {self.gpu_id}: thr={self.thr}, thr_importance={self.thr_importance}")
         tree_config = TreeSearchParams(
             enable_tree_search=True,
             entropy_threshold=self.thr,
             branching_factor=self.num_branches,
-            max_tree_depth=self.max_tree_depth
+            max_tree_depth=self.max_tree_depth,
+            tau_importance=self.thr_importance
         )
         sampling_params = SamplingParams(
             temperature=0.7,
             max_tokens=32768,
             tree_search_params=tree_config
         )
-
-        outputs = self.llm.generate(prompts, sampling_params=sampling_params)
-
         results = []
-        for output in outputs:
-            seq_map = {out.seq_id: out for out in output.outputs}
-            leaf_outputs = [out for out in output.outputs if out.is_leaf]
+        for prompt in prompts:
             leaf_texts = []
-            for leaf_out in leaf_outputs:
-                path_texts = []
-                current = leaf_out
-                while current is not None:
-                    path_texts.append(current.tree_text)
-                    if current.parent_seq_id is not None and current.parent_seq_id in seq_map:
-                        current = seq_map[current.parent_seq_id]
-                    else:
-                        current = None
-                full_text = "".join(reversed(path_texts))
-                leaf_texts.append(full_text)
+            while len(leaf_texts) < 20:
+                outputs = self.llm.generate(prompt, sampling_params=sampling_params)
+                seq_map = {output.seq_id: output for output in outputs[0].outputs}
+                leaf_outputs = [output for output in outputs[0].outputs if output.is_leaf]
+                
+                for leaf_out in leaf_outputs:
+                    # Traverse up to collect texts and ids
+                    path_texts = []
+                    path_ids = []
+                    current = leaf_out
+                    while current is not None:
+                        path_texts.append(current.tree_text)
+                        path_ids.append(list(current.tree_ids))
+                        if current.parent_seq_id is not None and current.parent_seq_id in seq_map:
+                            current = seq_map[current.parent_seq_id]
+                        else:
+                            current = None
+
+                    # The path gives leaf to root, so we reverse it
+                    full_text = "".join(reversed(path_texts))
+                    leaf_texts.append(full_text)
             results.append({"texts": leaf_texts})
+
+        # outputs = self.llm.generate(prompts, sampling_params=sampling_params)
+        # for output in outputs:
+        #     seq_map = {out.seq_id: out for out in output.outputs}
+        #     leaf_outputs = [out for out in output.outputs if out.is_leaf]
+        #     leaf_texts = []
+        #     for leaf_out in leaf_outputs:
+        #         path_texts = []
+        #         current = leaf_out
+        #         while current is not None:
+        #             path_texts.append(current.tree_text)
+        #             if current.parent_seq_id is not None and current.parent_seq_id in seq_map:
+        #                 current = seq_map[current.parent_seq_id]
+        #             else:
+        #                 current = None
+        #         full_text = "".join(reversed(path_texts))
+        #         leaf_texts.append(full_text)
+        #     results.append({"texts": leaf_texts})
 
         return results
 
@@ -118,22 +174,8 @@ def run_hsampling_ray(args):
         sys_prompts = json.load(f)
     sys_prompt = sys_prompts[dataset]
 
-    # 计算阈值（在CPU/单GPU上完成，不占用Ray资源）
-    logger.info("计算entropy阈值...")
-    device = torch.device("cuda:0")
+    # 构建所有prompts（tokenizer仅用于chat template，不加载模型权重）
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
-    hf_model = AutoModelForCausalLM.from_pretrained(model_dir, attn_implementation="eager").to(device)
-    if tokenizer.pad_token_id is None:
-        tokenizer.pad_token = tokenizer.eos_token
-
-    thr, thr_importance = get_threshold(tokenizer, hf_model, device, dataset, tau=tau, tau_importance=tau_importance)
-    logger.info(f"阈值计算完成: thr={thr}, thr_importance={thr_importance}")
-
-    # 释放HF模型，避免与vLLM争抢显存
-    del hf_model
-    torch.cuda.empty_cache()
-
-    # 准备prompts
     all_prompts = []
     for item in data:
         usr_prompt = generate_usr_prompt(dataset, item)
@@ -171,10 +213,18 @@ def run_hsampling_ray(args):
     # 创建workers
     logger.info("初始化workers...")
     workers = [
-        HSWorker.remote(model_dir, gpu_id=i, thr=thr, thr_importance=thr_importance,
+        HSWorker.remote(model_dir, gpu_id=i, tau_pct=tau, tau_importance_pct=tau_importance,
                         num_branches=num_branches, max_tree_depth=max_tree_depth)
         for i in range(num_gpus)
     ]
+
+    # 每个worker用自己的校准样本计算threshold（复用同一LLM实例，无需额外显存）
+    calib_size = min(_CALIB_SIZE, len(all_prompts))
+    logger.info(f"各worker并行校准threshold（校准样本数: {calib_size}）...")
+    calib_futures = [workers[i].calibrate.remote(all_prompts[:calib_size]) for i in range(num_gpus)]
+    calib_results = ray.get(calib_futures)
+    for i, (thr_val, thr_imp_val) in enumerate(calib_results):
+        logger.info(f"Worker {i}: thr={thr_val}, thr_importance={thr_imp_val}")
 
     start_time = time.time()
     logger.info("开始并行生成...")
@@ -198,10 +248,10 @@ def run_hsampling_ray(args):
     # 保存结果
     if test_size == -1:
         output_path = (f"./results/{model_name}/{dataset}/"
-                       f"hsampling_all_threshold{tau}_branches{num_branches}_depth{max_tree_depth}_ray_{num_gpus}gpus.json")
+                       f"hsampling_all_threshold{tau}_importance{tau_importance}_branches{num_branches}_depth{max_tree_depth}_ray_{num_gpus}gpus.json")
     else:
         output_path = (f"./results/{model_name}/{dataset}/"
-                       f"hsampling_size{test_size}_threshold{tau}_branches{num_branches}_depth{max_tree_depth}_ray_{num_gpus}gpus.json")
+                       f"hsampling_size{test_size}_threshold{tau}_importance{tau_importance}_branches{num_branches}_depth{max_tree_depth}_ray_{num_gpus}gpus.json")
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, 'w', encoding='utf8') as f:
